@@ -17,7 +17,7 @@
                 <div style="padding-top:100px;">
 
                 </div>
-                <div style="display:flex;flex-direction:row;align-items:center;gap:20px;height:60px;margin-right:100%;">
+                <div style="display:flex;flex-direction:row;align-items:center;gap:20px;height:60px;cursor:pointer;" onclick="goBack()">
                     <img id="arrow" src="../static/images/misc/arrow.png">
                     <b id="petTitle">{{ pets[pet]["name"] }}</b>
                 </div>
@@ -103,6 +103,10 @@
     defaultValue = parseFloat(defaultValue)
     neonValue = parseFloat(neonValue)
     megaValue = parseFloat(megaValue)
+
+    function goBack() {
+        window.history.back()
+    }
 
 
 

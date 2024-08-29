@@ -559,7 +559,10 @@ def search(input):
 def searchForPets(input = ""):
     output = []
     global Pets
-    if input != "":
+    if input in ["all-pets", "pets"]:
+        for petID, pet in Pets.items():
+            output.append(pet)
+    elif input != "":
         for petID, pet in Pets.items():
             if input.lstrip("'") in pet["name"].lstrip("'"):
                 output.append(pet)

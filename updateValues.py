@@ -77,6 +77,28 @@ for fileName in os.listdir("values"):
     print("File complete: " + str(fileName))
 
 print("All files completed.")
+print("Giving each pet a score...")
+
+listingCategories = {}
+
+for key, value in finalDictionary.items():
+    petValue = value.get("rvalue", 0)
+    if petValue == 0:
+        petValue = value.get("value", 0)
+
+    if "type" in value and "rarity" in value:
+        if value.get("type", "unknown") + " " + value.get("rarity", "unknown") not in listingCategories:
+            listingCategories[value["type"] + " " + value["rarity"]] = [(petValue, key)]
+        else:
+            listingCategories[value["type"] + " " + value["rarity"]].append((petValue, key))
+
+for key, value in listingCategories.items():
+    value.sort(reverse=True)
+
+    for i, tuple in enumerate(value):
+        finalDictionary[tuple[1]]["score"] = str(i+1).zfill(3)
+
+print("Done.")
 print("Dumping Data...")
 
 with open("data/Pets.json", "w") as file:

@@ -237,7 +237,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
                 const img = document.createElement("img")
-                img.src = data[0][i]["image"].slice(2)
+                img.src = data[0][i]["image"]
                 if (window.innerHeight < 600) {
                     img.style.height = "22.2px"
                 } else if (window.innerHeight < 1080) {

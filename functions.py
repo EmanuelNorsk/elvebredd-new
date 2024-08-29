@@ -564,7 +564,7 @@ def searchForPets(input = ""):
             output.append(pet)
     elif input != "":
         for petID, pet in Pets.items():
-            if input.lstrip("'") in pet["name"].lstrip("'"):
+            if input.lower().lstrip("'") in pet["name"].lower().lstrip("'"):
                 output.append(pet)
     return output
 

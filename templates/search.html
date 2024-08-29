@@ -60,6 +60,8 @@
     var results = JSON.parse(resultsList.textContent)
     var searchGrid = document.getElementById("searchGrid")
 
+    var keyword = "{{ keyword }}"
+
     function capitalizeFirstLetter(string) {
         if (string == undefined) {
             return "Unknown"
@@ -75,59 +77,68 @@
         window.location.href = "/pet/" + id
     }
 
-    function sortList(list) {
-        // Define the desired order for the "type" key using an object for quick lookup
-        const typeOrder = {
-            'pets': 1,
-            'eggs': 2,
-            'vehicles': 3,
-            'other': 4
-        };
+    function sortList(list, keyword = '') {
+    // Define the desired order for the "type" key using an object for quick lookup
+    const typeOrder = {
+        'pets': 1,
+        'eggs': 2,
+        'vehicles': 3,
+        'other': 4
+    };
 
-        // Define the desired order for the "rarity" key using an object for quick lookup
-        const rarityOrder = {
-            'legendary': 1,
-            'ultra rare': 2,
-            'rare': 3,
-            'uncommon': 4,
-            'common': 5
-        };
+    // Define the desired order for the "rarity" key using an object for quick lookup
+    const rarityOrder = {
+        'legendary': 1,
+        'ultra rare': 2,
+        'rare': 3,
+        'uncommon': 4,
+        'common': 5
+    };
 
-        list.sort((a, b) => {
-            // Compare by type
-            const aTypeOrder = typeOrder[a.type] || Number.MAX_SAFE_INTEGER;
-            const bTypeOrder = typeOrder[b.type] || Number.MAX_SAFE_INTEGER;
+    list.sort((a, b) => {
+        // Check if keyword is provided and prioritize items whose names start with the keyword
+        if (keyword) {
+            const aStartsWithKeyword = a.name.toLowerCase().startsWith(keyword.toLowerCase());
+            const bStartsWithKeyword = b.name.toLowerCase().startsWith(keyword.toLowerCase());
 
-            if (aTypeOrder !== bTypeOrder) {
-                return aTypeOrder - bTypeOrder;
-            }
+            if (aStartsWithKeyword && !bStartsWithKeyword) return -1;
+            if (!aStartsWithKeyword && bStartsWithKeyword) return 1;
+        }
 
-            // Compare by rarity
-            const aRarityOrder = rarityOrder[a.rarity] || Number.MAX_SAFE_INTEGER;
-            const bRarityOrder = rarityOrder[b.rarity] || Number.MAX_SAFE_INTEGER;
+        // Compare by type
+        const aTypeOrder = typeOrder[a.type] || Number.MAX_SAFE_INTEGER;
+        const bTypeOrder = typeOrder[b.type] || Number.MAX_SAFE_INTEGER;
 
-            if (aRarityOrder !== bRarityOrder) {
-                return aRarityOrder - bRarityOrder;
-            }
+        if (aTypeOrder !== bTypeOrder) {
+            return aTypeOrder - bTypeOrder;
+        }
 
-            // Compare by value (rvalue or value)
-            const aValue = a.rvalue !== undefined ? a.rvalue : a.value || 0;
-            const bValue = b.rvalue !== undefined ? b.rvalue : b.value || 0;
+        // Compare by rarity
+        const aRarityOrder = rarityOrder[a.rarity] || Number.MAX_SAFE_INTEGER;
+        const bRarityOrder = rarityOrder[b.rarity] || Number.MAX_SAFE_INTEGER;
 
-            if (aValue !== bValue) {
-                return bValue - aValue; // Descending order
-            }
+        if (aRarityOrder !== bRarityOrder) {
+            return aRarityOrder - bRarityOrder;
+        }
 
-            // Compare by name alphabetically
-            return a.name.localeCompare(b.name);
-        });
+        // Compare by value (rvalue or value)
+        const aValue = a.rvalue !== undefined ? a.rvalue : a.value || 0;
+        const bValue = b.rvalue !== undefined ? b.rvalue : b.value || 0;
 
-        return list;
-    }
+        if (aValue !== bValue) {
+            return bValue - aValue; // Descending order
+        }
+
+        // Compare by name alphabetically
+        return a.name.localeCompare(b.name);
+    });
+
+    return list;
+}
 
     function showSearch() {
         searchGrid.innerHTML = ""
-        results = sortList(results)
+        results = sortList(results, keyword)
         results.forEach(pet => {
             const div = document.createElement("div")
             div.setAttribute("onclick", "goToPetPage(" + pet["id"] + ")")

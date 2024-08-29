@@ -528,7 +528,7 @@ def applicationPage():
 
 @app.route("/search/<keyword>")
 def searchPage(keyword):
-    return flask.render_template("search.html", results=searchForPets(keyword), storedWebData={}, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}))
+    return flask.render_template("search.html", results=searchForPets(keyword), keyword=keyword, storedWebData={}, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}))
 
 #L
 @app.cli.command("status")

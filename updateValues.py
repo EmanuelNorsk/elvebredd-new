@@ -47,7 +47,6 @@ for fileName in os.listdir("values"):
 
     for key in dictionary.keys():
         dictionary[key]["image"] = "/static/images/pets/" + str(dictionary[key]["Name"]) + ".png"
-        dictionary[key]["id"] = str(key)
 
         delList = []
         for innerKey in dictionary[key].keys():
@@ -68,6 +67,7 @@ for fileName in os.listdir("values"):
             preDict[key2.lower()] = value2
         value = preDict
         if value["name"] != None:
+            value["id"] = str(int(key) + len(finalDictionary))
             newDictionary[str(int(key) + len(finalDictionary))] = value
 
     print("Adding data to a dictionary...")

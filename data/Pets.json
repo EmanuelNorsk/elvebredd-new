@@ -845,7 +845,7 @@
         "rvalue": 85.0,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "0",
+        "id": "35",
         "score": "001"
     },
     "36": {
@@ -854,7 +854,7 @@
         "rvalue": 35.0,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "1",
+        "id": "36",
         "score": "002"
     },
     "37": {
@@ -863,7 +863,7 @@
         "rvalue": 33.0,
         "rarity": "rare",
         "type": "eggs",
-        "id": "2",
+        "id": "37",
         "score": "001"
     },
     "38": {
@@ -872,7 +872,7 @@
         "rvalue": 27.0,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "3",
+        "id": "38",
         "score": "003"
     },
     "39": {
@@ -881,7 +881,7 @@
         "rvalue": 26.0,
         "rarity": "rare",
         "type": "eggs",
-        "id": "4",
+        "id": "39",
         "score": "002"
     },
     "40": {
@@ -890,7 +890,7 @@
         "rvalue": 7.25,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "5",
+        "id": "40",
         "score": "004"
     },
     "41": {
@@ -899,7 +899,7 @@
         "rvalue": 2.25,
         "rarity": "common",
         "type": "eggs",
-        "id": "6",
+        "id": "41",
         "score": "001"
     },
     "42": {
@@ -908,7 +908,7 @@
         "rvalue": 1.75,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "7",
+        "id": "42",
         "score": "005"
     },
     "43": {
@@ -917,7 +917,7 @@
         "rvalue": 1.5,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "8",
+        "id": "43",
         "score": "006"
     },
     "44": {
@@ -926,7 +926,7 @@
         "rvalue": 1.0,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "9",
+        "id": "44",
         "score": "007"
     },
     "45": {
@@ -935,7 +935,7 @@
         "rvalue": 0.7,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "10",
+        "id": "45",
         "score": "008"
     },
     "46": {
@@ -944,7 +944,7 @@
         "rvalue": 0.5,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "11",
+        "id": "46",
         "score": "009"
     },
     "47": {
@@ -953,7 +953,7 @@
         "rvalue": 0.3,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "12",
+        "id": "47",
         "score": "011"
     },
     "48": {
@@ -962,7 +962,7 @@
         "rvalue": 0.3,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "13",
+        "id": "48",
         "score": "010"
     },
     "49": {
@@ -971,7 +971,7 @@
         "rvalue": 0.2,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "14",
+        "id": "49",
         "score": "012"
     },
     "50": {
@@ -980,7 +980,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "15",
+        "id": "50",
         "score": "018"
     },
     "51": {
@@ -989,7 +989,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "16",
+        "id": "51",
         "score": "017"
     },
     "52": {
@@ -998,7 +998,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "17",
+        "id": "52",
         "score": "016"
     },
     "53": {
@@ -1007,7 +1007,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "18",
+        "id": "53",
         "score": "015"
     },
     "54": {
@@ -1016,7 +1016,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "19",
+        "id": "54",
         "score": "014"
     },
     "55": {
@@ -1025,7 +1025,7 @@
         "rvalue": 0.15,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "20",
+        "id": "55",
         "score": "013"
     },
     "56": {
@@ -1034,7 +1034,7 @@
         "rvalue": 0.1,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "21",
+        "id": "56",
         "score": "020"
     },
     "57": {
@@ -1043,7 +1043,7 @@
         "rvalue": 0.1,
         "rarity": "uncommon",
         "type": "eggs",
-        "id": "22",
+        "id": "57",
         "score": "001"
     },
     "58": {
@@ -1052,7 +1052,7 @@
         "rvalue": 0.1,
         "rarity": "rare",
         "type": "eggs",
-        "id": "23",
+        "id": "58",
         "score": "004"
     },
     "59": {
@@ -1061,7 +1061,7 @@
         "rvalue": 0.1,
         "rarity": "legendary",
         "type": "eggs",
-        "id": "24",
+        "id": "59",
         "score": "019"
     },
     "60": {
@@ -1070,7 +1070,7 @@
         "rvalue": 0.1,
         "rarity": "rare",
         "type": "eggs",
-        "id": "25",
+        "id": "60",
         "score": "003"
     },
     "61": {
@@ -1079,7 +1079,7 @@
         "rvalue": 0.05,
         "rarity": "common",
         "type": "eggs",
-        "id": "26",
+        "id": "61",
         "score": "002"
     },
     "62": {
@@ -1103,7 +1103,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "0",
+        "id": "62",
         "score": "001"
     },
     "63": {
@@ -1127,7 +1127,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "1",
+        "id": "63",
         "score": "002"
     },
     "64": {
@@ -1151,7 +1151,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "2",
+        "id": "64",
         "score": "003"
     },
     "65": {
@@ -1175,7 +1175,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "3",
+        "id": "65",
         "score": "004"
     },
     "66": {
@@ -1199,7 +1199,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "4",
+        "id": "66",
         "score": "005"
     },
     "67": {
@@ -1223,7 +1223,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "5",
+        "id": "67",
         "score": "006"
     },
     "68": {
@@ -1247,7 +1247,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "6",
+        "id": "68",
         "score": "007"
     },
     "69": {
@@ -1271,7 +1271,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "7",
+        "id": "69",
         "score": "008"
     },
     "70": {
@@ -1295,7 +1295,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "8",
+        "id": "70",
         "score": "009"
     },
     "71": {
@@ -1319,7 +1319,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "9",
+        "id": "71",
         "score": "011"
     },
     "72": {
@@ -1343,7 +1343,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "10",
+        "id": "72",
         "score": "010"
     },
     "73": {
@@ -1367,7 +1367,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "11",
+        "id": "73",
         "score": "012"
     },
     "74": {
@@ -1391,7 +1391,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "12",
+        "id": "74",
         "score": "014"
     },
     "75": {
@@ -1415,7 +1415,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "13",
+        "id": "75",
         "score": "013"
     },
     "76": {
@@ -1439,7 +1439,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "14",
+        "id": "76",
         "score": "015"
     },
     "77": {
@@ -1463,7 +1463,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "15",
+        "id": "77",
         "score": "017"
     },
     "78": {
@@ -1487,7 +1487,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "16",
+        "id": "78",
         "score": "016"
     },
     "79": {
@@ -1511,7 +1511,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "17",
+        "id": "79",
         "score": "018"
     },
     "80": {
@@ -1535,7 +1535,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "18",
+        "id": "80",
         "score": "019"
     },
     "81": {
@@ -1559,7 +1559,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "19",
+        "id": "81",
         "score": "020"
     },
     "82": {
@@ -1583,7 +1583,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "20",
+        "id": "82",
         "score": "021"
     },
     "83": {
@@ -1607,7 +1607,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "21",
+        "id": "83",
         "score": "023"
     },
     "84": {
@@ -1631,7 +1631,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "22",
+        "id": "84",
         "score": "022"
     },
     "85": {
@@ -1655,7 +1655,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "23",
+        "id": "85",
         "score": "024"
     },
     "86": {
@@ -1679,7 +1679,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "24",
+        "id": "86",
         "score": "025"
     },
     "87": {
@@ -1703,7 +1703,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "25",
+        "id": "87",
         "score": "028"
     },
     "88": {
@@ -1727,7 +1727,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "26",
+        "id": "88",
         "score": "027"
     },
     "89": {
@@ -1751,7 +1751,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "27",
+        "id": "89",
         "score": "026"
     },
     "90": {
@@ -1775,7 +1775,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "28",
+        "id": "90",
         "score": "031"
     },
     "91": {
@@ -1799,7 +1799,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "29",
+        "id": "91",
         "score": "030"
     },
     "92": {
@@ -1823,7 +1823,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "30",
+        "id": "92",
         "score": "029"
     },
     "93": {
@@ -1847,7 +1847,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "31",
+        "id": "93",
         "score": "033"
     },
     "94": {
@@ -1871,7 +1871,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "32",
+        "id": "94",
         "score": "032"
     },
     "95": {
@@ -1895,7 +1895,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "33",
+        "id": "95",
         "score": "037"
     },
     "96": {
@@ -1919,7 +1919,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "34",
+        "id": "96",
         "score": "036"
     },
     "97": {
@@ -1943,7 +1943,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "35",
+        "id": "97",
         "score": "035"
     },
     "98": {
@@ -1967,7 +1967,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "36",
+        "id": "98",
         "score": "034"
     },
     "99": {
@@ -1991,7 +1991,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "37",
+        "id": "99",
         "score": "038"
     },
     "100": {
@@ -2015,7 +2015,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "38",
+        "id": "100",
         "score": "040"
     },
     "101": {
@@ -2039,7 +2039,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "39",
+        "id": "101",
         "score": "039"
     },
     "102": {
@@ -2063,7 +2063,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "40",
+        "id": "102",
         "score": "044"
     },
     "103": {
@@ -2087,7 +2087,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "41",
+        "id": "103",
         "score": "043"
     },
     "104": {
@@ -2111,7 +2111,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "42",
+        "id": "104",
         "score": "042"
     },
     "105": {
@@ -2135,7 +2135,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "43",
+        "id": "105",
         "score": "041"
     },
     "106": {
@@ -2159,7 +2159,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "44",
+        "id": "106",
         "score": "056"
     },
     "107": {
@@ -2183,7 +2183,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "45",
+        "id": "107",
         "score": "055"
     },
     "108": {
@@ -2207,7 +2207,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "46",
+        "id": "108",
         "score": "054"
     },
     "109": {
@@ -2231,7 +2231,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "47",
+        "id": "109",
         "score": "053"
     },
     "110": {
@@ -2255,7 +2255,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "48",
+        "id": "110",
         "score": "052"
     },
     "111": {
@@ -2279,7 +2279,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "49",
+        "id": "111",
         "score": "051"
     },
     "112": {
@@ -2303,7 +2303,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "50",
+        "id": "112",
         "score": "050"
     },
     "113": {
@@ -2327,7 +2327,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "51",
+        "id": "113",
         "score": "049"
     },
     "114": {
@@ -2351,7 +2351,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "52",
+        "id": "114",
         "score": "048"
     },
     "115": {
@@ -2375,7 +2375,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "53",
+        "id": "115",
         "score": "047"
     },
     "116": {
@@ -2399,7 +2399,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "54",
+        "id": "116",
         "score": "046"
     },
     "117": {
@@ -2423,7 +2423,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "55",
+        "id": "117",
         "score": "045"
     },
     "118": {
@@ -2447,7 +2447,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "56",
+        "id": "118",
         "score": "074"
     },
     "119": {
@@ -2471,7 +2471,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "57",
+        "id": "119",
         "score": "073"
     },
     "120": {
@@ -2495,7 +2495,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "58",
+        "id": "120",
         "score": "072"
     },
     "121": {
@@ -2519,7 +2519,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "59",
+        "id": "121",
         "score": "071"
     },
     "122": {
@@ -2543,7 +2543,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "60",
+        "id": "122",
         "score": "070"
     },
     "123": {
@@ -2567,7 +2567,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "61",
+        "id": "123",
         "score": "069"
     },
     "124": {
@@ -2591,7 +2591,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "62",
+        "id": "124",
         "score": "068"
     },
     "125": {
@@ -2615,7 +2615,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "63",
+        "id": "125",
         "score": "067"
     },
     "126": {
@@ -2639,7 +2639,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "64",
+        "id": "126",
         "score": "066"
     },
     "127": {
@@ -2663,7 +2663,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "65",
+        "id": "127",
         "score": "065"
     },
     "128": {
@@ -2687,7 +2687,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "66",
+        "id": "128",
         "score": "064"
     },
     "129": {
@@ -2711,7 +2711,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "67",
+        "id": "129",
         "score": "063"
     },
     "130": {
@@ -2735,7 +2735,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "68",
+        "id": "130",
         "score": "062"
     },
     "131": {
@@ -2759,7 +2759,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "69",
+        "id": "131",
         "score": "061"
     },
     "132": {
@@ -2783,7 +2783,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "70",
+        "id": "132",
         "score": "060"
     },
     "133": {
@@ -2807,7 +2807,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "71",
+        "id": "133",
         "score": "059"
     },
     "134": {
@@ -2831,7 +2831,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "72",
+        "id": "134",
         "score": "058"
     },
     "135": {
@@ -2855,7 +2855,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "73",
+        "id": "135",
         "score": "057"
     },
     "136": {
@@ -2879,7 +2879,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "74",
+        "id": "136",
         "score": "115"
     },
     "137": {
@@ -2903,7 +2903,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "75",
+        "id": "137",
         "score": "114"
     },
     "138": {
@@ -2927,7 +2927,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "76",
+        "id": "138",
         "score": "113"
     },
     "139": {
@@ -2951,7 +2951,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "77",
+        "id": "139",
         "score": "112"
     },
     "140": {
@@ -2975,7 +2975,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "78",
+        "id": "140",
         "score": "111"
     },
     "141": {
@@ -2999,7 +2999,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "79",
+        "id": "141",
         "score": "110"
     },
     "142": {
@@ -3023,7 +3023,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "80",
+        "id": "142",
         "score": "109"
     },
     "143": {
@@ -3047,7 +3047,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "81",
+        "id": "143",
         "score": "108"
     },
     "144": {
@@ -3071,7 +3071,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "82",
+        "id": "144",
         "score": "107"
     },
     "145": {
@@ -3095,7 +3095,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "83",
+        "id": "145",
         "score": "106"
     },
     "146": {
@@ -3119,7 +3119,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "84",
+        "id": "146",
         "score": "105"
     },
     "147": {
@@ -3143,7 +3143,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "85",
+        "id": "147",
         "score": "104"
     },
     "148": {
@@ -3167,7 +3167,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "86",
+        "id": "148",
         "score": "103"
     },
     "149": {
@@ -3191,7 +3191,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "87",
+        "id": "149",
         "score": "102"
     },
     "150": {
@@ -3215,7 +3215,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "88",
+        "id": "150",
         "score": "101"
     },
     "151": {
@@ -3239,7 +3239,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "89",
+        "id": "151",
         "score": "100"
     },
     "152": {
@@ -3263,7 +3263,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "90",
+        "id": "152",
         "score": "099"
     },
     "153": {
@@ -3287,7 +3287,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "91",
+        "id": "153",
         "score": "098"
     },
     "154": {
@@ -3311,7 +3311,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "92",
+        "id": "154",
         "score": "097"
     },
     "155": {
@@ -3335,7 +3335,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "93",
+        "id": "155",
         "score": "096"
     },
     "156": {
@@ -3359,7 +3359,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "94",
+        "id": "156",
         "score": "095"
     },
     "157": {
@@ -3383,7 +3383,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "95",
+        "id": "157",
         "score": "094"
     },
     "158": {
@@ -3407,7 +3407,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "96",
+        "id": "158",
         "score": "093"
     },
     "159": {
@@ -3431,7 +3431,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "97",
+        "id": "159",
         "score": "092"
     },
     "160": {
@@ -3455,7 +3455,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "98",
+        "id": "160",
         "score": "091"
     },
     "161": {
@@ -3479,7 +3479,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "99",
+        "id": "161",
         "score": "090"
     },
     "162": {
@@ -3503,7 +3503,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "100",
+        "id": "162",
         "score": "089"
     },
     "163": {
@@ -3527,7 +3527,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "101",
+        "id": "163",
         "score": "088"
     },
     "164": {
@@ -3551,7 +3551,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "102",
+        "id": "164",
         "score": "087"
     },
     "165": {
@@ -3575,7 +3575,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "103",
+        "id": "165",
         "score": "086"
     },
     "166": {
@@ -3599,7 +3599,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "104",
+        "id": "166",
         "score": "085"
     },
     "167": {
@@ -3623,7 +3623,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "105",
+        "id": "167",
         "score": "084"
     },
     "168": {
@@ -3647,7 +3647,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "106",
+        "id": "168",
         "score": "083"
     },
     "169": {
@@ -3671,7 +3671,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "107",
+        "id": "169",
         "score": "082"
     },
     "170": {
@@ -3695,7 +3695,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "108",
+        "id": "170",
         "score": "081"
     },
     "171": {
@@ -3719,7 +3719,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "109",
+        "id": "171",
         "score": "080"
     },
     "172": {
@@ -3743,7 +3743,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "110",
+        "id": "172",
         "score": "079"
     },
     "173": {
@@ -3767,7 +3767,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "111",
+        "id": "173",
         "score": "078"
     },
     "174": {
@@ -3791,7 +3791,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "112",
+        "id": "174",
         "score": "077"
     },
     "175": {
@@ -3815,7 +3815,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "113",
+        "id": "175",
         "score": "076"
     },
     "176": {
@@ -3839,7 +3839,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "114",
+        "id": "176",
         "score": "075"
     },
     "177": {
@@ -3863,7 +3863,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "115",
+        "id": "177",
         "score": "123"
     },
     "178": {
@@ -3887,7 +3887,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "116",
+        "id": "178",
         "score": "122"
     },
     "179": {
@@ -3911,7 +3911,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "117",
+        "id": "179",
         "score": "121"
     },
     "180": {
@@ -3935,7 +3935,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "118",
+        "id": "180",
         "score": "120"
     },
     "181": {
@@ -3959,7 +3959,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "119",
+        "id": "181",
         "score": "119"
     },
     "182": {
@@ -3983,7 +3983,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "120",
+        "id": "182",
         "score": "118"
     },
     "183": {
@@ -4007,7 +4007,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "121",
+        "id": "183",
         "score": "117"
     },
     "184": {
@@ -4031,7 +4031,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "122",
+        "id": "184",
         "score": "116"
     },
     "185": {
@@ -4055,7 +4055,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "123",
+        "id": "185",
         "score": "125"
     },
     "186": {
@@ -4079,7 +4079,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "124",
+        "id": "186",
         "score": "124"
     },
     "187": {
@@ -4103,7 +4103,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "125",
+        "id": "187",
         "score": "126"
     },
     "188": {
@@ -4127,7 +4127,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "126",
+        "id": "188",
         "score": "127"
     },
     "189": {
@@ -4151,7 +4151,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "127",
+        "id": "189",
         "score": "128"
     },
     "190": {
@@ -4175,7 +4175,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "128",
+        "id": "190",
         "score": "129"
     },
     "191": {
@@ -4199,7 +4199,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "129",
+        "id": "191",
         "score": "130"
     },
     "192": {
@@ -4223,7 +4223,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "legendary",
         "type": "pets",
-        "id": "130",
+        "id": "192",
         "score": "131"
     },
     "193": {
@@ -4232,7 +4232,7 @@
         "value": 5900.0,
         "rarity": "rare",
         "type": "other",
-        "id": "0",
+        "id": "193",
         "score": "001"
     },
     "194": {
@@ -4241,7 +4241,7 @@
         "value": 168.0,
         "rarity": "legendary",
         "type": "other",
-        "id": "1",
+        "id": "194",
         "score": "001"
     },
     "195": {
@@ -4250,7 +4250,7 @@
         "value": 77.0,
         "rarity": "legendary",
         "type": "other",
-        "id": "2",
+        "id": "195",
         "score": "002"
     },
     "196": {
@@ -4259,7 +4259,7 @@
         "value": 48.0,
         "rarity": "rare",
         "type": "other",
-        "id": "3",
+        "id": "196",
         "score": "002"
     },
     "197": {
@@ -4268,7 +4268,7 @@
         "value": 25.0,
         "rarity": "rare",
         "type": "other",
-        "id": "4",
+        "id": "197",
         "score": "003"
     },
     "198": {
@@ -4277,7 +4277,7 @@
         "value": 18.0,
         "rarity": "legendary",
         "type": "other",
-        "id": "5",
+        "id": "198",
         "score": "003"
     },
     "199": {
@@ -4286,7 +4286,7 @@
         "value": 8.0,
         "rarity": "legendary",
         "type": "other",
-        "id": "6",
+        "id": "199",
         "score": "004"
     },
     "200": {
@@ -4295,7 +4295,7 @@
         "value": 4.5,
         "rarity": "rare",
         "type": "other",
-        "id": "7",
+        "id": "200",
         "score": "004"
     },
     "201": {
@@ -4304,7 +4304,7 @@
         "value": 4.0,
         "rarity": "uncommon",
         "type": "other",
-        "id": "8",
+        "id": "201",
         "score": "001"
     },
     "202": {
@@ -4313,7 +4313,7 @@
         "value": 3.5,
         "rarity": "legendary",
         "type": "other",
-        "id": "9",
+        "id": "202",
         "score": "005"
     },
     "203": {
@@ -4322,7 +4322,7 @@
         "value": 1.5,
         "rarity": "legendary",
         "type": "other",
-        "id": "10",
+        "id": "203",
         "score": "006"
     },
     "204": {
@@ -4331,7 +4331,7 @@
         "value": 1.0,
         "rarity": "legendary",
         "type": "other",
-        "id": "11",
+        "id": "204",
         "score": "007"
     },
     "205": {
@@ -4340,260 +4340,260 @@
         "value": 0.3,
         "rarity": "uncommon",
         "type": "other",
-        "id": "12",
+        "id": "205",
         "score": "002"
     },
     "206": {
         "name": "Rainbow Maker",
         "image": "/static/images/pets/Rainbow Maker.png",
         "value": 8.0,
-        "id": "0"
+        "id": "206"
     },
     "207": {
         "name": "Purple & Green Beads",
         "image": "/static/images/pets/Purple & Green Beads.png",
         "value": null,
-        "id": "1"
+        "id": "207"
     },
     "208": {
         "name": "Red & Yellow Beads",
         "image": "/static/images/pets/Red & Yellow Beads.png",
         "value": null,
-        "id": "2"
+        "id": "208"
     },
     "209": {
         "name": "Pearl Necklace",
         "image": "/static/images/pets/Pearl Necklace.png",
         "value": null,
-        "id": "3"
+        "id": "209"
     },
     "210": {
         "name": "Ice Cream Cone Hat",
         "image": "/static/images/pets/Ice Cream Cone Hat.png",
         "value": null,
-        "id": "4"
+        "id": "210"
     },
     "211": {
         "name": "Santa Hat",
         "image": "/static/images/pets/Santa Hat.png",
         "value": null,
-        "id": "5"
+        "id": "211"
     },
     "212": {
         "name": "Elf Hat",
         "image": "/static/images/pets/Elf Hat.png",
         "value": null,
-        "id": "6"
+        "id": "212"
     },
     "213": {
         "name": "Pink Heart Glasses",
         "image": "/static/images/pets/Pink Heart Glasses.png",
         "value": null,
-        "id": "7"
+        "id": "213"
     },
     "214": {
         "name": "Pink Cat Ear Headphones",
         "image": "/static/images/pets/Pink Cat Ear Headphones.png",
         "value": null,
-        "id": "8"
+        "id": "214"
     },
     "215": {
         "name": "Unicorn Horn",
         "image": "/static/images/pets/Unicorn Horn.png",
         "value": null,
-        "id": "9"
+        "id": "215"
     },
     "216": {
         "name": "Pink Butterfly Wings",
         "image": "/static/images/pets/Pink Butterfly Wings.png",
         "value": null,
-        "id": "10"
+        "id": "216"
     },
     "217": {
         "name": "Pink Hightops",
         "image": "/static/images/pets/Pink Hightops.png",
         "value": null,
-        "id": "11"
+        "id": "217"
     },
     "218": {
         "name": "Gold Tiara",
         "image": "/static/images/pets/Gold Tiara.png",
         "value": null,
-        "id": "12"
+        "id": "218"
     },
     "219": {
         "name": "Gold Circle Glasses",
         "image": "/static/images/pets/Gold Circle Glasses.png",
         "value": null,
-        "id": "13"
+        "id": "219"
     },
     "220": {
         "name": "Monkey King Crown",
         "image": "/static/images/pets/Monkey King Crown.png",
         "value": null,
-        "id": "14"
+        "id": "220"
     },
     "221": {
         "name": "Gold Crown",
         "image": "/static/images/pets/Gold Crown.png",
         "value": null,
-        "id": "15"
+        "id": "221"
     },
     "222": {
         "name": "Chef Hat",
         "image": "/static/images/pets/Chef Hat.png",
         "value": null,
-        "id": "16"
+        "id": "222"
     },
     "223": {
         "name": "Blue Cat Ear Headphones",
         "image": "/static/images/pets/Blue Cat Ear Headphones.png",
         "value": null,
-        "id": "17"
+        "id": "223"
     },
     "224": {
         "name": "Purple Heart Glasses",
         "image": "/static/images/pets/Purple Heart Glasses.png",
         "value": null,
-        "id": "18"
+        "id": "224"
     },
     "225": {
         "name": "Icey Aura",
         "image": "/static/images/pets/Icey Aura.png",
         "value": null,
-        "id": "19"
+        "id": "225"
     },
     "226": {
         "name": "Hanbok",
         "image": "/static/images/pets/Hanbok.png",
         "value": null,
-        "id": "20"
+        "id": "226"
     },
     "227": {
         "name": "Egg Glasses",
         "image": "/static/images/pets/Egg Glasses.png",
         "value": null,
-        "id": "21"
+        "id": "227"
     },
     "228": {
         "name": "Blue Butterfly Wings",
         "image": "/static/images/pets/Blue Butterfly Wings.png",
         "value": null,
-        "id": "22"
+        "id": "228"
     },
     "229": {
         "name": "Red Masquerade Mask",
         "image": "/static/images/pets/Red Masquerade Mask.png",
         "value": null,
-        "id": "23"
+        "id": "229"
     },
     "230": {
         "name": "Briefcase",
         "image": "/static/images/pets/Briefcase.png",
         "value": null,
-        "id": "24"
+        "id": "230"
     },
     "231": {
         "name": "Cyborg Eye",
         "image": "/static/images/pets/Cyborg Eye.png",
         "value": null,
-        "id": "25"
+        "id": "231"
     },
     "232": {
         "name": "Shuriken",
         "image": "/static/images/pets/Shuriken.png",
         "value": null,
-        "id": "26"
+        "id": "232"
     },
     "233": {
         "name": "Detective Mustache",
         "image": "/static/images/pets/Detective Mustache.png",
         "value": null,
-        "id": "27"
+        "id": "233"
     },
     "234": {
         "name": "Red Butterfly",
         "image": "/static/images/pets/Red Butterfly.png",
         "value": null,
-        "id": "28"
+        "id": "234"
     },
     "235": {
         "name": "Triangle Shades",
         "image": "/static/images/pets/Triangle Shades.png",
         "value": null,
-        "id": "29"
+        "id": "235"
     },
     "236": {
         "name": "Vampire Cape",
         "image": "/static/images/pets/Vampire Cape.png",
         "value": null,
-        "id": "30"
+        "id": "236"
     },
     "237": {
         "name": "Jeff's Nametag",
         "image": "/static/images/pets/Jeff's Nametag.png",
         "value": null,
-        "id": "31"
+        "id": "237"
     },
     "238": {
         "name": "Cyborg Shades",
         "image": "/static/images/pets/Cyborg Shades.png",
         "value": null,
-        "id": "32"
+        "id": "238"
     },
     "239": {
         "name": "Founder's Crown",
         "image": "/static/images/pets/Founder's Crown.png",
         "value": null,
-        "id": "33"
+        "id": "239"
     },
     "240": {
         "name": "Football Helmet",
         "image": "/static/images/pets/Football Helmet.png",
         "value": null,
-        "id": "34"
+        "id": "240"
     },
     "241": {
         "name": "Gold Chain",
         "image": "/static/images/pets/Gold Chain.png",
         "value": null,
-        "id": "35"
+        "id": "241"
     },
     "242": {
         "name": "Gold Crown With Sapphire",
         "image": "/static/images/pets/Gold Crown With Sapphire.png",
         "value": null,
-        "id": "36"
+        "id": "242"
     },
     "243": {
         "name": "Golden Circlet",
         "image": "/static/images/pets/Golden Circlet.png",
         "value": null,
-        "id": "37"
+        "id": "243"
     },
     "244": {
         "name": "Handheld",
         "image": "/static/images/pets/Handheld.png",
         "value": null,
-        "id": "38"
+        "id": "244"
     },
     "245": {
         "name": "Bat Wings",
         "image": "/static/images/pets/Bat Wings.png",
         "value": null,
-        "id": "39"
+        "id": "245"
     },
     "246": {
         "name": "Shadow Wings",
         "image": "/static/images/pets/Shadow Wings.png",
         "value": null,
-        "id": "40"
+        "id": "246"
     },
     "247": {
         "name": "Angel Wings",
         "image": "/static/images/pets/Angel Wings.png",
         "value": null,
-        "id": "41"
+        "id": "247"
     },
     "248": {
         "name": "Cow",
@@ -4616,7 +4616,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "0",
+        "id": "248",
         "score": "001"
     },
     "249": {
@@ -4640,7 +4640,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "1",
+        "id": "249",
         "score": "002"
     },
     "250": {
@@ -4664,7 +4664,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "2",
+        "id": "250",
         "score": "003"
     },
     "251": {
@@ -4688,7 +4688,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "3",
+        "id": "251",
         "score": "005"
     },
     "252": {
@@ -4712,7 +4712,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "4",
+        "id": "252",
         "score": "004"
     },
     "253": {
@@ -4736,7 +4736,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "5",
+        "id": "253",
         "score": "007"
     },
     "254": {
@@ -4760,7 +4760,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "6",
+        "id": "254",
         "score": "006"
     },
     "255": {
@@ -4784,7 +4784,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "7",
+        "id": "255",
         "score": "010"
     },
     "256": {
@@ -4808,7 +4808,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "8",
+        "id": "256",
         "score": "009"
     },
     "257": {
@@ -4832,7 +4832,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "9",
+        "id": "257",
         "score": "008"
     },
     "258": {
@@ -4856,7 +4856,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "10",
+        "id": "258",
         "score": "011"
     },
     "259": {
@@ -4880,7 +4880,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "11",
+        "id": "259",
         "score": "012"
     },
     "260": {
@@ -4904,7 +4904,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "12",
+        "id": "260",
         "score": "013"
     },
     "261": {
@@ -4928,7 +4928,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "13",
+        "id": "261",
         "score": "014"
     },
     "262": {
@@ -4952,7 +4952,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "14",
+        "id": "262",
         "score": "016"
     },
     "263": {
@@ -4976,7 +4976,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "15",
+        "id": "263",
         "score": "015"
     },
     "264": {
@@ -5000,7 +5000,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "16",
+        "id": "264",
         "score": "017"
     },
     "265": {
@@ -5024,7 +5024,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "17",
+        "id": "265",
         "score": "018"
     },
     "266": {
@@ -5048,7 +5048,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "18",
+        "id": "266",
         "score": "020"
     },
     "267": {
@@ -5072,7 +5072,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "19",
+        "id": "267",
         "score": "019"
     },
     "268": {
@@ -5096,7 +5096,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "20",
+        "id": "268",
         "score": "021"
     },
     "269": {
@@ -5120,7 +5120,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "21",
+        "id": "269",
         "score": "028"
     },
     "270": {
@@ -5144,7 +5144,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "22",
+        "id": "270",
         "score": "027"
     },
     "271": {
@@ -5168,7 +5168,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "23",
+        "id": "271",
         "score": "026"
     },
     "272": {
@@ -5192,7 +5192,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "24",
+        "id": "272",
         "score": "025"
     },
     "273": {
@@ -5216,7 +5216,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "25",
+        "id": "273",
         "score": "024"
     },
     "274": {
@@ -5240,7 +5240,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "26",
+        "id": "274",
         "score": "023"
     },
     "275": {
@@ -5264,7 +5264,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "27",
+        "id": "275",
         "score": "022"
     },
     "276": {
@@ -5288,7 +5288,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "28",
+        "id": "276",
         "score": "037"
     },
     "277": {
@@ -5312,7 +5312,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "29",
+        "id": "277",
         "score": "036"
     },
     "278": {
@@ -5336,7 +5336,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "30",
+        "id": "278",
         "score": "035"
     },
     "279": {
@@ -5360,7 +5360,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "31",
+        "id": "279",
         "score": "034"
     },
     "280": {
@@ -5384,7 +5384,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "32",
+        "id": "280",
         "score": "033"
     },
     "281": {
@@ -5408,7 +5408,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "33",
+        "id": "281",
         "score": "032"
     },
     "282": {
@@ -5432,7 +5432,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "34",
+        "id": "282",
         "score": "031"
     },
     "283": {
@@ -5456,7 +5456,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "35",
+        "id": "283",
         "score": "030"
     },
     "284": {
@@ -5480,7 +5480,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "36",
+        "id": "284",
         "score": "029"
     },
     "285": {
@@ -5504,7 +5504,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "37",
+        "id": "285",
         "score": "045"
     },
     "286": {
@@ -5528,7 +5528,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "38",
+        "id": "286",
         "score": "044"
     },
     "287": {
@@ -5552,7 +5552,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "39",
+        "id": "287",
         "score": "043"
     },
     "288": {
@@ -5576,7 +5576,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "40",
+        "id": "288",
         "score": "042"
     },
     "289": {
@@ -5600,7 +5600,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "41",
+        "id": "289",
         "score": "041"
     },
     "290": {
@@ -5624,7 +5624,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "42",
+        "id": "290",
         "score": "040"
     },
     "291": {
@@ -5648,7 +5648,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "43",
+        "id": "291",
         "score": "039"
     },
     "292": {
@@ -5672,7 +5672,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "44",
+        "id": "292",
         "score": "038"
     },
     "293": {
@@ -5696,7 +5696,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "45",
+        "id": "293",
         "score": "075"
     },
     "294": {
@@ -5720,7 +5720,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "46",
+        "id": "294",
         "score": "074"
     },
     "295": {
@@ -5744,7 +5744,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "47",
+        "id": "295",
         "score": "073"
     },
     "296": {
@@ -5768,7 +5768,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "48",
+        "id": "296",
         "score": "072"
     },
     "297": {
@@ -5792,7 +5792,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "49",
+        "id": "297",
         "score": "071"
     },
     "298": {
@@ -5816,7 +5816,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "50",
+        "id": "298",
         "score": "070"
     },
     "299": {
@@ -5840,7 +5840,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "51",
+        "id": "299",
         "score": "069"
     },
     "300": {
@@ -5864,7 +5864,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "52",
+        "id": "300",
         "score": "068"
     },
     "301": {
@@ -5888,7 +5888,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "53",
+        "id": "301",
         "score": "067"
     },
     "302": {
@@ -5912,7 +5912,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "54",
+        "id": "302",
         "score": "066"
     },
     "303": {
@@ -5936,7 +5936,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "55",
+        "id": "303",
         "score": "065"
     },
     "304": {
@@ -5960,7 +5960,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "56",
+        "id": "304",
         "score": "064"
     },
     "305": {
@@ -5984,7 +5984,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "57",
+        "id": "305",
         "score": "063"
     },
     "306": {
@@ -6008,7 +6008,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "58",
+        "id": "306",
         "score": "062"
     },
     "307": {
@@ -6032,7 +6032,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "59",
+        "id": "307",
         "score": "061"
     },
     "308": {
@@ -6056,7 +6056,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "60",
+        "id": "308",
         "score": "060"
     },
     "309": {
@@ -6080,7 +6080,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "61",
+        "id": "309",
         "score": "059"
     },
     "310": {
@@ -6104,7 +6104,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "62",
+        "id": "310",
         "score": "058"
     },
     "311": {
@@ -6128,7 +6128,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "63",
+        "id": "311",
         "score": "057"
     },
     "312": {
@@ -6152,7 +6152,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "64",
+        "id": "312",
         "score": "056"
     },
     "313": {
@@ -6176,7 +6176,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "65",
+        "id": "313",
         "score": "055"
     },
     "314": {
@@ -6200,7 +6200,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "66",
+        "id": "314",
         "score": "054"
     },
     "315": {
@@ -6224,7 +6224,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "67",
+        "id": "315",
         "score": "089"
     },
     "316": {
@@ -6248,7 +6248,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "68",
+        "id": "316",
         "score": "053"
     },
     "317": {
@@ -6272,7 +6272,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "69",
+        "id": "317",
         "score": "052"
     },
     "318": {
@@ -6296,7 +6296,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "70",
+        "id": "318",
         "score": "051"
     },
     "319": {
@@ -6320,7 +6320,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "71",
+        "id": "319",
         "score": "050"
     },
     "320": {
@@ -6344,7 +6344,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "72",
+        "id": "320",
         "score": "049"
     },
     "321": {
@@ -6368,7 +6368,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "73",
+        "id": "321",
         "score": "048"
     },
     "322": {
@@ -6392,7 +6392,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "74",
+        "id": "322",
         "score": "047"
     },
     "323": {
@@ -6416,7 +6416,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "75",
+        "id": "323",
         "score": "046"
     },
     "324": {
@@ -6440,7 +6440,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "76",
+        "id": "324",
         "score": "088"
     },
     "325": {
@@ -6464,7 +6464,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "77",
+        "id": "325",
         "score": "087"
     },
     "326": {
@@ -6488,7 +6488,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "78",
+        "id": "326",
         "score": "086"
     },
     "327": {
@@ -6512,7 +6512,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "79",
+        "id": "327",
         "score": "085"
     },
     "328": {
@@ -6536,7 +6536,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "80",
+        "id": "328",
         "score": "084"
     },
     "329": {
@@ -6560,7 +6560,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "81",
+        "id": "329",
         "score": "083"
     },
     "330": {
@@ -6584,7 +6584,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "82",
+        "id": "330",
         "score": "082"
     },
     "331": {
@@ -6608,7 +6608,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "83",
+        "id": "331",
         "score": "081"
     },
     "332": {
@@ -6632,7 +6632,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "84",
+        "id": "332",
         "score": "080"
     },
     "333": {
@@ -6656,7 +6656,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "85",
+        "id": "333",
         "score": "079"
     },
     "334": {
@@ -6680,7 +6680,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "86",
+        "id": "334",
         "score": "078"
     },
     "335": {
@@ -6704,7 +6704,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "87",
+        "id": "335",
         "score": "077"
     },
     "336": {
@@ -6728,7 +6728,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "rare",
         "type": "pets",
-        "id": "88",
+        "id": "336",
         "score": "076"
     },
     "337": {
@@ -6752,7 +6752,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "0",
+        "id": "337",
         "score": "001"
     },
     "338": {
@@ -6776,7 +6776,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "1",
+        "id": "338",
         "score": "002"
     },
     "339": {
@@ -6800,7 +6800,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "2",
+        "id": "339",
         "score": "003"
     },
     "340": {
@@ -6824,7 +6824,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "3",
+        "id": "340",
         "score": "004"
     },
     "341": {
@@ -6848,7 +6848,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "4",
+        "id": "341",
         "score": "005"
     },
     "342": {
@@ -6872,7 +6872,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "5",
+        "id": "342",
         "score": "007"
     },
     "343": {
@@ -6896,7 +6896,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "6",
+        "id": "343",
         "score": "006"
     },
     "344": {
@@ -6920,7 +6920,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "7",
+        "id": "344",
         "score": "008"
     },
     "345": {
@@ -6944,7 +6944,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "8",
+        "id": "345",
         "score": "010"
     },
     "346": {
@@ -6968,7 +6968,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "9",
+        "id": "346",
         "score": "009"
     },
     "347": {
@@ -6992,7 +6992,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "10",
+        "id": "347",
         "score": "015"
     },
     "348": {
@@ -7016,7 +7016,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "11",
+        "id": "348",
         "score": "014"
     },
     "349": {
@@ -7040,7 +7040,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "12",
+        "id": "349",
         "score": "013"
     },
     "350": {
@@ -7064,7 +7064,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "13",
+        "id": "350",
         "score": "012"
     },
     "351": {
@@ -7088,7 +7088,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "14",
+        "id": "351",
         "score": "011"
     },
     "352": {
@@ -7112,7 +7112,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "15",
+        "id": "352",
         "score": "017"
     },
     "353": {
@@ -7136,7 +7136,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "16",
+        "id": "353",
         "score": "016"
     },
     "354": {
@@ -7160,7 +7160,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "17",
+        "id": "354",
         "score": "019"
     },
     "355": {
@@ -7184,7 +7184,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "18",
+        "id": "355",
         "score": "018"
     },
     "356": {
@@ -7208,7 +7208,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "19",
+        "id": "356",
         "score": "020"
     },
     "357": {
@@ -7232,7 +7232,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "20",
+        "id": "357",
         "score": "022"
     },
     "358": {
@@ -7256,7 +7256,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "21",
+        "id": "358",
         "score": "021"
     },
     "359": {
@@ -7280,7 +7280,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "22",
+        "id": "359",
         "score": "023"
     },
     "360": {
@@ -7304,7 +7304,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "23",
+        "id": "360",
         "score": "026"
     },
     "361": {
@@ -7328,7 +7328,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "24",
+        "id": "361",
         "score": "025"
     },
     "362": {
@@ -7352,7 +7352,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "25",
+        "id": "362",
         "score": "024"
     },
     "363": {
@@ -7376,7 +7376,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "26",
+        "id": "363",
         "score": "030"
     },
     "364": {
@@ -7400,7 +7400,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "27",
+        "id": "364",
         "score": "029"
     },
     "365": {
@@ -7424,7 +7424,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "28",
+        "id": "365",
         "score": "028"
     },
     "366": {
@@ -7448,7 +7448,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "29",
+        "id": "366",
         "score": "027"
     },
     "367": {
@@ -7472,7 +7472,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "30",
+        "id": "367",
         "score": "031"
     },
     "368": {
@@ -7496,7 +7496,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "31",
+        "id": "368",
         "score": "035"
     },
     "369": {
@@ -7520,7 +7520,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "32",
+        "id": "369",
         "score": "034"
     },
     "370": {
@@ -7544,7 +7544,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "33",
+        "id": "370",
         "score": "033"
     },
     "371": {
@@ -7568,7 +7568,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "34",
+        "id": "371",
         "score": "032"
     },
     "372": {
@@ -7592,7 +7592,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "35",
+        "id": "372",
         "score": "037"
     },
     "373": {
@@ -7616,7 +7616,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "36",
+        "id": "373",
         "score": "036"
     },
     "374": {
@@ -7640,7 +7640,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "37",
+        "id": "374",
         "score": "038"
     },
     "375": {
@@ -7664,7 +7664,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "38",
+        "id": "375",
         "score": "039"
     },
     "376": {
@@ -7688,7 +7688,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "39",
+        "id": "376",
         "score": "041"
     },
     "377": {
@@ -7712,7 +7712,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "40",
+        "id": "377",
         "score": "040"
     },
     "378": {
@@ -7736,7 +7736,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "41",
+        "id": "378",
         "score": "045"
     },
     "379": {
@@ -7760,7 +7760,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "42",
+        "id": "379",
         "score": "044"
     },
     "380": {
@@ -7784,7 +7784,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "43",
+        "id": "380",
         "score": "043"
     },
     "381": {
@@ -7808,7 +7808,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "44",
+        "id": "381",
         "score": "042"
     },
     "382": {
@@ -7832,7 +7832,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "45",
+        "id": "382",
         "score": "047"
     },
     "383": {
@@ -7856,7 +7856,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "46",
+        "id": "383",
         "score": "046"
     },
     "384": {
@@ -7880,7 +7880,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "47",
+        "id": "384",
         "score": "058"
     },
     "385": {
@@ -7904,7 +7904,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "48",
+        "id": "385",
         "score": "057"
     },
     "386": {
@@ -7928,7 +7928,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "49",
+        "id": "386",
         "score": "056"
     },
     "387": {
@@ -7952,7 +7952,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "50",
+        "id": "387",
         "score": "055"
     },
     "388": {
@@ -7976,7 +7976,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "51",
+        "id": "388",
         "score": "054"
     },
     "389": {
@@ -8000,7 +8000,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "52",
+        "id": "389",
         "score": "053"
     },
     "390": {
@@ -8024,7 +8024,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "53",
+        "id": "390",
         "score": "052"
     },
     "391": {
@@ -8048,7 +8048,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "54",
+        "id": "391",
         "score": "051"
     },
     "392": {
@@ -8072,7 +8072,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "55",
+        "id": "392",
         "score": "050"
     },
     "393": {
@@ -8096,7 +8096,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "56",
+        "id": "393",
         "score": "049"
     },
     "394": {
@@ -8120,7 +8120,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "57",
+        "id": "394",
         "score": "048"
     },
     "395": {
@@ -8144,7 +8144,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "58",
+        "id": "395",
         "score": "061"
     },
     "396": {
@@ -8168,7 +8168,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "59",
+        "id": "396",
         "score": "060"
     },
     "397": {
@@ -8192,7 +8192,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "60",
+        "id": "397",
         "score": "059"
     },
     "398": {
@@ -8216,7 +8216,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "61",
+        "id": "398",
         "score": "065"
     },
     "399": {
@@ -8240,7 +8240,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "62",
+        "id": "399",
         "score": "064"
     },
     "400": {
@@ -8264,7 +8264,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "63",
+        "id": "400",
         "score": "063"
     },
     "401": {
@@ -8288,7 +8288,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "64",
+        "id": "401",
         "score": "062"
     },
     "402": {
@@ -8312,7 +8312,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "65",
+        "id": "402",
         "score": "068"
     },
     "403": {
@@ -8336,7 +8336,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "66",
+        "id": "403",
         "score": "067"
     },
     "404": {
@@ -8360,7 +8360,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "67",
+        "id": "404",
         "score": "066"
     },
     "405": {
@@ -8384,7 +8384,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "68",
+        "id": "405",
         "score": "070"
     },
     "406": {
@@ -8408,7 +8408,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "69",
+        "id": "406",
         "score": "069"
     },
     "407": {
@@ -8432,7 +8432,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "70",
+        "id": "407",
         "score": "072"
     },
     "408": {
@@ -8456,7 +8456,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "71",
+        "id": "408",
         "score": "071"
     },
     "409": {
@@ -8480,7 +8480,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "72",
+        "id": "409",
         "score": "073"
     },
     "410": {
@@ -8504,7 +8504,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "73",
+        "id": "410",
         "score": "074"
     },
     "411": {
@@ -8528,7 +8528,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "74",
+        "id": "411",
         "score": "075"
     },
     "412": {
@@ -8552,7 +8552,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "75",
+        "id": "412",
         "score": "076"
     },
     "413": {
@@ -8576,7 +8576,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "76",
+        "id": "413",
         "score": "082"
     },
     "414": {
@@ -8600,7 +8600,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "77",
+        "id": "414",
         "score": "081"
     },
     "415": {
@@ -8624,7 +8624,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "78",
+        "id": "415",
         "score": "080"
     },
     "416": {
@@ -8648,7 +8648,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "79",
+        "id": "416",
         "score": "079"
     },
     "417": {
@@ -8672,7 +8672,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "80",
+        "id": "417",
         "score": "078"
     },
     "418": {
@@ -8696,7 +8696,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "81",
+        "id": "418",
         "score": "077"
     },
     "419": {
@@ -8720,7 +8720,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "82",
+        "id": "419",
         "score": "084"
     },
     "420": {
@@ -8744,7 +8744,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "83",
+        "id": "420",
         "score": "083"
     },
     "421": {
@@ -8768,7 +8768,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "84",
+        "id": "421",
         "score": "087"
     },
     "422": {
@@ -8792,7 +8792,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "85",
+        "id": "422",
         "score": "086"
     },
     "423": {
@@ -8816,7 +8816,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "86",
+        "id": "423",
         "score": "085"
     },
     "424": {
@@ -8840,7 +8840,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "87",
+        "id": "424",
         "score": "090"
     },
     "425": {
@@ -8864,7 +8864,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "88",
+        "id": "425",
         "score": "089"
     },
     "426": {
@@ -8888,7 +8888,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "89",
+        "id": "426",
         "score": "088"
     },
     "427": {
@@ -8912,7 +8912,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "90",
+        "id": "427",
         "score": "091"
     },
     "428": {
@@ -8936,7 +8936,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "91",
+        "id": "428",
         "score": "099"
     },
     "429": {
@@ -8960,7 +8960,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "92",
+        "id": "429",
         "score": "098"
     },
     "430": {
@@ -8984,7 +8984,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "93",
+        "id": "430",
         "score": "097"
     },
     "431": {
@@ -9008,7 +9008,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "94",
+        "id": "431",
         "score": "096"
     },
     "432": {
@@ -9032,7 +9032,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "95",
+        "id": "432",
         "score": "095"
     },
     "433": {
@@ -9056,7 +9056,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "96",
+        "id": "433",
         "score": "094"
     },
     "434": {
@@ -9080,7 +9080,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "97",
+        "id": "434",
         "score": "093"
     },
     "435": {
@@ -9104,7 +9104,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "98",
+        "id": "435",
         "score": "092"
     },
     "436": {
@@ -9128,7 +9128,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "99",
+        "id": "436",
         "score": "114"
     },
     "437": {
@@ -9152,7 +9152,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "100",
+        "id": "437",
         "score": "113"
     },
     "438": {
@@ -9176,7 +9176,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "101",
+        "id": "438",
         "score": "112"
     },
     "439": {
@@ -9200,7 +9200,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "102",
+        "id": "439",
         "score": "111"
     },
     "440": {
@@ -9224,7 +9224,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "103",
+        "id": "440",
         "score": "110"
     },
     "441": {
@@ -9248,7 +9248,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "104",
+        "id": "441",
         "score": "109"
     },
     "442": {
@@ -9272,7 +9272,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "105",
+        "id": "442",
         "score": "108"
     },
     "443": {
@@ -9296,7 +9296,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "106",
+        "id": "443",
         "score": "107"
     },
     "444": {
@@ -9320,7 +9320,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "107",
+        "id": "444",
         "score": "106"
     },
     "445": {
@@ -9344,7 +9344,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "108",
+        "id": "445",
         "score": "105"
     },
     "446": {
@@ -9368,7 +9368,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "109",
+        "id": "446",
         "score": "104"
     },
     "447": {
@@ -9392,7 +9392,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "110",
+        "id": "447",
         "score": "103"
     },
     "448": {
@@ -9416,7 +9416,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "111",
+        "id": "448",
         "score": "102"
     },
     "449": {
@@ -9440,7 +9440,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "112",
+        "id": "449",
         "score": "101"
     },
     "450": {
@@ -9464,7 +9464,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "113",
+        "id": "450",
         "score": "100"
     },
     "451": {
@@ -9488,7 +9488,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "114",
+        "id": "451",
         "score": "130"
     },
     "452": {
@@ -9512,7 +9512,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "115",
+        "id": "452",
         "score": "129"
     },
     "453": {
@@ -9536,7 +9536,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "116",
+        "id": "453",
         "score": "128"
     },
     "454": {
@@ -9560,7 +9560,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "117",
+        "id": "454",
         "score": "127"
     },
     "455": {
@@ -9584,7 +9584,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "118",
+        "id": "455",
         "score": "126"
     },
     "456": {
@@ -9608,7 +9608,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "119",
+        "id": "456",
         "score": "125"
     },
     "457": {
@@ -9632,7 +9632,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "120",
+        "id": "457",
         "score": "124"
     },
     "458": {
@@ -9656,7 +9656,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "121",
+        "id": "458",
         "score": "123"
     },
     "459": {
@@ -9680,7 +9680,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "122",
+        "id": "459",
         "score": "122"
     },
     "460": {
@@ -9704,7 +9704,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "123",
+        "id": "460",
         "score": "121"
     },
     "461": {
@@ -9728,7 +9728,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "124",
+        "id": "461",
         "score": "120"
     },
     "462": {
@@ -9752,7 +9752,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "125",
+        "id": "462",
         "score": "119"
     },
     "463": {
@@ -9776,7 +9776,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "126",
+        "id": "463",
         "score": "118"
     },
     "464": {
@@ -9800,7 +9800,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "127",
+        "id": "464",
         "score": "117"
     },
     "465": {
@@ -9824,7 +9824,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "128",
+        "id": "465",
         "score": "116"
     },
     "466": {
@@ -9848,7 +9848,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "129",
+        "id": "466",
         "score": "115"
     },
     "467": {
@@ -9872,7 +9872,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "130",
+        "id": "467",
         "score": "132"
     },
     "468": {
@@ -9896,7 +9896,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "131",
+        "id": "468",
         "score": "131"
     },
     "469": {
@@ -9920,7 +9920,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "132",
+        "id": "469",
         "score": "133"
     },
     "470": {
@@ -9944,7 +9944,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "133",
+        "id": "470",
         "score": "134"
     },
     "471": {
@@ -9968,7 +9968,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "134",
+        "id": "471",
         "score": "135"
     },
     "472": {
@@ -9992,7 +9992,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "135",
+        "id": "472",
         "score": "136"
     },
     "473": {
@@ -10016,7 +10016,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "ultra rare",
         "type": "pets",
-        "id": "136",
+        "id": "473",
         "score": "137"
     },
     "474": {
@@ -10040,7 +10040,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "0",
+        "id": "474",
         "score": "001"
     },
     "475": {
@@ -10064,7 +10064,7 @@
         "fly&ride?": "\"true\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "1",
+        "id": "475",
         "score": "002"
     },
     "476": {
@@ -10088,7 +10088,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "2",
+        "id": "476",
         "score": "003"
     },
     "477": {
@@ -10112,7 +10112,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "3",
+        "id": "477",
         "score": "005"
     },
     "478": {
@@ -10136,7 +10136,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "4",
+        "id": "478",
         "score": "004"
     },
     "479": {
@@ -10160,7 +10160,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "5",
+        "id": "479",
         "score": "007"
     },
     "480": {
@@ -10184,7 +10184,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "6",
+        "id": "480",
         "score": "006"
     },
     "481": {
@@ -10208,7 +10208,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "7",
+        "id": "481",
         "score": "008"
     },
     "482": {
@@ -10232,7 +10232,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "8",
+        "id": "482",
         "score": "009"
     },
     "483": {
@@ -10256,7 +10256,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "9",
+        "id": "483",
         "score": "011"
     },
     "484": {
@@ -10280,7 +10280,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "10",
+        "id": "484",
         "score": "010"
     },
     "485": {
@@ -10304,7 +10304,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "11",
+        "id": "485",
         "score": "014"
     },
     "486": {
@@ -10328,7 +10328,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "12",
+        "id": "486",
         "score": "013"
     },
     "487": {
@@ -10352,7 +10352,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "13",
+        "id": "487",
         "score": "012"
     },
     "488": {
@@ -10376,7 +10376,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "14",
+        "id": "488",
         "score": "019"
     },
     "489": {
@@ -10400,7 +10400,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "15",
+        "id": "489",
         "score": "018"
     },
     "490": {
@@ -10424,7 +10424,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "16",
+        "id": "490",
         "score": "017"
     },
     "491": {
@@ -10448,7 +10448,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "17",
+        "id": "491",
         "score": "016"
     },
     "492": {
@@ -10472,7 +10472,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "18",
+        "id": "492",
         "score": "015"
     },
     "493": {
@@ -10496,7 +10496,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "19",
+        "id": "493",
         "score": "032"
     },
     "494": {
@@ -10520,7 +10520,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "20",
+        "id": "494",
         "score": "031"
     },
     "495": {
@@ -10544,7 +10544,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "21",
+        "id": "495",
         "score": "030"
     },
     "496": {
@@ -10568,7 +10568,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "22",
+        "id": "496",
         "score": "029"
     },
     "497": {
@@ -10592,7 +10592,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "23",
+        "id": "497",
         "score": "028"
     },
     "498": {
@@ -10616,7 +10616,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "24",
+        "id": "498",
         "score": "027"
     },
     "499": {
@@ -10640,7 +10640,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "25",
+        "id": "499",
         "score": "026"
     },
     "500": {
@@ -10664,7 +10664,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "26",
+        "id": "500",
         "score": "025"
     },
     "501": {
@@ -10688,7 +10688,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "27",
+        "id": "501",
         "score": "024"
     },
     "502": {
@@ -10712,7 +10712,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "28",
+        "id": "502",
         "score": "023"
     },
     "503": {
@@ -10736,7 +10736,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "29",
+        "id": "503",
         "score": "022"
     },
     "504": {
@@ -10760,7 +10760,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "30",
+        "id": "504",
         "score": "021"
     },
     "505": {
@@ -10784,7 +10784,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "31",
+        "id": "505",
         "score": "020"
     },
     "506": {
@@ -10808,7 +10808,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "32",
+        "id": "506",
         "score": "049"
     },
     "507": {
@@ -10832,7 +10832,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "33",
+        "id": "507",
         "score": "048"
     },
     "508": {
@@ -10856,7 +10856,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "34",
+        "id": "508",
         "score": "047"
     },
     "509": {
@@ -10880,7 +10880,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "35",
+        "id": "509",
         "score": "046"
     },
     "510": {
@@ -10904,7 +10904,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "36",
+        "id": "510",
         "score": "045"
     },
     "511": {
@@ -10928,7 +10928,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "37",
+        "id": "511",
         "score": "044"
     },
     "512": {
@@ -10952,7 +10952,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "38",
+        "id": "512",
         "score": "043"
     },
     "513": {
@@ -10976,7 +10976,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "39",
+        "id": "513",
         "score": "042"
     },
     "514": {
@@ -11000,7 +11000,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "40",
+        "id": "514",
         "score": "041"
     },
     "515": {
@@ -11024,7 +11024,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "41",
+        "id": "515",
         "score": "040"
     },
     "516": {
@@ -11048,7 +11048,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "42",
+        "id": "516",
         "score": "039"
     },
     "517": {
@@ -11072,7 +11072,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "43",
+        "id": "517",
         "score": "038"
     },
     "518": {
@@ -11096,7 +11096,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "44",
+        "id": "518",
         "score": "037"
     },
     "519": {
@@ -11120,7 +11120,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "45",
+        "id": "519",
         "score": "036"
     },
     "520": {
@@ -11144,7 +11144,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "46",
+        "id": "520",
         "score": "035"
     },
     "521": {
@@ -11168,7 +11168,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "47",
+        "id": "521",
         "score": "034"
     },
     "522": {
@@ -11192,7 +11192,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "48",
+        "id": "522",
         "score": "033"
     },
     "523": {
@@ -11216,7 +11216,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "49",
+        "id": "523",
         "score": "054"
     },
     "524": {
@@ -11240,7 +11240,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "50",
+        "id": "524",
         "score": "053"
     },
     "525": {
@@ -11264,7 +11264,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "51",
+        "id": "525",
         "score": "052"
     },
     "526": {
@@ -11288,7 +11288,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "52",
+        "id": "526",
         "score": "051"
     },
     "527": {
@@ -11312,7 +11312,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "53",
+        "id": "527",
         "score": "050"
     },
     "528": {
@@ -11336,7 +11336,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "54",
+        "id": "528",
         "score": "065"
     },
     "529": {
@@ -11360,7 +11360,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "55",
+        "id": "529",
         "score": "064"
     },
     "530": {
@@ -11384,7 +11384,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "56",
+        "id": "530",
         "score": "063"
     },
     "531": {
@@ -11408,7 +11408,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "57",
+        "id": "531",
         "score": "062"
     },
     "532": {
@@ -11432,7 +11432,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "58",
+        "id": "532",
         "score": "061"
     },
     "533": {
@@ -11456,7 +11456,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "59",
+        "id": "533",
         "score": "060"
     },
     "534": {
@@ -11480,7 +11480,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "60",
+        "id": "534",
         "score": "059"
     },
     "535": {
@@ -11504,7 +11504,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "61",
+        "id": "535",
         "score": "058"
     },
     "536": {
@@ -11528,7 +11528,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "62",
+        "id": "536",
         "score": "057"
     },
     "537": {
@@ -11552,7 +11552,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "63",
+        "id": "537",
         "score": "056"
     },
     "538": {
@@ -11576,7 +11576,7 @@
         "fly&ride?": "\"false\"",
         "rarity": "uncommon",
         "type": "pets",
-        "id": "64",
+        "id": "538",
         "score": "055"
     },
     "539": {
@@ -11585,7 +11585,7 @@
         "value": 285.0,
         "rarity": "common",
         "type": "vehicles",
-        "id": "0",
+        "id": "539",
         "score": "001"
     },
     "540": {
@@ -11594,7 +11594,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "1",
+        "id": "540",
         "score": "008"
     },
     "541": {
@@ -11603,7 +11603,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "2",
+        "id": "541",
         "score": "007"
     },
     "542": {
@@ -11612,7 +11612,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "3",
+        "id": "542",
         "score": "006"
     },
     "543": {
@@ -11621,7 +11621,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "4",
+        "id": "543",
         "score": "005"
     },
     "544": {
@@ -11630,7 +11630,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "5",
+        "id": "544",
         "score": "004"
     },
     "545": {
@@ -11639,7 +11639,7 @@
         "value": 2.25,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "6",
+        "id": "545",
         "score": "003"
     },
     "546": {
@@ -11648,7 +11648,7 @@
         "value": 23.0,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "7",
+        "id": "546",
         "score": "001"
     },
     "547": {
@@ -11657,7 +11657,7 @@
         "value": 17.0,
         "rarity": "legendary",
         "type": "vehicles",
-        "id": "8",
+        "id": "547",
         "score": "001"
     },
     "548": {
@@ -11666,7 +11666,7 @@
         "value": 16.0,
         "rarity": "legendary",
         "type": "vehicles",
-        "id": "9",
+        "id": "548",
         "score": "002"
     },
     "549": {
@@ -11675,7 +11675,7 @@
         "value": 4.75,
         "rarity": "ultra rare",
         "type": "vehicles",
-        "id": "10",
+        "id": "549",
         "score": "002"
     },
     "550": {
@@ -11684,7 +11684,7 @@
         "value": 4.5,
         "rarity": "legendary",
         "type": "vehicles",
-        "id": "11",
+        "id": "550",
         "score": "003"
     },
     "551": {
@@ -11693,7 +11693,7 @@
         "value": 3.75,
         "rarity": "legendary",
         "type": "vehicles",
-        "id": "12",
+        "id": "551",
         "score": "004"
     }
 }

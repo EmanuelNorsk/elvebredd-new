@@ -479,8 +479,8 @@
         ],
         "badges": {},
         "verified": 0,
-        "dailyStreak": 0,
-        "dailyStreakActivated": 1724969975.4538908,
+        "dailyStreak": 1,
+        "dailyStreakActivated": 1725048058.5161102,
         "wishlist": [
             {
                 "id": "0",
@@ -548,9 +548,9 @@
             }
         ],
         "lastActivity": [
-            "00/22:30:08:24",
+            "22/08:30:08:24",
             [
-                "petPage62",
+                "indexPage",
                 "127.0.0.1"
             ]
         ],
@@ -4350,6 +4350,62 @@
             "00/22:30:08:24": [
                 "petPage62",
                 "127.0.0.1"
+            ],
+            "14/28:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/30:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/32:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/37:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/38:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/39:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/41:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/00:30:08:24": [
+                "indexPage",
+                "127.0.0.1"
+            ],
+            "22/01:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/02:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/03:30:08:24": [
+                "petPage162",
+                "127.0.0.1"
+            ],
+            "22/04:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/05:30:08:24": [
+                "petPage449",
+                "127.0.0.1"
+            ],
+            "22/08:30:08:24": [
+                "indexPage",
+                "127.0.0.1"
             ]
         },
         "rewiews": {},
@@ -4361,6 +4417,10 @@
             [
                 "29",
                 "0"
+            ],
+            [
+                "3",
+                "4"
             ]
         ],
         "sessionToken": "x8lyUvEMZEHFMKao"
@@ -5767,6 +5827,10 @@
             [
                 "29",
                 "0"
+            ],
+            [
+                "3",
+                "4"
             ]
         ]
     },
@@ -6535,5 +6599,104 @@
         "pending": [],
         "accountCreatedRawTime": 1723380927.458739,
         "accountCreated": "14/55:11:08:24"
+    },
+    "7": {
+        "id": "7",
+        "username": "Emanuel69",
+        "robloxUsername": "Emanuel",
+        "email": "emanuel@gmail.com",
+        "password": "27d5b081609d314b76035ab17291e20557aac86fbde3a89dc3b7737cde85f32285768e512a109d285aeb34e39753eadb82a979a3efe9757cf4cbbd1ef16054ff",
+        "emailVerified": 0,
+        "sessionToken": "kUYQ89RCPkahFSBD",
+        "trades": [],
+        "completedTrades": [],
+        "inventory": [],
+        "moderator": 0,
+        "banned": 0,
+        "frozen": 0,
+        "reports": {},
+        "notifications": [
+            {
+                "head": "1st Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1725021159.6614685
+            },
+            {
+                "head": "2nd Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1725021159.6614685
+            }
+        ],
+        "preferences": {
+            "highTiers": 0,
+            "megaLegendaryPets": 0,
+            "neonLegendaryPets": 0,
+            "defaultLegendaryPets": 0,
+            "preppyPets": 0,
+            "randoms": 0,
+            "items": 0
+        },
+        "settings": {
+            "receiveNotifications": 1,
+            "allowUnderpays": 1,
+            "receiveEmailNotifications": 0,
+            "receiveFriendRequestNotification": 0
+        },
+        "friends": [],
+        "friendRequests": {
+            "sent": [],
+            "received": []
+        },
+        "misc": {},
+        "tags": {},
+        "messages": {},
+        "currency": 0,
+        "tokens": 0,
+        "achievements": {},
+        "collection": [
+            "default.png",
+            "dino.png"
+        ],
+        "badges": {},
+        "verified": 0,
+        "dailyStreak": 1,
+        "dailyStreakActivated": 1725021159.6614685,
+        "wishlist": [],
+        "lastActivity": [
+            "14/37:30:08:24",
+            [
+                "api",
+                "127.0.0.1"
+            ]
+        ],
+        "allActivity": {
+            "time.struct_time(tm_year=2024, tm_mon=8, tm_mday=30, tm_hour=14, tm_min=32, tm_sec=39, tm_wday=4, tm_yday=243, tm_isdst=1)": "accountCreated",
+            "14/32:30:08:24": [
+                "indexPage",
+                "127.0.0.1"
+            ],
+            "14/36:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/37:30:08:24": [
+                "api",
+                "127.0.0.1"
+            ]
+        },
+        "rewiews": {},
+        "newsRead": {},
+        "profilePicture": "default.png",
+        "blocked": [],
+        "inbox": [],
+        "pending": [],
+        "accountCreatedRawTime": 1725021159.6614685,
+        "accountCreated": "14/32:30:08:24"
     }
 }

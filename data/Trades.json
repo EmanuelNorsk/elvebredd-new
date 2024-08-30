@@ -1859,11 +1859,11 @@
         },
         "extraSharkValueRequested": 6,
         "completed": false,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1725021499,
+        "acceptedOfferID": "4",
+        "acceptedUser": "1",
+        "acceptedUserUsername": "Emanuel",
+        "acceptedUserRobloxUsername": "",
         "public": true,
         "visibleTo": "all",
         "customOffers": [
@@ -2170,7 +2170,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1724176782.7700355,
-                "status": "Pending"
+                "status": "Accepted"
             },
             {
                 "id": 5,
@@ -15829,6 +15829,35 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1724176787.6906195,
+                "status": "Pending"
+            },
+            {
+                "id": 15,
+                "pets": [
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "take",
+                "value": 1.5,
+                "owner": "7",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel69",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1725021420.8042753,
                 "status": "Pending"
             }
         ],

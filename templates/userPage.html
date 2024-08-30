@@ -4144,7 +4144,8 @@
             return response.json();
             })
             .then(data => {
-                if (data !== "ERROR") {
+                if (data != "ERROR") {
+                    console.log(data)
                     userPending.innerHTML = ""
                     data.forEach(key => {
                         const container = document.createElement("div")

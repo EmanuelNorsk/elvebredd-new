@@ -604,7 +604,8 @@ def getPendingDetails(userID):
         for friendID in UserData[userID]["friendRequests"]["received"]:
             output[friendID] = {"username":UserData[friendID]["username"], 
                                 "robloxUsername":UserData[friendID]["robloxUsername"],
-                                "profilePicture":UserData[friendID]["profilePicture"]
+                                "profilePicture":UserData[friendID]["profilePicture"],
+                                "id":UserData[friendID]["id"]
                                 }
     except KeyError:
         return {}

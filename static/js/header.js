@@ -264,12 +264,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     searchInput.addEventListener("focusout", event => {
         resultsPets.style.display = "none";
-        resultsPets.style.margin = "0px"
+        headerSearchBar.style.margin = "0px"
     })
 
-    searchInput.addEventListener("focusin", event => {
-        if (searchInput.innerText != "") {
-            resultsPets.style.display = "flex";
+    searchInput.addEventListener("focus", event => {
+        if (searchInput.value != "") {
+            formData = new FormData();
+            formData.append('input', searchInput.value)
+            formData.append('action', "searchPets");
+    
+            fetch('/api', {
+            method: 'POST',
+            body: formData
+            })
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+            })
+            .then(data => {
+                renderSearch(data)
+            })
+            .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            });
         }
     })
 

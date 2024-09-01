@@ -994,6 +994,14 @@ nav{
     transform:scale(1.1);
 }
 
+.slideArrow{
+   width:1.2%;
+   height:auto;
+   filter:brightness(100);
+   position:absolute;
+   z-index:10;
+   left:1.2%;
+}
 
 #slides > div > div {
     border-radius: inherit;

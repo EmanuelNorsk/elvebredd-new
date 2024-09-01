@@ -13,7 +13,7 @@
     </header>
     <div id="slides">
         <div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow left">
+            <figure></figure>
             <div style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(253, 249, 234) 100%), url('/static/images/slides/slide_1.png')">
                 <div>
                     <div>
@@ -34,10 +34,10 @@
                     <div></div>
                 </div>
             </div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow right">
+            <figure></figure>
         </div>
         <div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow left">
+            <figure></figure>
             <div style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(253, 249, 234) 100%), url('/static/images/slides/slide_2.png')">
                 <div>
                     <div>
@@ -58,10 +58,10 @@
                     <div></div>
                 </div>
             </div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow right">
+            <figure></figure>
         </div>
         <div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow left">
+            <figure></figure>
             <div style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(253, 249, 234) 100%), url('/static/images/slides/slide_3.png')">
                 <div>
                     <div>
@@ -86,10 +86,10 @@
                     <div></div>
                 </div>
             </div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow right">
+            <figure></figure>
         </div>
         <div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow left">
+            <figure></figure>
             <div style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(253, 249, 234) 100%), url('/static/images/slides/slide_3.png')">
                 <div>
                     <div>
@@ -114,10 +114,10 @@
                     <div></div>
                 </div>
             </div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow right">
+            <figure></figure>
         </div>
         <div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow left">
+            <figure></figure>
             <div style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(253, 249, 234) 100%), url('/static/images/slides/slide_1.png')">
                 <div>
                     <div>
@@ -138,7 +138,7 @@
                     <div></div>
                 </div>
             </div>
-            <img src="/static/images/misc/arrow.png" class="slideArrow right">
+            <figure></figure>
         </div>
     </div>
     <div id="quickNavigation">
@@ -630,20 +630,16 @@
             if (posLeft == 0) {
                 slides.children[i].style.cursor = "default"
                 slides.children[i].setAttribute("onclick", "")
-                slides.children[i].querySelectorAll("img").forEach(image => {
-                    if (Array.from(slides.children[i].children).includes(image)) {
-                        image.style.display = "none"
-                    }
+                slides.children[i].querySelectorAll("figure").forEach(figure => {
+                    figure.style.display = "none"
                 })
                 slides.children[i].style.filter = "none"
                 slides.children[i].style.opacity = "1"
             }  else {
                 slides.children[i].setAttribute("onclick", "changeSlideTo(" + i.toString() + ")")
                 slides.children[i].style.cursor = "pointer"
-                slides.children[i].querySelectorAll("img").forEach(image => {
-                    if (Array.from(slides.children[i].children).includes(image)) {
-                        image.style.display = "block"
-                    }
+                slides.children[i].querySelectorAll("figure").forEach(figure => {
+                    figure.style.display = "block"
                 })
                 slides.children[i].style.filter = "grayscale(0.6) brightness(1.05)"
                 slides.children[i].style.opacity = "0.3"
@@ -673,7 +669,8 @@
     initiateSlides()
     updateSlides()
 
-    setTimeout(event => {
+    if (1 == 2) {
+        setTimeout(event => {
         if (userInterruptSlideScroll == 0) {
             changeSlideBy(1)
         } else {
@@ -687,6 +684,7 @@
             }
         }, 15000)
     }, 7500)
+    }
 
     
 

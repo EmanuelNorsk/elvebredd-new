@@ -984,32 +984,37 @@ nav{
     border-radius: calc(var(--slide-size) / 100);
 }
 
-#slides > div > img{
+#slides > div > figure {
+    width:26%;
+    height:115%;
+    margin:0px;
+    position:absolute;
+    z-index:10;
+    background-color:rgb(253, 249, 234);
+    mask-image:url("/static/images/misc/arrow.png");
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform:scale(0.05);
+    transition:transform 0.4s ease, opacity 0.4s ease;
+    display:none;
     opacity:0;
-    transition:0.3s ease;
-}
+ }
 
-#slides > div:hover > img{
+ #slides > div:hover > figure {
+    transform:scale(0.07);
     opacity:1;
-    transform:scale(1.1);
+ }
+
+#slides > div > figure:nth-child(1) {
+   left:-11%;
 }
 
-.slideArrow{
-   width:1.2%;
-   height:auto;
-   filter:brightness(100);
-   position:absolute;
-   z-index:10;
-}
-
-.slideArrow.left{
-    left:1.2%;
-}
-
-.slideArrow.right{
-    right:1.2%;
+#slides > div > figure:nth-child(3) {
+    right:-11%;
     rotate:180deg;
-}
+ }
+
 
 #slides > div > div {
     border-radius: inherit;

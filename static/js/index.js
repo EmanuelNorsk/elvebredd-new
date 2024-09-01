@@ -212,6 +212,8 @@ function initiateSlides() {
 
 function updateSlides() {
     // 90vw + 1.5vw = 91.5vw
+    var slideDots = document.getElementById("slideDots")
+    slideDots.innerHTML = ""
     var onSlide = parseInt(slides.getAttribute("onslide"))
     const distance = 1.5 + parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--slide-size').toString().replace("vw", ""))
     for (let i = 0; i < slides.children.length; i++) {
@@ -253,8 +255,10 @@ function updateSlides() {
                 slides.children[i].setAttribute("side", "right")
             }
         }
-
+        const div = document.createElement("div")
+        div.setAttribute("onclick", "changeSlideTo(" + i.toString() + ")")
         if (posLeft == 0) {
+            div.className = "red"
             slides.children[i].style.cursor = "default"
             slides.children[i].setAttribute("onclick", "")
             slides.children[i].querySelectorAll("figure").forEach(figure => {
@@ -271,6 +275,7 @@ function updateSlides() {
             slides.children[i].style.filter = "grayscale(0.6) brightness(1.05)"
             slides.children[i].style.opacity = "0.3"
         } 
+        slideDots.appendChild(div)
         
     }
 }

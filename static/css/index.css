@@ -959,6 +959,30 @@ nav{
     pointer-events:none;
 }
 
+#slideDots {
+    position:absolute;
+    transform:translate(-50%, 0%);
+    left:50%;
+    top:33.5vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    gap:1.25vw;
+}
+
+#slideDots div {
+    width:0.5vw;
+    aspect-ratio:1/1;
+    border-radius:100%;
+    background-color:rgb(253, 249, 234);
+    border:0.05vw solid white;
+    cursor:pointer;
+}
+
+#slideDots div.red {
+    background-color:rgb(255, 102, 102) !important;
+}
+
 #slides{
     width:100vw;
     aspect-ratio:3/1;

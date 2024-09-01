@@ -1000,7 +1000,15 @@ nav{
    filter:brightness(100);
    position:absolute;
    z-index:10;
-   left:1.2%;
+}
+
+.slideArrow.left{
+    left:1.2%;
+}
+
+.slideArrow.right{
+    right:1.2%;
+    rotate:180deg;
 }
 
 #slides > div > div {

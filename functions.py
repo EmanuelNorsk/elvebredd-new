@@ -577,7 +577,6 @@ def searchPets(input):
         for petID, pet in Pets.items():
             petName = pet["name"].lstrip("'").lower()
             inputNew = input.lstrip("'").lower()
-            print(petName, inputNew)
             if len(output) < 5:
                 if petName.startswith(inputNew) or pet["name"].lower().startswith(input.lower()):
                     output.append(pet)
@@ -1473,7 +1472,6 @@ def createTrades(maxID):
 def generateListings(amount, user, offerUser):
     global Pets
     for x in range(amount):
-        print(x)
         trade1, trade2 = createTrades(len(Pets.keys()) - 1)
         id, output, success = createListing(user, trade1, trade2, True, "all", random.randint(-10,10))
         if success == 1:

@@ -321,6 +321,13 @@ nav{
     outline:none;
 }
 
+#resultsPets {
+    padding-top:5rem;
+    width:105%;
+    box-sizing:border-box;
+    display:none;
+}
+
 .resultPet{
     display:flex;
     flex-direction:row;
@@ -329,13 +336,27 @@ nav{
     text-decoration:none;
     align-items:center;
     color:black;
-    border-top:0.5px solid lightgray;
+    border-top:0.05vw solid lightgray;
+    box-sizing:border-box;
+    width:100%;
+    padding-top:3rem;
+    padding-bottom:3rem;
+    gap:5rem;
 }
 
 .resultPet p{
     text-decoration:none;
-    color:black;
+    color:rgb(109, 107, 112);
+    font-weight:bold;
+    font-family:"Aileron", sans-serif;
     margin:0px;
+    width:100%;
+    font-size:13rem;
+}
+
+.resultPet img{
+    height:35rem;
+    width:auto;
 }
 
 #closeButtonSettings{

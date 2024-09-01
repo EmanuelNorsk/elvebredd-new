@@ -198,6 +198,41 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     updateHeader();
 
+    function renderSearch(data) {
+        resultsPets.innerHTML = ""
+        for (const i in data[0]) {
+            const a = document.createElement("a")
+            a.className = "resultPet"
+
+            const p = document.createElement("p")
+            p.innerText = data[0][i]["name"]
+
+            const img = document.createElement("img")
+            img.src = data[0][i]["image"]
+
+            img.style.aspectRatio = "1/1"
+            a.appendChild(img)
+            a.appendChild(p)
+            a.href = "/pet/" + data[1][i]
+            if (parseInt(i) + 1 == data[0].length) {
+                a.style.borderBottom = "0.5px solid lightgray"
+            }
+            resultsPets.appendChild(a)
+        }
+        headerSearchBar.style.marginTop = "0px"
+        if (data[0].length > 0) {
+            headerSearchBar.style.paddingBottom = "0%"
+            resultsPets.style.display = "block";
+        } else {
+            headerSearchBar.style.paddingBottom = "0%"
+            resultsPets.style.display = "none";
+        }
+
+        headerSearchBar.style.marginTop = (headerSearchBar.getBoundingClientRect().height - (headerSearchBarMain.getBoundingClientRect().height + 2)).toString() + "px"
+        
+        updateHeader()
+    }
+
     searchInput.addEventListener("input", (event) => {
         formData = new FormData();
         formData.append('input', searchInput.value)
@@ -214,56 +249,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         return response.json();
         })
         .then(data => {
-            resultsPets.innerHTML = ""
-            for (const i in data[0]) {
-                const a = document.createElement("a")
-                a.className = "resultPet"
-                if (window.innerHeight < 600) {
-                    a.style.height = "22.2px"
-                } else if (window.innerHeight < 1080) {
-                    a.style.height = "3.7vh"
-                } else {
-                    a.style.height = "40px"
-                }
-                const p = document.createElement("p")
-                p.innerText = data[0][i]["name"]
-                if (window.innerHeight < 600) {
-                    p.style.fontSize = "10px"
-                } else if (window.innerHeight < 1080) {
-                    p.style.fontSize = "1.66vh"
-                } else {
-                    p.style.fontSize = "18px"
-                }
-
-
-                const img = document.createElement("img")
-                img.src = data[0][i]["image"]
-                if (window.innerHeight < 600) {
-                    img.style.height = "22.2px"
-                } else if (window.innerHeight < 1080) {
-                    img.style.height = "3.7vh"
-                } else {
-                    img.style.height = "40px"
-                }
-                img.style.aspectRatio = "1/1"
-                a.appendChild(p)
-                a.appendChild(img)
-                a.href = "/pet/" + data[1][i]
-                if (parseInt(i) + 1 == data[0].length) {
-                    a.style.borderBottom = "0.5px solid lightgray"
-                }
-                resultsPets.appendChild(a)
-            }
-            headerSearchBar.style.marginTop = "0px"
-            if (data[0].length > 0) {
-                headerSearchBar.style.paddingBottom = "8%"
-            } else {
-                headerSearchBar.style.paddingBottom = "0%"
-            }
-
-            headerSearchBar.style.marginTop = (headerSearchBar.getBoundingClientRect().height - (headerSearchBarMain.getBoundingClientRect().height + 2)).toString() + "px"
-            
-            updateHeader()
+            renderSearch(data)
         })
         .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
@@ -273,6 +259,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
     searchInput.addEventListener("keydown", (event) => {
         if (event.key == "Enter") {
             search()
+        }
+    })
+
+    searchInput.addEventListener("focusout", event => {
+        resultsPets.style.display = "none";
+        resultsPets.style.margin = "0px"
+    })
+
+    searchInput.addEventListener("focusin", event => {
+        if (searchInput.innerText != "") {
+            resultsPets.style.display = "flex";
         }
     })
 

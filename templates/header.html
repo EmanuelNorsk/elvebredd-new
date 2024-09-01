@@ -8,10 +8,10 @@
 <div>
     <nav>
         <div class="center headerElement auto" style="padding-left:70rem;">
-            <button onclick="openMenuBar()" class="center blank button lightHover">
-                <img id="menuImage" src="{{ url_for('static', filename='images/misc/menu.png') }}">
+            <button onclick="openMenuBar()" title="menu image button" class="center blank button lightHover">
+                <img id="menuImage" alt="menu image" src="{{ url_for('static', filename='images/misc/menu.png') }}">
             </button>
-            <button onclick="openMenuBar()" class="center blank button lightHover" style="padding-right:15rem;padding-bottom:7rem;">
+            <button onclick="openMenuBar()" title="menu text button" class="center blank button lightHover" style="padding-right:15rem;padding-bottom:7rem;">
                 <p class="headerText" id="menuTextButton">Menu</p>
             </button>
             <div id="headerSearchBar">

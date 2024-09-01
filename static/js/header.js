@@ -82,7 +82,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         })
     };
 
-    if (document.title == "Index") {
+    if (document.title == "Index" && 1 == 2) {
         window.addEventListener("scroll", (event) => {
             if (loggedIn == "True") {
                 profileMenu.style.display = "none";
@@ -140,7 +140,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         };        
     };
 
-    if (document.title == "Index") {
+    if (document.title == "Index" && 1 == 2) {
         if (loggedIn == "True") {
             profileMenu.style.display = "none";
         };

@@ -29,16 +29,20 @@ var scrollStrength = 1
 var lastFilter = "all"
 var petsAdded = 0
 var listingSize = 310
+var body = document.createElement("div")
+
+var petsDict = {}
+var userData = {}
 
 
 window.addEventListener("DOMContentLoaded", event => {
-    var body = document.body
+    body = document.body
     var tradesDictElement = document.getElementById("tradesDict")
     var trades = JSON.parse(tradesDictElement.textContent)
     var petsDictElement = document.getElementById("petsDict-data")
-    var petsDict = JSON.parse(petsDictElement.textContent)
+    petsDict = JSON.parse(petsDictElement.textContent)
     var userDataElement = document.getElementById("userData-data")
-    var userData = JSON.parse(userDataElement.textContent)
+    userData = JSON.parse(userDataElement.textContent)
     var listingsCategory1 = document.getElementById("listingsCategory1")
     var listingsCategory2 = document.getElementById("listingsCategory2")
     var listingsCategory3 = document.getElementById("listingsCategory3")

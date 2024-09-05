@@ -21,9 +21,11 @@ var friendData = ""
 var currentFriendSelected = ""
 var pendingData = ""
 var displayPetsFirstTime = 0
-var loggedIn = 0
+var loggedIn = false
 var userID = "0"
 var profileID = "0"
+var maxPets = 18
+
 
 var tradePart1Element = document.createElement("div")
 var tradePart2Element = document.createElement("div")
@@ -38,6 +40,8 @@ var rideButton = document.createElement("div")
 var regularButton = document.createElement("div")
 var neonButton = document.createElement("div")
 var megaButton = document.createElement("div")
+
+var petImage = document.createElement("div")
 
 window.addEventListener("DOMContentLoaded", function() {
     var loggedInElement = document.getElementById("loggedIn-data")
@@ -69,7 +73,7 @@ window.addEventListener("DOMContentLoaded", function() {
     var profileDataDictElement = document.getElementById("profileDataDict-data")
     var profileDataDict = JSON.parse(profileDataDictElement.textContent)
 
-    var petImage = document.querySelectorAll(".petImage")
+    petImage = document.querySelectorAll(".petImage")
 
     flyButton = document.getElementById("flyButton")
     rideButton = document.getElementById("rideButton")
@@ -212,7 +216,7 @@ window.addEventListener("DOMContentLoaded", function() {
     displayPending()
     displayBlocked()
     showInbox()
-    showPendingDiv()
+    //showPendingDiv()
     showHistoryDiv()
 
 });
@@ -646,6 +650,42 @@ function removePetFromInventory(type, pet) {
     } else if (type == "listing2") {
         listingPart2Dict.splice(pet, 1)
         updateListingInterface2()
+    } else if (type == "createListingInterfaceYourOffer" || type == "createListingInterfaceTheirOffer") {
+        var createListingInterface = document.getElementById("createListingInterface")
+        if (type == "createListingInterfaceYourOffer") {
+            var grid = createListingInterface.children[1].children[0].children[0]
+        } else {
+            var grid = createListingInterface.children[1].children[0].children[2]
+        }
+        grid.removeChild(grid.children[parseInt(pet)])
+        for (let i = 1; i < grid.children.length; i++) {
+            if (grid.children[i].innerHTML != "") {
+                grid.children[i].setAttribute("onclick", `removePetFromInventory('${type}', '${i.toString()}')`)
+            }
+        }
+        if (grid.children.length < 9) {
+            for (let i = parseInt(grid.children.length); i < 9; i++) {
+                const div = document.createElement("div")
+                div.className = "first"
+                grid.appendChild(div)
+            }
+        } else {
+            for (let i = grid.children.length - 1; i >= 0; i--) {
+                if (grid.children[i].innerHTML == "") {
+                    grid.removeChild(grid.children[i])
+                }
+            }
+            let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
+            for (let i = 0; i < loopAmount; i++) {
+                console.log(i)
+                const div = document.createElement("div")
+                div.className = "first"
+                grid.appendChild(div)
+            }
+        }
+        if (grid.children.length <= maxPets) {
+            grid.children[0].style.display = "flex"
+        }
     }
 }
 
@@ -1228,7 +1268,7 @@ function showUserListings(listings, target) {
 
         div.appendChild(div2)
         div.appendChild(div3)
-        if ( loggedIn == "True" ) {
+        if ( loggedIn.includes("True") ) {
             div.setAttribute("onclick", "showUserListings2(" + JSON.stringify(listings[key]) + ")");
         }
         target.appendChild(div)
@@ -2510,6 +2550,126 @@ function addPetToInventory(pet) {
             "mega":mega
         })
         updateListingInterface2()
+    } else if (addPetType == "createListingInterfaceYourOffer" || addPetType == "createListingInterfaceTheirOffer") {
+        var createListingInterface = document.getElementById("createListingInterface")
+        if (addPetType == "createListingInterfaceYourOffer") {
+            var grid = createListingInterface.children[1].children[0].children[0]
+        } else {
+            var grid = createListingInterface.children[1].children[0].children[2]
+        }
+        const div = document.createElement("div")
+        div.setAttribute("data-dict", JSON.stringify({
+            "id":pet,
+            "fly":fly,
+            "ride":ride,
+            "regular":regular,
+            "neon":neon,
+            "mega":mega
+        }))
+        const img = document.createElement("img")
+        img.src = petsDict[pet]["image"]
+        div.appendChild(img)
+        if (window.getComputedStyle(grid.children[0]).display != "none" && grid.children.length <= maxPets) {
+            grid.appendChild(div)
+            if (grid.children.length > 9) {
+                for (let i = 1; i < grid.children.length; i++) {
+                    if (grid.children[i].innerHTML == "") {
+                        grid.removeChild(grid.children[i])
+                    }
+                    if (grid.children.length == 9) {
+                        break
+                    }
+                }
+            }
+            if (grid.children.length > 9) {
+                if (Math.ceil(grid.children.length / 3) * 3 > maxPets) {
+                    for (let i = 1; i < grid.children.length; i++) {
+                        if (grid.children[i].innerHTML == "") {
+                            grid.removeChild(grid.children[i])
+                        }
+                        if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length == 0) {
+                            break
+                        }
+                    }
+                }
+                if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length != 0) {
+                    let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
+                    for (let i = 0; i < loopAmount; i++) {
+                        console.log(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
+                        let div = document.createElement("div")
+                        div.className = "first"
+                        if (grid.children.length <= maxPets) {
+                            grid.appendChild(div)
+                        }
+                    }
+                }
+            }
+        }
+        if (grid.children.length > maxPets) {
+            grid.children[0].style.display = "none"
+        } else {
+            grid.children[0].style.display = "flex"
+        }
+        div.setAttribute("onclick", "removePetFromInventory('" + addPetType.toString() + "', '" + Array.from(grid.children).indexOf(div).toString() + "')")
+        
+    } else if (addPetType == "createListingInterfaceTheirOffer") {
+        var createListingInterface = document.getElementById("createListingInterface")
+        var grid = createListingInterface.children[1].children[0].children[2]
+        const div = document.createElement("div")
+        div.setAttribute("data-dict", JSON.stringify({
+            "id":pet,
+            "fly":fly,
+            "ride":ride,
+            "regular":regular,
+            "neon":neon,
+            "mega":mega
+        }))
+        const img = document.createElement("img")
+        img.src = petsDict[pet]["image"]
+        div.appendChild(img)
+        if (window.getComputedStyle(grid.children[0]).display != "none" && grid.children.length <= maxPets) {
+            grid.appendChild(div)
+            if (grid.children.length > 9) {
+                for (let i = 1; i < grid.children.length; i++) {
+                    if (grid.children[i].innerHTML == "") {
+                        grid.removeChild(grid.children[i])
+                    }
+                    if (grid.children.length == 9) {
+                        break
+                    }
+                }
+            }
+            if (grid.children.length > 9) {
+                if (Math.ceil(grid.children.length / 3) * 3 > maxPets) {
+                    for (let i = 1; i < grid.children.length; i++) {
+                        if (grid.children[i].innerHTML == "") {
+                            grid.removeChild(grid.children[i])
+                        }
+                        if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length == 0) {
+                            break
+                        }
+                    }
+                }
+                if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length != 0) {
+                    let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
+                    for (let i = 0; i < loopAmount; i++) {
+                        console.log(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
+                        let div = document.createElement("div")
+                        div.className = "first"
+                        if (grid.children.length <= maxPets) {
+                            grid.appendChild(div)
+                        }
+                    }
+                }
+            }
+        }
+        if (grid.children.length > maxPets) {
+            grid.children[0].style.display = "none"
+        } else {
+            grid.children[0].style.display = "flex"
+        }
+        div.setAttribute("onclick", "removePetFromInventory('createListingInterfaceTheirOffer', " + Array.from(grid.children).indexOf(div).toString() + ")")
+
     }
 };
 
@@ -3124,7 +3284,7 @@ function rejectRequestMore() {
 }
 
 function displayPets() {
-    if (loggedIn == "True" && displayPetsFirstTime == 0) {
+    if (loggedIn.includes("True") && displayPetsFirstTime == 0) {
         displayPetsFirstTime = 1
         petImages.innerHTML = ""
         Object.keys(petsDict).forEach(key => {
@@ -4035,4 +4195,21 @@ function updateViews(index) {
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
+}
+
+function setCalculationValue(type) {
+    var chooseValueButtons = document.querySelectorAll(".chooseValueButton")
+    calculateWithValue = type
+    chooseValueButtons.forEach(div => {
+        const children = div.children
+
+        for (let i = 0; i < children.length; i++) {
+            if (type == "shark") {
+                children[i].style.left = "0%"
+            } else if (type == "frost") {
+                children[i].style.left = "50%"
+            }
+        }
+    })
+
 }

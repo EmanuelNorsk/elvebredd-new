@@ -1,3 +1,5 @@
+var inputs = document.createElement("div")
+
 window.addEventListener("DOMContentLoaded", (event) => {
     var nav = document.querySelector("nav");
     var menuImage = document.getElementById("menuImage");
@@ -14,6 +16,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var menuTextButton = document.getElementById("menuTextButton");
     var profileClick = 0
     var scrollY = 0
+
+    inputs = document.querySelectorAll('input');
 
     var main = document.querySelector("main")
 
@@ -346,6 +350,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
     //<div class="smallLine blackBackground"> &nbsp; </div>
     //</img><p class="headerText lightHover" style="font-size:6px;color:white;"><a href="/notifications" class="bland headerText" style="color:white;">Read All Notifications</a></p>
 
+    function handleFocus() {
+        this.setAttribute('data-placeholder', this.getAttribute('placeholder')); // Store the placeholder value
+        this.setAttribute('placeholder', ''); // Clear the placeholder
+      }
+  
+
+      function handleBlur() {
+        if (this.value === '') {
+          this.setAttribute('placeholder', this.getAttribute('data-placeholder')); // Restore the original placeholder
+        }
+      }
+  
+
+      inputs.forEach(input => {
+        input.addEventListener('focus', handleFocus);
+        input.addEventListener('blur', handleBlur);
+      });
 
 });
 

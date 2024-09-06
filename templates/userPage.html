@@ -49,7 +49,7 @@
                 </div>
                 <div class="center" style="padding-top:25px;gap:15px;">
                     {% if profileID|string == userID|string %}
-                        <button onclick="setTradeTo(-1);openListingInterface()" class="profileButton" style="display:flex;align-items:center;justify-content:center;">
+                        <button onclick="openCreateListingInterface()" class="profileButton" style="display:flex;align-items:center;justify-content:center;">
                             <p class="noMargin" style="font-size:15rem;">New Listing</p>
                         </button>
                         <button onclick="openInventory(); setAddPetTypeTo('inventory')" class="profileButton" style="display:flex;align-items:center;justify-content:center;">
@@ -573,7 +573,7 @@
                         <p>You can add</p>
                     </div>
                     <div>
-                        <button><p>Cancel</p></button>
+                        <button onclick="closeCreateListingInterface()"><p>Cancel</p></button>
                         <button><p>Complete</p></button>
                     </div>
                     <div>
@@ -602,6 +602,9 @@
         &nbsp;
     </div>
     <div onclick="closeListingInterface2()" id="listingInterface2Background">
+        &nbsp;
+    </div>
+    <div onclick="closeCreateListingInterface()" id="createListingInterfaceBackground">
         &nbsp;
     </div>
     <div id="petAdded">

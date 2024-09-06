@@ -6,6 +6,7 @@ var mega = 0
 var lastFilter = "all"
 var petsAdded = 0
 var calculateWithValue = "shark"
+var frostWorth = 1 / 105
 var filteredPets = 0
 var addPetType = "inventory"
 var tradePart1 = []
@@ -677,7 +678,6 @@ function removePetFromInventory(type, pet) {
             }
             let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
             for (let i = 0; i < loopAmount; i++) {
-                console.log(i)
                 const div = document.createElement("div")
                 div.className = "first"
                 grid.appendChild(div)
@@ -686,6 +686,7 @@ function removePetFromInventory(type, pet) {
         if (grid.children.length <= maxPets) {
             grid.children[0].style.display = "flex"
         }
+        insertValuesIntoCreateListingInterface()
     }
 }
 
@@ -2595,7 +2596,6 @@ function addPetToInventory(pet) {
                 if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length != 0) {
                     let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
                     for (let i = 0; i < loopAmount; i++) {
-                        console.log(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
                         let div = document.createElement("div")
                         div.className = "first"
                         if (grid.children.length <= maxPets) {
@@ -2611,6 +2611,7 @@ function addPetToInventory(pet) {
             grid.children[0].style.display = "flex"
         }
         div.setAttribute("onclick", "removePetFromInventory('" + addPetType.toString() + "', '" + Array.from(grid.children).indexOf(div).toString() + "')")
+        insertValuesIntoCreateListingInterface()
         
     } else if (addPetType == "createListingInterfaceTheirOffer") {
         var createListingInterface = document.getElementById("createListingInterface")
@@ -2653,7 +2654,6 @@ function addPetToInventory(pet) {
                 if (Math.ceil(grid.children.length / 3) * 3 - grid.children.length != 0) {
                     let loopAmount = parseInt(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
                     for (let i = 0; i < loopAmount; i++) {
-                        console.log(Math.ceil(grid.children.length / 3) * 3 - grid.children.length)
                         let div = document.createElement("div")
                         div.className = "first"
                         if (grid.children.length <= maxPets) {
@@ -3751,7 +3751,6 @@ function showPendingDiv() {
         })
         .then(data => {
             if (data != "ERROR") {
-                console.log(data)
                 userPending.innerHTML = ""
                 data.forEach(key => {
                     const container = document.createElement("div")
@@ -4211,5 +4210,126 @@ function setCalculationValue(type) {
             }
         }
     })
+    insertValuesIntoCreateListingInterface()
 
+}
+
+function openCreateListingInterface() {
+    var createListingInterface = document.getElementById("createListingInterface")
+    var createListingInterfaceBackground = document.getElementById("createListingInterfaceBackground")
+    createListingInterface.style.display = "flex"
+    createListingInterfaceBackground.style.display = "flex"
+    var grid1 = createListingInterface.children[1].children[0].children[0]
+    var grid2 = createListingInterface.children[1].children[0].children[2]
+}
+
+function closeCreateListingInterface() {
+    var createListingInterface = document.getElementById("createListingInterface")
+    var createListingInterfaceBackground = document.getElementById("createListingInterfaceBackground")
+    createListingInterface.style.display = "none"
+    createListingInterfaceBackground.style.display = "none"
+    var grid1 = createListingInterface.children[1].children[0].children[0]
+    var grid2 = createListingInterface.children[1].children[0].children[2]
+    for (let i = grid1.children.length - 1; i > 0; i--) {
+        grid1.removeChild(grid1.children[i])
+    }
+    for (let i = grid2.children.length - 1; i > 0; i--) {
+        grid2.removeChild(grid2.children[i])
+    }
+    
+    for (let i = 0; i < 8; i++) {
+        let div = document.createElement("div")
+        div.className = "first"
+        grid1.appendChild(div)
+        div = document.createElement("div")
+        div.className = "first"
+        grid2.appendChild(div)
+    }
+}
+
+function calculateTotalValue(grid) {
+    let value = 0
+    for (let i = 1; i < grid.children.length; i++) {
+        if (grid.children[i].innerHTML != "") {
+            let dict = JSON.parse(grid.children[i].getAttribute("data-dict"))
+            let keyword = ""
+            if ("value" in dict) {
+                keyword = "value"
+            } else {
+                if (dict["mega"] == 1) {
+                    keyword += "m"
+                } else if (dict["neon"] == 1) {
+                    keyword += "n"
+                } else {
+                    keyword += "r"
+                } 
+                keyword += "value"
+                if (dict["fly"] == 1 && dict["ride"] == 1) {
+                    keyword += " - fly&ride"
+                } else if (dict["fly"] == 1) {
+                    keyword += " - fly"
+                } else if (dict["ride"] == 1) {
+                    keyword += " - ride"
+                }
+                petValue = parseFloat(petsDict[dict["id"]][keyword])
+                if (calculateWithValue == "frost") {
+                    petValue *= frostWorth
+                }
+                if (petValue > 0) {
+                    value += petValue
+                }
+            }
+        }
+    }
+    return value
+}
+
+function insertValuesIntoCreateListingInterface() {
+    var createListingInterface = document.getElementById("createListingInterface")
+    var grid1 = createListingInterface.children[1].children[0].children[0]
+    var grid2 = createListingInterface.children[1].children[0].children[2]
+    var value1 = calculateTotalValue(grid1).toFixed(2)
+    if (Math.round(value1) - value1 < 0.02) {
+        value1 = Math.round(value1)
+    }
+    var value2 = calculateTotalValue(grid2).toFixed(2)
+    if (Math.round(value2) - value2 < 0.02) {
+        value2 = Math.round(value2)
+    }
+    var child1 = createListingInterface.children[0].children[0].children[0].children[0]
+    var child2 = createListingInterface.children[0].children[4].children[0].children[0]
+    child1.innerText = value1
+    child1.style.fontSize = (100 / ((child1.innerText.length + 1.5) / 2.5)).toString() + "%"
+    child2.innerText = value2
+    child2.style.fontSize = (100 / ((child2.innerText.length + 1.5) / 2.5)).toString() + "%"
+    var child3 = createListingInterface.children[1].children[0].children[1].children[0]
+    child3.innerText = Math.abs(value1 - value2)
+    child3.style.fontSize = (100 / ((child3.innerText.length + 1) / 2)).toString() + "%"
+    var child3Div = createListingInterface.children[1].children[0].children[1]
+    child3Div.classList.remove("upAnimation")
+    child3Div.classList.remove("downAnimation")
+    if (value1 > value2) {
+        child3Div.classList.add("downAnimation")
+        child1.style.color = "rgb(255, 102, 102)"
+        child2.style.color = "rgb(109, 107, 112)"
+        child3.style.color = "rgb(255, 102, 102)"
+    } else if (value1 < value2) {
+        child3Div.classList.add("upAnimation")
+        child1.style.color = "rgb(109, 107, 112)"
+        child2.style.color = "rgb(255, 102, 102)"
+        child3.style.color = "rgb(54, 53, 55)"
+    } else {
+        child1.style.color = "rgb(109, 107, 112)"
+        child2.style.color = "rgb(109, 107, 112)"
+        child3.style.color = "rgb(54, 53, 55)"
+    }
+    var bar = createListingInterface.children[0].children[3].children[0]
+    var width = (parseFloat(value1) / (parseFloat(value1) + parseFloat(value2)) * 100).toFixed(0).toString()
+    if (width == "Infinity") {
+        width = "100"
+    }
+    if (value1 == 0 && value2 == 0) {
+        width = "50"
+    }
+    bar.style.width = width + "%"
 }

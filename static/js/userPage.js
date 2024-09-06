@@ -4322,10 +4322,15 @@ function insertValuesIntoCreateListingInterface() {
     var grid1 = createListingInterface.children[1].children[0].children[0]
     var grid2 = createListingInterface.children[1].children[0].children[2]
     var value1 = calculateTotalValue(grid1).toFixed(2)
+    var value2 = calculateTotalValue(grid2).toFixed(2)
+    if (value1 != 0 && value2 != 0) {
+        createListingInterface.children[1].children[1].children[1].children[1].disabled = false
+    } else {
+        createListingInterface.children[1].children[1].children[1].children[1].disabled = true
+    }
     if (Math.abs(Math.round(value1) - value1) < 0.02) {
         value1 = Math.round(value1)
     }
-    var value2 = calculateTotalValue(grid2).toFixed(2)
     if (Math.abs(Math.round(value2) - value2) < 0.02) {
         value2 = Math.round(value2)
     }

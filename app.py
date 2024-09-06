@@ -220,7 +220,7 @@ def api():
             else:
                 return flask.jsonify("ERROR")
         elif action == "createListing":
-            id, output, success = createListing(flask.session.get("userID", ""), json.loads(args["trade1"]), json.loads(args["trade2"]))
+            id, output, success = createListing(flask.session.get("userID", ""), json.loads(args["trade1"]), json.loads(args["trade2"]), True, "all", args["extraSharkValueRequested"])
             if success == 1:
                 return flask.jsonify("SUCCESS")
             else:

@@ -842,6 +842,10 @@ def calculateValue(trade):
 
 def createListing(userID, trade1, trade2, public = True, visibleTo = "all", extra = 0):
     global Trades, UserData
+    try:
+        extra = float(extra)
+    except ValueError:
+        extra = 0
     if userID != "" and len(trade1) > 0 and len(trade2) > 0:
         UserData[userID]["trades"].append(str(len(Trades)))
         giveValue, takeValue = calculateValue(trade1), calculateValue(trade2)

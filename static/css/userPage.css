@@ -9,19 +9,19 @@
 
 @keyframes moveDown {
     0% {
-        background-position: 0 0;
+        background-position: 0 270%;
     }
     100% {
-        background-position: 0 5vw;
+        background-position: 0 0;
     }
 }
 
 @keyframes moveUp {
     0% {
-        background-position: 0 5vw;
+        background-position: 0 0;
     }
     100% {
-        background-position: 0 0;
+        background-position: 0 270%;
     }
 }
 
@@ -970,7 +970,7 @@ main{
     position:fixed;
     width:100vw;
     height:100vh;
-    background-color:rgb(0, 0, 0, 0.4);
+    background-color:rgb(0, 0, 0, 0.1);
     left:0px;
     top:0px;
     z-index:10;
@@ -1061,26 +1061,23 @@ main{
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    width:70%;
-    height:100%;
+    width:calc(var(--createListingInterface-size) * 0.42);
+    height:calc(var(--createListingInterface-size) / 6.11 * 0.45 - var(--createListingInterface-size) / 61.5);
     border-radius:calc(var(--createListingInterface-size) / 30);
     border:calc(var(--createListingInterface-size) / 123) solid white;
     box-sizing:border-box;
-    overflow:hidden;
+    position:relative;
 }
 
-#createListingInterface > :nth-child(1) > :nth-child(2) > div::before {
+#createListingInterface > :nth-child(1) > :nth-child(2) > div > div {
     position:absolute;
-    content:"";
-    left:15%;
-    top:0%;
-    width:70%;
-    height:100%;
+    left:calc(var(--createListingInterface-size) / -123);
+    width:calc(var(--createListingInterface-size) * 0.42);
+    height:calc(var(--createListingInterface-size) / 6.11 * 0.45 - var(--createListingInterface-size) / 61.5);
     background:linear-gradient(135deg, rgb(182, 170, 153, 0.5) 0%, rgb(253, 249, 234, 0) 50%, rgb(182, 170, 153, 0.5) 100%);
-    z-index:1;
+    z-index:5;
     border-radius:calc(var(--createListingInterface-size) / 30);
-    padding:calc(var(--createListingInterface-size) / 123) solid transparent;
-    box-sizing:border-box;
+    box-sizing:content-box;
 }
 
 #createListingInterface > :nth-child(1) > :nth-child(2) > div > p {
@@ -1090,11 +1087,11 @@ main{
     font-size:calc(var(--createListingInterface-size) / 24.5745);
 }
 
-#createListingInterface > :nth-child(1) > :nth-child(2) > div > :nth-child(1) {
+#createListingInterface > :nth-child(1) > :nth-child(2) > div > :nth-child(2) {
     padding-left:calc(var(--createListingInterface-size) / 38.5);
 }
 
-#createListingInterface > :nth-child(1) > :nth-child(2) > div > :nth-child(3) {
+#createListingInterface > :nth-child(1) > :nth-child(2) > div > :nth-child(4) {
     padding-right:calc(var(--createListingInterface-size) / 38.5);
 }
 
@@ -1190,53 +1187,51 @@ main{
 }
 
 #createListingInterface > :nth-child(2) > :nth-child(1) > :nth-child(2) {
-    height:100%;
+    height:93%;
     display:flex;
     align-items:center;
     justify-content:center;
     position:absolute;
-    transform:translate(-50%, -50%);
+    transform:translate(-50%, 0%);
     left:50%;
-    top:50%;
+    top:0%;
     font-size:calc(var(--createListingInterface-size) / 8.32);
 }
 
-#createListingInterface > :nth-child(2) > :nth-child(1) > :nth-child(2)::before {
+.downAnimation::before {
+    z-index:-1;
+    width:calc(var(--createListingInterface-size) / 6.5);
+    height:100%;
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.downAnimation::before {
-    height:100% !important;
-    width:100% !important;
-    background:url("/static/images/misc/ValueDownV2.png") !important;
-    position:absolute !important;
-    filter:invert(89%) sepia(25%) saturate(218%) hue-rotate(330deg) brightness(108%) contrast(98%) !important;
-    animation: moveDown 100s linear infinite !important;
-    background-size: 100% 130% !important;
-}
-
-.downAnimation {
-    height:100%;
+    transform:translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    bottom:50%;
+    right:50%;
+    background-image: url("/static/images/misc/ValueDownV2.png");
+    background-size: 100% 110%;
+    background-repeat: repeat-y;
+    animation: moveDown 5s linear infinite;
+    filter: invert(89%) sepia(25%) saturate(218%) hue-rotate(330deg) brightness(108%) contrast(98%);
 }
 
 .upAnimation::before {
-    height:100% !important;
-    width:100% !important;
-    background:url("/static/images/misc/ValueUpV2.png") !important;
-    position:absolute !important;
-    filter:invert(89%) sepia(25%) saturate(218%) hue-rotate(330deg) brightness(108%) contrast(98%) !important;
-    animation: moveUp 100s linear infinite !important;
-    background-size: 100% 130% !important;
-}
-
-.upAnimation {
+    z-index:-1;
+    width:calc(var(--createListingInterface-size) / 6.5);
     height:100%;
+    content: "";
+    position: absolute;
+    transform:translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    bottom:50%;
+    right:50%;
+    background-image: url("/static/images/misc/ValueUpV2.png");
+    background-size: 100% 110%;
+    background-repeat: repeat-y;
+    animation: moveUp 5s linear infinite;
+    filter: invert(89%) sepia(25%) saturate(218%) hue-rotate(330deg) brightness(108%) contrast(98%);
 }
 
 #createListingInterface > :nth-child(2) > :nth-child(1) > :nth-child(2) > p {

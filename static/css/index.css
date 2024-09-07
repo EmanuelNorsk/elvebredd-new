@@ -1,5 +1,6 @@
 :root{
     --slide-size: 90vw;
+    --listing-size: 15.625vw;
 }
 
 
@@ -191,10 +192,10 @@ nav{
 
 .Grid3x3Listing{
     display:grid;
-    grid-template-columns: 35px 35px 35px;
-    grid-template-rows:35px 35px 35px;
-    width:120px;
-    padding:10px;
+    grid-template-columns: 1.875vw 1.875vw 1.875vw;
+    grid-template-rows:1.875vw 1.875vw 1.875vw;
+    width:6.25vw;
+    padding:0.2vw;
     aspect-ratio:1/1;
     box-sizing:border-box;
 }
@@ -203,15 +204,12 @@ nav{
     display:flex;
     flex-direction:row;
     justify-content:space-between;
-    min-width:282px;
-    max-width:282px;
+    width:100%;
 }
 
 .userListingsListing{
-    min-width:302px;
-    max-width:302px;
-    min-height:181px;
-    max-height:181px;
+    width:15.625vw;
+    aspect-ratio:300/180;
     background: linear-gradient(135deg, rgb(242, 230, 215) 0%, rgb(250, 246, 232) 100%);
     padding:10px;
     border:1px solid black;
@@ -229,8 +227,8 @@ nav{
 }
 
 .userListingsListing img{
-    max-width:80%;
-    max-height:80%;
+    max-width:1.25vw;
+    max-height:1.25vw;
     width:auto;
     height:auto;
 }
@@ -268,10 +266,102 @@ nav{
 
 .listings{
     position:relative;
+}
+
+#listingsCategory1 {
     width:100%;
-    padding-top:5rem;
-    padding-bottom:5rem;
-    height:186px;
+    height:fit-content;
+}
+
+.listings > div {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 0%;
+    width: max(calc(var(--listing-size) + calc(var(--listing-size) / 768)), calc(var(--listing-size) + 2px));
+    height: max(calc(var(--listing-size) / 300 * 180 + calc(var(--listing-size) / 768)), calc(var(--listing-size) / 300 * 180 + 2px));
+    font-size: calc(var(--listing-size)* 4 / 3 / 30);
+    overflow: hidden;
+    transition: left 0s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(54, 53, 55) 100%);
+    border-radius: calc(var(--listing-size) / 15);
+}
+
+.listings > div > figure:nth-child(1) {
+    left: -15%;
+}
+
+.listings > div > figure:nth-child(3) {
+    right: -15%;
+    rotate: 180deg;
+}
+
+.listings > div:hover > figure {
+    transform: scale(0.2);
+    opacity: 1;
+}
+
+.listings > div > figure {
+    width:50%;
+    height: 120%;
+    margin: 0px;
+    position: absolute;
+    z-index: 10;
+    background-color: rgb(253, 249, 234);
+    mask-image: url(/static/images/misc/arrow.png);
+    mask-size: cover;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: scale(0.14);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: flex;
+    opacity: 1;
+}
+
+.listings > div > div {
+    border-radius: inherit;
+    width: var(--slide-size);
+    height: calc(var(--listing-size) / 300 * 180);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    padding: calc(var(--listing-size) / 15);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: 100% 100%, 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background:linear-gradient(135deg, #f3e7d6 0%, #ebe5dc 50%, #fdf9ea 100%);
+}
+
+.listings > div > div > :nth-child(1) {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    position:relative;
+    width:100%;
+}
+
+.listings > div > div > :nth-child(1) > p {
+    color:rgb(54, 53, 55);
+    font-family:"Aileron", sans-serif;
+    font-size:calc(var(--listing-size) / 22.5);
+    margin:0px;
+    font-weight:800;
+}
+
+.listings > div > div > :nth-child(1) > :nth-child(2) {
+    position:absolute;
+    transform:translate(-50%, -50%);
+    left:50%;
+    top:50%;
+    font-size:calc(var(--listing-size) / 22.5 * 2.21);
+    text-shadow: 1px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
 }
 
 .main{
@@ -1060,7 +1150,8 @@ nav{
 #slides > div > div > div {
     display:flex;
     flex-direction:column;
-    height:100%;
+    height:max(calc(var(--slide-size) / 3 + calc(var(--slide-size) / 768) - var(--slide-size) / 7.5), calc(var(--slide-size) / 3 + 2px) - var(--slide-size) / 7.5);
+    max-height:max(calc(var(--slide-size) / 3 + calc(var(--slide-size) / 768) - var(--slide-size) / 7.5), calc(var(--slide-size) / 3 + 2px) - var(--slide-size) / 7.5);
     width:calc(1000 / 26 * 1%);
 }
 

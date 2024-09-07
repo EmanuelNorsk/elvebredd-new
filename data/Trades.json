@@ -16183,5 +16183,88 @@
         "createdAt": 1725664561.2992058,
         "views": [],
         "markedAsCompletedBy": []
+    },
+    "35": {
+        "owner": "0",
+        "ownerUsername": "EmanuelNorsk69420",
+        "ownerRobloxUsername": "",
+        "id": "35",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 1.62,
+            "takeValue": 1.5
+        },
+        "extraSharkValueRequested": -123.0,
+        "completed": false,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1725710859.085573,
+        "views": [],
+        "markedAsCompletedBy": []
     }
 }

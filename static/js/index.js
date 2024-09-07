@@ -28,7 +28,7 @@ var scrollSharpness = 1
 var scrollStrength = 1
 var lastFilter = "all"
 var petsAdded = 0
-var listingSize = 310
+var listingSize = 300
 var body = document.createElement("div")
 
 var petsDict = {}
@@ -137,9 +137,9 @@ window.addEventListener("DOMContentLoaded", event => {
         }, 7500)
     }
 
-    showUserListings(trades["Suggested"], listingsCategory1)
-    showUserListings(trades["Recent"], listingsCategory2)
-    showUserListings(trades["Overpay"], listingsCategory3)
+    //showUserListings(trades["Suggested"], listingsCategory1)
+    //showUserListings(trades["Recent"], listingsCategory2)
+    //showUserListings(trades["Overpay"], listingsCategory3)
 
     listingInterface2Background.addEventListener("wheel", event => {
         if (remainingScroll * event.deltaY < 0) {
@@ -184,21 +184,21 @@ window.addEventListener("DOMContentLoaded", event => {
         }
     })
 
-    window.addEventListener("resize", (event) => {
-        var hover = 0
-        listings.forEach(element => {
-            updateUserListings(element, true)
-            if (mouseOverElement(element)) {
-                selectedCategory = element
-                hover = 1
-                updateArrows()
-            }
-        })
-        if (hover == 0) {
-            leftArrow.style.display = "none"
-            rightArrow.style.display = "none"
-        }
-    })
+    //window.addEventListener("resize", (event) => {
+    //    var hover = 0
+    //    listings.forEach(element => {
+    //        updateUserListings(element, true)
+    //        if (mouseOverElement(element)) {
+    //            selectedCategory = element
+    //            hover = 1
+    //            updateArrows()
+    //        }
+    //    })
+    //    if (hover == 0) {
+    //        leftArrow.style.display = "none"
+    //        rightArrow.style.display = "none"
+    //    }
+    //})
 
     window.addEventListener("resize", event => {
         header.style.height = (nav.offsetHeight * 1).toString() + "px"
@@ -736,6 +736,7 @@ function adjustGradientHeight() {
 }
 
 function updateArrows() {
+    listingSize = window.innerHeight / 100 * 15.625
     const rect = selectedCategory.getBoundingClientRect()
     leftArrow.style.left = (rect.x + parseInt(selectedCategory.getAttribute("scrollOffset"))).toString() + "px"
     leftArrow.style.top = (rect.y + 105).toString() + "px"
@@ -752,6 +753,7 @@ function updateArrows() {
 
 
 function updateUserListings(listings, resize) {
+    listingSize = window.innerHeight / 100 * 15.625
     var listingsTitles = document.querySelectorAll(".listingsTitles")
     var scroll = parseInt(listings.getAttribute("scroll"))
     var fitFor = parseInt((window.innerWidth - 100) / listingSize)

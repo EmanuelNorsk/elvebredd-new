@@ -34,7 +34,7 @@ var body = document.createElement("div")
 var petsDict = {}
 var userData = {}
 
-var listingsScrollSpeed = 5
+var listingsScrollSpeed = 6
 
 var petImage = document.createElement("div")
 
@@ -1068,7 +1068,7 @@ function showUserListings2(listing) {
     if (listingCombinedValue < 0) {
         listingCombinedValue = Math.abs(listingCombinedValue)
         listingInterface2Value.style.color = "rgb(253, 249, 234)"
-    } else {
+    } else if (listingCombinedValue > 0) {
         listingInterface2Value.style.color = "rgb(255, 102, 102)"
     }
     if (listingCombinedValue >= 100) {
@@ -1595,7 +1595,7 @@ function updateListingInterface2() {
     if (listingCombinedValue < 0) {
         listingCombinedValue = Math.abs(listingCombinedValue)
         listingInterface2Value.style.color = "rgb(253, 249, 234)"
-    } else {
+    } else if (listingCombinedValue > 0) {
         listingInterface2Value.style.color = "rgb(255, 102, 102)"
     }
     if (listingCombinedValue >= 100) {
@@ -2136,16 +2136,19 @@ function scrollListings(event, direction) {
             const figures = element.children[i].querySelectorAll("figure")
             if (outOfBounds.includes("left")) {
                 element.children[i].setAttribute("onclick", 'scrollListings(event, "left")')
+                element.children[i].classList.add("listingsFilter")
                 figures.forEach(figure => {
                     figure.style.display = "flex"
                 })
             } else if (outOfBounds.includes("right")) {
                 element.children[i].setAttribute("onclick", 'scrollListings(event, "right")')
+                element.children[i].classList.add("listingsFilter")
                 figures.forEach(figure => {
                     figure.style.display = "flex"
                 })
             } else {
                 element.children[i].setAttribute("onclick", element.children[i].getAttribute("data-onclick"))
+                element.children[i].classList.remove("listingsFilter")
                 figures.forEach(figure => {
                     figure.style.display = "none"
                 })
@@ -2160,7 +2163,11 @@ function loadListingsInto(listings, target) {
         let listingTemplate = createListingTemplate()
         let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
         let value2 = calculateValue(listing["offer"]["take"])
-        listingTemplate.children[1].children[0].children[1].textContent = Math.abs(value1 - value2).toFixed(2)
+        var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02) {
+            combinedValue = Math.round(combinedValue)
+        }
+        listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
         if (value1 > value2) {
             listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
             listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
@@ -2206,12 +2213,14 @@ function loadListingsInto(listings, target) {
         const outOfBounds = checkOutOfBoundsListing(listingTemplate)
         const figures = listingTemplate.querySelectorAll("figure")
         if (outOfBounds.includes("left")) {
+            listingTemplate.classList.add("listingsFilter")
             listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
             listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
             figures.forEach(figure => {
                 figure.style.display = "flex"
             })
         } else if (outOfBounds.includes("right")) {
+            listingTemplate.classList.add("listingsFilter")
             listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
             listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
             figures.forEach(figure => {

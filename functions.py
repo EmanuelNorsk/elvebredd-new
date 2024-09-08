@@ -1423,11 +1423,11 @@ def getTradesForMainPage(userID):
                 overpay_trades.append([overpayPoints, key])
         
         suggested_trades.sort(key=lambda x: x[0],  reverse=True)
-        suggested_trades = suggested_trades[:20]
+        suggested_trades = suggested_trades[:21]
         recent_trades.sort(key=lambda x: x[0],  reverse=True)
-        recent_trades = recent_trades[:20]
+        recent_trades = recent_trades[:21]
         overpay_trades.sort(key=lambda x: x[0],  reverse=True)
-        overpay_trades = overpay_trades[:20]
+        overpay_trades = overpay_trades[:21]
 
         for trade in suggested_trades:
             suggested[trade[1]] = Trades[trade[1]]

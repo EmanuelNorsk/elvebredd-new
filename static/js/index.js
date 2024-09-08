@@ -34,6 +34,9 @@ var body = document.createElement("div")
 var petsDict = {}
 var userData = {}
 
+var listingsScrollSpeed = 5
+
+var petImage = document.createElement("div")
 
 window.addEventListener("DOMContentLoaded", event => {
     body = document.body
@@ -52,9 +55,7 @@ window.addEventListener("DOMContentLoaded", event => {
     var addInventory = document.getElementById("addInventory")
     var addInventoryBackground = document.getElementById("addInventoryBackground")
     var filterElement = document.getElementById("filter")
-    var petImages = document.getElementById("petImages")
-    var filterButtons = document.getElementById("filterButtons")
-    var petImage = document.querySelectorAll(".petImage")
+    petImage = document.querySelectorAll(".petImage")
     var flyButton = document.getElementById("flyButton")
     var rideButton = document.getElementById("rideButton")
     var regularButton = document.getElementById("regularButton")
@@ -77,7 +78,6 @@ window.addEventListener("DOMContentLoaded", event => {
     var addInventory = document.getElementById("addInventory")
     var addInventoryBackground = document.getElementById("addInventoryBackground")
     var filterElement = document.getElementById("filter")
-    var petImages = document.getElementById("petImages")
     var filterButtons = document.getElementById("filterButtons")
     var petAdded = document.getElementById("petAdded")
     var petAddedText = document.getElementById("petAddedText")
@@ -90,8 +90,8 @@ window.addEventListener("DOMContentLoaded", event => {
     var listingAcceptButton = document.getElementById("listingAcceptButton")
     var listingCustomOfferButton = document.getElementById("listingCustomOfferButton")
     var listings = document.querySelectorAll(".listings")
-    var leftArrow = document.getElementById("leftArrow")
-    var rightArrow = document.getElementById("rightArrow")
+    //var leftArrow = document.getElementById("leftArrow")
+    //var rightArrow = document.getElementById("rightArrow")
     var offers = document.getElementById("offers")
     var listingInterface2Preferences = document.getElementById("listingInterface2Preferences")
     var listingInterface2Main = document.getElementById("listingInterface2Main")
@@ -141,6 +141,10 @@ window.addEventListener("DOMContentLoaded", event => {
     //showUserListings(trades["Recent"], listingsCategory2)
     //showUserListings(trades["Overpay"], listingsCategory3)
 
+    loadListingsInto(trades["Suggested"], document.getElementById("suggestedListings"))
+    loadListingsInto(trades["Recent"], document.getElementById("recentListings"))
+    loadListingsInto(trades["Overpay"], document.getElementById("overpayListings"))
+
     listingInterface2Background.addEventListener("wheel", event => {
         if (remainingScroll * event.deltaY < 0) {
             remainingScroll = 0
@@ -160,13 +164,13 @@ window.addEventListener("DOMContentLoaded", event => {
             if (mouseOverElement(element)) {
                 selectedCategory = element
                 hover = 1
-                updateArrows()
+                //updateArrows()
             }
         })
-        if (hover == 0) {
-            leftArrow.style.display = "none"
-            rightArrow.style.display = "none"
-        }
+        //if (hover == 0) {
+        //    leftArrow.style.display = "none"
+        //    rightArrow.style.display = "none"
+        //}
     })
 
     document.addEventListener("scroll", event => {
@@ -175,13 +179,13 @@ window.addEventListener("DOMContentLoaded", event => {
             if (mouseOverElement(element)) {
                 selectedCategory = element
                 hover = 1
-                updateArrows()
+                //updateArrows()
             }
         })
-        if (hover == 0) {
-            leftArrow.style.display = "none"
-            rightArrow.style.display = "none"
-        }
+        //if (hover == 0) {
+        //    leftArrow.style.display = "none"
+        //    rightArrow.style.display = "none"
+        //}
     })
 
     //window.addEventListener("resize", (event) => {
@@ -1032,12 +1036,15 @@ function showUserListings2(listing) {
     showOffers(listing)
     showPreferences(listing)
 
+    const listingInterface2Value = document.getElementById("listingInterface2Value")
+
     if (listing["extraSharkValueRequested"] == 0 || listing["extraSharkValueRequested"] == undefined) {
         yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2)
         theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2)
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
     } else if (listing["extraSharkValueRequested"] > 0) {
         yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2).toString() + " + " + listing["extraSharkValueRequested"].toString()
         theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2)
@@ -1046,6 +1053,7 @@ function showUserListings2(listing) {
         changeButton.disabled = false
         sharkValueRequested.innerText = listing["extraSharkValueRequested"].toFixed(2)
         youAddTheyAdd.innerText = "YOU ADD:"
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets))).toFixed(2))
     } else if (listing["extraSharkValueRequested"] < 0) {
         yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2)
         theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2).toString() + " + " + Math.abs(listing["extraSharkValueRequested"]).toString()
@@ -1054,6 +1062,28 @@ function showUserListings2(listing) {
         changeButton.disabled = false
         sharkValueRequested.innerText = Math.abs(listing["extraSharkValueRequested"]).toFixed(2)
         youAddTheyAdd.innerText = "THEY ADD:"
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) - (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets))).toFixed(2))
+    }
+
+    if (listingCombinedValue < 0) {
+        listingCombinedValue = Math.abs(listingCombinedValue)
+        listingInterface2Value.style.color = "rgb(253, 249, 234)"
+    } else {
+        listingInterface2Value.style.color = "rgb(255, 102, 102)"
+    }
+    if (listingCombinedValue >= 100) {
+        listingCombinedValue = listingCombinedValue.toFixed(0)
+    } else if (listingCombinedValue >= 10) {
+        listingCombinedValue = listingCombinedValue.toFixed(1)
+    }
+    if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
+        listingInterface2Value.textContent = Math.round(listingCombinedValue)
+    } else {
+        listingInterface2Value.textContent = listingCombinedValue
+    }
+
+    if (loggedIn == "False") {
+        finishButton.disabled = true
     }
 
     if (userData["id"] == listing["owner"]) {
@@ -1527,12 +1557,16 @@ function updateListingInterface2() {
         listingInterface2TheirOfferPets.appendChild(div)
     }
 
+    const listingInterface2Value = document.getElementById("listingInterface2Value")
+    var listingCombinedValue = 0
+
     if (listing["extraSharkValueRequested"] == 0 || listing["extraSharkValueRequested"] == undefined) {
         yourOfferValue.innerText = (listing["offer"]["giveValue"] + calculateValue(yourOfferExtraPets)).toFixed(2)
         theirOfferValue.innerText = (listing["offer"]["takeValue"] + calculateValue(theirOfferExtraPets)).toFixed(2)
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
     } else if (listing["extraSharkValueRequested"] > 0 && calculateValue(yourOfferExtraPets) < listing["extraSharkValueRequested"]) {
         yourOfferValue.innerText = (listing["offer"]["giveValue"] + calculateValue(yourOfferExtraPets)).toFixed(2).toString() + " + " + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets)).toFixed(2).toString()
         theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2)
@@ -1540,6 +1574,7 @@ function updateListingInterface2() {
         sharkValueRequestedDiv.style.display = "flex"
         changeButton.disabled = false
         sharkValueRequested.innerText = (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets)).toFixed(2)
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets))).toFixed(2))
     } else if (listing["extraSharkValueRequested"] < 0 && calculateValue(theirOfferExtraPets) < Math.abs(listing["extraSharkValueRequested"])) {
         yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2)
         theirOfferValue.innerText = (listing["offer"]["takeValue"] + calculateValue(theirOfferExtraPets)).toFixed(2).toString() + " + " + (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets)).toFixed(2).toString()
@@ -1547,15 +1582,38 @@ function updateListingInterface2() {
         sharkValueRequestedDiv.style.display = "flex"
         changeButton.disabled = false
         sharkValueRequested.innerText = (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets)).toFixed(2)
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) - (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets))).toFixed(2))
     } else {
         yourOfferValue.innerText = (listing["offer"]["giveValue"] + calculateValue(yourOfferExtraPets)).toFixed(2)
         theirOfferValue.innerText = (listing["offer"]["takeValue"] + calculateValue(theirOfferExtraPets)).toFixed(2)
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
+        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
+    }
+
+    if (listingCombinedValue < 0) {
+        listingCombinedValue = Math.abs(listingCombinedValue)
+        listingInterface2Value.style.color = "rgb(253, 249, 234)"
+    } else {
+        listingInterface2Value.style.color = "rgb(255, 102, 102)"
+    }
+    if (listingCombinedValue >= 100) {
+        listingCombinedValue = listingCombinedValue.toFixed(0)
+    } else if (listingCombinedValue >= 10) {
+        listingCombinedValue = listingCombinedValue.toFixed(1)
+    }
+    if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
+        listingInterface2Value.textContent = Math.round(listingCombinedValue)
+    } else {
+        listingInterface2Value.textContent = listingCombinedValue
     }
 
     if (userData["id"] == listing["owner"]) {
+        finishButton.disabled = true
+    }
+
+    if (loggedIn == "False") {
         finishButton.disabled = true
     }
 
@@ -1704,35 +1762,35 @@ function acceptOffer(offerID) {
 }
 
 function displayPets() {
-    if (loggedIn == "True" && displayPetsFirstTime == 0) {
-        displayPetsFirstTime = 1
-        petImages.innerHTML = ""
-        Object.keys(petsDict).forEach(key => {
-            pet = petsDict[key]
-            if (pet["image"] !== "") {
-                const div = document.createElement("div")
-                div.className = "petImage"
-                div.setAttribute("data-petname", pet["name"])
-                div.setAttribute("data-name", pet["type"])
-                div.setAttribute("data-value", pet["rarity"])
-                div.setAttribute("onclick", "addPetToInventory(" + key.toString() + ")")
-                const img = document.createElement("img")
-                img.style.height = "max(3.5vw, 7vh)"
-                img.style.aspectRatio = "1/1"
-                img.setAttribute("onerror", "handleImageError(this)")
-                img.src = pet["image"]
-                div.appendChild(img)
-                petImages.appendChild(div)
-            }
-        })
-    }
+    var petImages = document.getElementById("petImages")
+    displayPetsFirstTime = 1
+    petImages.innerHTML = ""
+    Object.keys(petsDict).forEach(key => {
+        let pet = petsDict[key]
+        if (pet["image"] !== "") {
+            const div = document.createElement("div")
+            div.className = "petImage"
+            div.setAttribute("data-petname", pet["name"])
+            div.setAttribute("data-name", pet["type"])
+            div.setAttribute("data-value", pet["rarity"])
+            div.setAttribute("onclick", "addPetToInventory(" + key.toString() + ")")
+            const img = document.createElement("img")
+            img.style.height = "max(3.5vw, 7vh)"
+            img.style.aspectRatio = "1/1"
+            img.setAttribute("onerror", "handleImageError(this)")
+            img.src = pet["image"]
+            div.appendChild(img)
+            petImages.appendChild(div)
+        } else {
+            console.log("HI")
+        }
+    })
 }
 
 function openInventory() {
     displayPets()
     addInventory.style.display = "block"
     addInventoryBackground.style.display = "block"
-    petImages.style.height = filterButtons.clientHeight + "px";
 }
 
 function closeInventory() {
@@ -1997,4 +2055,174 @@ function resetFilterButtonBrightness() {
     ultraRare.style.filter = "brightness(1)"
     uncommon.style.filter = "brightness(1)"
     vehicles.style.filter = "brightness(1)"
+}
+
+function checkOutOfBoundsListing(element, xOffset = 0) {
+    const position = element.getBoundingClientRect();
+    const outOfBounds = [];
+    let x = position.x
+    let y = position.y
+    var listings = element
+    while (listings.classList.contains("listings") == false && listings != document.body)
+        listings = listings.parentElement
+    x += xOffset
+    if (x + position.width > window.innerWidth) {
+        outOfBounds.push('right');
+    }
+    if (x < 0) {
+        outOfBounds.push('left');
+    }
+    if (y + position.height > window.innerHeight) {
+        outOfBounds.push('bottom');
+    }
+    if (y < 0) {
+        outOfBounds.push('top');
+    }
+    return outOfBounds;
+}
+
+function createListingTemplate() {
+    const listing = document.createElement('div');
+    listing.classList.add('listing');
+    const figure1 = document.createElement('figure');
+    const mainDiv = document.createElement('div');
+    const offerDiv = document.createElement('div');
+    const yourOffer = document.createElement('p');
+    yourOffer.textContent = 'Your Offer';
+    const dash = document.createElement('p');
+    dash.textContent = '-';
+    const theirOffer = document.createElement('p');
+    theirOffer.textContent = 'Their Offer';
+    offerDiv.appendChild(yourOffer);
+    offerDiv.appendChild(dash);
+    offerDiv.appendChild(theirOffer);
+    const boxesDiv = document.createElement('div');
+    const box1 = document.createElement('div');
+    const box2 = document.createElement('div');
+    const box3 = document.createElement('div');
+    boxesDiv.appendChild(box1);
+    boxesDiv.appendChild(box2);
+    boxesDiv.appendChild(box3);
+    mainDiv.appendChild(offerDiv);
+    mainDiv.appendChild(boxesDiv);
+    const figure2 = document.createElement('figure');
+    listing.appendChild(figure1);
+    listing.appendChild(mainDiv);
+    listing.appendChild(figure2);
+    return listing;
+}
+
+function scrollListings(event, direction) {
+    let element = event.target
+    while (element.classList.contains("listing") == false && element != document.body)
+        element = element.parentElement
+    let listing = element
+    while (element.classList.contains("listings") == false && element != document.body)
+        element = element.parentElement
+    if (element != document.body) {
+        
+        const elementStyle = window.getComputedStyle(element)
+        let left = parseFloat(elementStyle.marginLeft.split("px")[0])
+        var offset = 0
+        if (direction == "left") {
+            offset = listing.getBoundingClientRect().width * listingsScrollSpeed - parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.0
+        } else {
+            offset = (listing.getBoundingClientRect().width * listingsScrollSpeed - parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.0) * -1
+        }
+        left += offset
+        element.style.marginLeft = left.toString() + "px"
+        for (let i = 0; i < element.children.length; i++) {
+            const outOfBounds = checkOutOfBoundsListing(element.children[i], offset)
+            const figures = element.children[i].querySelectorAll("figure")
+            if (outOfBounds.includes("left")) {
+                element.children[i].setAttribute("onclick", 'scrollListings(event, "left")')
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else if (outOfBounds.includes("right")) {
+                element.children[i].setAttribute("onclick", 'scrollListings(event, "right")')
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else {
+                element.children[i].setAttribute("onclick", element.children[i].getAttribute("data-onclick"))
+                figures.forEach(figure => {
+                    figure.style.display = "none"
+                })
+            }
+        }
+    }
+}
+
+function loadListingsInto(listings, target) {
+    target.innerHTML = ""
+    Object.values(listings).forEach(listing => {
+        let listingTemplate = createListingTemplate()
+        let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
+        let value2 = calculateValue(listing["offer"]["take"])
+        listingTemplate.children[1].children[0].children[1].textContent = Math.abs(value1 - value2).toFixed(2)
+        if (value1 > value2) {
+            listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+            listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+            listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%);"
+            listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%);"
+        } else if (value1 < value2) {
+            listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+        }
+        
+        for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
+            const img = document.createElement("img")
+            img.src = petsDict[listing["offer"]["give"][i]["id"]]["image"]
+            listingTemplate.children[1].children[1].children[0].appendChild(img)
+        }
+
+        if (listing["offer"]["give"].length == 9) {
+            const img = document.createElement("img")
+            img.src = petsDict[listing["offer"]["give"][8]["id"]]["image"]
+            listingTemplate.children[1].children[1].children[0].appendChild(img)
+        } else if (listing["offer"]["give"].length > 9) {
+            const p = document.createElement("p")
+            p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
+            listingTemplate.children[1].children[1].children[0].appendChild(p)
+        }
+
+        for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
+            const img = document.createElement("img")
+            img.src = petsDict[listing["offer"]["take"][i]["id"]]["image"]
+            listingTemplate.children[1].children[1].children[2].appendChild(img)
+        }
+
+        if (listing["offer"]["take"].length == 9) {
+            const img = document.createElement("img")
+            img.src = petsDict[listing["offer"]["take"][8]["id"]]["image"]
+            listingTemplate.children[1].children[1].children[2].appendChild(img)
+        } else if (listing["offer"]["take"].length > 9) {
+            const p = document.createElement("p")
+            p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
+            listingTemplate.children[1].children[1].children[2].appendChild(p)
+        }
+
+        target.appendChild(listingTemplate)
+        const outOfBounds = checkOutOfBoundsListing(listingTemplate)
+        const figures = listingTemplate.querySelectorAll("figure")
+        if (outOfBounds.includes("left")) {
+            listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "flex"
+            })
+        } else if (outOfBounds.includes("right")) {
+            listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "flex"
+            })
+        } else {
+            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "none"
+            })
+        }
+    })
 }

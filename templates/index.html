@@ -161,33 +161,23 @@
     </div>
 
     <main class="maxWidth main" style="display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
-        <div style="width:100%;padding-right:10%;">
-            <p style="font-size:22rem;font-weight:bold;font-family:'Aileron', sans-serif;margin:0px;padding:10rem;" class="listingsTitles">Suggested</p>
-        </div>
-        <div id="listingsCategory1" class="listings">
-            <div>
-                <figure></figure>
-                <div>
-                    <div>
-                        <p>Your Offer</p>
-                        <p>1</p>
-                        <p>Their Offer</p>
-                    </div>
-                </div>
-                <figure></figure>
+        <div class="listingsCategory">
+            <p>Suggested</p>
+            <div id="suggestedListings" class="listings">
+
             </div>
         </div>
-        <div style="width:100%">
-            <p style="font-size:22rem;font-weight:bold;font-family:'Aileron', sans-serif;margin:0px;margin-top:2.5vw;padding:10rem;" class="listingsTitles">Recent</p>
-        </div>
-        <div id="listingsCategory2" class="listings">
+        <div class="listingsCategory">
+            <p>Recent</p>
+            <div id="recentListings" class="listings">
 
+            </div>
         </div>
-        <div style="width:100%">
-            <p style="font-size:22rem;font-weight:bold;font-family:'Aileron', sans-serif;margin:0px;margin-top:2.5vw;padding:10rem;" class="listingsTitles">Overpay</p>
-        </div>
-        <div id="listingsCategory3" class="listings">
-
+        <div class="listingsCategory">
+            <p>Overpay</p>
+            <div id="overpayListings" class="listings">
+                
+            </div>
         </div>
     </main>
 
@@ -272,7 +262,7 @@
                 </div>
             </div>
             <div>
-                <p style="font-size:100rem;font-weight:900;color:rgb(253, 249, 234);">2</p>
+                <p id="listingInterface2Value" style="font-size:100rem;font-weight:900;color:rgb(253, 249, 234);">2</p>
                 <div style="width:0.5rem;height:225rem;background-color:rgb(243, 239, 223)"></div>
             </div>
             <div>
@@ -404,12 +394,6 @@
     </div>
     <div id="messageDiv">
         <b id="messageText"></b>
-    </div>
-    <div id="leftArrow" onclick="scrollBackward()">
-        <img src="/static/images/misc/arrow.png">
-    </div>
-    <div id="rightArrow" onclick="scrollForward()">
-        <img src="/static/images/misc/arrow.png">
     </div>
     <footer>
         {% include "footer.html" %}

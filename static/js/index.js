@@ -2125,12 +2125,13 @@ function scrollListings(event, direction) {
         let left = parseFloat(elementStyle.marginLeft.split("px")[0])
         var offset = 0
         if (direction == "left") {
-            offset = listing.getBoundingClientRect().width * listingsScrollSpeed - parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.0
+            offset = listing.getBoundingClientRect().width * listingsScrollSpeed + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (listingsScrollSpeed - 1)
         } else {
-            offset = (listing.getBoundingClientRect().width * listingsScrollSpeed - parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.0) * -1
+            offset = (listing.getBoundingClientRect().width * listingsScrollSpeed + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (listingsScrollSpeed - 1)) * -1
         }
+        console.log(offset)
         left += offset
-        element.style.marginLeft = left.toString() + "px"
+        element.style.marginLeft = (left / window.innerWidth * 100).toString() + "vw"
         for (let i = 0; i < element.children.length; i++) {
             const outOfBounds = checkOutOfBoundsListing(element.children[i], offset)
             const figures = element.children[i].querySelectorAll("figure")
@@ -2235,3 +2236,16 @@ function loadListingsInto(listings, target) {
         }
     })
 }
+
+window.addEventListener("resize", event => {
+    var allListingsClasses = document.querySelectorAll(".listings")
+    allListingsClasses.forEach(listings => {
+        const styles = window.getComputedStyle(listings)
+        listings.setAttribute("data-transition", styles.transition)
+        listings.style.transition = "none"
+        setTimeout((event) => {
+            listings.style.transition = listings.getAttribute("data-transition")
+            listings.setAttribute("data-transition", "")
+        }, 10)
+    })
+})

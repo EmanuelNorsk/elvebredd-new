@@ -1440,11 +1440,10 @@ def getTradesForMainPage(userID):
 
         return {"Suggested":suggested,"Recent":recent,"Overpay":overpay}
 
-@numba.njit     
 def generatePet(maxID):
-    return {"id":numpy.random.randint(0, maxID),
-            "fly":numpy.random.randint(0, 1),
-            "ride":numpy.random.randint(0, 1),
+    return {"id":random.randint(0, maxID),
+            "fly":random.randint(0, 1),
+            "ride":random.randint(0, 1),
             "regular":1,
             "neon":0,
             "mega":0
@@ -1453,21 +1452,21 @@ def generatePet(maxID):
 def createTrades(maxID):
     trade1 = []
     trade2 = []
-    for y in range(0, numpy.random.randint(1, 10)):
+    for y in range(0, numpy.random.randint(1, 16)):
         trade1.append(dict({"id":numpy.random.randint(0, maxID),
-            "fly":numpy.random.randint(0, 1),
-            "ride":numpy.random.randint(0, 1),
+            "fly":random.randint(0, 1),
+            "ride":random.randint(0, 1),
             "regular":1,
-            "neon":0,
-            "mega":0
+            "neon":random.randint(0, 1),
+            "mega":random.randint(0, 1)
             }))
-    for y in range(0, numpy.random.randint(1, 10)):
+    for y in range(0, random.randint(1, 16)):
         trade2.append(dict({"id":numpy.random.randint(0, maxID),
-            "fly":numpy.random.randint(0, 1),
-            "ride":numpy.random.randint(0, 1),
+            "fly":random.randint(0, 1),
+            "ride":random.randint(0, 1),
             "regular":1,
-            "neon":0,
-            "mega":0
+            "neon":random.randint(0, 1),
+            "mega":random.randint(0, 1)
             }))
     return trade1, trade2
 
@@ -1479,9 +1478,9 @@ def generateListings(amount, user, offerUser):
         trade1, trade2 = createTrades(len(Pets.keys()) - 1)
         id, output, success = createListing(user, trade1, trade2, True, "all", random.randint(-10,10))
         if success == 1:
-            for y in range(0, random.randint(5, 16)):
+            for y in range(0, random.randint(1, 16)):
                 pets = []
-                for z in range(0, random.randint(1, 8)):
+                for z in range(0, random.randint(1, 18 - max(len(trade1), len(trade2)))):
                     pets.append(dict(generatePet(len(Pets.keys()) - 1)))
                 addCustomOffer(offerUser, output, pets)
 
@@ -1489,4 +1488,4 @@ def generateListings(amount, user, offerUser):
 
 
 openDataFiles()
-#generateListings(30, "0", "1")
+#generateListings(40, "0", "1")

@@ -1,14 +1,14 @@
 
 nav{
     display:flex;
-    position:absolute;
+    position:fixed;
     width:100%;
     top:0%;
     align-items:center;
     justify-content: space-between;
     height:85.5rem;
-    background: linear-gradient(135deg, rgb(243, 231, 214, 0) 0%, rgb(235, 229, 220, 0) 50%, rgb(253, 249, 234, 0) 100%);
-    z-index:1000;
+    background: transparent;
+    z-index:100;
 }
 
 .blandHeader{
@@ -23,7 +23,8 @@ nav{
     font-style:normal;
     text-decoration:none;
     text-shadow: 1px 1px 1px rgba(100, 100, 100, 0.25);
-    color:white;
+    /*color:white;*/
+    color:rgb(54, 53, 55);
     font-size:14.6rem;
 }
 
@@ -36,7 +37,7 @@ nav{
 #menuImage{
     width:auto;
     height:14rem;
-    filter: invert(100%) contrast(200%);
+    /*filter: invert(100%) contrast(200%);*/
 
 }
 
@@ -61,7 +62,7 @@ nav{
 #headerLogo{
     width:auto; 
     height:85rem;
-    filter: invert(100%) contrast(200%);
+    /*filter: invert(100%) contrast(200%);*/
     transform:translateY(3rem);
 }
 
@@ -272,7 +273,7 @@ nav{
     align-items:center;
     justify-content:center;
     gap:5%;
-    background: linear-gradient(135deg, #F3E7D6 0%, #EBE5DC 50%, #FDF9EA 100%);
+    /*background: linear-gradient(135deg, #F3E7D6 0%, #EBE5DC 50%, #FDF9EA 100%);*/
     padding-right:5%;
     padding-left:5%;
     border:1px solid black;

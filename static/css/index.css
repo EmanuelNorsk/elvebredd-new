@@ -16,11 +16,14 @@ body{
     justify-content: center;
     flex-direction:column;
     align-items:center;
+    overflow-x:hidden;
 }
+
 
 header{
     display:block;
     width:100%;
+    height:85.5rem;
 }
 
 footer{
@@ -30,11 +33,7 @@ footer{
 
 main{
     top:0px;
-}
-
-nav{
-    position:fixed;
-    z-index:100;
+    min-height:400vh;
 }
 
 .center{
@@ -404,9 +403,15 @@ nav{
     position:relative;
 }
 
-.listing > :nth-child(2) > :nth-child(2) > div > img {
+.listing > :nth-child(2) > :nth-child(2) > div > div > img {
     max-width:100%;
     max-height:100%;
+}
+
+.listing > :nth-child(2) > :nth-child(2) > div > div {
+    width:100%;
+    height:100%;
+    position:relative;
 }
 
 .listing > :nth-child(2) > :nth-child(2) > :nth-child(1) {
@@ -440,10 +445,41 @@ nav{
     
 }
 
+.listing > :nth-child(2) > :nth-child(2) > div > p {
+    font-family:"Aileron", sans-serif;
+    font-size:calc(var(--listing-size) / 15);
+    font-weight:700;
+}
+
+.listing > :nth-child(2) > :nth-child(2) > div > div > div {
+    position:absolute;
+    right:0%;
+    bottom:0%;
+    display:flex;
+    flex-direction:row;
+}
+
+.listing > :nth-child(2) > :nth-child(2) > div > div > div > div {
+    width:calc(var(--listing-size) / 90);
+    height:calc(var(--listing-size) / 90);
+    border-radius:calc(var(--listing-size) / 90);
+    padding:calc(var(--listing-size) / 90);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.listing > :nth-child(2) > :nth-child(2) > div > div > div > div > p {
+    color:white;
+    font-family:"Aileron", sans-serif;
+    margin:0px;
+    font-size:calc(var(--listing-size) / 40);
+    font-weight:700;
+}
+
 .main{
     display:flex;
     flex-direction:row;
-    padding-top:1.5vw;
 }
 
 .mediumWidth{
@@ -452,21 +488,16 @@ nav{
 
 #listingInterface2 {
     display: none;
-    overflow-y: scroll;
-    overflow-x:hidden;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    transform: translate(-50%, 0%);
-    top: 3%;
-    left: 50%;
     width: 860rem;
-    height: 95%;
-    background-color: white; /* Base background color */
-    border-radius: 60rem;
-    z-index: 100; /* Ensure it stays on top of other elements */
+    background-color: white; 
+    border-radius: 3vw;
+    z-index: 120; 
     box-sizing: border-box;
-    padding: 20px;
+    padding: 1vw;
+    position:relative;
+    height:auto;
 }
 
 #listingInterface2::before {
@@ -476,7 +507,8 @@ nav{
     left: 0;
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 175rem,
-    rgb(253, 249, 234) 475rem, rgb(253, 249, 234) 525rem, rgb(237, 230, 219) 700rem);
+    rgb(253, 249, 234) 475rem, rgb(253, 249, 234) 525rem, rgb(237, 230, 219) 100%);
+    border-radius: 3vw;
 
     z-index: -1; /* Keep it behind the content */
     pointer-events: none; /* No interaction with the background */
@@ -489,36 +521,28 @@ nav{
     left: 0;
     width: 100%;
     height: 485rem;
+    border-radius: 3vw 3vw 0px 0px;
     background: url('/static/images/misc/image100.png') no-repeat top;
     background-size: auto 100%;
     z-index: -2; /* Keep it below the gradient */
     pointer-events: none; /* No interaction with the background */
 }
 
-#listingInterface2::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-#listingInterface2 {
-    scrollbar-width: none;
-}
-
-#listingInterface2 {
-    -ms-overflow-style: none;
-}
-
 #listingInterface2Background{
-    z-index:99;
+    z-index:105;
     position:fixed;
+    padding-top:4%;
     left:0%;
     top:0%;
     width:100vw;
-    height:200vh;
+    height:100vh;
     background-color:rgb(0,0,0,0.3);
     display:none;
+    flex-direction:row;
+    justify-content:center;
     pointer-events:auto;
-    overflow:auto;
+    overflow-y:auto;
+    box-sizing:border-box;
 }
 
 #listingInterface2 p{
@@ -1152,7 +1176,7 @@ nav{
 
 #slides{
     width:100vw;
-    aspect-ratio:3/1;
+    height:max(calc(var(--slide-size) / 3 + calc(var(--slide-size) / 768)), calc(var(--slide-size) / 3 + 2px));
     position:relative;
     overflow:hidden;
 }
@@ -1283,51 +1307,66 @@ nav{
     justify-content:space-between;
     width:100vw;
     box-sizing:border-box;
-    padding-right:5vw;
-    padding-left:5vw;
+    padding:2vw 5vw;
 }
 
-#quickNavigation button{
+#quickNavigation button{    
     display:flex;
     justify-content:center;
     align-items:center;
-    border-radius:3vw;
-    width:29.21vw;
-    height:3.96vw;
-    padding:calc(1 / 19.2 * 1vw);
-    background:linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(109, 107, 112) 100%);
-    background-size:100% 100%;
-    border-width:0px;
-    box-sizing:border-box;
-    cursor:pointer;
+    position: relative;
+    padding: 1px;
+    border: none;
+    color: white; /* Text color */
+    background-color: transparent; /* Transparent inside */
+    border-radius: 4vw; /* Round corners */
+    cursor: pointer;
+    z-index: 1;
     transition:transform 0.3s ease;
+}
+
+#quickNavigation button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, white, black); 
+    border-radius: 4vw;
+    z-index: -1;
+    padding: 1px; 
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude; 
 }
 
 #quickNavigation button:hover{
     transform:scale(1.05);
+
 }
 
-#quickNavigation button > div{
+#quickNavigation button > a {
+    width:29vw;
+    height:4vw;
+    transition:width 0.3s ease, height 0.3s ease;
     display:flex;
     justify-content:center;
     align-items:center;
-    border-radius:3vw;
-    width:100%;
-    height:100%;
-    background-color:rgb(253, 249, 234);
+    text-decoration:none;
 }
 
-#quickNavigation button > div > p{
+#quickNavigation button > a > p{
     font-family:"Aileron", sans-serif;
-    font-size:calc(22.9 * 4 / 3 / 19.2 * 1vw)
+    font-size:calc(22.9 * 4 / 3 / 19.2 * 1vw);
+    color:rgb(54, 53, 55);
+    margin:0px;
+    text-decoration:none;
 }
-
-
-
-html{
-    overflow-x:hidden;
-}
-
 
 .flyDiv{
     background:linear-gradient(135deg, rgb(142, 202, 232) 0%, rgb(47, 152, 204) 50%, rgb(0, 134, 200) 100%);
@@ -1427,3 +1466,4 @@ html{
 .optionblank {
     color: white;
 }
+

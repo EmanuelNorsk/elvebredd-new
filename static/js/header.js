@@ -129,10 +129,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 };
             };
         });
-    } else {
+    } else if (1 == 2){
         headerLogo.style.filter = "invert(0%) contrast(100%)"
         menuImage.style.filter = "invert(0%) contrast(100%)"
-        nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)";
+        //nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)";
         if ( loggedIn == "True") {
             profileMenu.style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%);"
         };
@@ -353,14 +353,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
     function handleFocus() {
         this.setAttribute('data-placeholder', this.getAttribute('placeholder')); // Store the placeholder value
         this.setAttribute('placeholder', ''); // Clear the placeholder
-      }
+    }
   
 
-      function handleBlur() {
+    function handleBlur() {
         if (this.value === '') {
-          this.setAttribute('placeholder', this.getAttribute('data-placeholder')); // Restore the original placeholder
+            this.setAttribute('placeholder', this.getAttribute('data-placeholder')); // Restore the original placeholder
         }
-      }
+    }
   
 
       inputs.forEach(input => {
@@ -368,5 +368,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
         input.addEventListener('blur', handleBlur);
       });
 
+    if (window.scrollY != 0) {
+        document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)"
+    }
+
 });
+
+window.addEventListener("scroll", event => {
+    console.log("HI")
+    if (window.scrollY != 0) {
+        document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
+    } else {
+        document.querySelector("nav").style.background = "transparent"
+    }
+})
+
+if (window.scrollY != 0) {
+    document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)"
+}
 

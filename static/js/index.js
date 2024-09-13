@@ -309,28 +309,6 @@ function changeSlideBy(number) {
     updateSlides()
 }
 
-function enableScrolling() {
-    body.style.overflow = '';
-    document.removeEventListener('wheel', preventBodyScroll, { passive: false });
-}
-
-function disableScrolling() {
-    body.style.overflow = 'hidden';
-    document.addEventListener('wheel', preventBodyScroll, { passive: false });
-}
-
-function preventBodyScroll(event) {
-    const target = event.target;
-    const petImagesElement = document.getElementById('petImages');
-
-    const isInsidePetImages = petImagesElement && (petImagesElement.contains(target) || target === petImagesElement);
-    const isInsideListingInterface2 = listingInterface2 && (listingInterface2.contains(target) || target === listingInterface2);
-
-    if (!isInsidePetImages && !isInsideListingInterface2) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
-}
 
 function scroll() {
     scrolling = true
@@ -1027,7 +1005,7 @@ function showPreferences(listing) {
 
 
 function showUserListings2(listing) {
-    disableScrolling()
+    document.querySelector("html").style.overflowY = "hidden";
     currentListing = listing
     yourOfferExtraPets = []
     theirOfferExtraPets = []
@@ -1188,7 +1166,7 @@ function showUserListings2(listing) {
 function closeListingInterface2() {
     listingInterface2.style.display = "none"
     listingInterface2Background.style.display = "none"
-    enableScrolling()
+    document.querySelector("html").style.overflowY = "auto";
 }
 
 function showOffers(listing) {
@@ -1229,6 +1207,7 @@ function showOffers(listing) {
                 div5.appendChild(div6)
             }
             if (listing["offer"][listing["customOffers"][i]["type"]][j]["mega"] == 1) {
+                const div6 = document.createElement("div")
                 const div5 = document.createElement("div")
                 div5.style.background = "linear-gradient(135deg, rgb(187, 80, 253) 0%, rgb(69, 3, 198) 50%, rgb(81, 28, 182) 100%)"
                 const p = document.createElement("p")
@@ -2158,6 +2137,48 @@ function scrollListings(event, direction) {
     }
 }
 
+function createPetDiv(pet) {
+    const div = document.createElement("div")
+    const img = document.createElement("img")
+    img.src = petsDict[pet["id"]]["image"]
+    div.appendChild(img)
+    const div2 = document.createElement("div")
+    if (pet["fly"]) {
+        const div3 = document.createElement("div")
+        const p = document.createElement("p")
+        p.textContent = "F"
+        div3.appendChild(p)
+        div3.className = "flyDiv"
+        div2.appendChild(div3)
+    }
+    if (pet["ride"]) {
+        const div3 = document.createElement("div")
+        const p = document.createElement("p")
+        p.textContent = "R"
+        div3.appendChild(p)
+        div3.className = "rideDiv"
+        div2.appendChild(div3)
+    }
+    if (pet["neon"]) {
+        const div3 = document.createElement("div")
+        const p = document.createElement("p")
+        p.textContent = "N"
+        div3.appendChild(p)
+        div3.className = "neonDiv"
+        div2.appendChild(div3)
+    }
+    if (pet["mega"]) {
+        const div3 = document.createElement("div")
+        const p = document.createElement("p")
+        p.textContent = "M"
+        div3.appendChild(p)
+        div3.className = "megaDiv"
+        div2.appendChild(div3)
+    }
+    div.appendChild(div2)
+    return div
+}
+
 function loadListingsInto(listings, target) {
     target.innerHTML = ""
     Object.values(listings).forEach(listing => {
@@ -2172,22 +2193,18 @@ function loadListingsInto(listings, target) {
         if (value1 > value2) {
             listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
             listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
-            listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%);"
-            listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%);"
+            listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+            listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
         } else if (value1 < value2) {
             listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
         }
         
         for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
-            const img = document.createElement("img")
-            img.src = petsDict[listing["offer"]["give"][i]["id"]]["image"]
-            listingTemplate.children[1].children[1].children[0].appendChild(img)
+            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
         }
 
         if (listing["offer"]["give"].length == 9) {
-            const img = document.createElement("img")
-            img.src = petsDict[listing["offer"]["give"][8]["id"]]["image"]
-            listingTemplate.children[1].children[1].children[0].appendChild(img)
+            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
         } else if (listing["offer"]["give"].length > 9) {
             const p = document.createElement("p")
             p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
@@ -2195,15 +2212,11 @@ function loadListingsInto(listings, target) {
         }
 
         for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
-            const img = document.createElement("img")
-            img.src = petsDict[listing["offer"]["take"][i]["id"]]["image"]
-            listingTemplate.children[1].children[1].children[2].appendChild(img)
+            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
         }
 
         if (listing["offer"]["take"].length == 9) {
-            const img = document.createElement("img")
-            img.src = petsDict[listing["offer"]["take"][8]["id"]]["image"]
-            listingTemplate.children[1].children[1].children[2].appendChild(img)
+            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
         } else if (listing["offer"]["take"].length > 9) {
             const p = document.createElement("p")
             p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
@@ -2248,4 +2261,10 @@ window.addEventListener("resize", event => {
             listings.setAttribute("data-transition", "")
         }, 10)
     })
+})
+
+window.addEventListener("click", event => {
+    if (event.target == document.getElementById("listingInterface2Background")) {
+        closeListingInterface2()
+    }
 })

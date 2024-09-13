@@ -2252,6 +2252,7 @@ function loadListingsInto(listings, target) {
 
 window.addEventListener("resize", event => {
     var allListingsClasses = document.querySelectorAll(".listings")
+    var quickNavigation = document.getElementById("quickNavigation")
     allListingsClasses.forEach(listings => {
         const styles = window.getComputedStyle(listings)
         listings.setAttribute("data-transition", styles.transition)
@@ -2261,6 +2262,16 @@ window.addEventListener("resize", event => {
             listings.setAttribute("data-transition", "")
         }, 10)
     })
+    for (let i = 0; i < quickNavigation.children.length; i++ ) {
+        const styles = window.getComputedStyle(quickNavigation.children[i].children[0])
+        quickNavigation.children[i].children[0].setAttribute("data-transition", styles.transition)
+        quickNavigation.children[i].children[0].style.transition = "none"
+        setTimeout((event) => {
+            quickNavigation.children[i].children[0].style.transition = quickNavigation.children[i].children[0].getAttribute("data-transition")
+            quickNavigation.children[i].children[0].setAttribute("data-transition", "")
+        }, 10000)
+
+    }
 })
 
 window.addEventListener("click", event => {

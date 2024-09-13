@@ -33,7 +33,6 @@ footer{
 
 main{
     top:0px;
-    min-height:400vh;
 }
 
 .center{
@@ -280,7 +279,7 @@ main{
     width:fit-content;
     margin-left:0px;
     transition:margin-left 0.5s ease;
-    min-height:max(calc(var(--listing-size) / 300* 180 + calc(var(--listing-size) / 768) + 2x), calc(var(--listing-size) / 300* 180 + 4px));
+    height:max(calc(var(--listing-size) / 300* 180 + calc(var(--listing-size) / 768)), calc(var(--listing-size) / 300* 180 + 2px));
 }
 
 .listingsCategory {

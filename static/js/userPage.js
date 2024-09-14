@@ -1257,7 +1257,7 @@ function showUserListings(listings, target) {
                         megaDiv.className = "listingPetAttribute"
                         const txt4 = document.createElement("b")
                         txt4.innerText = "M"
-                        megaDiv.appendChild(tx4t4)
+                        megaDiv.appendChild(txt4)
                         attributeDiv.appendChild(megaDiv)
                     }
 

@@ -12,7 +12,7 @@ p {
 #searchGrid {
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-    margin-top:180rem;
+    margin-top:40rem;
     gap:11rem;
     padding-bottom:100rem;
 }

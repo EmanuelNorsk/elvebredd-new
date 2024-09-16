@@ -77,7 +77,7 @@ nav{
 
 #notificationIcon{
     height:18rem;
-    filter:invert(1) contrast(1);
+    /*filter:invert(1) contrast(1);*/
 }
 
 #profileMenu{
@@ -273,7 +273,7 @@ nav{
     align-items:center;
     justify-content:center;
     gap:5%;
-    /*background: linear-gradient(135deg, #F3E7D6 0%, #EBE5DC 50%, #FDF9EA 100%);*/
+    background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
     padding-right:5%;
     padding-left:5%;
     border:1px solid black;

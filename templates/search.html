@@ -193,8 +193,16 @@
             const p10 = document.createElement("p")
             if ("rvalue" in pet) {
                 p8.innerText = pet["rvalue"]
-                p9.innerText = pet["nvalue"]
-                p10.innerText = pet["mvalue"]
+                if (pet["nvalue"] != undefined) {
+                    p9.innerText = pet["nvalue"]
+                } else {
+                    p9.innerText = "X"
+                }
+                if (pet["mvalue"] != undefined) {
+                    p10.innerText = pet["mvalue"]
+                } else {
+                    p10.innerText = "X"
+                }       
             } else {
                 if (pet["value"] == null) {
                     p8.innerText = "X"

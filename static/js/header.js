@@ -375,11 +375,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 window.addEventListener("scroll", event => {
-    console.log("HI")
-    if (window.scrollY != 0) {
-        document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
+    var nav = document.querySelector("nav")
+    if (window.scrollY != 0 && nav != undefined) {
+        nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
     } else {
-        document.querySelector("nav").style.background = "transparent"
+        nav.style.background = "transparent"
     }
 })
 

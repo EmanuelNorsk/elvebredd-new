@@ -537,3 +537,7 @@ html {
       background-position: 0 0;
       background-repeat: repeat-y; /* Prevent repeating of the background */
 }
+
+main {
+    min-height:100vh;
+}

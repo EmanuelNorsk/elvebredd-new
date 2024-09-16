@@ -4,27 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifications</title>
+    <script src="/static/js/notifications.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/uju1lhj.css">
+    <link rel="stylesheet" href="/static/css/notifications.css">
 </head>
 <body>
     <header>
         {% include "header.html" %}
     </header>
     <main style="width:100%;display:flex;justify-content:center;flex-direction:row;">
-        <div style="width:25%;min-height:100vh">
-
-        </div>
-        <div style="width:50%;display:flex;flex-direction:column;align-items:center;padding:max(2vw, 4vh);">
-            <b style="font-size:max(1.5vw, 3vh);text-align:center;width:100%;padding:max(1vw, 2vh);">Notifications</b>
-            <div id="allNotifications" style="width:100%;display:flex;flex-direction:column;align-items:center;border-top:1px solid white;border-bottom:1px solid white;padding-top:max(1vw, 2vh);padding-bottom:max(1vw, 2vh);">
-
+        <div id="notificationsFullscreen">
+            <div>
+                <img src="/static/images/misc/arrow.png">
+                <p>Notifications</p>
+                <div>
+                    <div onclick="selectCategory()">
+                        <p>All</p>
+                        <img src="/static/images/misc/x.png">
+                    </div>
+                    <div onclick="selectNewCategory(event)">
+                        <p>All</p>
+                        <p>Listings</p>
+                        <p>Value Updates</p>
+                        <p>Other</p>
+                    </div>
+                </div>
             </div>
-            <button id="loadMoreNotificationsButton" onclick="displayNotifications()" style="padding:max(1vw, 2vh);border:1px solid black; border-radius:max(1vw, 2vh);background:linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%);margin-top:max(2vw, 4vh);margin-bottom:max(1vw, 2vh);">
-                <b style="font-size:max(1vw, 2vh);">Load More Notifications</b>
-            </button>
-        </div>
-        <div style="width:25%;min-height:100vh">
-
+            <div>
+                <div></div>
+                <p>Last 24 Hours</p>
+                <div></div>
+            </div>
+            <div id="last24HoursNotifications" class="notificationsContainer">
+                <div>
+                    <img src="/static/images/notifications/default.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+                <div>
+                    <img src="/static/images/notifications/default.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+                <div>
+                    <img src="/static/images/notifications/default.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+            </div>
+            <div>
+                <div></div>
+                <p>Old</p>
+                <div></div>
+            </div>
+            <div id="last24HoursNotifications" class="notificationsContainer">
+                <div>
+                    <img src="/static/images/profile/coolDragon.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+                <div>
+                    <img src="/static/images/notifications/default.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+                <div>
+                    <img src="/static/images/notifications/default.png">
+                    <div>
+                        <p>Head</p>
+                        <p>Body Body Body Body</p>
+                    </div>
+                    <p>10m</p>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
@@ -33,7 +100,7 @@
 </body>
 </html>
 
-<script>
+<!--<script>
     var notificationsLoaded = 0
     var notifications = []
     var allNotifications = document.getElementById("allNotifications")
@@ -149,4 +216,4 @@
     }
 
     displayNotifications()
-</script>
+</script> -->

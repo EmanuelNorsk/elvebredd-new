@@ -597,6 +597,16 @@ def getFriendsDetails(userID):
         return {}
     return output
 
+def getRecentNotifications(userID = ""):
+    global UserData
+    if userID != "":
+        try:
+            return 0, [UserData[userID]["notifications"][-1], UserData[userID]["notifications"][-2], UserData[userID]["notifications"][-3], UserData[userID]["notifications"][-4], UserData[userID]["notifications"][-5], UserData[userID]["notifications"][-6]], 1
+        except Exception:
+            return 1, "Nothing found", -1
+    else:
+        return 2, "You are not logged in", -1
+
 def getPendingDetails(userID):
     output = {}
     try:
@@ -999,6 +1009,7 @@ def resetPasswordWithID(tempID = ""):
             return 1, "ID invalid!", 0
 
 def modifyPreference(userID, preference, value):
+        global UserData
         try:
             UserData[userID]["preferences"][preference] = int(value)
             flask.session['userData'] = cookifyUserData(UserData[flask.session.get("userID", "")])
@@ -1009,6 +1020,7 @@ def modifyPreference(userID, preference, value):
             return 1, "error", -1
 
 def modifyMisc(userID, misc, value):
+        global UserData
         try:
             UserData[userID]["settings"][misc] = int(value)
             flask.session['userData'] = cookifyUserData(UserData[flask.session.get("userID", "")])

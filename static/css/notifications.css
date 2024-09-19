@@ -10,17 +10,24 @@
     flex-direction:row;
     width:100%;
     align-items:center;
-    gap:1vw;
     position:relative;
 }
 
 #notificationsFullscreen > :nth-child(1) > :nth-child(1) {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:1vw;
+    cursor:pointer;
+}
+
+#notificationsFullscreen > :nth-child(1) > :nth-child(1) > :nth-child(1) {
     width:calc(17.3 / 19.2 * 1vw);
     height:calc(25.8 / 19.2 * 1vw);
     rotate:180deg;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(2) {
+#notificationsFullscreen > :nth-child(1) > :nth-child(1) > :nth-child(2) {
     font-family:"Aileron", sans-serif;
     color:rgb(54, 53, 55);
     font-size:calc(21.2 * 4 / 3 / 19.2 * 1vw);
@@ -28,7 +35,11 @@
     margin:0px;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) {
+main {
+    padding-top:5vw;
+}
+
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) {
     background:linear-gradient(135deg, rgb(242, 230, 215) 0%, rgb(250, 246, 232) 100%);
     border-bottom: 1px solid transparent;
     border-right: 1px solid transparent;
@@ -44,7 +55,7 @@
     transition:height 0.35s ease-in-out, border-left 0.7s ease-out, border-right 0.7s ease-out, border-bottom 0.7s ease-out;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(1) {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(1) {
     background:linear-gradient(135deg, rgb(242, 230, 215) 0%, rgb(250, 246, 232) 100%);
     border: 1px solid rgb(54, 53, 55);
     display:flex;
@@ -57,7 +68,7 @@
     border-radius:3vw;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(1) {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) {
     font-family:"Aileron", sans-serif;
     color:rgb(54, 53, 55);
     font-size:calc(14.4 * 4 / 3 / 19.2 * 1vw);
@@ -65,25 +76,25 @@
     margin:0px;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(2) {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2) {
     width:calc(14 / 19.2 * 1vw);
     height:calc(14 / 19.2 * 1vw);
     cursor:pointer;
     transition:transform 0.25s ease;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(1) > :nth-child(2):hover {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2):hover {
     transform:scale(1.1);
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(2) {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(2) {
     display:flex;
     flex-direction:column;
     gap:0.2vw;
     padding:0.2vw;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(2) > p {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(2) > p {
     font-family:"Aileron", sans-serif;
     color:rgb(109, 107, 112);
     font-size:calc(14.3 * 4 / 3 / 19.2 * 1vw);
@@ -95,7 +106,7 @@
     transition:transform 0.2s ease;
 }
 
-#notificationsFullscreen > :nth-child(1) > :nth-child(3) > :nth-child(2) > p:hover {
+#notificationsFullscreen > :nth-child(1) > :nth-child(2) > :nth-child(2) > p:hover {
     transform:scale(1.05);
 }
 

@@ -22,7 +22,6 @@ var friendData = ""
 var currentFriendSelected = ""
 var pendingData = ""
 var displayPetsFirstTime = 0
-var loggedIn = false
 var userID = "0"
 var profileID = "0"
 var maxPets = 18
@@ -51,7 +50,7 @@ var petImage = document.createElement("div")
 
 window.addEventListener("DOMContentLoaded", function() {
     var loggedInElement = document.getElementById("loggedIn-data")
-    loggedIn = loggedInElement.textContent.toString()
+    loggedIn = true //loggedInElement.textContent.toString()
     var userIDElement = document.getElementById("userID-data")
     userID = userIDElement.textContent.toString()
     var profileIDElement = document.getElementById("profileID-data")
@@ -1274,7 +1273,7 @@ function showUserListings(listings, target) {
 
         div.appendChild(div2)
         div.appendChild(div3)
-        if ( loggedIn.includes("True") ) {
+        if ( loggedIn == "True" ) {
             div.setAttribute("onclick", "showUserListings2(" + JSON.stringify(listings[key]) + ")");
         }
         target.appendChild(div)

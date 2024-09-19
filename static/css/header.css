@@ -133,69 +133,219 @@ nav{
     position:relative;
 }
 
-
-#notificationsMenu{
-    position:absolute;
-    top:0%;
-    margin-top:50px;
-    border-radius:max(1vw, 2vh);
-    border: 1px solid white; 
-    background: linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%);
-    padding:max(1vw, 2vh);
+#notificationsMenu {
     display:none;
-    flex-direction:column;
-    align-items:center;
-    margin-right:max(23vw, 46vh);
-    gap:max(1vw, 2vh);
-}
-
-.notification{
-    height:max(4vw, 8vh);
-    width:max(20vw, 40vh);
-    display:flex;
-    justify-content:space-between;
-    flex-direction:row;
-    align-items:center;
-    gap:max(1vw, 2vh);
-}
-
-.notificationInfo{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    gap:max(0.2vw, 0.4vh);
-}
-
-#notifications{
-    border-top:1px solid white;
-    border-bottom:1px solid white;
-    padding-top:max(1vw, 2vh); 
-    padding-bottom:max(1vw, 2vh); 
-    display:flex;
-    flex-direction:column;
-    gap:max(0.5vw, 1vh);
-}
-
-.attributeDiv{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
     position:absolute;
-    left:2px;
-    bottom:2px;
-}
-
-
-.notificationsTitleDiv{
+    width:33vw;
+    box-sizing:border-box;
+    background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
+    border:0px solid white;
+    height:0px /* 44vw */;
+    box-sizing:border-box;
+    border-radius:3.5vw;
+    transform:translate(-45%, 58%);
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    width:max(20vw, 40vh);
+    justify-content:flex-start;
+    transition:height 0.6s ease-in-out, opacity 0.6s ease-in;
+    z-index:5;
+    opacity:0;
+    gap:1vw;
 }
 
-.notificationsTitleDiv b{
-    font-size:max(1.5vw, 3vh);
+#notificationsMenu > :nth-child(1) {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    position:relative;
+    justify-content:center;
+    width:calc(33 / 10 * 7.5 * 1vw);
+    height:4.4vw;
+    min-height:4.4vw;
+    max-height:4.4vw;
+    overflow:hidden;
 }
+
+#notificationsMenu > :nth-child(1) > :nth-child(1) {
+    font-family: "Aileron", sans-serif;
+    font-style:italic;
+    color:rgb(109, 107, 112);
+    font-weight:300;
+    font-size:calc(18 * 4 / 3 / 19.2 * 1vw);
+    letter-spacing:1vw;
+    margin:0px;
+}
+
+#notificationsMenu > :nth-child(1) > :nth-child(2) {
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    right:0%;
+    top:39%;
+    width:auto;
+    height:auto;
+    rotate:90deg;
+    padding:0.4vw;
+    cursor:pointer;
+    transition:0.25s ease;
+}
+
+#notificationsMenu > :nth-child(1) > :nth-child(2):hover {
+    transform:scale(1.02);
+}
+
+#notificationsMenu > :nth-child(1) > :nth-child(2) > :nth-child(1) {
+    width:calc(23.2vw / 19.2);
+    height:calc(7vw / 19.2);
+    filter:grayscale(1) brightness(2.5);
+}
+
+#notificationsMenu > :nth-child(1) > :nth-child(3) {
+    position:absolute;
+    background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
+    border:1px solid white;
+    border-radius:1vw;
+    transform:translate(0%, 0%);
+    padding:0.9vw;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:10;
+    right:-50%;
+    transition:scale 0.3s ease;
+    scale:1.0;
+    cursor:pointer;
+}
+
+#notificationsMenu > :nth-child(1) > :nth-child(3):hover {
+    scale:1.05
+}
+
+
+#notificationsMenu > :nth-child(1) > :nth-child(3) > p {
+    font-family: "Aileron", sans-serif;
+    font-style:italic;
+    color:rgb(255, 102, 102);
+    font-weight:bold;
+    font-size:calc(13 * 4 / 3 / 19.2 * 1vw);
+    margin:0px;
+    width:10vw;
+    text-align:center;
+}
+
+
+
+#notificationsMenu > :nth-child(2) {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:1vw;
+    overflow:hidden;
+}
+
+#notificationsMenu > :nth-child(2) > :nth-child(1) {
+    font-family: "Aileron", sans-serif;
+    font-style:italic;
+    color:rgb(109, 107, 112);
+    font-weight:normal;
+    font-size:calc(20 * 4 / 3 / 19.2 * 1vw);
+    margin:0px;
+}
+
+#notificationsMenu > :nth-child(3), #notificationsMenu > :nth-child(5) {
+    display:flex;
+    flex-direction:column;
+    padding-right:4vw;
+    padding-left:1vw;
+    width:100%;
+    box-sizing:border-box;
+    gap:1vw;
+    overflow:hidden;
+}
+
+#notificationsMenu > :nth-child(3) > div, #notificationsMenu > :nth-child(5) > div {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    position:relative;
+    gap:1vw;
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(1), #notificationsMenu > :nth-child(5) > div > :nth-child(1) {
+    width:calc(77vw / 19.2);
+    height:calc(77vw / 19.2);
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(2), #notificationsMenu > :nth-child(5) > div > :nth-child(2) {
+    display:flex;
+    flex-direction:column;
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(2) > p, #notificationsMenu > :nth-child(5) > div > :nth-child(2) > p {
+    font-family:"Aileron", sans-serif;
+    margin:0px;
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(2) > :nth-child(1), #notificationsMenu > :nth-child(5) > div > :nth-child(2) > :nth-child(1) {
+    font-size:calc(25vw / 14.4);
+    font-weight:bold;
+    color:rgb(54, 53, 55);
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(2) > :nth-child(2), #notificationsMenu > :nth-child(5) > div > :nth-child(2) > :nth-child(2) {
+    font-size:calc(25vw / 14.4);
+    font-weight:normal;
+    color:rgb(109, 107, 112);
+}
+
+#notificationsMenu > :nth-child(3) > div > :nth-child(3), #notificationsMenu > :nth-child(5) > div > :nth-child(3) {
+    position:absolute;
+    right:0;
+    bottom:0;
+    font-size:calc(12vw / 14.4);
+    font-weight:bold;
+    color:rgb(109, 107, 112);
+    font-family:"Aileron", sans-serif;
+    margin:0px;
+}
+
+#notificationsMenu > :nth-child(4) {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    width:90%;
+    box-sizing:border-box;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+#notificationsMenu > :nth-child(4) > :nth-child(1), #notificationsMenu > :nth-child(4) > :nth-child(3) {
+    background:white;
+    width:45%;
+    height:1px;
+}
+
+#notificationsMenu > :nth-child(4) > :nth-child(2) {
+    font-size:calc(12vw / 14.4);
+    font-weight:bold;
+    color:white;
+    font-family:"Aileron", sans-serif;
+    margin:0px;
+}
+
+.loggedIn{
+    display:none;
+}
+
+.notLoggedIn{
+    display:none;
+}
+
+
+
 
 
 #settingsBackground{
@@ -206,6 +356,7 @@ nav{
     left:0%;
     background-color:rgb(20, 20, 20, 0.35);
     z-index:2000;
+    display:none;
 }
 
 #settingsMenu{
@@ -215,7 +366,7 @@ nav{
     top:50%;
     transform:translate(-50%, -50%);
     z-index:5000;
-    display:flex;
+    display:none;
     align-items:center;
     flex-direction:column;
     padding:max(1vw, 2vh);

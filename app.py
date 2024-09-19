@@ -399,6 +399,12 @@ def api():
                 return flask.jsonify(output)
             else:
                 return flask.jsonify("ERROR")
+        elif action == "getRecentNotifications":
+            id, output, success = getRecentNotifications(flask.session.get("userID", ""))
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
         elif action == "acceptOfferWithKey":
             id, output, success = acceptOfferWithKey(flask.session.get("userID", ""), args["key"])
             if success == 1:

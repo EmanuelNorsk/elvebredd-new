@@ -141,10 +141,6 @@ window.addEventListener("DOMContentLoaded", event => {
     //showUserListings(trades["Recent"], listingsCategory2)
     //showUserListings(trades["Overpay"], listingsCategory3)
 
-    loadListingsInto(trades["Suggested"], document.getElementById("suggestedListings"))
-    loadListingsInto(trades["Recent"], document.getElementById("recentListings"))
-    loadListingsInto(trades["Overpay"], document.getElementById("overpayListings"))
-
     listingInterface2Background.addEventListener("wheel", event => {
         if (remainingScroll * event.deltaY < 0) {
             remainingScroll = 0
@@ -207,6 +203,10 @@ window.addEventListener("DOMContentLoaded", event => {
     window.addEventListener("resize", event => {
         header.style.height = (nav.offsetHeight * 1).toString() + "px"
     })
+
+    setTimeout(loadListingsInto(trades["Suggested"], document.getElementById("suggestedListings")),250)
+    setTimeout(loadListingsInto(trades["Recent"], document.getElementById("recentListings")), 250)
+    setTimeout(loadListingsInto(trades["Overpay"], document.getElementById("overpayListings")), 250)
 
 })
 

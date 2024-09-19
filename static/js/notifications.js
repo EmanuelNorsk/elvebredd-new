@@ -13,17 +13,21 @@ function selectCategory() {
     var notificationsDiv = document.getElementById("notificationsFullscreen")
     if (categoryOpen) {
         categoryOpen = false
-        notificationsDiv.children[0].children[2].style.borderBottom = "1px solid transparent"
-        notificationsDiv.children[0].children[2].style.borderRight = "1px solid transparent"
-        notificationsDiv.children[0].children[2].style.borderLeft = "1px solid transparent"
-        notificationsDiv.children[0].children[2].style.height = "calc(2vw + 2px)"
+        notificationsDiv.children[0].children[1].style.borderBottom = "1px solid transparent"
+        notificationsDiv.children[0].children[1].style.borderRight = "1px solid transparent"
+        notificationsDiv.children[0].children[1].style.borderLeft = "1px solid transparent"
+        notificationsDiv.children[0].children[1].style.height = "calc(2vw + 2px)"
     } else {
         categoryOpen = true
-        notificationsDiv.children[0].children[2].style.borderBottom = "1px solid rgb(54, 53, 55)"
-        notificationsDiv.children[0].children[2].style.borderRight = "1px solid rgb(54, 53, 55)"
-        notificationsDiv.children[0].children[2].style.borderLeft = "1px solid rgb(54, 53, 55)"
-        notificationsDiv.children[0].children[2].style.height = "calc(7.8vw + 2px)"
+        notificationsDiv.children[0].children[1].style.borderBottom = "1px solid rgb(54, 53, 55)"
+        notificationsDiv.children[0].children[1].style.borderRight = "1px solid rgb(54, 53, 55)"
+        notificationsDiv.children[0].children[1].style.borderLeft = "1px solid rgb(54, 53, 55)"
+        notificationsDiv.children[0].children[1].style.height = "calc(7.8vw + 2px)"
     }
+}
+
+function goBack() {
+    window.history.back()
 }
 
 function selectNewCategory(event) {
@@ -31,13 +35,13 @@ function selectNewCategory(event) {
     if (event.target.tagName != "DIV") {
         notificationsCategory = event.target.textContent
     }
-    notificationsDiv.children[0].children[2].children[0].children[0].textContent = notificationsCategory
+    notificationsDiv.children[0].children[1].children[0].children[0].textContent = notificationsCategory
 
 }
 
 window.addEventListener("click", event => {
     var notificationsDiv = document.getElementById("notificationsFullscreen");
-    var rect = notificationsDiv.children[0].children[2].getBoundingClientRect();
+    var rect = notificationsDiv.children[0].children[1].getBoundingClientRect();
 
     var isInsideDiv = (
         event.clientX >= rect.x && event.clientX <= rect.x + rect.width &&

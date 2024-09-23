@@ -1121,6 +1121,14 @@
                 "important": false,
                 "image": "/static/images/profile/default.png",
                 "created": 1723381375.320844
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Elvebredd!",
+                "read": true,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1723381375.320844
             }
         ],
         "preferences": {
@@ -1231,9 +1239,9 @@
             }
         ],
         "lastActivity": [
-            "21/45:19:09:24",
+            "21/51:19:09:24",
             [
-                "api",
+                "indexPage",
                 "127.0.0.1"
             ]
         ],
@@ -8492,6 +8500,22 @@
             ],
             "21/45:19:09:24": [
                 "api",
+                "127.0.0.1"
+            ],
+            "21/47:19:09:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/48:19:09:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/50:19:09:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/51:19:09:24": [
+                "indexPage",
                 "127.0.0.1"
             ]
         },

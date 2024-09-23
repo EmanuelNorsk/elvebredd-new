@@ -446,7 +446,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)"
     }
 
-    addNotifications()
 
     if (loggedIn) {
         loggedInDivs.forEach(div => {
@@ -621,20 +620,35 @@ window.addEventListener("DOMContentLoaded", (event) => {
         };
     });
 
+    updateNotifications()
+
+    window.addEventListener("scroll", event => {
+        var nav = document.querySelector("nav")
+        if (window.scrollY != 0 && nav != undefined) {
+            nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
+        } else {
+            nav.style.background = "transparent"
+        }
+    })
+
+    if (window.scrollY != 0) {
+        document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)"
+    }
+
+    window.addEventListener("resize", event => {
+        var notificationsMenu = document.getElementById("notificationsMenu")
+        const styles = window.getComputedStyle(notificationsMenu)
+        notificationsMenu.setAttribute("data-transition", styles.transition)
+        notificationsMenu.style.transition = "none"
+        setTimeout((event) => {
+            notificationsMenu.style.transition = notificationsMenu.getAttribute("data-transition")
+            notificationsMenu.setAttribute("data-transition", "")
+        }, 10)
+    })
+
 });
 
-window.addEventListener("scroll", event => {
-    var nav = document.querySelector("nav")
-    if (window.scrollY != 0 && nav != undefined) {
-        nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
-    } else {
-        nav.style.background = "transparent"
-    }
-})
 
-if (window.scrollY != 0) {
-    document.querySelector("nav").style.background = "linear-gradient(135deg, rgb(243, 231, 214, 1) 0%, rgb(235, 229, 220, 1) 50%, rgb(253, 249, 234, 1) 100%)"
-}
 
 function goTo(href) {
     window.location.href = href
@@ -656,18 +670,6 @@ function openDotsNotifications() {
         openDottedNotification = 0
     }
 }
-
-window.addEventListener("resize", event => {
-    var notificationsMenu = document.getElementById("notificationsMenu")
-    const styles = window.getComputedStyle(notificationsMenu)
-    notificationsMenu.setAttribute("data-transition", styles.transition)
-    notificationsMenu.style.transition = "none"
-    setTimeout((event) => {
-        notificationsMenu.style.transition = notificationsMenu.getAttribute("data-transition")
-        notificationsMenu.setAttribute("data-transition", "")
-    }, 10)
-})
-
 
 
 function addNotifications() {

@@ -340,9 +340,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     })
 
-    searchInput.addEventListener("focusout", event => {
-        resultsPets.style.display = "none";
-        headerSearchBar.style.margin = "0px"
+    window.addEventListener("click", event => {
+        if (headerSearchBar.contains(event.target) || event.target == headerSearchBar) {
+            
+        } else {
+            resultsPets.style.display = "none";
+            headerSearchBar.style.margin = "0px"
+        }
     })
 
     searchInput.addEventListener("focus", event => {
@@ -769,7 +773,7 @@ function isMouseOverElement(mouseX, mouseY, element) {
 function updateNotifications() {
     var notificationsCount = 0;
 
-    for (var id in userData.notifications) {
+    for (var id in userDataDict.notifications) {
         if (userDataDict.notifications.hasOwnProperty(id)) {
             if (!userDataDict.notifications[id].read) {
                 notificationsCount++;

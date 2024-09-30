@@ -762,6 +762,7 @@ def completeTradeWithKey(userID, key):
             Trades[key]["markedAsCompletedBy"].append(userID)
         if len(Trades[key]["markedAsCompletedBy"]) == 2:
             Trades[key]["completed"] = True
+            Trades[key]["completedAt"] = time.time()
             for user in Trades[key]["markedAsCompletedBy"]:
                 try:
                     UserData[user]["completedTrades"].append(key)
@@ -868,6 +869,7 @@ def createListing(userID, trade1, trade2, public = True, visibleTo = "all", extr
             "offer":{"give":trade1, "take":trade2, "giveValue":giveValue, "takeValue":takeValue},
             "extraSharkValueRequested":extra,
             "completed":False,
+            "completedAt":-1,
             "acceptedAt":-1,
             "acceptedOfferID":-1,
             "acceptedUser":None,
@@ -1131,7 +1133,7 @@ def sendFriendRequest(userID = -1, friendID = -1):
     
 def getPets():
     global Pets
-    return Pets
+    return 0, Pets, 1
 
 def addPetToInventory(user, pet, fly, ride, regular, neon, mega):
     global UserData
@@ -1379,6 +1381,32 @@ def cleanseTrades():
             if trade in Trades.keys():
                 list.append(trade)
         UserData[userID]["completedTrades"] = list
+
+
+
+def getSuggestedTradesForPetPage(userID, petID):
+    pass
+    trades = {}
+    suggested = []
+    for x in range(20):
+       suggested.append(Trades[str(random.randint(0, len(Trades) - 1))])
+    trades["suggested"] = suggested
+    suggested2 = []
+    for x in range(20):
+       suggested2.append(Trades[str(random.randint(0, len(Trades) - 1))])
+    trades["suggested2"] = suggested2
+    return 0, trades, 1
+
+def getHistoryTradesForPetPage(userID, petID):
+    pass
+    trades = {}
+    suggested = []
+    for x in range(30):
+       suggested.append(Trades[str(random.randint(0, len(Trades) - 1))])
+    trades["suggested"] = suggested
+    return 0, trades, 1
+
+
 
 
 def getTradesForMainPage(userID):

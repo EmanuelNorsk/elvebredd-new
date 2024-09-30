@@ -1,169 +1,178 @@
-#petTitle{
-    font-size:40px;
-}
-
-#arrow{
-    transform:rotate(180deg);
-    height:30px;
-    width:auto;
-}
-
-#mainSelection{
-    display:flex;
-    padding-top:max(5vw, 10vh);
-    justify-content:center;
-    gap:max(3vw, 6vh);
-    align-items:center;
-}
-
-#mainSelection b{
-    font-size:max(1.5vw, 3vh);
-}
-
-#listings{
-    display:flex;
-    width:max(26.8vw, 53.6vh);
-    padding-top:max(2vw, 4vh);
-    justify-content:center;
-    gap:max(3vw, 6vh);
-}
-
-#wiki{
-    display:flex;
-    width:max(26.8vw, 53.6vh);
-    padding-top:max(4vw, 8vh);
-    justify-content:center;
-    gap:max(3vw, 6vh);
-}
-
-#wiki b{
-    font-size:max(2.5vw, 5vh);
-}
-
-#selectListingsText{
-    cursor:pointer;
-}
-
-#selectWikiText{
-    cursor:pointer;
-}
-
-#petInformation{
-    padding:max(1vw, 2vh);
-    background: linear-gradient(135deg, rgb(242, 230, 215) 0%, rgb(250, 246, 232) 100%);
-    border:1px solid black;
-    border-radius:max(3vw, 6vh);
+main {
+    width:81.25vw;
+    padding-top:5vw;
+    margin-left:18.75vw;
     display:flex;
     flex-direction:column;
-    align-items:center;
-    gap:max(1vw, 2vh);
+    padding-bottom:10vw;
 }
 
-#petName{
-    font-size:max(1.5vw, 3vh);
+main > :nth-child(1) {
+    width:62.5vw;
+    display:flex;
+    flex-direction:row;
+    position:relative;
 }
 
-.noMargin{
+main > :nth-child(1) > img {
+    width:calc(180.7 / 19.2 * 1vw);
+    aspect-ratio:1/1;
+    position:absolute;
+}
+
+main > :nth-child(1) > div {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    height:calc(180.7 / 19.2* 1vw);
+}
+
+main > :nth-child(1) > div >:nth-child(1) {
+    color:rgb(54, 53, 55);
+    font-size:calc(25 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:300;
+    text-align:center;
+    width:100%;
     margin:0px;
 }
 
-.petInfoShort{
+main > :nth-child(1) > div >:nth-child(2) {
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
-    width:50%;
+    align-items:center;
+    gap:1vw;
+    justify-content:center;
+    width:100%;
 }
 
-.petInfoShort p{
-    font-size:max(1vw, 2vh);
+main > :nth-child(1) > div >:nth-child(3) {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:0.7vw;
+    width:100%;
+    padding-top:1vw;
 }
 
-.petInfoShort b{
-    font-size:max(1.2vw, 2.4vh);
-}
-
-.orangeRed{
-    background: linear-gradient(135deg, rgb(255, 145, 0) 0%, rgb(255, 102, 102) 50%, rgb(255, 102, 102) 100%);
-}
-
-.sharkFrostButton{
+main > :nth-child(1) > div >:nth-child(2) > button {
+    padding:1vw;
+    width:5vw;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    padding:10px;
-    border-radius:40px;
-    width:max(12vw,24vh);
-    height:max(1.5vw,3vh);
-    max-width:240px;
-    max-height:30px;
+    justify-content:center;
+    color:rgb(109, 107, 112);
+    font-size:calc(16 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    border:0px solid black;
     position:relative;
-    background: linear-gradient(135deg, rgb(255, 145, 0, 0.35) 0%, rgb(255, 102, 102, 0.35) 50%, rgb(255, 102, 102, 0.35) 100%);
-    z-index:20;
+    transition:font-weight 0.3s ease;
+    cursor:pointer;
 }
 
-.sharkText{
+main > :nth-child(1) > div >:nth-child(2) > button.permaHover {
+    font-weight:bold;
+    color:rgb(54, 53, 55);
+}
+
+main > :nth-child(1) > div >:nth-child(2) > button.permaHover::after {
+    width:100%;
+}
+
+main > :nth-child(1) > div >:nth-child(2) > button::after {
+    content:"";
     position:absolute;
+    left:50%;
+    bottom:18%;
+    width:0%;
+    height:calc(2 / 19.2 * 1vw);
+    border-radius:1px;
+    background:linear-gradient(90deg, rgb(54, 53, 55, 0) 0%, rgb(54, 53, 55) 50%, rgb(54, 53, 55, 0) 100%);
+    transform:translateX(-50%);
+    transition:width 0.3s ease;
+}
+
+main > :nth-child(1) > div >:nth-child(2) > button:hover::after {
+    width:100%;
+}
+
+main > :nth-child(1) > div >:nth-child(2) > button:hover {
+    color:rgb(54, 53, 55);
+    font-weight:bold;
+}
+
+main > :nth-child(1) > div >:nth-child(3) > button.unselected {
+    border-color:rgb(54, 53, 55);
+    color:rgb(54, 53, 55);
+}
+
+main > :nth-child(1) > div >:nth-child(3) > button {
+    width:9.9375vw;
+    height:calc(46.7 / 19.2 * 1vw);
+    box-sizing:border-box;
+    border:1px solid rgb(255, 102, 102);
+    color:rgb(255, 102, 102);
+    font-size:calc(14.1 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    border-radius:calc(46.7 / 19.2 * 1vw / 100 * 66);
+    transition:border-width 0.05s ease, font-weight 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor:pointer;
+}
+
+
+main > :nth-child(1) > div >:nth-child(3) > button:hover {
+    border-width:2px;
+    font-weight:bold;
+}
+
+
+.categoryTitle {
+    font-size:calc(22 * 4 / 3 / 19.2 * 1vw);
+    font-weight:800;
+    font-family:"Aileron", sans-serif;
+    margin:0px;
+    padding-top:3vw;
+    padding-bottom:1vw;
+
+}
+
+#allHistory > div > .categoryContainer {
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    width:62.4vw;
+}
+
+.categoryContainer {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    width:78vw;
+    gap:1.0vw;
+}
+
+#allListings {
+    display:flex;
+    flex-direction:column;
+}
+
+.historyListing {
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
-    top:25%;
-    cursor:pointer;
-    width:50%;
-    height:50%;
+    gap:0.5vw;
 }
 
-.frostText{
-    position:absolute;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:75;
-    right:0%;
-    top:25%;
-    cursor:pointer;
-    width:50%;
-    height:50%;
+.historyListing > :nth-child(2) {
+    font-size:calc(14.1 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:bold;
+    color:rgb(109, 107, 112);
+    margin:0px;
 }
 
-.sharkFrostText{
-    z-index:75;
-    font-size:min(25px, max(1.2vw,2.4vh));
-    color:white;
-    opacity:1;
-    cursor:pointer;    
-}
-
-.sharkFrostButton{
-    z-index:25;
-}
-
-.buttonSelected{
-    z-index:30;
-    position:absolute;
-    height:max(1.5vw,3vh);
-    max-width:120px;
-    max-height:30px;
-    padding:10px;
-    width:max(6vw,12vh);
-    border-radius:40px;
-    left:0%;
-    top:0px;
-    cursor:pointer;
-    transition:0.33s ease-in-out;
-}
-
-.sharkButton{
-    cursor:pointer;
-    height:100%;
-    width:50%;
-    padding:0px;
-}
-
-.frostButton{
-    cursor:pointer;
-    height:100%;
-    width:50%;
-    padding:0px;
+.historyListing > :nth-child(3) {
+    font-size:calc(12.8 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:normal;
+    color:rgb(109, 107, 112);
+    margin:0px;
 }

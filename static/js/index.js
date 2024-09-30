@@ -637,7 +637,7 @@ function showUserListings(listings, target) {
                         megaDiv.className = "listingPetAttribute"
                         const txt4 = document.createElement("b")
                         txt4.innerText = "M"
-                        megaDiv.appendChild(tx4t4)
+                        megaDiv.appendChild(txt4)
                         attributeDiv.appendChild(megaDiv)
                     }
 
@@ -831,7 +831,8 @@ function calculateValue(listOfPets) {
             keyword += " - fly"
         } else if (listOfPets[i]["ride"] == 1) {
             keyword += " - ride"
-        }            
+        } 
+
         if (petsDict[listOfPets[i]["id"]][keyword] == undefined) {
             if (petsDict[listOfPets[i]["id"]]["value"] != null) {
                 value += petsDict[listOfPets[i]["id"]]["value"]
@@ -2186,7 +2187,7 @@ function loadListingsInto(listings, target) {
         let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
         let value2 = calculateValue(listing["offer"]["take"])
         var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
-        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02) {
+        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combiendValue > 100) {
             combinedValue = Math.round(combinedValue)
         }
         listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()

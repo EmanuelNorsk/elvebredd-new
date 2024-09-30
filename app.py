@@ -24,23 +24,23 @@ def indexPage():
             if id == 2:
                 args = {}
             if success == 1:
-                return flask.render_template("index.html", storedWebData=args, message=output, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", ""), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets())
+                return flask.render_template("index.html", storedWebData=args, message=output, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", ""), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets()[1])
             elif success == 0:
-                return flask.render_template("index.html", storedWebData=args, message=output, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", ""), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets())
+                return flask.render_template("index.html", storedWebData=args, message=output, loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", ""), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets()[1])
             else: # -1
                 return "ERROR!!!"
         elif action == "readNotifications":
             id, output, success = readNotifications(flask.session.get("userID", ""))
             if success == 1:
-                return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets())
+                return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets()[1])
             elif success == 0:
                 return "ERROR"
             else:
                 return "ERROR"
         else:
-            return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets())
+            return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets()[1])
     else: # GET
-        return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets())
+        return flask.render_template("index.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), trades=getTradesForMainPage(flask.session.get("userID", "")), pets=getPets()[1])
     
 @app.route("/signup", methods=["GET", "POST"])
 def signUpPage():
@@ -441,7 +441,24 @@ def api():
                 return flask.jsonify("SUCCESS")
             else:
                 return flask.jsonify(output)
-
+        elif action == "getPets":
+            id, output, success = getPets()
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
+        elif action == "getSuggestedTradesForPetPage":
+            id, output, success = getSuggestedTradesForPetPage(flask.session.get("userID", ""), args["pet"])
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
+        elif action == "getHistoryTradesForPetPage":
+            id, output, success = getHistoryTradesForPetPage(flask.session.get("userID", ""), args["pet"])
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
 
         else:
             return flask.jsonify("ERROR")
@@ -478,7 +495,7 @@ def profilePage(userID):
     if success == 1:
         profileData = getDataFromIDWithoutDetails(userID)
         listings = getListings(str(userID))
-        return flask.render_template("userPage.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), profileID=userID, profileData=profileData, pets=getPets(), profileListings=listings)
+        return flask.render_template("userPage.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), profileID=userID, profileData=profileData, pets=getPets()[1], profileListings=listings)
     else:
         return flask.render_template('siteUnavailable.html', storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), error=404)
     
@@ -493,7 +510,7 @@ def petPage(petID):
     updateActivity("petPage" + str(petID), flask.request.remote_addr)
     validateSession()
     validateData()
-    return flask.render_template("pet.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), pets = getPets(), pet = str(petID))
+    return flask.render_template("pet.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), pets = getPets()[1], pet = str(petID))
 
 @app.route('/user/<int:userID>/edit', methods=["GET", "POST"])
 def editPage(userID):

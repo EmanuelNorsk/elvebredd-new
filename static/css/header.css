@@ -418,16 +418,23 @@ nav{
 }
 
 #headerSearchBar{
-    border-radius: 0.8vw;
+    width:calc(317.3 / 19.2 * 1vw);
+    height:calc(34.2 / 19.2 * 1vw);
+    box-sizing:border-box;
+    border-radius:calc(34.2 / 19.2 * 1vw);
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:5%;
     background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
-    padding-right:5%;
-    padding-left:5%;
-    border:1px solid black;
+    border:1px solid rgb(54, 53, 55);
+    position:absolute;
+    padding:0vw 1vw;
+    left:calc(238.8 / 19.2 * 1vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 #headerSearchBarMain{
@@ -438,8 +445,6 @@ nav{
     justify-content:center;
     gap:5%;
     background-color:transparent;
-    padding-right:5%;
-    padding-left:5%;
 }
 
 #searchIcon{

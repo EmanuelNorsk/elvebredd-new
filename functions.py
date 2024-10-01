@@ -1388,11 +1388,11 @@ def getSuggestedTradesForPetPage(userID, petID):
     pass
     trades = {}
     suggested = []
-    for x in range(20):
+    for x in range(100):
        suggested.append(Trades[str(random.randint(0, len(Trades) - 1))])
     trades["suggested"] = suggested
     suggested2 = []
-    for x in range(20):
+    for x in range(100):
        suggested2.append(Trades[str(random.randint(0, len(Trades) - 1))])
     trades["suggested2"] = suggested2
     return 0, trades, 1
@@ -1401,7 +1401,7 @@ def getHistoryTradesForPetPage(userID, petID):
     pass
     trades = {}
     suggested = []
-    for x in range(30):
+    for x in range(100):
        suggested.append(Trades[str(random.randint(0, len(Trades) - 1))])
     trades["suggested"] = suggested
     return 0, trades, 1

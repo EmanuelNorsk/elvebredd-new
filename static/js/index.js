@@ -2187,7 +2187,7 @@ function loadListingsInto(listings, target) {
         let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
         let value2 = calculateValue(listing["offer"]["take"])
         var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
-        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combiendValue > 100) {
+        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
             combinedValue = Math.round(combinedValue)
         }
         listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()

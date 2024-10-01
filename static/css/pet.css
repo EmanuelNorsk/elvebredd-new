@@ -69,6 +69,7 @@ main > :nth-child(1) > div >:nth-child(2) > button {
     position:relative;
     transition:font-weight 0.3s ease;
     cursor:pointer;
+    background:transparent;
 }
 
 main > :nth-child(1) > div >:nth-child(2) > button.permaHover {

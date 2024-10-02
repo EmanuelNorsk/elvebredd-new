@@ -1,6 +1,7 @@
 const path = window.location.pathname
 const pathParts = path.split("/")
 const petPageID = pathParts[pathParts.length - 1]
+var oldUnderNavScroll = 0
 var petsDict = {}
 
 var formData = new FormData();
@@ -531,3 +532,28 @@ function sortAllHistory(petID, defaultSort, neonSort, megaSort) {
     }
 
 }
+
+window.addEventListener("scroll", event => {
+    var underNav = document.getElementById("underNav")
+    var rect = underNav.getBoundingClientRect()
+    if (window.scrollY > window.innerWidth / 100 * 12) {
+        underNav.style.position = "fixed"
+        underNav.style.top = "0px"
+        underNav.style.borderTop = "4px solid white"
+        underNav.style.backgroundImage = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
+        if (oldUnderNavScroll > window.scrollY) {
+            underNav.style.transform = "translate(0%, 96.5%)"
+        } else {
+            underNav.style.transform = "translate(0%, 0%)"
+        }
+    } else {
+        underNav.style.position = "absolute"
+        underNav.style.transform = "translate(0%, 0%)"
+        underNav.style.backgroundImage = ""
+        underNav.style.top = ""
+        underNav.style.borderTop = "0px solid white"
+    }
+
+    oldUnderNavScroll = window.scrollY
+})
+

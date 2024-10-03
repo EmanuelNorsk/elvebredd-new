@@ -3,6 +3,7 @@ const pathParts = path.split("/")
 const petPageID = pathParts[pathParts.length - 1]
 var oldUnderNavScroll = 0
 var petsDict = {}
+var listingsScrollSpeed = 6
 
 var formData = new FormData();
 formData.append('action', "getPets");
@@ -70,10 +71,12 @@ window.addEventListener("DOMContentLoaded", event => {
             div.appendChild(category)
             const container = document.createElement("div")
             container.classList.add("categoryContainer")
-            loadListingsInto(data[key], container)
+            container.classList.add("listings")
             div.appendChild(container)
             allListings.appendChild(div)
+            loadListingsInto(data[key], container)
             sortAllListings(petPageID, defaultSort, neonSort, megaSort)
+            scrollListings(container.children[0], "right", 0, 1)
         })
     } else {
         displayError("ERROR")
@@ -277,13 +280,114 @@ function loadListingsInto(listings, target) {
         }
 
         target.appendChild(listingTemplate)
+        const outOfBounds = checkOutOfBoundsListing(listingTemplate)
         const figures = listingTemplate.querySelectorAll("figure")
-        listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
-        listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-        figures.forEach(figure => {
-            figure.style.display = "none"
-        })
+        if (outOfBounds.includes("left")) {
+            listingTemplate.classList.add("listingsFilter")
+            listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "flex"
+            })
+        } else if (outOfBounds.includes("right")) {
+            listingTemplate.classList.add("listingsFilter")
+            listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "flex"
+            })
+        } else {
+            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "none"
+            })
+        }
     })
+}
+
+
+
+function checkOutOfBoundsListing(element, xOffset = 0) {
+    const position = element.getBoundingClientRect();
+    const outOfBounds = [];
+    let x = position.x
+    let y = position.y
+    var listings = element
+    while (listings.classList.contains("listings") == false && listings != document.body)
+        listings = listings.parentElement
+    x += xOffset
+    if (x + position.width > window.innerWidth) {
+        outOfBounds.push('right');
+    }
+    if (x < 0) {
+        outOfBounds.push('left');
+    }
+    if (y + position.height > window.innerHeight) {
+        outOfBounds.push('bottom');
+    }
+    if (y < 0) {
+        outOfBounds.push('top');
+    }
+
+    return outOfBounds;
+}
+
+function scrollListings(event, direction, amount = -1, targetSelected = 0) {
+    if (amount == -1) {
+        amount = listingsScrollSpeed
+    }
+    let element = 0
+    if (targetSelected == 0) {
+        element = event.target
+    } else {
+        element = event
+    }
+    
+    while (element.classList.contains("listing") == false && element != document.body)
+        element = element.parentElement
+    let listing = element
+    while (element.classList.contains("listings") == false && element != document.body)
+        element = element.parentElement
+    if (element != document.body) {
+        
+        const elementStyle = window.getComputedStyle(element)
+        let left = parseFloat(elementStyle.marginLeft.split("px")[0])
+        var offset = 0
+        if (direction == "left") {
+            offset = listing.getBoundingClientRect().width * amount + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (amount - 1)
+        } else {
+            offset = (listing.getBoundingClientRect().width * amount + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (amount - 1)) * -1
+        }
+        if (amount == 0) {
+            offset = 0
+        }
+        left += offset
+        element.style.marginLeft = (left / window.innerWidth * 100).toString() + "vw"
+        for (let i = 0; i < element.children.length; i++) {
+            const outOfBounds = checkOutOfBoundsListing(element.children[i], offset)
+            const figures = element.children[i].querySelectorAll("figure")
+            if (outOfBounds.includes("left")) {
+                element.children[i].setAttribute("onclick", 'scrollListings(event, "left")')
+                element.children[i].classList.add("listingsFilter")
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else if (outOfBounds.includes("right")) {
+                element.children[i].setAttribute("onclick", 'scrollListings(event, "right")')
+                element.children[i].classList.add("listingsFilter")
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else {
+                element.children[i].setAttribute("onclick", element.children[i].getAttribute("data-onclick"))
+                element.children[i].classList.remove("listingsFilter")
+                figures.forEach(figure => {
+                    figure.style.display = "none"
+                })
+            }
+        }
+    }
 }
 
 function calculateValue(listOfPets) {
@@ -464,7 +568,7 @@ function sortAllListings(petID, defaultSort, neonSort, megaSort) {
         for (let j = 0; j < allListings.children[i].children[1].children.length; j++) {
             hideListing = true
             listing = allListings.children[i].children[1].children[j]
-            listingDict = JSON.parse(listing.getAttribute("onclick").slice(18, -1))
+            listingDict = JSON.parse(listing.getAttribute("data-onclick").slice(18, -1))
             for (let k = 0; k < listingDict["offer"]["give"].length; k++) {
                 if (listingDict["offer"]["give"][k]["id"] == petID) {
                     if ((listingDict["offer"]["give"][k]["regular"] && defaultSort) || (listingDict["offer"]["give"][k]["neon"] && neonSort) || (listingDict["offer"]["give"][k]["mega"] && megaSort)) {

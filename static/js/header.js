@@ -626,7 +626,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     window.addEventListener("scroll", event => {
         var nav = document.querySelector("nav")
-        console.log(window.scrollY)
         if (window.scrollY != 0 && nav != undefined) {
             nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
         } else {

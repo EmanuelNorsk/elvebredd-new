@@ -13,7 +13,7 @@ function selectCategory() {
     var notificationsDiv = document.getElementById("notificationsFullscreen")
     if (categoryOpen) {
         categoryOpen = false
-        notificationsDiv.children[0].children[1].style.borderBottom = "1px solid transparent"
+        notificationsDiv.children[0].children[1].style.borderBottom = "1px solid rgb(54, 53, 55)"
         notificationsDiv.children[0].children[1].style.borderRight = "1px solid transparent"
         notificationsDiv.children[0].children[1].style.borderLeft = "1px solid transparent"
         notificationsDiv.children[0].children[1].style.height = "calc(2vw + 2px)"

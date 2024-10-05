@@ -491,7 +491,7 @@ main{
     align-items: center;
     width: 860rem;
     background-color: white; 
-    border-radius: 3vw;
+    border-radius: 3vw 3vw 0px 0px;
     z-index: 120; 
     box-sizing: border-box;
     padding: 1vw;
@@ -507,7 +507,7 @@ main{
     width: 100%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 175rem,
     rgb(253, 249, 234) 475rem, rgb(253, 249, 234) 525rem, rgb(237, 230, 219) 100%);
-    border-radius: 3vw;
+    border-radius: 3vw 3vw 0px 0px;
 
     z-index: -1; /* Keep it behind the content */
     pointer-events: none; /* No interaction with the background */

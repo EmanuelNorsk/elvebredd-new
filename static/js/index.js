@@ -31,6 +31,8 @@ var petsAdded = 0
 var listingSize = 300
 var body = document.createElement("div")
 
+var listingInterface2Background = document.createElement("div")
+
 var petsDict = {}
 var userData = {}
 
@@ -117,6 +119,16 @@ window.addEventListener("DOMContentLoaded", event => {
 
     var slides = document.getElementById("slides")
 
+    listingInterface2Background.addEventListener("wheel", event => {
+        if (remainingScroll * event.deltaY < 0) {
+            remainingScroll = 0
+        }
+        remainingScroll += event.deltaY * scrollStrength
+        if (scrolling == false) {
+            scroll()
+        }
+    })
+
     initiateSlides()
     updateSlides()
 
@@ -140,17 +152,6 @@ window.addEventListener("DOMContentLoaded", event => {
     //showUserListings(trades["Suggested"], listingsCategory1)
     //showUserListings(trades["Recent"], listingsCategory2)
     //showUserListings(trades["Overpay"], listingsCategory3)
-
-    listingInterface2Background.addEventListener("wheel", event => {
-        if (remainingScroll * event.deltaY < 0) {
-            remainingScroll = 0
-        }
-        remainingScroll += event.deltaY * scrollStrength
-        if (scrolling == false) {
-            scroll()
-        }
-    })
-
     
     document.addEventListener("mousemove", event => {
         var hover = 0
@@ -693,30 +694,6 @@ function mouseOverElement(element) {
     }
 }
 
-function adjustGradientHeight() {
-
-    let existingStyle = document.querySelector('#gradientHeightStyle');
-    if (!existingStyle) {
-        existingStyle = document.createElement('style');
-        existingStyle.id = 'gradientHeightStyle';
-        document.head.appendChild(existingStyle);
-    }
-
-    existingStyle.textContent = `
-        #listingInterface2::before {
-            height: 0px;
-        }
-    `;
-
-    const contentHeight = listingInterface2.scrollHeight;
-
-    existingStyle.textContent = `
-        #listingInterface2::before {
-            height: ${contentHeight}px;
-        }
-    `;
-}
-
 function updateArrows() {
     listingSize = window.innerHeight / 100 * 15.625
     const rect = selectedCategory.getBoundingClientRect()
@@ -934,6 +911,30 @@ function timeSince(timestamp) {
     } else {
         return `${years} Years Ago`;
     }
+}
+
+function adjustGradientHeight() {
+
+    let existingStyle = document.querySelector('#gradientHeightStyle');
+    if (!existingStyle) {
+        existingStyle = document.createElement('style');
+        existingStyle.id = 'gradientHeightStyle';
+        document.head.appendChild(existingStyle);
+    }
+
+    existingStyle.textContent = `
+        #listingInterface2::before {
+            height: 0px;
+        }
+    `;
+
+    const contentHeight = listingInterface2.scrollHeight;
+
+    existingStyle.textContent = `
+        #listingInterface2::before {
+            height: ${contentHeight}px;
+        }
+    `;
 }
 
 function showPreferences(listing) {
@@ -2275,8 +2276,3 @@ window.addEventListener("resize", event => {
     }
 })
 
-window.addEventListener("click", event => {
-    if (event.target == document.getElementById("listingInterface2Background")) {
-        closeListingInterface2()
-    }
-})

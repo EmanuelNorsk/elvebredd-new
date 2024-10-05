@@ -7756,11 +7756,11 @@
         },
         "extraSharkValueRequested": 2.0,
         "completed": false,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1728158868,
+        "acceptedOfferID": "2",
+        "acceptedUser": "1",
+        "acceptedUserUsername": "Emanuel",
+        "acceptedUserRobloxUsername": "",
         "public": true,
         "visibleTo": "all",
         "customOffers": [
@@ -7897,7 +7897,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226433.920139,
-                "status": "Pending"
+                "status": "Accepted"
             },
             {
                 "id": 3,
@@ -13512,11 +13512,11 @@
         },
         "extraSharkValueRequested": 4.0,
         "completed": false,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1728158847,
+        "acceptedOfferID": "2",
+        "acceptedUser": "1",
+        "acceptedUserUsername": "Emanuel",
+        "acceptedUserRobloxUsername": "",
         "public": true,
         "visibleTo": "all",
         "customOffers": [
@@ -13595,7 +13595,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226436.2025685,
-                "status": "Pending"
+                "status": "Declined"
             },
             {
                 "id": 1,
@@ -13680,7 +13680,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226436.229651,
-                "status": "Pending"
+                "status": "Accepted"
             },
             {
                 "id": 2,
@@ -13749,7 +13749,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226436.2548218,
-                "status": "Pending"
+                "status": "Declined"
             },
             {
                 "id": 3,
@@ -13834,7 +13834,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226436.2834153,
-                "status": "Pending"
+                "status": "Declined"
             },
             {
                 "id": 4,

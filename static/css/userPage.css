@@ -36,10 +36,12 @@ body{
 #dailyStreakDiv{
     display:flex;
     border-radius:15vw;
-    border:1px solid red;
-    width: 11vw;
-    height: 3vw;
+    border:1px solid rgb(255, 102, 102);
+    width: calc(198.5 / 19.2 * 1vw);
+    height: calc(48.6 / 19.2 * 1vw);
     align-items:center;
+    box-sizing:border-box;
+    justify-content:space-between;
     font-size: 15rem;
 }
 
@@ -51,7 +53,8 @@ body{
 }
 
 #dailyStreakDiv p{
-    margin-left: 3.1vw;
+    margin:0px;
+    width:100%;
 }
 
 #upperUserPage{
@@ -81,13 +84,47 @@ body{
     display:flex;
     align-items:center;
     justify-content: center;
-    padding:15px;
-    border:1px solid black;
-    border-radius:15vw;
-    width:11vw;
-    height: 3vw;
+    border:1px solid rgb(54, 53, 55);
+    border-radius:calc(48.6 / 19.2 / 100 * 55 * 1vw);
+    width:calc(198.5 / 19.2 * 1vw);
+    height: calc(48.6 / 19.2 * 1vw);
+    box-sizing:border-box;
     background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
     cursor:pointer;
+}
+
+.profileButton > p {
+    font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+}
+
+.infoBox {
+    padding-top:2vw;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:1vw;
+}
+
+.infoBox > :nth-child(2) {
+    width:calc(31.7 / 19.2 * 1vw);
+    aspect-ratio:1/1;
+}
+
+#profileInfo {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    width:60%;
+    position:relative;
+}
+
+#profileInfo > div {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 
 #friendsBackground{
@@ -219,87 +256,59 @@ body{
     background: linear-gradient(135deg, rgb(255, 145, 0) 0%, rgb(255, 102, 102) 50%, rgb(255, 102, 102) 100%);
 }
 
+#lowerUserPage {
+    padding-top:0.5vw;
+}
+
 .sharkFrostButton{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:10px;
-    border-radius:40px;
-    width:max(12vw,24vh);
-    height:max(1.5vw,3vh);
-    max-width:240px;
-    max-height:30px;
+    border-radius:calc(48.6 / 19.2 /100 * 55 * 1vw);
+    width:calc(250 / 19.2 * 1vw);
+    height:calc(48.6 / 19.2 * 1vw);
+    box-sizing:border-box;
     position:relative;
     background: linear-gradient(135deg, rgb(255, 145, 0, 0.35) 0%, rgb(255, 102, 102, 0.35) 50%, rgb(255, 102, 102, 0.35) 100%);
     z-index:20;
 }
 
-.sharkText{
+.sharkFrostButton::before{
+    content:"";
     position:absolute;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    top:25%;
-    cursor:pointer;
+    top:0;
     width:50%;
-    height:50%;
+    border-radius:calc(48.6 / 19.2 /100 * 55 * 1vw);
+    background: linear-gradient(135deg, rgb(255, 145, 0) 0%, rgb(255, 102, 102) 50%, rgb(255, 102, 102) 100%);
+    z-index:21;
+    height:100%;
+    transition:left 0.3s ease;
+
 }
 
-.frostText{
-    position:absolute;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:75;
-    right:0%;
-    top:25%;
-    cursor:pointer;
-    width:50%;
-    height:50%;
-}
-
-.sharkFrostText{
-    z-index:75;
-    font-size:min(25px, max(1.2vw,2.4vh));
-    color:white;
-    opacity:1;
-    cursor:pointer;    
-}
-
-.sharkFrostButton{
-    z-index:25;
-}
-
-.buttonSelected{
-    z-index:30;
-    position:absolute;
-    height:max(1.5vw,3vh);
-    max-width:120px;
-    max-height:30px;
-    padding:10px;
-    width:max(6vw,12vh);
-    border-radius:40px;
+.sharkFrostButton.shark::before{
     left:0%;
-    top:0px;
-    cursor:pointer;
-    transition:0.33s ease-in-out;
 }
 
-.sharkButton{
-    cursor:pointer;
-    height:100%;
-    width:50%;
-    padding:0px;
+.sharkFrostButton.frost::before{
+    left:50%;
 }
 
-.frostButton{
-    cursor:pointer;
-    height:100%;
+.sharkFrostButton > div {
     width:50%;
-    padding:0px;
+    height:100%;
+    cursor:pointer;
 }
+
+.sharkFrostButton > div > p {
+    font-size:calc(17.8 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:800;
+    color:rgb(253, 249, 234);
+    margin:0px;
+    z-index:22;
+}
+
 
 #listingInformation2{
     display:flex;
@@ -570,7 +579,7 @@ body{
 
 #userListings{
     width:75%;
-    display:none;
+    display:flex;
     grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
     gap:20px;
     position:relative;
@@ -926,6 +935,53 @@ main{
 
 }
 
+.categoryButton {
+    font-size:calc(16 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:bold;
+    color:rgb(109, 107, 112);
+    position:relative;
+    font-weight:bold;
+}
+
+.categoryButton::before {
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-30%;
+    width:0%;
+    height:calc(3 / 19.2 * 1vw);
+    border-radius:1px;
+    background:linear-gradient(90deg, rgb(54, 53, 55, 0) 0%, rgb(54, 53, 55) 50%, rgb(54, 53, 55, 0) 100%);
+    transform:translateX(-50%);
+    transition:width 0.3s ease;
+}
+
+#mainButtons {
+    width:25vw;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    gap:0.5vw;
+}
+
+
+.categoryButton:hover::before {
+    width:100%;
+}
+
+.categoryButton.selected {
+    color:rgb(54, 53, 55);
+}
+
+.categoryButton.selected::before {
+    width:100%;
+}
+
+.categoryButton:hover {
+    color:rgb(54, 53, 55);
+}
+
 #listingsButton {
     font-size: 16rem;
 }
@@ -950,18 +1006,20 @@ main{
     font-size: 16rem;
 }
 
-#Username1 {
-    font-size: 16rem;
-    font-weight: bolder;
+#Username1 > p{
+    font-size: calc(16 * 4 / 3 / 19.2 * 1vw);
+    font-weight: bold;
+    margin:1vw;
+    margin-bottom:2vw;
 }
 
 .UnderProfile {
-    font-size: 10rem;
+    font-size: calc(9.3 * 4 / 3 / 19.2 * 1vw);
     color: #6D6B70;
 }
 
 .UnderProfile2 {
-    font-size: 16rem;
+    font-size: calc(16 * 4 / 3 / 19.2 * 1vw);
     font-weight: bolder;
     color: #363537;
 }

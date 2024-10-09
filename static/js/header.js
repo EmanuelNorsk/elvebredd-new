@@ -1,14 +1,35 @@
 var inputs = document.createElement("div")
-var loggedIn = true
 var openDottedNotification = 0
-var loggedIn = true
 var formData = new FormData();
 var notificationsOpen = 0
 var checkbox
 var notificationCountID
-var userDataDictElement
-var userDataDict
 var oldScrollY = 0
+
+var userDataDict = {}
+loggedIn = false
+var formData = new FormData();
+formData.append('action', "getYourUserData");
+
+fetch('/api', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+        if (data != "ERROR") {
+            userDataDict = data
+            loggedIn = true
+        }
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+}); 
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -27,9 +48,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var menuTextButton = document.getElementById("menuTextButton");
     var profileClick = 0
     var scrollY = 0
-
-    userDataDictElement = document.getElementById("userDataDict-data")
-    userDataDict = JSON.parse(userDataDictElement.textContent)
 
     inputs = document.querySelectorAll('input');
 

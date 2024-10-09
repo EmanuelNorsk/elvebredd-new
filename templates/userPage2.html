@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link rel="stylesheet" href="https://use.typekit.net/uju1lhj.css">
+    <link rel="stylesheet" href="../static/css/userPage.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="/static/js/userPage2.js"></script>
+</head>
+<body>
+    <header>
+        {% include "header.html" %}
+    </header>
+    <main style="width:100%">
+        <div id="upperUserPage">
+            <div style="width:25vw; display:flex;flex-direction:column;">
+                <div id="dailyStreakDiv">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.0 0.0 130.0 156.0" zoomAndPan="magnify" original_string_length="832">
+                        <g id="__id3236_seijkjdmo">
+                            <path d="m0 100.8c0-14.8 4-26.8 10.4-36 0 18.2 4.4 24.6 14 24.6 6.4 0 13-4.8 13-13 0-7.4-5-20.8-5-35.2s4.8-29.8 24.4-41.2c-4.4 11.6-6.2 21.4-6.2 29.4 0 21.2 12.8 30.8 24.2 30.8 9.2 0 18.8-6 18.8-23.4 6.2 6.8 9 14.6 9 22.4 0 12.4-6.8 23.4-6.8 33.4 0 8.2 6.6 13 13 13 11.4 0 14.8-10.2 14.8-27 3.4 5.8 6.4 17.2 6.4 27 0 29.2-27.6 50.4-58.4 50.4 26-9.8 30.8-22.8 30.8-37.4-6.4 11.4-13 13-16.2 13-19.6 0 1.6-37.4-32.6-63.4 5.6 12 7.8 22.4 7.8 30.8 0 18-9.8 27.8-19.2 27.8-8 0-16-6.4-19.2-20 0 19 5.6 37 30.6 49.2-39-6.4-53.6-30.8-53.6-55.2z" style="fill: inherit;"/>
+                        </g>
+                    </svg>
+                    <p style="width:80%;font-family:'Aileron', sans-serif; font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);text-align:center;">streak</p>
+                </div>
+                <div style="width: calc(198.5 / 19.2 * 1vw);height: calc(48.6 / 19.2 * 1vw);">
+                    <p style="width:100%;font-family:'Aileron', sans-serif; font-size:calc(6 * 4 / 3 / 19.2 * 1vw);letter-spacing:0.3vw;text-align:center;font-style:italic;margin:0px;margin-top:0.1vw;font-weight:300;">LOGIN STREAK</p>
+                </div>
+            </div>
+            <div id="middleSection" style="width:25vw;display:flex;flex-direction:column;align-items:center;">
+                <img style="width:calc(129.5 / 19.2 * 1vw);height:calc(129.5 / 19.2 * 1vw);" src="">
+                <div id="Username1" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:5px;margin-top: -1vw;">
+                    <p>username</p>
+                    <img id="verified" src="/static/images/misc/verified.png" style="width:10px;height:auto;display:none;">
+                </div>
+                <div id="profileInfo">
+                    <div>
+                        <b id="listingAmount" class="noMargin UnderProfile2">trades_amount</b>
+                        <p class="noMargin UnderProfile">Listings</p>
+                    </div>
+                    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);">
+                        <b id="completedTradesAmount" class="noMargin UnderProfile2">completed_trades_amount</b>
+                        <p class="noMargin UnderProfile">Trades</p>
+                    </div>
+                    <div>
+                        <b id="inventoryAmount" class="noMargin UnderProfile2" id="inventoryLength">inventory_length</b>
+                        <p class="noMargin UnderProfile">Inventory</p>
+                    </div>
+                </div>
+                <div class="center" style="padding-top:1vw;gap:1vw;">
+                    <button onclick="" class="profileButton">
+                        <p class="noMargin">Friends</p>
+                    </button>
+                    <button onclick="" class="profileButton">
+                        <p class="noMargin">Edit Profile</p>
+                    </button>
+                </div>
+                <div class="center" style="padding-top:1vw;gap:5px;flex-direction:column;">
+                    <div>
+                        <div class="sharkFrostButton orangeRed">
+                            <div class="center" onclick="selectValue('shark')"><p>SHARK</p></div>
+                            <div class="center" onclick="selectValue('frost')"><p>FROST</p></div>
+                        </div>
+                    </div>
+                    <div class="center RobloxUser1" style="flex-direction:row;gap:5px;align-items:center;">
+                        <img style="width:12px;height:auto;display:none;" src="/static/images/misc/robloxLogo.png">
+                        <p style="font-size:12rem;color:#6D6B70;display:none;">roblox_username</p>
+                    </div>
+                </div>
+            </div>
+            <div id="mainButtons" class="center">
+                <button onclick="openPreferences()" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15rem;">Settings</p>
+                </button>
+                <button onclick="openHelp()" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15rem;">Help</p>
+                </button>
+
+                <button id="friendButton" disabled=true class="profileButton disabled" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">User has blocked you!</p>
+                </button>
+
+                <button id="friendButton" disabled=true class="profileButton disabled" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Friend request sent</p>
+                </button>
+
+                <button id="friendButton" onclick="sendFriendRequest('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Add as friend</p>
+                </button>
+
+                <button id="friendButton" onclick="removeFriend('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Remove as friend</p>
+                </button>
+
+                <button id="friendButton" onclick="sendFriendRequest('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Send friend request</p>
+                </button>
+
+                <button id="blockButton" onclick="block('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Block</p>
+                </button>
+                <button id="blockButton" onclick="unblock('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Unblock</p>
+                </button>
+
+                <button id="banButton" onclick="ban('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Ban User</p>
+                </button>
+                <button id="makeContentCreatorButton" onclick="makeContentCreator('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
+                    <p class="noMargin" style="font-size:15px;">Mark as Content Creator</p>
+                </button>
+
+            </div>
+        </div>
+        <div id="friendsBackground" onclick="closeFriends()">
+            &nbsp;
+        </div>
+        <div id="helpBackground" onclick="closeHelp()">
+            &nbsp;
+        </div>
+        <div id="friendsMenu">
+            <h1 style="margin:0px;font-size:max(2vw, 4vh)">Friends</h1>
+            <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:90%;">
+                <p style="font-size:max(1vw, 2vh); text-align:center;">Add friends to <a style="color:red" href="/listings">trade</a> easily and compete with each other on the leaderboard!</p>
+            </div>
+            <div id="friendsDiv">
+
+            </div>
+            <div id="pendingDiv">
+
+            </div>
+            <div id="blockedDiv">
+
+            </div>
+            <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:max(0.3vw, 0.6vh);padding-bottom:max(1vw, 2vh);width:100%;padding-top:max(1vw, 2vh);">
+                <button class="menuButton" onclick="selectMoreOption('friends'); showFriends();">
+                    <p style="margin:0px;">Friends</p>
+                </button>
+                <button class="menuButton" onclick="selectMoreOption('pending'); showPending();">
+                    <p style="margin:0px;">Pending</p>
+                </button>
+                <button class="menuButton" onclick="selectMoreOption('blocked'); showBlocked()">
+                    <p style="margin:0px;">Blocked</p>
+                </button>
+            </div>
+            <button class="menuButton" onclick="closeFriends()" style="width:100px;height:30px;">
+                <p style="margin:0px;">Ok</p>
+            </button>
+        </div>
+        <div id="helpMenu">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+                <h1 style="margin:0px;font-size:max(1.5vw, 3vh);padding:max(1vw, 2vh);text-align:center;">Help</h1>
+                <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:80%;">
+                    <p style="font-size:max(1vw, 2vh);text-align:center;">If you wish to contact support, please join our <a href="https://discord.com/invite/Byny894ZQP" style="color:red;">discord server</a> to resolve your issues.</p>
+                </div>
+            </div>
+            <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
+                <h1 style="margin:0px;font-size:max(1.2vw, 2.4vh);padding:max(1vw, 2vh);">Shortcuts</h1>
+                <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:80%;gap:max(0.5vw, 1vh);">
+                    <p style="font-size:max(1vw, 2vh);text-align:center;margin:0px;"><a style="color:red;margin:0px;" href="/listings">Listings</a></p>
+                    <p style="font-size:max(1vw, 2vh);text-align:center;margin:0px;"><a style="color:red;margin:0px;" href="/">Home</a></p>
+                    <p style="font-size:max(1vw, 2vh);text-align:center;margin:0px;"><a style="color:red;margin:0px;" href="/tos">Terms of Service</a></p>
+                </div>
+            </div>
+            <button class="menuButton" onclick="closeHelp()">
+                <p style="margin:0px;">Close</p>
+            </button>
+        </div>
+        <div id="lowerUserPage">
+            <div class="center" style="flex-direction:row;gap:65px;">
+                <b class="noMargin button categoryButton selected" onclick="selectCategory(event)">Listings</b>
+                <b class="noMargin button categoryButton" onclick="selectCategory(event)">Inventory</b>
+                <b class="noMargin button categoryButton" onclick="selectCategory(event)">Wishlist</b>
+                <b class="noMargin button categoryButton" onclick="selectCategory(event)">Inbox</b>
+                <b class="noMargin button categoryButton" onclick="selectCategory(event)">Pending</b>
+                <b class="noMargin button categoryButton" onclick="selectCategory(event)">History</b>
+            </div>
+            <div style="padding-top:1vw;" class="center" id="allCategoryDivs">
+                <div id="userListings">
+                    <div class="infoBox">
+                        <button class="profileButton"><p>Done</p></button>
+                        <img src="/static/images/misc/info.png">
+                        <button class="profileButton"><p>Edit Inventory</p></button>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div id="userInventory">
+                    <div class="infoBox">
+
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+                <div id="userWishlist">
+
+                </div>
+                <div id="userInbox">
+
+                </div>
+                <div id="userPending">
+
+                </div>
+                <div id="userHistory">
+
+                </div>
+            </div>
+        </div>
+        <div id="addInventory">
+            <div style="display:flex;flex-direction:row;justify-content:space-between;">
+                <div class="center" style="gap:0.25vw;padding:0.5vw;">
+                    <img id="filterImage" src="../static/images/misc/menu.png">
+                    <p id="filterText">Filter</p>
+                </div>
+                <div id="petSearchDiv" class="center">
+                    <input id="petSearch" placeholder="Search" onkeyup="searchUpPets()">
+                    <img id="petSearchImage" src="../static/images/misc/search.png">
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:row;justify-content:space-between;gap:0.5vw">
+                <div id="filter">
+                    <div id="filterButtons">
+                        <button id="all" class="filterButton" onclick="filter('all', 0)"><b class="filterButtonText">All</b></button>
+                        <button id="pets" class="filterButton" onclick="filter('pets', 0)"><b class="filterButtonText">Pets</b></button>
+                        <button id="common" class="filterButton" onclick="filter('common', 0)"><b class="filterButtonText">Common</b></button>
+                        <button id="eggs" class="filterButton" onclick="filter('eggs', 0)"><b class="filterButtonText">Eggs</b></button>
+                        <button id="legendary" class="filterButton" onclick="filter('legendary', 0)"><b class="filterButtonText">Legendary</b></button>
+                        <button id="other" class="filterButton" onclick="filter('other', 0)"><b class="filterButtonText">Other</b></button>
+                        <button id="petWear" class="filterButton" onclick="filter('pet wear', 0)"><b class="filterButtonText">Pet Wear</b></button>
+                        <button id="rare" class="filterButton" onclick="filter('rare', 0)"><b class="filterButtonText">Rare</b></button>
+                        <button id="ultraRare" class="filterButton" onclick="filter('ultra rare', 0)"><b class="filterButtonText">Ultra-Rare</b></button>
+                        <button id="uncommon" class="filterButton" onclick="filter('uncommon', 0)"><b class="filterButtonText">Uncommon</b></button>
+                        <button id="vehicles" class="filterButton" onclick="filter('vehicles', 0)"><b class="filterButtonText">Vehicles</b></button>
+                    </div>
+                </div>
+                <div class="center">
+                    <div id="petImages">
+
+                    </div>
+                </div>
+            </div>
+            <div id="imageButtons">
+                <button id="flyButton" onclick="enableFly()">
+                    <h1 style="color:white;">F</h1>
+                </button>
+                <button id="rideButton" onclick="enableRide()">
+                    <h1 style="color:white;">R</h1>
+                </button>
+                <button id="regularButton" onclick="enableRegular()">
+                    <h1 style="color:white;">D</h1>
+                </button>
+                <button id="neonButton" onclick="enableNeon()">
+                    <h1 style="color:white;">N</h1>
+                </button>
+                <button id="megaButton" onclick="enableMega()">
+                    <h1 style="color:white;">M</h1>
+                </button>
+            </div>
+            <div id="closeButton" onclick="closeInventory()">
+                <img style="width:1.5vw;height:1.5vw;" src="../static/images/misc/close.svg">
+            </div>
+        </div>
+        <div id="listingInterface">
+            <div id="listingInterfaceUpper">
+                <div id="listingInformation">
+                    <b class="score" id="yourScore">0</b>
+                    <div style="display:flex; flex-direction:column;gap:10px;justify-content:center;">
+                        <div class="center">
+                            <div id="winFairLose">
+                                <svg viewbox="0 0 130 22">
+                                    <defs>
+                                    <mask id="mask" x="0" y="0" width="130" height="20">
+                                        <rect x="0" y="0" width="130" height="50" fill="#fff"/>
+                                        <text text-anchor="middle" x="65" y="15" dy="1" font-weight="bold">WIN FAIR LOSE</text>
+                                    </mask>
+                                    </defs>
+                                    <rect x="0" y="0" width="130" height="22" mask="url(#mask)" fill-opacity="0.05" rx="12" ry="12"/>    
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="listingInformationMiddle">
+                            <div style="display:flex;flex-direction:row; justify-content:space-between;gap:max(1vw,2vh);">
+                                <b style="font-size:max(1.3vw,2.6vh);">YOUR OFFER</b>
+                                <b style="font-size:max(1.3vw,2.6vh);;">|</b>
+                                <b style="font-size:max(1.3vw,2.6vh);">THEIR OFFER</b>
+                            </div>
+                            <div class="center" style="position:relative;width:max(15vw, 30vh);">
+                                <div class="orangeRed" id="tradeBarBackground"></div>
+                                <div class="orangeRed" id="tradeBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <b class="score" id="theirScore">0</b>
+                </div>
+            </div>
+            <div id="listingInterfaceLower">
+                <div id="tradingPetsInterface">
+                    <div id="tradePart1">
+
+                    </div>
+                    <div id="differenceInValue"></div>
+                    <b id="differenceInValueText">101</b>
+                    <div id="tradePart2">
+
+                    </div>
+                </div>
+                <div id="listingInformation2">
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        <b>Your Offer</b>
+                        <b id="yourScore2" style="font-size:28px; color:black;">0</b>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px;" id="noModifyListing">
+                        <button class="profileButton" onclick="createListing(); closeListingInterface()"><p style="margin:0px;">Create</p></button>
+                        <button class="profileButton" onclick="closeListingInterface()"><p style="margin:0px;">Close</p></button>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px;" id="modifyListing">
+                        <button class="profileButton" onclick="saveListing(); closeListingInterface()"><p style="margin:0px;">Save</p></button>
+                        <button class="profileButton" onclick="removeListing()"><p style="margin:0px;">Delete</p></button>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        <b>Asking for</b>
+                        <b id="theirScore2" style="font-size:28px; color:black;">0</b>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="sharkFrostButton orangeRed">
+                        <div class="sharkText" onclick="selectSharkButton()"><b class="sharkFrostText">SHARK</b></div>
+                        <div class="frostText" onclick="selectFrostButton()"><b class="sharkFrostText">FROST</b></div>
+                        <button class="blank button sharkButton" onclick="selectSharkButton()">
+                            &nbsp;
+                        </button>
+                        <button class="blank button frostButton" onclick="selectFrostButton()">
+                            &nbsp;
+                        </button>
+                        <div class="buttonSelected orangeRed">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="listingInterface2">
+            <img src="/static/images/misc/logo.png">
+            <div id="listingInterface2Information">
+                <div>
+                    <p style="font-size:40rem;font-weight:900;color:rgb(253, 249, 234);">Your Offer</p>
+                    <p id="yourOfferValue" style="font-size:25rem;font-weight:800;margin-left:10rem;color:rgb(253, 249, 234);">69420</p>
+                    <div id="listingInterface2YourOfferPets" class="listingInterface2PetsDiv">
+                        <div>
+                            <img src="/static/images/pets/Birthday Butterfly 2023.png">
+                            <div>
+                                <div style="background:linear-gradient(135deg, rgb(142, 202, 232) 0%, rgb(47, 152, 204) 50%, rgb(0, 134, 200) 100%);">
+                                    <p>F</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(255, 197, 220) 0%, rgb(237, 44, 121) 50%, rgb(255, 0, 101) 100%);">
+                                    <p>R</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(187, 80, 253) 0%, rgb(69, 3, 198) 50%, rgb(81, 28, 182) 100%);">
+                                    <p>M</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(193, 255, 110) 0%, rgb(140, 198, 63) 50%, rgb(19, 114, 11) 100%);">
+                                    <p>N</p>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div>
+                    <p id="listingInterface2Value" style="font-size:100rem;font-weight:900;color:rgb(253, 249, 234);">2</p>
+                    <div style="width:0.5rem;height:225rem;background-color:rgb(243, 239, 223)"></div>
+                </div>
+                <div>
+                    <p style="font-size:40rem;font-weight:900;">Their Offer</p>
+                    <p id="theirOfferValue"  style="font-size:25rem;font-weight:800;margin-right:10rem;">69420</p>
+                    <div id="listingInterface2TheirOfferPets" class="listingInterface2PetsDiv">
+                        <div>
+                            <img src="/static/images/pets/Birthday Butterfly 2023.png">
+                            <div>
+                                <div style="background:linear-gradient(135deg, rgb(142, 202, 232) 0%, rgb(47, 152, 204) 50%, rgb(0, 134, 200) 100%);">
+                                    <p>F</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(255, 197, 220) 0%, rgb(237, 44, 121) 50%, rgb(255, 0, 101) 100%);">
+                                    <p>R</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(187, 80, 253) 0%, rgb(69, 3, 198) 50%, rgb(81, 28, 182) 100%);">
+                                    <p>M</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(193, 255, 110) 0%, rgb(140, 198, 63) 50%, rgb(19, 114, 11) 100%);">
+                                    <p>N</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size:16rem;font-weight:bold;color:rgb(109, 107, 112);margin-top:110rem;">You Can Offer With</p>
+            <div id="listingInterface2Preferences">
+                <p>High Tiers</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Mega Legs</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Neon Legs</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Default Legs</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Preppy</p>
+                <p style="font-weight:bold;">|</p>
+                <p>2019 Pets</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Randoms</p>
+                <p style="font-weight:bold;">|</p>
+                <p>Items</p>
+            </div>
+            <div id="listingInterface2Main">
+                <div style="width:50%">
+                    <div style="display:flex;flex-direction:row;gap:10rem;">
+                        <button id="changeButton" onclick="setAddPetTypeTo('listingInterface2');openInventory()"><p>Change</p></button>
+                        <button id="finishButton" onclick="sendOffer();closeListingInterface2()"><p>Finish</p></button>
+                    </div>
+                    <div id="sharkValueRequestedDiv" style="display:flex;flex-direction:row;gap:2rem;width:180rem;justify-content:center;margin-top:10rem;">
+                        <p style="font-size: 20rem;font-weight:200;color:rgb(54, 53, 55);" id="youAddTheyAdd">YOU ADD: </p>
+                        <p id="sharkValueRequested" style="font-size:20rem;font-weight:500;color:rgb(54, 53, 55);">2</p>
+                    </div>
+                </div>
+                <div style="width:35%;display:flex;flex-direction:column;margin-left:20%;gap:10rem;">
+                    <div style="display:flex;flex-direction:row;gap:3rem;">
+                        <p style="color:rgb(54, 53, 55);font-size:14rem;font-weight:200;">Listed: </p>
+                        <p id="timeAgoListed" style="color:rgb(54, 53, 55);font-size:14rem;font-weight:500;">24 Minutes Ago</p>
+                    </div>
+                    <div style="display:flex;flex-direction:row;gap:3rem;">
+                        <p style="color:rgb(54, 53, 55);font-size:14rem;font-weight:200;">Total Offers: </p>
+                        <p id="totalOffers" style="color:rgb(54, 53, 55);font-size:14rem;font-weight:500;">3</p>
+                    </div>
+                    <div style="display:flex;flex-direction:row;gap:3rem;">
+                        <p style="color:rgb(54, 53, 55);font-size:14rem;font-weight:200;">Roblox User: </p>
+                        <p id="listingRobloxUsername" style="color:rgb(54, 53, 55);font-size:14rem;font-weight:500;">EmanuelNorsk</p>
+                    </div>
+                    <div style="display:flex;flex-direction:row;gap:3rem;">
+                        <p style="color:rgb(54, 53, 55);font-size:14rem;font-weight:200;">Trades Completed by This User: </p>
+                        <p id="completedTradesByUser" style="color:rgb(54, 53, 55);font-size:14rem;font-weight:500;">62</p>
+                    </div>
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;width:90%;margin-top:35rem;">
+                <div style="height:0.75rem;width:275rem;background-color:rgb(109, 107, 112);"></div>
+                <p style="font-size:25rem;font-weight:700;color:rgb(109, 107, 112);letter-spacing:2.5rem;">OFFERS</p>
+                <div style="height:0.75rem;width:275rem;background-color:rgb(109, 107, 112);"></div>
+            </div>
+            <div id="offers">
+                <div class="offer">
+                    <div>
+                        <div>
+                            <img src="/static/images/pets/Birthday Butterfly 2023.png">
+                            <div>
+                                <div style="background:linear-gradient(135deg, rgb(142, 202, 232) 0%, rgb(47, 152, 204) 50%, rgb(0, 134, 200) 100%);">
+                                    <p>F</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(255, 197, 220) 0%, rgb(237, 44, 121) 50%, rgb(255, 0, 101) 100%);">
+                                    <p>R</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(187, 80, 253) 0%, rgb(69, 3, 198) 50%, rgb(81, 28, 182) 100%);">
+                                    <p>M</p>
+                                </div>
+                                <div style="background:linear-gradient(135deg, rgb(193, 255, 110) 0%, rgb(140, 198, 63) 50%, rgb(19, 114, 11) 100%);">
+                                    <p>N</p>
+                                </div>
+                            </div>
+                        </div>              
+                    </div>
+                    <div>
+                        <div>
+                            <p>SHARK VALUE</p>
+                            <p>2</p>
+                        </div>
+                        <div>
+                            <p>EmanuelNorsk</p>
+                            <img src="/static/images/profile/coolDragon.png">
+                        </div>
+                        <div>
+                            <p>24 Minutes Ago</p>
+                        </div>
+                        <div>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="offerLine"></div>
+            </div>
+        </div>
+        <div id="createListingInterface">
+            <div>
+                <div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div></div>
+                        <p>WIN</p>
+                        <p>FAIR</p>
+                        <p>LOSE</p>
+                    </div>
+                </div>
+                <div>
+                    <p>YOUR OFFER</p>
+                    <div></div>
+                    <p>THEIR OFFER</p>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <div class="first" onclick="setAddPetTypeTo('createListingInterfaceYourOffer'); openInventory()"><img src="/static/images/misc/add.png"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                    </div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                    <div>
+                        <div class="first" onclick="setAddPetTypeTo('createListingInterfaceTheirOffer'); openInventory()"><img src="/static/images/misc/add.png"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input placeholder="-">
+                        <div></div>
+                        <p>You can add</p>
+                    </div>
+                    <div>
+                        <button onclick="closeCreateListingInterface()"><p>Cancel</p></button>
+                        <button disabled onclick="completeListing()"><p>Complete</p></button>
+                    </div>
+                    <div>
+                        <input placeholder="-">
+                        <div></div>
+                        <p>Ask for them to add</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <button onclick="openPreferences()"><p>Settings</p></button>
+                    <div class="chooseValueButton">
+                        <p onclick="setCalculationValue('shark')">SHARK</p>
+                        <p onclick="setCalculationValue('frost')">FROST</p>
+                        <div></div>
+                    </div>
+                    <button><p>Hidden Button</p></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div onclick="closeInventory()" id="addInventoryBackground">
+        &nbsp;
+    </div>
+    <div onclick="closeListingInterface()" id="listingInterfaceBackground">
+        &nbsp;
+    </div>
+    <div onclick="closeListingInterface2()" id="listingInterface2Background">
+        &nbsp;
+    </div>
+    <div onclick="closeCreateListingInterface()" id="createListingInterfaceBackground">
+        &nbsp;
+    </div>
+    <div id="petAdded">
+        <b id="petAddedText">You added a pet</b>
+    </div>
+    <div id="errorDiv">
+        <b id="errorText"></b>
+    </div>
+    <div id="messageDiv">
+        <b id="messageText"></b>
+    </div>
+    <div id="friendMoreOptions">
+
+    </div>
+    <footer>
+        {% include "footer.html" %}
+    </footer>
+</body>
+</html>

@@ -491,7 +491,19 @@ def notificationsPage():
             return flask.render_template("notifications.html", storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}))
         else:
             return flask.redirect(flask.url_for("indexPage"))
-
+        
+@app.route('/user2/<int:userID>', methods=["GET", "POST"])
+def profilePage2(userID):
+    updateActivity("profilePage2", flask.request.remote_addr)
+    validateSession()
+    validateData()
+    id, output, success = searchUpAccount(userID)
+    if success == 1:
+        profileData = getDataFromIDWithoutDetails(userID)
+        listings = getListings(str(userID))
+        return flask.render_template("userPage2.html")
+    else:
+        return flask.render_template('siteUnavailable.html', storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), error=404)
 @app.route('/user/<int:userID>', methods=["GET", "POST"])
 def profilePage(userID):
     updateActivity("profilePage", flask.request.remote_addr)

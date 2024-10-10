@@ -11,7 +11,7 @@ loggedIn = false
 var formData = new FormData();
 formData.append('action', "getYourUserData");
 
-fetch('/api', {
+const fetchUserDataHeader = fetch('/api', {
     method: 'POST',
     body: formData
     })
@@ -31,8 +31,7 @@ fetch('/api', {
     console.error('There was a problem with the fetch operation:', error);
 }); 
 
-
-window.addEventListener("DOMContentLoaded", (event) => {
+Promise.all([fetchUserDataHeader]).then(() => {
     var nav = document.querySelector("nav");
     var menuImage = document.getElementById("menuImage");
     var signUpImage = document.getElementById("signUpImage");
@@ -515,18 +514,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
     closeSettings()
 
     window.addEventListener("mousemove", (event) => {
-        verified = document.getElementById("verified")
-        neonLegendaryPets = document.getElementById("NeonLegendaryPets")
-        defaultLegendaryPets = document.getElementById("defaultLegendaryPets")
-        highTiers = document.getElementById("highTiers")
-        items = document.getElementById("items")
-        megaLegendaryPets = document.getElementById("megaLegendaryPets")
-        preppyPets = document.getElementById("preppyPets")
-        randoms = document.getElementById("randoms")
-        allowUnderpays = document.getElementById("allowUnderpays")
-        receiveEmailNotifications = document.getElementById("receiveEmailNotifications")
-        receiveFriendRequestNotification = document.getElementById("receiveFriendRequestNotification")
-        receiveNotifications = document.getElementById("receiveNotifications")
+        var verified = document.getElementById("verified")
+        var neonLegendaryPets = document.getElementById("NeonLegendaryPets")
+        var defaultLegendaryPets = document.getElementById("defaultLegendaryPets")
+        var highTiers = document.getElementById("highTiers")
+        var items = document.getElementById("items")
+        var megaLegendaryPets = document.getElementById("megaLegendaryPets")
+        var preppyPets = document.getElementById("preppyPets")
+        var randoms = document.getElementById("randoms")
+        var allowUnderpays = document.getElementById("allowUnderpays")
+        var receiveEmailNotifications = document.getElementById("receiveEmailNotifications")
+        var receiveFriendRequestNotification = document.getElementById("receiveFriendRequestNotification")
+        var receiveNotifications = document.getElementById("receiveNotifications")
         infoDiv.style.display = "none"
         infoDiv.style.left = event.clientX.toString() + "px"
         infoDiv.style.top = event.clientY.toString() + "px"
@@ -671,8 +670,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             notificationsMenu.setAttribute("data-transition", "")
         }, 10)
     })
-
-});
+})
 
 
 

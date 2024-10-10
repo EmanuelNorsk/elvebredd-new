@@ -1158,6 +1158,7 @@ def addPetToInventory(user, pet, fly, ride, regular, neon, mega):
 def removeFriend(userID, friendID):
     global UserData
     if userID != "" and friendID != "":
+        print(UserData[userID]["friends"], UserData[friendID]["friends"])
         try:
             if friendID in UserData[userID]["friends"] and userID in UserData[friendID]["friends"]:
                 UserData[userID]["friends"].remove(friendID)
@@ -1166,6 +1167,16 @@ def removeFriend(userID, friendID):
                 flask.session['userData'] = cookifyUserData(UserData[userID])
                 return 1, "Removed friend!", 1
             else:
+                if friendID in UserData[userID]["friends"]:
+                    UserData[userID]["friends"].remove(friendID)
+                    dumpUserData()
+                    flask.session['userData'] = cookifyUserData(UserData[userID])
+                    return 3, "A bug happened, should be fixed now!", 0
+                elif userID in UserData[friendID]["friends"]:
+                    UserData[friendID]["friends"].remove(userID)
+                    dumpUserData()
+                    flask.session['userData'] = cookifyUserData(UserData[userID])
+                    return 4, "A bug happened, should be fixed now!", 0
                 return 2, "You are not even friends!", 0
         except KeyError:
             return 0, "FriendID doesn't exist", -1

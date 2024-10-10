@@ -80,6 +80,18 @@ body{
     margin:0px;
 }
 
+.noDisplay {
+    display:none !important;
+}
+
+.flex {
+    display:flex;
+}
+
+.transparentBackground {
+    background:transparent !important;
+}
+
 .profileButton{
     display:flex;
     align-items:center;

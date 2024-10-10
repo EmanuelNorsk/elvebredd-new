@@ -100,6 +100,7 @@ def signInPage():
             return "ERROR"
     else: #GET
         if flask.session.get("loggedIn", False):
+            print("YE")
             return flask.redirect(flask.url_for("indexPage"))
         else:
             return flask.render_template("signup.html", storedWebData={}, message="", loggedIn=False, userID="", userData="", signUp=0)
@@ -260,7 +261,7 @@ def api():
             if success == 1:
                 return flask.jsonify("SUCCESS")
             else:
-                return flask.jsonify("ERROR")
+                return flask.jsonify(output)
         elif action == "acceptOfferOld":
             id, output, success = acceptOfferOld(flask.session.get("userID", ""), args["user"], args["listing"])
             if success == 1:
@@ -492,7 +493,7 @@ def notificationsPage():
         else:
             return flask.redirect(flask.url_for("indexPage"))
         
-@app.route('/user2/<int:userID>', methods=["GET", "POST"])
+@app.route('/user/<int:userID>', methods=["GET", "POST"])
 def profilePage2(userID):
     updateActivity("profilePage2", flask.request.remote_addr)
     validateSession()
@@ -504,7 +505,7 @@ def profilePage2(userID):
         return flask.render_template("userPage2.html")
     else:
         return flask.render_template('siteUnavailable.html', storedWebData={}, message="", loggedIn=flask.session.get("loggedIn", False), userID=flask.session.get("userID", ""), userData=flask.session.get("userData", {}), error=404)
-@app.route('/user/<int:userID>', methods=["GET", "POST"])
+@app.route('/user2/<int:userID>', methods=["GET", "POST"])
 def profilePage(userID):
     updateActivity("profilePage", flask.request.remote_addr)
     validateSession()

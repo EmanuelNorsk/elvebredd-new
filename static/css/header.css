@@ -655,10 +655,11 @@ nav{
     position:fixed;
     display:none;
     flex-direction:column;
-    width:max(12vw, 24vh);
-    gap:max(1vw, 2vh);
-    padding:max(1vw, 2vh);
-    border-radius:max(2vw, 4vh);
+    width:calc(432.2 / 19.2 * 1vw);
+    gap:1vw;
+    padding:1vw;
+    box-sizing:border-box;
+    border-radius:2vw;
     border:1px solid white;
     background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(249, 249, 249) 100%);
     z-index:100000000000;

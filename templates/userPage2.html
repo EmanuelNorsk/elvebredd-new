@@ -27,6 +27,16 @@
                 <div style="width: calc(198.5 / 19.2 * 1vw);height: calc(48.6 / 19.2 * 1vw);">
                     <p style="width:100%;font-family:'Aileron', sans-serif; font-size:calc(6 * 4 / 3 / 19.2 * 1vw);letter-spacing:0.3vw;text-align:center;font-style:italic;margin:0px;margin-top:0.1vw;font-weight:300;">LOGIN STREAK</p>
                 </div>
+                <button id="friendButton" onclick="sendFriendRequest()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Add friend</p>
+                </button>
+                <div style="width: calc(198.5 / 19.2 * 1vw);height: calc(48.6 / 19.2 * 1vw);display:none;">
+                    <p style="width:100%;font-family:'Aileron', sans-serif; font-size:calc(9.4 * 4 / 3 / 19.2 * 1vw);text-align:center;font-style:italic;margin:0px;margin-top:0.1vw;font-weight:300;">LOGIN STREAK</p>
+                </div>
+                <button id="friendButton" onclick="removeFriend()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Remove friend</p>
+                </button>
+
             </div>
             <div id="middleSection" style="width:25vw;display:flex;flex-direction:column;align-items:center;">
                 <img style="width:calc(129.5 / 19.2 * 1vw);height:calc(129.5 / 19.2 * 1vw);" src="">
@@ -70,45 +80,45 @@
                 </div>
             </div>
             <div id="mainButtons" class="center">
-                <button onclick="openPreferences()" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15rem;">Settings</p>
+                <button onclick="openPreferences()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Settings</p>
                 </button>
-                <button onclick="openHelp()" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15rem;">Help</p>
-                </button>
-
-                <button id="friendButton" disabled=true class="profileButton disabled" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">User has blocked you!</p>
+                <button onclick="openHelp()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Help</p>
                 </button>
 
-                <button id="friendButton" disabled=true class="profileButton disabled" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Friend request sent</p>
+                <button id="friendButton" disabled class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">User has blocked you!</p>
                 </button>
 
-                <button id="friendButton" onclick="sendFriendRequest('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Add as friend</p>
+                <button id="friendButton" disabled class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Friend request sent</p>
                 </button>
 
-                <button id="friendButton" onclick="removeFriend('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Remove as friend</p>
+                <button id="friendButton" onclick="sendFriendRequest()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Add as friend</p>
                 </button>
 
-                <button id="friendButton" onclick="sendFriendRequest('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Send friend request</p>
+                <button id="friendButton" onclick="removeFriend()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Remove as friend</p>
                 </button>
 
-                <button id="blockButton" onclick="block('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Block</p>
-                </button>
-                <button id="blockButton" onclick="unblock('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Unblock</p>
+                <button id="friendButton" onclick="sendFriendRequest()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Send friend request</p>
                 </button>
 
-                <button id="banButton" onclick="ban('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Ban User</p>
+                <button id="blockButton" onclick="block()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Block</p>
                 </button>
-                <button id="makeContentCreatorButton" onclick="makeContentCreator('{{ profileID }}')" class="profileButton" style="display:none;align-items:center;justify-content:center;">
-                    <p class="noMargin" style="font-size:15px;">Mark as Content Creator</p>
+                <button id="blockButton" onclick="unblock()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Unblock</p>
+                </button>
+
+                <button id="banButton" onclick="ban()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Ban User</p>
+                </button>
+                <button id="makeContentCreatorButton" onclick="makeContentCreator()" class="profileButton noDisplay transparentBackground">
+                    <p class="noMargin">Mark as Content Creator</p>
                 </button>
 
             </div>
@@ -179,9 +189,8 @@
             <div style="padding-top:1vw;" class="center" id="allCategoryDivs">
                 <div id="userListings">
                     <div class="infoBox">
-                        <button class="profileButton"><p>Done</p></button>
+                        <button class="profileButton"><p>New Listing</p></button>
                         <img src="/static/images/misc/info.png">
-                        <button class="profileButton"><p>Edit Inventory</p></button>
                     </div>
                     <div>
 
@@ -189,23 +198,47 @@
                 </div>
                 <div id="userInventory">
                     <div class="infoBox">
-
+                        <button class="profileButton"><p>Edit Inventory</p></button>
+                        <button class="profileButton"><p>Done</p></button>
+                        <img src="/static/images/misc/info.png">
                     </div>
                     <div>
                         
                     </div>
                 </div>
                 <div id="userWishlist">
-
+                    <div class="infoBox">
+                        <button class="profileButton"><p>Edit Wishlist</p></button>
+                        <button class="profileButton"><p>Done</p></button>
+                        <img src="/static/images/misc/info.png">
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
                 <div id="userInbox">
-
+                    <div class="infoBox">
+                        <img src="/static/images/misc/info.png">
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
                 <div id="userPending">
-
+                    <div class="infoBox">
+                        <img src="/static/images/misc/info.png">
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
                 <div id="userHistory">
-
+                    <div class="infoBox">
+                        <img src="/static/images/misc/info.png">
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </div>

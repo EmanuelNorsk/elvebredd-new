@@ -27,6 +27,7 @@
 
 :root{
     --createListingInterface-size: 57.75vw;
+    --listing-size: 17.5vw !important;
 }
 
 body{
@@ -60,8 +61,11 @@ body{
 #upperUserPage{
     display:flex;
     flex-direction:row;
-    justify-content: center;
-    padding-top:75px;
+    padding-left:19.25vw;
+    padding-right:19.25vw;
+    width:100vw;
+    box-sizing:border-box;
+    justify-content:space-between;
 }
 
 .listingPetAttribute{
@@ -82,6 +86,10 @@ body{
 
 .noDisplay {
     display:none !important;
+}
+
+.invisible {
+    opacity:0;
 }
 
 .flex {
@@ -111,17 +119,59 @@ body{
 }
 
 .infoBox {
+    width:100%;
     padding-top:2vw;
     display:flex;
     flex-direction:row;
     align-items:center;
     gap:1vw;
+    opacity:0;
 }
 
-.infoBox > :nth-child(2) {
+.infoBox > img {
     width:calc(31.7 / 19.2 * 1vw);
     aspect-ratio:1/1;
 }
+
+#profileImage {
+    width:calc(129.5 / 19.2 * 1vw);
+    height:calc(129.5 / 19.2 * 1vw);
+    border-radius:50%;
+    position:relative;
+    background:unset;
+    background-size:0% 0%;
+    z-index:1;
+}
+
+#profileImage > :nth-child(1) {
+    filter:blur(2px);
+    opacity:0.9;
+    z-index:2;
+}
+
+#profileImage > :nth-child(2) {
+    z-index:3;
+    margin:0.1015625vw;
+    width:calc(129.5vw / 19.2 - 0.1015625vw * 2);
+    height:calc(129.5vw / 19.2 - 0.1015625vw * 2);
+    border-radius:50%;
+    transform:translate()
+}
+
+#profileImage > div {
+    position:absolute;
+    left:0%;
+    top:0%;
+    background-image:inherit;
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    background-size:calc(129.5 / 19.2 * 1vw) calc(129.5 / 19.2 * 1vw);
+    z-index:2;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
 
 #profileInfo {
     display:flex;
@@ -238,12 +288,6 @@ body{
 
 }
 
-#userInventory{
-    width: 60vw;
-    display:none;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap:10px;
-}
 
 .userInventoryPetImage{
     border: 0.5px solid;
@@ -268,9 +312,6 @@ body{
     background: linear-gradient(135deg, rgb(255, 145, 0) 0%, rgb(255, 102, 102) 50%, rgb(255, 102, 102) 100%);
 }
 
-#lowerUserPage {
-    padding-top:0.5vw;
-}
 
 .sharkFrostButton{
     display:flex;
@@ -589,21 +630,6 @@ body{
     color:white;
 }
 
-#userListings{
-    width:75%;
-    display:flex;
-    grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
-    gap:20px;
-    position:relative;
-}
-
-
-#userWishlist{
-    width: 60vw;
-    display:none;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap:10px;
-}
 
 .disabled{
     cursor:default;
@@ -865,7 +891,7 @@ body{
 }
 
 main{
-    padding-top:85.5rem;
+    padding-top:4.5vw;
     min-height:100vh;
 }
 
@@ -908,31 +934,6 @@ main{
     gap:5px;
 }
 
-#userInbox{
-    width:75%;
-    display:none;
-    grid-template-columns: repeat(auto-fill, minmax(363.45px, 1fr));
-    gap:20px;
-    position:relative;
-}
-
-#userPending{
-    width:75%;
-    display:none;
-    grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
-    gap:20px;
-    position:relative;
-}
-
-#userHistory{
-    width:75%;
-    display:none;
-    grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
-    gap:20px;
-    position:relative;
-}
-
-
 
 .pendingListing{
     display:flex;
@@ -970,7 +971,6 @@ main{
 }
 
 #mainButtons {
-    width:25vw;
     display:flex;
     flex-direction:column;
     justify-content: flex-start;
@@ -1021,8 +1021,9 @@ main{
 #Username1 > p{
     font-size: calc(16 * 4 / 3 / 19.2 * 1vw);
     font-weight: bold;
-    margin:1vw;
-    margin-bottom:2vw;
+    padding-top:1.5vw;
+    margin:0px;
+    padding-bottom:1vw;
 }
 
 .UnderProfile {
@@ -1600,4 +1601,172 @@ main{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+#allCategoryDivs  {
+    padding-top:1vw; 
+    display:flex;
+    flex-direction:row;
+    transition:transform 0.5s ease;
+    padding-bottom:19.25vw;
+    gap:calc(19.25vw * 2);
+}
+
+#allCategoryDivs > div  {
+    display:flex;
+    flex-direction:column;
+    min-width:61.5vw;
+    max-width:61.5vw;
+}
+
+#userInventory > :nth-child(2), #userWishlist > :nth-child(2) {
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr !important;
+    grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr !important;
+    gap:calc(18.8vw / 19.2) !important;
+}
+
+
+#allCategoryDivs > div > :nth-child(2).notEmpty {
+    width:100%;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    gap:1vw;
+    min-height:30vw;
+    place-items:center;
+}
+
+#allCategoryDivs > div > :nth-child(2) {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-height:30vw;
+
+    padding-top:1vw;
+}
+
+#lowerUserPage {
+    padding-top:0.5vw;
+    padding-left:19.25vw;
+    width:61.5vw;
+    overflow:hidden;
+}
+
+#lowerUserPage > :nth-child(1) {
+    display:flex;
+    flex-direction:row;
+    gap:3.2vw;
+    width:61.5vw;
+    justify-content:center;
+}
+
+#allCategoryDivs > div > :nth-child(2) > p {
+    font-family:"Aileron", sans-serif;
+    font-size:calc(16 * 4 / 3 / 19.2 * 1vw);
+    color:rgb(109, 107, 112);
+    font-weight:500;
+}
+
+#allCategoryDivs > div > :nth-child(2) > p > a {
+    color:rgb(255, 102, 102);
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.inventoryPetDiv {
+    width:calc(131.1vw / 19.2);
+    height:calc(131.1vw / 19.2);
+    box-sizing:border-box;
+    border:1px solid black;
+    border-radius:36%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.inventoryPetDiv > img {
+    width:calc(110.5vw / 19.2);
+    height:calc(110.5vw / 19.2);
+}
+
+.inventoryPetDiv > p {
+    position:absolute;
+    right:-0.5vw;
+    top:-0.5vw;
+    padding:0.3vw;
+    border-radius:100vw;
+    font-family:"Aileron", sans-serif;
+    font-weight:bold;
+    color:rgb(253, 249, 234);
+    background-color:rgb(255, 102, 102);
+    font-size:calc(18.8 * 4 / 3 / 19.2 * 1vw);
+    margin:0px;
+    min-width:calc(18.8 * 4 / 3 / 19.2 * 1.2vw);
+    text-align:center;
+}
+
+.inventoryPetDiv > div {
+    position:absolute;
+    display:flex;
+    flex-direction:row;
+    bottom:10%;
+    right:10%;
+    gap:0.1vw;
+
+}
+
+.inventoryPetDiv > div > div {
+    border-radius:100%;
+    color:white;
+    font-weight:bold;
+    font-family:"Aileon", sans-serif;
+    font-size:0.6vw;
+    box-sizing:border-box;
+    width:calc(16.6vw / 19.2);
+    height:calc(16.6vw / 19.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+
+.listingWrapper {
+    display:flex;
+    flex-direction:row;
+}
+
+.listingWrapper > :nth-child(2) {
+    padding:2vw 1vw 2vw 1vw;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.listingWrapper > :nth-child(2) > :nth-child(3){
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.listingWrapper > :nth-child(2) > :nth-child(3) > img {
+    width:calc(27.1vw / 19.2);
+    height:calc(27.1vw / 19.2);
+}
+
+.listingWrapper > :nth-child(2) > :nth-child(3) > p {
+    font-family:"Aileron", sans-serif;
+    font-weight:bold;
+    font-size:calc(14.1vw * 4 / 3 / 19.2);
+    color:rgb(109, 107, 112);
+}
+
+.listingWrapper > :nth-child(2) > :nth-child(4) > p {
+    font-family:"Aileron", sans-serif;
+    font-weight:300;
+    font-size:calc(12.8vw * 4 / 3 / 19.2);
+    color:rgb(109, 107, 112);
 }

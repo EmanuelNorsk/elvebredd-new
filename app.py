@@ -430,6 +430,24 @@ def api():
                 return flask.jsonify(output)
             else:
                 return flask.jsonify("ERROR")
+        elif action == "getYourUserListings":
+            id, output, success = getUserListings(flask.session.get("userID", ""))
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
+        elif action == "getUserListings":
+            id, output, success = getUserListings(args["ID"])
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
+        elif action == "getUserInbox":
+            id, output, success = getUserInbox(flask.session.get("userID", ""), args["ID"])
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
         elif action == "sendOffer":
             id, output, success = addCustomOffer(flask.session.get("userID", ""), args["id"], list(json.loads(args["pets"])))
             if success == 1:

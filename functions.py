@@ -274,6 +274,28 @@ def getUserData(userID):
     else:
         return 0, "Invalid User ID", -1
 
+def getUserListings(userID):
+    global UserData
+    if userID in UserData:
+        trades = []
+        for trade in UserData[userID]["trades"]:
+            trades.append(Trades[trade])
+
+        return 1, trades, 1
+    else:
+        return 0, "Invalid User ID", -1
+    
+def getUserInbox(userID, user2ID):
+    global UserData
+    if user2ID in UserData and userID == user2ID:
+        trades = []
+        for trade in UserData[userID]["inbox"]:
+            trades.append(Trades[trade])
+
+        return 1, trades, 1
+    else:
+        return 0, "Invalid User ID or no permission", -1
+    
 def changeUsername(userID, username):
     global UserData
     if userID != "" and len(username) > 2 and len(username) < 21:

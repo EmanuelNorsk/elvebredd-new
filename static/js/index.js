@@ -32,6 +32,7 @@ var listingSize = 300
 var body = document.createElement("div")
 
 var listingInterface2Background = document.createElement("div")
+var listingInterface2 = document.createElement("div")
 
 var petsDict = {}
 var userData = {}
@@ -39,6 +40,8 @@ var userData = {}
 var listingsScrollSpeed = 6
 
 var petImage = document.createElement("div")
+
+
 
 window.addEventListener("DOMContentLoaded", event => {
     body = document.body
@@ -97,8 +100,8 @@ window.addEventListener("DOMContentLoaded", event => {
     var offers = document.getElementById("offers")
     var listingInterface2Preferences = document.getElementById("listingInterface2Preferences")
     var listingInterface2Main = document.getElementById("listingInterface2Main")
-    var listingInterface2 = document.getElementById("listingInterface2")
-    var listingInterface2Background = document.getElementById("listingInterface2Background")
+    listingInterface2 = document.getElementById("listingInterface2")
+    listingInterface2Background = document.getElementById("listingInterface2Background")
     var listingInterface2YourOfferPets = document.getElementById("listingInterface2YourOfferPets")
     var listingInterface2TheirOfferPets = document.getElementById("listingInterface2TheirOfferPets")
     var yourOfferValue = document.getElementById("yourOfferValue")
@@ -117,17 +120,10 @@ window.addEventListener("DOMContentLoaded", event => {
 
     header.style.height = (nav.offsetHeight * 1).toString() + "px"
 
-    var slides = document.getElementById("slides")
 
-    listingInterface2Background.addEventListener("wheel", event => {
-        if (remainingScroll * event.deltaY < 0) {
-            remainingScroll = 0
-        }
-        remainingScroll += event.deltaY * scrollStrength
-        if (scrolling == false) {
-            scroll()
-        }
-    })
+
+
+    var slides = document.getElementById("slides")
 
     initiateSlides()
     updateSlides()
@@ -200,6 +196,15 @@ window.addEventListener("DOMContentLoaded", event => {
     //        rightArrow.style.display = "none"
     //    }
     //})
+
+    window.addEventListener("click", event => {
+        const rect = listingInterface2.getBoundingClientRect()
+        if (rect.width > 0) {
+            if ((rect.x < event.clientX && event.clientX < rect.x + rect.width && rect.y < event.clientY && event.clientY < rect.y + rect.height) == false) {
+                closeListingInterface2()
+            }
+        }
+    })
 
     window.addEventListener("resize", event => {
         header.style.height = (nav.offsetHeight * 1).toString() + "px"
@@ -1012,6 +1017,7 @@ function showUserListings2(listing) {
     yourOfferExtraPets = []
     theirOfferExtraPets = []
     listingInterface2.style.display = "flex"
+    listingInterface2Background = document.getElementById("listingInterface2Background")
     listingInterface2Background.style.display = "flex"
     showOffers(listing)
     showPreferences(listing)

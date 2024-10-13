@@ -15,7 +15,7 @@
     </header>
     <main style="width:100%">
         <div id="upperUserPage">
-            <div style="width:25vw; display:flex;flex-direction:column;">
+            <div style="display:flex;flex-direction:column;min-width:calc(198.5 / 19.2* 1vw);">
                 <div id="dailyStreakDiv">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.0 0.0 130.0 156.0" zoomAndPan="magnify" original_string_length="832">
                         <g id="__id3236_seijkjdmo">
@@ -38,11 +38,14 @@
                 </button>
 
             </div>
-            <div id="middleSection" style="width:25vw;display:flex;flex-direction:column;align-items:center;">
-                <img style="width:calc(129.5 / 19.2 * 1vw);height:calc(129.5 / 19.2 * 1vw);" src="">
+            <div id="middleSection" style="display:flex;flex-direction:column;align-items:center;">
+                <div id="profileImage">
+                    <div></div>
+                    <div></div>
+                </div>
                 <div id="Username1" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:5px;margin-top: -1vw;">
                     <p>username</p>
-                    <img id="verified" src="/static/images/misc/verified.png" style="width:10px;height:auto;display:none;">
+                    <img id="verified" src="/static/images/misc/verified.png" style="width:0.5vw;height:auto;display:none;">
                 </div>
                 <div id="profileInfo">
                     <div>
@@ -66,7 +69,7 @@
                         <p class="noMargin">Edit Profile</p>
                     </button>
                 </div>
-                <div class="center" style="padding-top:1vw;gap:5px;flex-direction:column;">
+                <div class="center" style="padding-top:1vw;gap:0.25vw;flex-direction:column;">
                     <div>
                         <div class="sharkFrostButton orangeRed">
                             <div class="center" onclick="selectValue('shark')"><p>SHARK</p></div>
@@ -74,12 +77,12 @@
                         </div>
                     </div>
                     <div class="center RobloxUser1" style="flex-direction:row;gap:5px;align-items:center;">
-                        <img style="width:12px;height:auto;display:none;" src="/static/images/misc/robloxLogo.png">
+                        <img style="width:0.67vw;height:auto;display:none;" src="/static/images/misc/robloxLogo.png">
                         <p style="font-size:12rem;color:#6D6B70;display:none;">roblox_username</p>
                     </div>
                 </div>
             </div>
-            <div id="mainButtons" class="center">
+            <div id="mainButtons" class="center" style="min-width:calc(198.5 / 19.2* 1vw);">
                 <button onclick="openPreferences()" class="profileButton noDisplay transparentBackground">
                     <p class="noMargin">Settings</p>
                 </button>
@@ -178,7 +181,7 @@
             </button>
         </div>
         <div id="lowerUserPage">
-            <div class="center" style="flex-direction:row;gap:65px;">
+            <div>
                 <b class="noMargin button categoryButton selected" onclick="selectCategory(event)">Listings</b>
                 <b class="noMargin button categoryButton" onclick="selectCategory(event)">Inventory</b>
                 <b class="noMargin button categoryButton" onclick="selectCategory(event)">Wishlist</b>
@@ -186,7 +189,7 @@
                 <b class="noMargin button categoryButton" onclick="selectCategory(event)">Pending</b>
                 <b class="noMargin button categoryButton" onclick="selectCategory(event)">History</b>
             </div>
-            <div style="padding-top:1vw;" class="center" id="allCategoryDivs">
+            <div id="allCategoryDivs">
                 <div id="userListings">
                     <div class="infoBox">
                         <button class="profileButton"><p>New Listing</p></button>

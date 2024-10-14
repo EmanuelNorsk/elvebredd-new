@@ -135,7 +135,58 @@ function main() {
     selectCategory("Listings")
 
     loadCategories()
+
+    editInventory(false)
+    editWishlist(false)
     
+}
+
+function editInventory(bool) {
+    var inv = document.getElementById("userInventory")
+    if (bool) {
+        inv.children[0].children[0].style.display = "none"
+        inv.children[0].children[1].style.display = "flex"
+        if (inv.children[1].children[0] != undefined) {
+            inv.children[1].children[0].style.display = "flex"
+        }
+        [...inv.children[1].children].forEach(pet => {
+            pet.classList.add("enabled")
+        })
+
+
+    } else {
+        inv.children[0].children[0].style.display = "flex"
+        inv.children[0].children[1].style.display = "none"
+        if (inv.children[1].children[0] != undefined) {
+            inv.children[1].children[0].style.display = "none"
+        }
+        [...inv.children[1].children].forEach(pet => {
+            pet.classList.remove("enabled")
+        })
+    }
+}
+
+function editWishlist(bool) {
+    var wl = document.getElementById("userWishlist")
+    if (bool) {
+        wl.children[0].children[0].style.display = "none"
+        wl.children[0].children[1].style.display = "flex"
+        if (wl.children[1].children[0] != undefined) {
+            wl.children[1].children[0].style.display = "flex"
+        }
+        [...wl.children[1].children].forEach(pet => {
+            pet.classList.add("enabled")
+        })
+    } else {
+        wl.children[0].children[0].style.display = "flex"
+        wl.children[0].children[1].style.display = "none"
+        if (wl.children[1].children[0] != undefined) {
+            wl.children[1].children[0].style.display = "none"
+        }
+        [...wl.children[1].children].forEach(pet => {
+            pet.classList.remove("enabled")
+        })
+    }
 }
 
 
@@ -379,7 +430,7 @@ async function loadCategories() {
 
     var userListings = []
 
-    var userInbox = []
+    var userHistory = []
 
     formData = new FormData();
     formData.append('ID', profileID);
@@ -404,38 +455,30 @@ async function loadCategories() {
             console.error('There was a problem with the fetch operation:', error);
         });
 
+    formData = new FormData();
+    formData.append('ID', profileID);
+    formData.append('action', "getUserHistory");
 
-    let fetchUserInbox
-
-    if (userData["id"] == profileID) {
-        formData = new FormData();
-        formData.append('ID', profileID);
-        formData.append('action', "getUserInbox");
-    
-        fetchUserInbox = fetch('/api', {
-            method: 'POST',
-            body: formData
+    const fetchUserHistory = fetch('/api', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data != "ERROR") {
-                    userInbox = data;
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    } else {
-        fetchUserInbox = Promise.resolve(true)
-    }
-
+        .then(data => {
+            if (data != "ERROR") {
+                userHistory = data;
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
     
-    Promise.all([fetchUserListings, fetchUserInbox]).then(() => {
+    Promise.all([fetchUserListings, fetchUserHistory]).then(() => {
         if (userListings.length == 0) {
             document.getElementById("userListings").children[1].classList.remove("notEmpty")
             const p = document.createElement("p")
@@ -461,7 +504,7 @@ async function loadCategories() {
             document.getElementById("userInventory").children[1].appendChild(p)
         } else {
             document.getElementById("userInventory").children[1].classList.add("notEmpty")
-            displayPets(convertDictsToSets(profileData["inventory"]), document.getElementById("userInventory").children[1])
+            displayPets(convertDictsToSets(profileData["inventory"]), document.getElementById("userInventory").children[1], "inventory")
         }
 
         if (profileData["wishlist"].length == 0) {
@@ -475,28 +518,50 @@ async function loadCategories() {
             document.getElementById("userWishlist").children[1].appendChild(p)
         } else {
             document.getElementById("userWishlist").children[1].classList.add("notEmpty")
-            displayPets(convertDictsToSets(profileData["wishlist"]), document.getElementById("userWishlist").children[1])
+            displayPets(convertDictsToSets(profileData["wishlist"]), document.getElementById("userWishlist").children[1], "wishlist")
         }
 
-        if (profileData["inbox"].length == 0) {
+        if (userListings.length == 0) {
             document.getElementById("userInbox").children[1].classList.remove("notEmpty")
             const p = document.createElement("p")
             if (userData["id"] == profileID) {
                 p.innerHTML = "Your inbox is empty, click <a>here</a> for information."
             } else {
-                p.innerText = "You can't see this persons inbox!"
+                p.innerText = "You can't see this person's inbox!"
             }
             document.getElementById("userInbox").children[1].appendChild(p)
         } else {
             document.getElementById("userInbox").children[1].classList.add("notEmpty")
-            loadInboxInto(profileData["inbox"], document.getElementById("userInbox").children[1])
+            loadInboxInto(userListings, document.getElementById("userInbox").children[1])
         }
 
-        document.getElementById("userListings").children[1]
-        document.getElementById("userWishlist").children[1]
-        document.getElementById("userInbox").children[1]
-        document.getElementById("userPending").children[1]
-        document.getElementById("userHistory").children[1]
+        if (userListings.length == 0) {
+            document.getElementById("userPending").children[1].classList.remove("notEmpty")
+            const p = document.createElement("p")
+            if (userData["id"] == profileID) {
+                p.innerHTML = "You have no active trades ongoing, click <a>here</a> for information."
+            } else {
+                p.innerText = "You can't see this person's pending trades!"
+            }
+            document.getElementById("userPending").children[1].appendChild(p)
+        } else {
+            document.getElementById("userPending").children[1].classList.add("notEmpty")
+            loadPendingInto(userListings, document.getElementById("userPending").children[1])
+        }
+
+        if (userHistory.length == 0) {
+            document.getElementById("userHistory").children[1].classList.remove("notEmpty")
+            const p = document.createElement("p")
+            if (userData["id"] == profileID) {
+                p.innerHTML = "You have not trades in your history, click <a>here</a> for information."
+            } else {
+                p.innerText = "This person has no completed any trades yet."
+            }
+            document.getElementById("userHistory").children[1].appendChild(p)
+        } else {
+            document.getElementById("userHistory").children[1].classList.add("notEmpty")
+            loadHistoryInto(userHistory, document.getElementById("userHistory").children[1])
+        }
     });
 
 
@@ -506,26 +571,37 @@ function createInventoryPet(pet) {
     const div = document.createElement("div")
     div.classList.add("inventoryPetDiv")
     const img = document.createElement("img")
-    img.src = petsDict[pet["id"]]["image"]
-    const p = document.createElement("p")
-    p.innerText = pet["amount"]
-    div.appendChild(img)
-    if (pet["amount"] > 1) {
-        div.appendChild(p)
+    if (typeof pet == "object") {
+        img.src = petsDict[pet["id"]]["image"]
+        const p = document.createElement("p")
+        p.innerText = pet["amount"]
+        div.appendChild(img)
+        if (pet["amount"] > 1) {
+            div.appendChild(p)
+        }
+        const div2 = document.createElement("div")
+        const fly  = document.createElement("div");  fly.innerText = "F";  fly.classList.add("flyDiv");  if (pet["fly"] == 0)  { fly.style.display = "none"}; div2.appendChild(fly)
+        const ride = document.createElement("div"); ride.innerText = "R"; ride.classList.add("rideDiv"); if (pet["ride"] == 0) {ride.style.display = "none"}; div2.appendChild(ride)
+        const neon = document.createElement("div"); neon.innerText = "N"; neon.classList.add("neonDiv"); if (pet["neon"] == 0) {neon.style.display = "none"}; div2.appendChild(neon)
+        const mega = document.createElement("div"); mega.innerText = "M"; mega.classList.add("megaDiv"); if (pet["mega"] == 0) {mega.style.display = "none"}; div2.appendChild(mega)
+
+
+        div.appendChild(div2)
+
+    } else if (typeof pet == "string") {
+        img.src = "/static/images/misc/add.png"
+        div.appendChild(img)
+        div.style.display = "none"
+        div.style.border = "none"
+        div.style.filter = "brightness(0.4)"
+        div.setAttribute("add", "true")
     }
-    const div2 = document.createElement("div")
-    const fly  = document.createElement("div");  fly.innerText = "F";  fly.classList.add("flyDiv");  if (pet["fly"] == 0)  { fly.style.display = "none"}; div2.appendChild(fly)
-    const ride = document.createElement("div"); ride.innerText = "R"; ride.classList.add("rideDiv"); if (pet["ride"] == 0) {ride.style.display = "none"}; div2.appendChild(ride)
-    const neon = document.createElement("div"); neon.innerText = "N"; neon.classList.add("neonDiv"); if (pet["neon"] == 0) {neon.style.display = "none"}; div2.appendChild(neon)
-    const mega = document.createElement("div"); mega.innerText = "M"; mega.classList.add("megaDiv"); if (pet["mega"] == 0) {mega.style.display = "none"}; div2.appendChild(mega)
-
-
-    div.appendChild(div2)
-
     return div
+
 }
 
-function displayPets(set, target) {
+function displayPets(set, target, type) {
+    target.appendChild(createInventoryPet(type))
     set.forEach(pet => {
         target.appendChild(createInventoryPet(pet))
     })
@@ -657,19 +733,226 @@ async function loadListingsInto(listings, target) {
             })
         }
 
-        await delay(1)
+        await delay(0.1)
     }
 }
 
 async function loadInboxInto(listings, target) {
     target.innerHTML = ""
     var listing = ""
-    for (let i = 0; i < Object.values(listings).length; i++) {
+    for (let c = 0; c < Object.values(listings).length; c++) {
+        listing = Object.values(listings)[c]
+        for (let j = 0; j < listing["customOffers"].length; j++) {
+            if (listing["customOffers"][j]["status"] == "Pending") {
+                const wrapper = document.createElement("div")
+
+                var yourOffer = listing["offer"]["give"]
+                var theirOffer = listing["offer"]["take"]
+                if (listing["customOffers"][j]["type"] == "give") {
+                    yourOffer = yourOffer.concat(listing["customOffers"][j]["pets"])
+                } else {
+                    theirOffer = theirOffer.concat(listing["customOffers"][j]["pets"])
+                }
+    
+                let listingTemplate = createListingTemplate()
+                let value1 = calculateValue(yourOffer)
+                let value2 = calculateValue(theirOffer)
+                var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+                if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
+                    combinedValue = Math.round(combinedValue)
+                }
+                listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
+                if (value1 > value2) {
+                    listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+                    listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+                    listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                    listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                } else if (value1 < value2) {
+                    listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+                }
+                
+                for (let i = 0; i < yourOffer.length && i < 8; i++) {
+                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[i]))
+                }
+        
+                if (yourOffer.length == 9) {
+                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[8]))
+                } else if (yourOffer.length > 9) {
+                    const p = document.createElement("p")
+                    p.textContent = "+" + (yourOffer.length - 8).toString()
+                    listingTemplate.children[1].children[1].children[0].appendChild(p)
+                }
+        
+                for (let i = 0; i < theirOffer.length && i < 8; i++) {
+                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[i]))
+                }
+        
+                if (theirOffer.length == 9) {
+                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[8]))
+                } else if (theirOffer.length > 9) {
+                    const p = document.createElement("p")
+                    p.textContent = "+" + (theirOffer.length - 8).toString()
+                    listingTemplate.children[1].children[1].children[2].appendChild(p)
+                }
+        
+                const sideMenu = document.createElement("div")
+                const b1 = document.createElement("button")
+                b1.className = "profileButton"
+                b1.innerText = "Accept"
+                b1.setAttribute("onclick", "")
+                const b2 = document.createElement("button")
+                b2.className = "profileButton"
+                b2.innerText = "Cancel"
+                b2.setAttribute("onclick", "")
+                const robloxNameDiv = document.createElement("div")
+                const robloxImg = document.createElement("img")
+                robloxImg.src = "/static/images/misc/robloxLogo.png"
+                const robloxName = document.createElement("a")
+                robloxName.href = "/user/" + listing["customOffers"][j]["owner"]
+                if (listing["customOffers"][j]["ownerRobloxUsername"] != "") {
+                    robloxName.innerText = listing["customOffers"][j]["ownerRobloxUsername"]
+                } else {
+                    robloxName.innerText = listing["customOffers"][j]["ownerUsername"]
+                }
+                const time = document.createElement("p")
+                time.innerText = timeSince(listing["createdAt"])
+        
+                sideMenu.appendChild(b1)
+                sideMenu.appendChild(b2)
+                robloxNameDiv.appendChild(robloxImg)
+                robloxNameDiv.appendChild(robloxName)
+                sideMenu.appendChild(robloxNameDiv)
+                sideMenu.appendChild(time)
+        
+    
+                wrapper.appendChild(listingTemplate)
+                wrapper.appendChild(sideMenu)
+                wrapper.className = "listingWrapper"
+                target.appendChild(wrapper)
+                
+            }
+        }
+        await delay(0.1)
+    }
+}
+
+async function loadPendingInto(listings, target) {
+    target.innerHTML = ""
+    var listing = ""
+    for (let c = 0; c < Object.values(listings).length; c++) {
+        listing = Object.values(listings)[c]
+        for (let j = 0; j < listing["customOffers"].length; j++) {
+            if (listing["customOffers"][j]["status"] == "Accepted") {
+                const wrapper = document.createElement("div")
+
+                var yourOffer = listing["offer"]["give"]
+                var theirOffer = listing["offer"]["take"]
+                if (listing["customOffers"][j]["type"] == "give") {
+                    yourOffer = yourOffer.concat(listing["customOffers"][j]["pets"])
+                } else {
+                    theirOffer = theirOffer.concat(listing["customOffers"][j]["pets"])
+                }
+    
+                let listingTemplate = createListingTemplate()
+                let value1 = calculateValue(yourOffer)
+                let value2 = calculateValue(theirOffer)
+                var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+                if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
+                    combinedValue = Math.round(combinedValue)
+                }
+                listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
+                if (value1 > value2) {
+                    listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+                    listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+                    listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                    listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                } else if (value1 < value2) {
+                    listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+                }
+                
+                for (let i = 0; i < yourOffer.length && i < 8; i++) {
+                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[i]))
+                }
+        
+                if (yourOffer.length == 9) {
+                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[8]))
+                } else if (yourOffer.length > 9) {
+                    const p = document.createElement("p")
+                    p.textContent = "+" + (yourOffer.length - 8).toString()
+                    listingTemplate.children[1].children[1].children[0].appendChild(p)
+                }
+        
+                for (let i = 0; i < theirOffer.length && i < 8; i++) {
+                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[i]))
+                }
+        
+                if (theirOffer.length == 9) {
+                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[8]))
+                } else if (theirOffer.length > 9) {
+                    const p = document.createElement("p")
+                    p.textContent = "+" + (theirOffer.length - 8).toString()
+                    listingTemplate.children[1].children[1].children[2].appendChild(p)
+                }
+        
+                const sideMenu = document.createElement("div")
+                const b1 = document.createElement("button")
+                b1.className = "profileButton"
+                b1.innerText = "Complete"
+                b1.setAttribute("onclick", "")
+                const b2 = document.createElement("button")
+                b2.className = "profileButton"
+                b2.innerText = "Cancel"
+                b2.setAttribute("onclick", "")
+                const robloxNameDiv = document.createElement("div")
+                const robloxImg = document.createElement("img")
+                robloxImg.src = "/static/images/misc/robloxLogo.png"
+                const robloxName = document.createElement("a")
+                robloxName.href = "/user/" + listing["customOffers"][j]["owner"]
+                if (listing["customOffers"][j]["ownerRobloxUsername"] != "") {
+                    robloxName.innerText = listing["customOffers"][j]["ownerRobloxUsername"]
+                } else {
+                    robloxName.innerText = listing["customOffers"][j]["ownerUsername"]
+                }
+                const time = document.createElement("p")
+                time.innerText = timeSince(listing["createdAt"])
+        
+                sideMenu.appendChild(b1)
+                sideMenu.appendChild(b2)
+                robloxNameDiv.appendChild(robloxImg)
+                robloxNameDiv.appendChild(robloxName)
+                sideMenu.appendChild(robloxNameDiv)
+                sideMenu.appendChild(time)
+        
+    
+                wrapper.appendChild(listingTemplate)
+                wrapper.appendChild(sideMenu)
+                wrapper.className = "listingWrapper"
+                target.appendChild(wrapper)
+            }
+        }
+        await delay(0.1)
+    }
+}
+
+async function loadHistoryInto(listings, target) {
+    target.innerHTML = ""
+    var listing = ""
+    for (let c = 0; c < Object.values(listings).length; c++) {
+        listing = Object.values(listings)[c]
         const wrapper = document.createElement("div")
-        listing = Object.values(listings)[i]
+        var j = listing["acceptedOfferID"]
+
+        var yourOffer = listing["offer"]["give"]
+        var theirOffer = listing["offer"]["take"]
+        if (listing["customOffers"][j]["type"] == "give") {
+            yourOffer = yourOffer.concat(listing["customOffers"][j]["pets"])
+        } else {
+            theirOffer = theirOffer.concat(listing["customOffers"][j]["pets"])
+        }
+
         let listingTemplate = createListingTemplate()
-        let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
-        let value2 = calculateValue(listing["offer"]["take"])
+        let value1 = calculateValue(yourOffer)
+        let value2 = calculateValue(theirOffer)
         var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
         if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
             combinedValue = Math.round(combinedValue)
@@ -684,85 +967,55 @@ async function loadInboxInto(listings, target) {
             listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
         }
         
-        for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
+        for (let i = 0; i < yourOffer.length && i < 8; i++) {
+            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[i]))
         }
 
-        if (listing["offer"]["give"].length == 9) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
-        } else if (listing["offer"]["give"].length > 9) {
+        if (yourOffer.length == 9) {
+            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[8]))
+        } else if (yourOffer.length > 9) {
             const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
+            p.textContent = "+" + (yourOffer.length - 8).toString()
             listingTemplate.children[1].children[1].children[0].appendChild(p)
         }
 
-        for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
+        for (let i = 0; i < theirOffer.length && i < 8; i++) {
+            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[i]))
         }
 
-        if (listing["offer"]["take"].length == 9) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
-        } else if (listing["offer"]["take"].length > 9) {
+        if (theirOffer.length == 9) {
+            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[8]))
+        } else if (theirOffer.length > 9) {
             const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
+            p.textContent = "+" + (theirOffer.length - 8).toString()
             listingTemplate.children[1].children[1].children[2].appendChild(p)
         }
 
-        wrapper.appendChild(listingTemplate)
-        const outOfBounds = checkOutOfBoundsListing(listingTemplate)
-        const figures = listingTemplate.querySelectorAll("figure")
-        if (outOfBounds.includes("left")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else if (outOfBounds.includes("right")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else {
-            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "none"
-            })
-        }
-
         const sideMenu = document.createElement("div")
-        const b1 = document.createElement("button")
-        b1.className = "profileButton"
-        b1.innerText = "Accept"
-        b1.setAttribute("onclick", "")
-        const b2 = document.createElement("button")
-        b2.className = "profileButton"
-        b2.innerText = "Cancel"
-        b2.setAttribute("onclick", "")
         const robloxNameDiv = document.createElement("div")
         const robloxImg = document.createElement("img")
         robloxImg.src = "/static/images/misc/robloxLogo.png"
-        const robloxName = document.createElement("p")
-        robloxName.innerText = listing["ownerRobloxUsername"]
+        const robloxName = document.createElement("a")
+        robloxName.href = "/user/" + listing["customOffers"][j]["owner"]
+        if (listing["customOffers"][j]["ownerRobloxUsername"] != "") {
+            robloxName.innerText = listing["customOffers"][j]["ownerRobloxUsername"]
+        } else {
+            robloxName.innerText = listing["customOffers"][j]["ownerUsername"]
+        }
         const time = document.createElement("p")
         time.innerText = timeSince(listing["createdAt"])
 
-        sideMenu.appendChild(b1)
-        sideMenu.appendChild(b2)
         robloxNameDiv.appendChild(robloxImg)
         robloxNameDiv.appendChild(robloxName)
         sideMenu.appendChild(robloxNameDiv)
         sideMenu.appendChild(time)
 
-        wrapper.appendChild(sideMenu)
 
+        wrapper.appendChild(listingTemplate)
+        wrapper.appendChild(sideMenu)
         wrapper.className = "listingWrapper"
         target.appendChild(wrapper)
-
-        await delay(1)
+        await delay(0.1)
     }
 }
 

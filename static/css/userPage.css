@@ -111,11 +111,21 @@ body{
     box-sizing:border-box;
     background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
     cursor:pointer;
+    font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);
+    font-family:"Aileron", sans-serif;
+    font-weight:500;
+    transition:transform 0.3s ease;
+    backface-visibility: hidden;
+}
+
+.profileButton:hover{
+    background: linear-gradient(135deg, rgb(253, 249, 234) 0%, rgb(235, 229, 220) 50%, rgb(243, 231, 214) 100%);
 }
 
 .profileButton > p {
     font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);
     font-family:"Aileron", sans-serif;
+    font-weight:500;
 }
 
 .infoBox {
@@ -1625,6 +1635,12 @@ main{
     gap:calc(18.8vw / 19.2) !important;
 }
 
+#userInbox > :nth-child(2), #userPending > :nth-child(2) {
+    grid-template-columns:1fr 1fr !important;
+    grid-template-rows:1fr 1fr !important;
+    gap:calc(18.8vw / 19.2) !important;
+}
+
 
 #allCategoryDivs > div > :nth-child(2).notEmpty {
     width:100%;
@@ -1672,6 +1688,7 @@ main{
     color:rgb(255, 102, 102);
     cursor:pointer;
     font-weight:bold;
+    text-decoration:none;
 }
 
 .inventoryPetDiv {
@@ -1684,6 +1701,10 @@ main{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.inventoryPetDiv.enabled {
+    cursor:pointer;
 }
 
 .inventoryPetDiv > img {
@@ -1739,34 +1760,45 @@ main{
 }
 
 .listingWrapper > :nth-child(2) {
-    padding:2vw 1vw 2vw 1vw;
+    padding:1vw;
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:space-between;
 }
 
 .listingWrapper > :nth-child(2) > :nth-child(3){
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
+    gap:0.2vw;
+    transition:transform 0.3s ease;
 }
 
 .listingWrapper > :nth-child(2) > :nth-child(3) > img {
     width:calc(27.1vw / 19.2);
     height:calc(27.1vw / 19.2);
+    filter:invert(0.5);
 }
 
-.listingWrapper > :nth-child(2) > :nth-child(3) > p {
+.listingWrapper > :nth-child(2) > :nth-child(3) > a {
     font-family:"Aileron", sans-serif;
     font-weight:bold;
     font-size:calc(14.1vw * 4 / 3 / 19.2);
     color:rgb(109, 107, 112);
+    margin:0px;
+    text-decoration:none;
 }
 
-.listingWrapper > :nth-child(2) > :nth-child(4) > p {
+.listingWrapper > :nth-child(2) > :nth-child(3):hover {
+    transform:scale(1.0)
+}
+
+.listingWrapper > :nth-child(2) > :nth-child(4) {
     font-family:"Aileron", sans-serif;
-    font-weight:300;
+    font-weight:400;
     font-size:calc(12.8vw * 4 / 3 / 19.2);
     color:rgb(109, 107, 112);
+    margin:0px;
 }

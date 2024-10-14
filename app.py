@@ -442,6 +442,12 @@ def api():
                 return flask.jsonify(output)
             else:
                 return flask.jsonify("ERROR")
+        elif action == "getUserHistory":
+            id, output, success = getUserHistory(args["ID"])
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return flask.jsonify("ERROR")
         elif action == "getUserInbox":
             id, output, success = getUserInbox(flask.session.get("userID", ""), args["ID"])
             if success == 1:

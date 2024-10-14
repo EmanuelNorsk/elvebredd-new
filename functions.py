@@ -285,6 +285,17 @@ def getUserListings(userID):
     else:
         return 0, "Invalid User ID", -1
     
+def getUserHistory(userID):
+    global UserData
+    if userID in UserData:
+        trades = []
+        for trade in UserData[userID]["completedTrades"]:
+            trades.append(Trades[trade])
+
+        return 1, trades, 1
+    else:
+        return 0, "Invalid User ID", -1
+    
 def getUserInbox(userID, user2ID):
     global UserData
     if user2ID in UserData and userID == user2ID:

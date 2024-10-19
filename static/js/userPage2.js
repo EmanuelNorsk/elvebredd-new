@@ -4,6 +4,8 @@ const profileID = pathParts[pathParts.length - 1];
 var userData = {};
 loggedIn = false;
 var petsDict = {}
+var categorySelected = ""
+var supplyCount = 20
 
 var formData = new FormData();
 formData.append('action', "getYourUserData");
@@ -81,6 +83,56 @@ fetch('/api', {
     console.error('There was a problem with the fetch operation:', error);
 }); 
 
+var userListings = []
+
+var userHistory = []
+
+formData = new FormData();
+formData.append('ID', profileID);
+formData.append('action', "getUserListings");
+
+const fetchUserListings = fetch('/api', {
+    method: 'POST',
+    body: formData
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data != "ERROR") {
+            userListings = data;
+        }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
+formData = new FormData();
+formData.append('ID', profileID);
+formData.append('action', "getUserHistory");
+
+const fetchUserHistory = fetch('/api', {
+    method: 'POST',
+    body: formData
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data != "ERROR") {
+            userHistory = data;
+        }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
 Promise.all([fetchUserData, fetchProfileData]).then(() => {
     contentLoaded += 1
     if (contentLoaded == 2) {
@@ -138,7 +190,64 @@ function main() {
 
     editInventory(false)
     editWishlist(false)
+
+
+    window.addEventListener("scroll", event => {
+        scrollEventFinished = false
+        supplyContent(0)
+        var div = null
+        if (categorySelected == "Listings") {
+            div = document.getElementById("userListings").children[1]
+        } else if (categorySelected == "Inbox") {
+            div = document.getElementById("userInbox").children[1]
+        } else if (categorySelected == "Pending") {
+            div = document.getElementById("userPending").children[1]
+        } else if (categorySelected == "History") {
+            div = document.getElementById("userHistory").children[1]
+        }
+        if (div != null) {
+            for (let i = div.children.length - 1; i >= 0; i--) {
+                child = div.children[i]
+                rect = child.getBoundingClientRect()
+                if (rect.y - window.innerHeight > window.scrollY) {
+                    console.log("HI")
+                    div.removeChild(child)
+                    child = null
+                    div.setAttribute("listingsLoaded", (parseInt(div.getAttribute("listingsLoaded")) - 1).toString())
+                }
+            }
+        }
+    })
     
+    supplyContent(0)
+}
+
+function supplyContent(recursions) {
+    console.log(document.body.scrollHeight, window.scrollY + window.innerHeight * 2)
+    if (document.body.scrollHeight < window.scrollY + window.innerHeight * 2 && recursions < 20) {
+        if (categorySelected == "Listings") {
+            var listingsLoaded = parseInt(document.getElementById("userListings").children[1].getAttribute("listingsLoaded"))
+            if (listingsLoaded != undefined && listingsLoaded != NaN) {
+                loadListingsInto(userListings, document.getElementById("userListings").children[1], listingsLoaded, listingsLoaded + supplyCount)
+            }
+        } else if (categorySelected == "Inbox") {
+            var listingsLoaded = parseInt(document.getElementById("userInbox").children[1].getAttribute("listingsLoaded"))
+            if (listingsLoaded != undefined && listingsLoaded != NaN) {
+                loadInboxInto(userListings, document.getElementById("userInbox").children[1], listingsLoaded, listingsLoaded + supplyCount)
+            }
+        } else if (categorySelected == "Pending") {
+            var listingsLoaded = parseInt(document.getElementById("userPending").children[1].getAttribute("listingsLoaded"))
+            if (listingsLoaded != undefined && listingsLoaded != NaN) {
+                loadPendingInto(userListings, document.getElementById("userPending").children[1], listingsLoaded, listingsLoaded + supplyCount)
+            }
+        } else if (categorySelected == "History") {
+            var listingsLoaded = parseInt(document.getElementById("userHistory").children[1].getAttribute("listingsLoaded"))
+            if (listingsLoaded != undefined && listingsLoaded != NaN) {
+                loadHistoryInto(userHistory, document.getElementById("userHistory").children[1], listingsLoaded, listingsLoaded + supplyCount)
+            }
+        }
+        setTimeout(supplyContent(recursions + 1), 100)
+    }
 }
 
 function editInventory(bool) {
@@ -313,11 +422,15 @@ function selectCategoryOld(event) {
 }
 
 function selectCategory(event) {
+    var oldCategorySelected = categorySelected + "|Category"
+    oldCategorySelected = oldCategorySelected.split("|")[0]
     var categoryButtons = document.querySelectorAll(".categoryButton")
     if (event.target == undefined) {
         category = event
+        categorySelected = event
     } else {
         category = event.target.textContent
+        categorySelected = event.target.textContent
     }
     document.getElementById("userInventory").style.display = "flex"
     document.getElementById("userListings").style.display = "flex"
@@ -345,6 +458,30 @@ function selectCategory(event) {
             button.classList.remove("selected")
         }
     })
+
+    if (oldCategorySelected == "Listings") {
+        deleteUntil20Children(document.getElementById("userListings").children[1])
+        document.getElementById("userListings").children[1].setAttribute("listingsLoaded", "20")
+    } else if (oldCategorySelected == "Inbox") {
+        deleteUntil20Children(document.getElementById("userInbox").children[1])
+        document.getElementById("userInbox").children[1].setAttribute("listingsLoaded", "20")
+    } else if (oldCategorySelected == "Pending") {
+        deleteUntil20Children(document.getElementById("userPending").children[1])
+        document.getElementById("userPending").children[1].setAttribute("listingsLoaded", "20")
+    } else if (oldCategorySelected == "History") {
+        deleteUntil20Children(document.getElementById("userHistory").children[1])
+        document.getElementById("userHistory").children[1].setAttribute("listingsLoaded", "20")
+    }
+
+}
+
+
+function deleteUntil20Children(parent) {
+    while (parent.children.length > 20 ) {
+        child = parent.children[parent.children.length - 1]
+        parent.removeChild(child)
+        child = null
+    }
 }
 
 function removeFriend() {
@@ -427,57 +564,6 @@ function sendFriendRequest() {
 }
 
 async function loadCategories() {
-
-    var userListings = []
-
-    var userHistory = []
-
-    formData = new FormData();
-    formData.append('ID', profileID);
-    formData.append('action', "getUserListings");
-
-    const fetchUserListings = fetch('/api', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data != "ERROR") {
-                userListings = data;
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
-    formData = new FormData();
-    formData.append('ID', profileID);
-    formData.append('action', "getUserHistory");
-
-    const fetchUserHistory = fetch('/api', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data != "ERROR") {
-                userHistory = data;
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-    
     Promise.all([fetchUserListings, fetchUserHistory]).then(() => {
         if (userListings.length == 0) {
             document.getElementById("userListings").children[1].classList.remove("notEmpty")
@@ -490,7 +576,8 @@ async function loadCategories() {
             document.getElementById("userListings").children[1].appendChild(p)
         } else {
             document.getElementById("userListings").children[1].classList.add("notEmpty")
-            loadListingsInto(userListings, document.getElementById("userListings").children[1])
+            document.getElementById("userListings").children[1].setAttribute("listingsLoaded", "0")
+            loadListingsInto(userListings, document.getElementById("userListings").children[1], 0, 20)
         }
 
         if (profileData["inventory"].length == 0) {
@@ -532,7 +619,8 @@ async function loadCategories() {
             document.getElementById("userInbox").children[1].appendChild(p)
         } else {
             document.getElementById("userInbox").children[1].classList.add("notEmpty")
-            loadInboxInto(userListings, document.getElementById("userInbox").children[1])
+            document.getElementById("userInbox").children[1].setAttribute("listingsLoaded", "0")
+            loadInboxInto(userListings, document.getElementById("userInbox").children[1], 0, 20)
         }
 
         if (userListings.length == 0) {
@@ -546,7 +634,8 @@ async function loadCategories() {
             document.getElementById("userPending").children[1].appendChild(p)
         } else {
             document.getElementById("userPending").children[1].classList.add("notEmpty")
-            loadPendingInto(userListings, document.getElementById("userPending").children[1])
+            document.getElementById("userPending").children[1].setAttribute("listingsLoaded", "0")
+            loadPendingInto(userListings, document.getElementById("userPending").children[1], 0, 20)
         }
 
         if (userHistory.length == 0) {
@@ -560,7 +649,8 @@ async function loadCategories() {
             document.getElementById("userHistory").children[1].appendChild(p)
         } else {
             document.getElementById("userHistory").children[1].classList.add("notEmpty")
-            loadHistoryInto(userHistory, document.getElementById("userHistory").children[1])
+            document.getElementById("userHistory").children[1].setAttribute("listingsLoaded", "0")
+            loadHistoryInto(userHistory, document.getElementById("userHistory").children[1], 0, 20)
         }
     });
 
@@ -662,10 +752,10 @@ function createListingTemplate() {
     return listing;
 }
 
-async function loadListingsInto(listings, target) {
-    target.innerHTML = ""
+function loadListingsInto(listings, target, startAmount = 0, endAmount = 999) {
+    target.setAttribute("listingsLoaded", (parseInt(target.getAttribute("listingsLoaded")) + (endAmount - startAmount)).toString())
     var listing = ""
-    for (let i = 0; i < Object.values(listings).length; i++) {
+    for (let i = startAmount; i < Object.values(listings).length && i < endAmount; i++) {
         listing = Object.values(listings)[i]
         let listingTemplate = createListingTemplate()
         let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
@@ -709,140 +799,125 @@ async function loadListingsInto(listings, target) {
         }
 
         target.appendChild(listingTemplate)
-        const outOfBounds = checkOutOfBoundsListing(listingTemplate)
         const figures = listingTemplate.querySelectorAll("figure")
-        if (outOfBounds.includes("left")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else if (outOfBounds.includes("right")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else {
-            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "none"
-            })
-        }
+        listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
+        listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+        figures.forEach(figure => {
+            figure.style.display = "none"
+        })
 
-        await delay(0.1)
     }
 }
 
-async function loadInboxInto(listings, target) {
-    target.innerHTML = ""
+function loadInboxInto(listings, target, startAmount = 0, endAmount = 999) {
+    target.setAttribute("listingsLoaded", (parseInt(target.getAttribute("listingsLoaded")) + (endAmount - startAmount)).toString())
+    var counter = 0
     var listing = ""
-    for (let c = 0; c < Object.values(listings).length; c++) {
+    for (let c = 0; c < Object.values(listings).length && counter < endAmount; c++) {
         listing = Object.values(listings)[c]
-        for (let j = 0; j < listing["customOffers"].length; j++) {
+        for (let j = 0; j < listing["customOffers"].length && counter < endAmount; j++) {
             if (listing["customOffers"][j]["status"] == "Pending") {
-                const wrapper = document.createElement("div")
+                if (startAmount <= counter) {
+                    const wrapper = document.createElement("div")
 
-                var yourOffer = listing["offer"]["give"]
-                var theirOffer = listing["offer"]["take"]
-                if (listing["customOffers"][j]["type"] == "give") {
-                    yourOffer = yourOffer.concat(listing["customOffers"][j]["pets"])
-                } else {
-                    theirOffer = theirOffer.concat(listing["customOffers"][j]["pets"])
-                }
-    
-                let listingTemplate = createListingTemplate()
-                let value1 = calculateValue(yourOffer)
-                let value2 = calculateValue(theirOffer)
-                var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
-                if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
-                    combinedValue = Math.round(combinedValue)
-                }
-                listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
-                if (value1 > value2) {
-                    listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
-                    listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
-                    listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-                    listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-                } else if (value1 < value2) {
-                    listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
-                }
-                
-                for (let i = 0; i < yourOffer.length && i < 8; i++) {
-                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[i]))
-                }
+                    var yourOffer = listing["offer"]["give"]
+                    var theirOffer = listing["offer"]["take"]
+                    if (listing["customOffers"][j]["type"] == "give") {
+                        yourOffer = yourOffer.concat(listing["customOffers"][j]["pets"])
+                    } else {
+                        theirOffer = theirOffer.concat(listing["customOffers"][j]["pets"])
+                    }
         
-                if (yourOffer.length == 9) {
-                    listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[8]))
-                } else if (yourOffer.length > 9) {
-                    const p = document.createElement("p")
-                    p.textContent = "+" + (yourOffer.length - 8).toString()
-                    listingTemplate.children[1].children[1].children[0].appendChild(p)
-                }
+                    let listingTemplate = createListingTemplate()
+                    let value1 = calculateValue(yourOffer)
+                    let value2 = calculateValue(theirOffer)
+                    var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+                    if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
+                        combinedValue = Math.round(combinedValue)
+                    }
+                    listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
+                    if (value1 > value2) {
+                        listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+                        listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+                        listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                        listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                    } else if (value1 < value2) {
+                        listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+                    }
+                    
+                    for (let i = 0; i < yourOffer.length && i < 8; i++) {
+                        listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[i]))
+                    }
+            
+                    if (yourOffer.length == 9) {
+                        listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(yourOffer[8]))
+                    } else if (yourOffer.length > 9) {
+                        const p = document.createElement("p")
+                        p.textContent = "+" + (yourOffer.length - 8).toString()
+                        listingTemplate.children[1].children[1].children[0].appendChild(p)
+                    }
+            
+                    for (let i = 0; i < theirOffer.length && i < 8; i++) {
+                        listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[i]))
+                    }
+            
+                    if (theirOffer.length == 9) {
+                        listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[8]))
+                    } else if (theirOffer.length > 9) {
+                        const p = document.createElement("p")
+                        p.textContent = "+" + (theirOffer.length - 8).toString()
+                        listingTemplate.children[1].children[1].children[2].appendChild(p)
+                    }
+            
+                    const sideMenu = document.createElement("div")
+                    const b1 = document.createElement("button")
+                    b1.className = "profileButton"
+                    b1.innerText = "Accept"
+                    b1.setAttribute("onclick", "")
+                    const b2 = document.createElement("button")
+                    b2.className = "profileButton"
+                    b2.innerText = "Decline"
+                    b2.setAttribute("onclick", "")
+                    const robloxNameDiv = document.createElement("div")
+                    const robloxImg = document.createElement("img")
+                    robloxImg.src = "/static/images/misc/robloxLogo.png"
+                    const robloxName = document.createElement("a")
+                    robloxName.href = "/user/" + listing["customOffers"][j]["owner"]
+                    if (listing["customOffers"][j]["ownerRobloxUsername"] != "") {
+                        robloxName.innerText = listing["customOffers"][j]["ownerRobloxUsername"]
+                    } else {
+                        robloxName.innerText = listing["customOffers"][j]["ownerUsername"]
+                    }
+                    const time = document.createElement("p")
+                    time.innerText = timeSince(listing["createdAt"])
+            
+                    sideMenu.appendChild(b1)
+                    sideMenu.appendChild(b2)
+                    robloxNameDiv.appendChild(robloxImg)
+                    robloxNameDiv.appendChild(robloxName)
+                    sideMenu.appendChild(robloxNameDiv)
+                    sideMenu.appendChild(time)
+            
         
-                for (let i = 0; i < theirOffer.length && i < 8; i++) {
-                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[i]))
-                }
-        
-                if (theirOffer.length == 9) {
-                    listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(theirOffer[8]))
-                } else if (theirOffer.length > 9) {
-                    const p = document.createElement("p")
-                    p.textContent = "+" + (theirOffer.length - 8).toString()
-                    listingTemplate.children[1].children[1].children[2].appendChild(p)
-                }
-        
-                const sideMenu = document.createElement("div")
-                const b1 = document.createElement("button")
-                b1.className = "profileButton"
-                b1.innerText = "Accept"
-                b1.setAttribute("onclick", "")
-                const b2 = document.createElement("button")
-                b2.className = "profileButton"
-                b2.innerText = "Cancel"
-                b2.setAttribute("onclick", "")
-                const robloxNameDiv = document.createElement("div")
-                const robloxImg = document.createElement("img")
-                robloxImg.src = "/static/images/misc/robloxLogo.png"
-                const robloxName = document.createElement("a")
-                robloxName.href = "/user/" + listing["customOffers"][j]["owner"]
-                if (listing["customOffers"][j]["ownerRobloxUsername"] != "") {
-                    robloxName.innerText = listing["customOffers"][j]["ownerRobloxUsername"]
-                } else {
-                    robloxName.innerText = listing["customOffers"][j]["ownerUsername"]
-                }
-                const time = document.createElement("p")
-                time.innerText = timeSince(listing["createdAt"])
-        
-                sideMenu.appendChild(b1)
-                sideMenu.appendChild(b2)
-                robloxNameDiv.appendChild(robloxImg)
-                robloxNameDiv.appendChild(robloxName)
-                sideMenu.appendChild(robloxNameDiv)
-                sideMenu.appendChild(time)
-        
-    
-                wrapper.appendChild(listingTemplate)
-                wrapper.appendChild(sideMenu)
-                wrapper.className = "listingWrapper"
-                target.appendChild(wrapper)
-                
+                    wrapper.appendChild(listingTemplate)
+                    wrapper.appendChild(sideMenu)
+                    wrapper.className = "listingWrapper"
+                    target.appendChild(wrapper)
+                }   
+                counter++
             }
         }
-        await delay(0.1)
     }
 }
 
-async function loadPendingInto(listings, target) {
-    target.innerHTML = ""
+function loadPendingInto(listings, target, startAmount = 0, endAmount = 999) {
     var listing = ""
-    for (let c = 0; c < Object.values(listings).length; c++) {
+    target.setAttribute("listingsLoaded", (parseInt(target.getAttribute("listingsLoaded")) + (endAmount - startAmount)).toString())
+    var counter = 0
+    for (let c = 0; c < Object.values(listings).length && counter < endAmount; c++) {
         listing = Object.values(listings)[c]
-        for (let j = 0; j < listing["customOffers"].length; j++) {
-            if (listing["customOffers"][j]["status"] == "Accepted") {
+        for (let j = 0; j < listing["customOffers"].length && counter < endAmount; j++) {
+            if (listing["customOffers"][j]["status"] == "Accepted" && counter >= startAmount) {
                 const wrapper = document.createElement("div")
 
                 var yourOffer = listing["offer"]["give"]
@@ -928,16 +1003,16 @@ async function loadPendingInto(listings, target) {
                 wrapper.appendChild(sideMenu)
                 wrapper.className = "listingWrapper"
                 target.appendChild(wrapper)
+                counter++
             }
         }
-        await delay(0.1)
     }
 }
 
-async function loadHistoryInto(listings, target) {
-    target.innerHTML = ""
+function loadHistoryInto(listings, target, startAmount = 0, endAmount = 999) {
     var listing = ""
-    for (let c = 0; c < Object.values(listings).length; c++) {
+    target.setAttribute("listingsLoaded", (parseInt(target.getAttribute("listingsLoaded")) + (endAmount - startAmount)).toString())
+    for (let c = startAmount; c < Object.values(listings).length && c < endAmount; c++) {
         listing = Object.values(listings)[c]
         const wrapper = document.createElement("div")
         var j = listing["acceptedOfferID"]
@@ -1015,7 +1090,6 @@ async function loadHistoryInto(listings, target) {
         wrapper.appendChild(sideMenu)
         wrapper.className = "listingWrapper"
         target.appendChild(wrapper)
-        await delay(0.1)
     }
 }
 

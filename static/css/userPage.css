@@ -1622,8 +1622,8 @@ main{
 }
 
 #lowerUserPage {
-    padding-top:0.5vw;
-    padding-left:19.25vw;
+    margin-top:0.5vw;
+    margin-left:19.25vw;
     width:61.5vw;
     overflow:hidden;
 }

@@ -2889,16 +2889,16 @@ function openListingInterface2(listing) {
     listingInterface2.style.display = "flex"
     showUserListings2(listing)
 }
+function closeListingInterface2() {
+    listingInterface2Background.style.display = "none"
+    listingInterface2.style.display = "none"
+}
 
 function closeListingInterface() {
     listingInterfaceBackground.style.display = "none"
     listingInterface.style.display = "none"
 }
 
-function closeListingInterface2() {
-    listingInterface2Background.style.display = "none"
-    listingInterface2.style.display = "none"
-}
 
 function showFriends() {
     friendsDiv.style.display = "flex"

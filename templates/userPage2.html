@@ -22,7 +22,7 @@
                             <path d="m0 100.8c0-14.8 4-26.8 10.4-36 0 18.2 4.4 24.6 14 24.6 6.4 0 13-4.8 13-13 0-7.4-5-20.8-5-35.2s4.8-29.8 24.4-41.2c-4.4 11.6-6.2 21.4-6.2 29.4 0 21.2 12.8 30.8 24.2 30.8 9.2 0 18.8-6 18.8-23.4 6.2 6.8 9 14.6 9 22.4 0 12.4-6.8 23.4-6.8 33.4 0 8.2 6.6 13 13 13 11.4 0 14.8-10.2 14.8-27 3.4 5.8 6.4 17.2 6.4 27 0 29.2-27.6 50.4-58.4 50.4 26-9.8 30.8-22.8 30.8-37.4-6.4 11.4-13 13-16.2 13-19.6 0 1.6-37.4-32.6-63.4 5.6 12 7.8 22.4 7.8 30.8 0 18-9.8 27.8-19.2 27.8-8 0-16-6.4-19.2-20 0 19 5.6 37 30.6 49.2-39-6.4-53.6-30.8-53.6-55.2z" style="fill: inherit;"/>
                         </g>
                     </svg>
-                    <p style="width:80%;font-family:'Aileron', sans-serif; font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);text-align:center;">streak</p>
+                    <p style="width:80%;font-family:'Aileron', sans-serif; font-size:calc(14.6 * 4 / 3 / 19.2 * 1vw);text-align:center;"></p>
                 </div>
                 <div style="width: calc(198.5 / 19.2 * 1vw);height: calc(48.6 / 19.2 * 1vw);">
                     <p style="width:100%;font-family:'Aileron', sans-serif; font-size:calc(6 * 4 / 3 / 19.2 * 1vw);letter-spacing:0.3vw;text-align:center;font-style:italic;margin:0px;margin-top:0.1vw;font-weight:300;">LOGIN STREAK</p>
@@ -44,20 +44,20 @@
                     <div></div>
                 </div>
                 <div id="Username1" style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:5px;margin-top: -1vw;">
-                    <p>username</p>
+                    <p>&nbsp;</p>
                     <img id="verified" src="/static/images/misc/verified.png" style="width:0.5vw;height:auto;display:none;">
                 </div>
                 <div id="profileInfo">
                     <div>
-                        <b id="listingAmount" class="noMargin UnderProfile2">trades_amount</b>
+                        <b id="listingAmount" class="noMargin UnderProfile2">&nbsp;</b>
                         <p class="noMargin UnderProfile">Listings</p>
                     </div>
                     <div style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);">
-                        <b id="completedTradesAmount" class="noMargin UnderProfile2">completed_trades_amount</b>
+                        <b id="completedTradesAmount" class="noMargin UnderProfile2">&nbsp;</b>
                         <p class="noMargin UnderProfile">Trades</p>
                     </div>
                     <div>
-                        <b id="inventoryAmount" class="noMargin UnderProfile2" id="inventoryLength">inventory_length</b>
+                        <b id="inventoryAmount" class="noMargin UnderProfile2" id="inventoryLength">&nbsp;</b>
                         <p class="noMargin UnderProfile">Inventory</p>
                     </div>
                 </div>
@@ -192,8 +192,8 @@
             <div id="allCategoryDivs">
                 <div id="userListings">
                     <div class="infoBox">
-                        <button class="profileButton"><p>New Listing</p></button>
-                        <img src="/static/images/misc/info.png">
+                        <button class="profileButton" onclick="openCreateListingInterface()"><p>New Listing</p></button>
+                        <img src="/static/images/misc/info.png" id="listingsInfo">
                     </div>
                     <div>
 
@@ -203,7 +203,7 @@
                     <div class="infoBox">
                         <button class="profileButton" onclick="editInventory(true)"><p>Edit Inventory</p></button>
                         <button class="profileButton" onclick="editInventory(false)"><p>Done</p></button>
-                        <img src="/static/images/misc/info.png">
+                        <img src="/static/images/misc/info.png" id="inventoryInfo">
                     </div>
                     <div>
                         
@@ -213,7 +213,7 @@
                     <div class="infoBox">
                         <button class="profileButton" onclick="editWishlist(true)"><p>Edit Wishlist</p></button>
                         <button class="profileButton" onclick="editWishlist(false)"><p>Done</p></button>
-                        <img src="/static/images/misc/info.png">
+                        <img src="/static/images/misc/info.png" id="wishlistInfo">
                     </div>
                     <div>
                         
@@ -221,7 +221,7 @@
                 </div>
                 <div id="userInbox">
                     <div class="infoBox">
-                        <img src="/static/images/misc/info.png">
+                        <img src="/static/images/misc/info.png" id="inboxInfo">
                     </div>
                     <div>
                         
@@ -229,7 +229,7 @@
                 </div>
                 <div id="userPending">
                     <div class="infoBox">
-                        <img src="/static/images/misc/info.png">
+                        <img src="/static/images/misc/info.png" id="pendingInfo">
                     </div>
                     <div>
                         
@@ -237,7 +237,7 @@
                 </div>
                 <div id="userHistory">
                     <div class="infoBox">
-                        <img src="/static/images/misc/info.png">
+                        <img src="/static/images/misc/info.png" id="historyInfo">
                     </div>
                     <div>
                         
@@ -378,6 +378,16 @@
                 </div>
             </div>
         </div>
+
+    </main>
+
+    <div onclick="closeInventory()" id="addInventoryBackground">
+        &nbsp;
+    </div>
+    <div onclick="closeListingInterface()" id="listingInterfaceBackground">
+        &nbsp;
+    </div>
+    <div id="listingInterface2Background">
         <div id="listingInterface2">
             <img src="/static/images/misc/logo.png">
             <div id="listingInterface2Information">
@@ -526,6 +536,8 @@
                 <div class="offerLine"></div>
             </div>
         </div>
+    </div>
+    <div onclick="closeCreateListingInterface(event)" id="createListingInterfaceBackground">
         <div id="createListingInterface">
             <div>
                 <div>
@@ -601,28 +613,14 @@
                 </div>
                 <div style="display:flex;">
                     <button onclick="openPreferences()"><p>Settings</p></button>
-                    <div class="chooseValueButton">
-                        <p onclick="setCalculationValue('shark')">SHARK</p>
-                        <p onclick="setCalculationValue('frost')">FROST</p>
-                        <div></div>
+                    <div class="sharkFrostButton orangeRed">
+                        <div class="center" onclick="selectValue('shark')"><p>SHARK</p></div>
+                        <div class="center" onclick="selectValue('frost')"><p>FROST</p></div>
                     </div>
                     <button><p>Hidden Button</p></button>
                 </div>
             </div>
         </div>
-    </main>
-
-    <div onclick="closeInventory()" id="addInventoryBackground">
-        &nbsp;
-    </div>
-    <div onclick="closeListingInterface()" id="listingInterfaceBackground">
-        &nbsp;
-    </div>
-    <div onclick="closeListingInterface2()" id="listingInterface2Background">
-        &nbsp;
-    </div>
-    <div onclick="closeCreateListingInterface()" id="createListingInterfaceBackground">
-        &nbsp;
     </div>
     <div id="petAdded">
         <b id="petAddedText">You added a pet</b>

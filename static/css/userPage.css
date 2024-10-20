@@ -333,7 +333,6 @@ body{
     box-sizing:border-box;
     position:relative;
     background: linear-gradient(135deg, rgb(255, 145, 0, 0.35) 0%, rgb(255, 102, 102, 0.35) 50%, rgb(255, 102, 102, 0.35) 100%);
-    z-index:20;
 }
 
 .sharkFrostButton::before{
@@ -343,7 +342,7 @@ body{
     width:50%;
     border-radius:calc(48.6 / 19.2 /100 * 55 * 1vw);
     background: linear-gradient(135deg, rgb(255, 145, 0) 0%, rgb(255, 102, 102) 50%, rgb(255, 102, 102) 100%);
-    z-index:21;
+    z-index:1;
     height:100%;
     transition:left 0.3s ease;
 
@@ -358,7 +357,7 @@ body{
 }
 
 .sharkFrostButton > div {
-    width:50%;
+    width:calc(250 / 19.2 * 1vw / 2);
     height:100%;
     cursor:pointer;
 }
@@ -369,8 +368,9 @@ body{
     font-weight:800;
     color:rgb(253, 249, 234);
     margin:0px;
-    z-index:22;
+    z-index:2;
 }
+
 
 
 #listingInformation2{
@@ -580,16 +580,7 @@ body{
     display:none;
 }
 
-#listingInterface2Background{
-    width:100%;
-    height:100%;
-    z-index:99;
-    background-color:black;
-    opacity:0.5;
-    position:fixed;
-    top:0px;
-    display:none;
-}
+
 
 #closeButton{
     z-index:200;
@@ -645,28 +636,8 @@ body{
     cursor:default;
 }
 
-#listingInterface2{
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:120;
-    height:max(25vw, 50vh);
-    width:max(40vw, 80vh);
-    background: linear-gradient(135deg, rgb(242, 230, 215) 0%, rgb(250, 246, 232) 100%);
-    border-radius:max(4vw, 8vh);
-    border:1px solid black;
 
-}
 
-#listingInterface2Upper{
-    width:100%;
-    height:20%;
-}
 
 #listingCloseButton{
     display:flex;
@@ -726,18 +697,7 @@ body{
     color:red;
 }
 
-.listingInterface2TextBig{
-    font-size:max(1.6vw, 3.2vh);
-}
 
-#listingInterface2Lower{
-    height:100%;
-    width:100%;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-between;
-}
 
 #listingValue{
     position:absolute;
@@ -1649,7 +1609,6 @@ main{
     grid-template-rows:1fr 1fr 1fr;
     gap:1vw;
     min-height:30vw;
-    place-items:center;
 }
 
 #allCategoryDivs > div > :nth-child(2) {
@@ -1692,8 +1651,8 @@ main{
 }
 
 .inventoryPetDiv {
-    width:calc(131.1vw / 19.2);
-    height:calc(131.1vw / 19.2);
+    width:calc(122vw / 19.2);
+    height:calc(122vw / 19.2);
     box-sizing:border-box;
     border:1px solid black;
     border-radius:36%;
@@ -1708,8 +1667,8 @@ main{
 }
 
 .inventoryPetDiv > img {
-    width:calc(110.5vw / 19.2);
-    height:calc(110.5vw / 19.2);
+    width:calc(105vw / 19.2);
+    height:calc(105vw / 19.2);
 }
 
 .inventoryPetDiv > p {
@@ -1801,4 +1760,353 @@ main{
     font-size:calc(12.8vw * 4 / 3 / 19.2);
     color:rgb(109, 107, 112);
     margin:0px;
+}
+
+#listingInterface2 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 860rem;
+    background-color: white; 
+    border-radius: 3vw 3vw 0px 0px;
+    z-index: 120; 
+    box-sizing: border-box;
+    padding: 1vw;
+    position:relative;
+    height:auto;
+}
+
+#listingInterface2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 175rem,
+    rgb(253, 249, 234) 475rem, rgb(253, 249, 234) 525rem, rgb(237, 230, 219) 100%);
+    border-radius: 3vw 3vw 0px 0px;
+
+    z-index: -1; /* Keep it behind the content */
+    pointer-events: none; /* No interaction with the background */
+}
+
+#listingInterface2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 485rem;
+    border-radius: 3vw 3vw 0px 0px;
+    background: url('/static/images/misc/image100.png') no-repeat top;
+    background-size: auto 100%;
+    z-index: -2; /* Keep it below the gradient */
+    pointer-events: none; /* No interaction with the background */
+}
+
+#listingInterface2Background{
+    z-index:105;
+    position:fixed;
+    padding-top:4%;
+    left:0%;
+    top:0%;
+    width:100vw;
+    height:100vh;
+    background-color:rgb(0,0,0,0.3);
+    display:none;
+    flex-direction:row;
+    justify-content:center;
+    pointer-events:auto;
+    overflow-y:auto;
+    box-sizing:border-box;
+}
+
+#listingInterface2 p{
+    font-family:'Aileron', sans-serif;
+    margin:0px;
+}
+
+#listingInterface2>img{
+    filter:grayscale(1) brightness(5);
+    height:100rem;
+    width:auto;
+}
+
+#listingInterface2Information{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    height:auto;
+    width:90%;
+    position:relative;
+}
+
+#listingInterface2Information > :nth-child(1) {
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+}
+
+#listingInterface2Information > :nth-child(2) {
+    position:absolute;
+    left:50%;
+    top:-15%;
+    transform:translate(-50%, 0%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#listingInterface2Information > :nth-child(3) {
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    align-items:end;
+}
+
+#listingInterface2Information > :nth-child(3) > p{
+    color:rgb(255, 102, 102);
+}
+
+
+.listingInterface2PetsDiv{
+    display:grid;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    height:175rem;
+    width:350rem;
+    margin-top:15rem;
+}
+
+#listingInterface2Preferences{
+    display:flex;
+    flex-direction:row;
+    gap:3rem;
+}
+
+#listingInterface2Preferences p{
+    font-size:14rem;
+    color:rgb(109, 107, 112);
+}
+
+#listingInterface2 button{
+    background:linear-gradient(rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
+    border:1rem solid rgb(54, 53, 55);
+    width:180rem;
+    height:45rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:25rem;
+    cursor:pointer;
+    transform:scale(1);
+}
+
+#listingInterface2 button:disabled{
+    border:1rem solid rgb(180, 180, 180);
+    background:linear-gradient(rgb(243, 231, 214, 0.5) 0%, rgb(235, 229, 220, 0.5) 50%, rgb(253, 249, 234, 0.5) 100%);
+    cursor:default;
+}
+
+#listingInterface2 button:disabled p{
+    color: rgb(180, 180, 180);
+}
+
+#listingInterface2 button:hover{
+    transform:scale(1.05);
+    transition:0.2s ease;
+}
+
+#listingInterface2 button:disabled:hover{
+    transform:scale(1);
+}
+
+#listingInterface2 button > p {
+    font-size:19rem;
+    color:rgb(54, 53, 55);
+}
+
+#listingInterface2Main{
+    display:flex;
+    flex-direction:row;
+    width:90%;
+    margin-top:40rem;
+}
+
+#offers{
+    width:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.offer{
+    width:100%;
+    padding-top:30rem;
+    padding-bottom:30rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20rem;
+}
+
+.offerLine {
+    height:0.75rem;
+    width:100%;
+    background-color:rgb(109, 107, 112);
+}
+
+.offer > :nth-child(1) {
+    width:100%;
+    height:150rem;
+    display:grid;
+    grid-template-columns:repeat(9, 1fr);
+    grid-template-rows:1fr 1fr;
+    place-items:center;
+}
+
+.offer > :nth-child(2) {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:70%;
+}
+
+.offer > :nth-child(1) > div {
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.offer > :nth-child(3) {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:50%;
+}
+
+.listingInterface2PetsDiv > div {
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.offer > :nth-child(1) > div > img {
+    max-width:80%;
+    max-height:80%;
+    object-fit:cover;
+}
+
+.listingInterface2PetsDiv > div > img {
+    max-width:82.5%;
+    max-height:82.5%;
+    object-fit:cover;
+}
+  
+
+.offer > :nth-child(1) > div > div {
+    position:absolute;
+    bottom:10%;
+    right:10%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:4.25rem;
+}
+
+.listingInterface2PetsDiv > div > div {
+    position:absolute;
+    bottom:10%;
+    right:10%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:2.5rem;
+}
+
+.offer > :nth-child(1) > div > div > div {
+    border-radius:2rem;
+    width:14rem;
+    height:14rem;
+    position:relative;
+
+}
+
+.listingInterface2PetsDiv > div > div > div {
+    border-radius:2rem;
+    width:9rem;
+    height:9rem;
+    position:relative;
+}
+
+.offer > :nth-child(1) > div > div > div > p{
+    color:white;
+    font-size:8rem;
+    font-weight:700;
+    position:absolute;
+    top:49%;
+    left:46%;
+    transform:translate(-50%, -50%);
+}
+
+.listingInterface2PetsDiv > div > div > div > p {
+    color:white;
+    font-size:6rem;
+    font-weight:700;
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+.offer > :nth-child(2) > :nth-child(1) {
+    gap:2rem;
+}
+
+
+.offer > :nth-child(2) > div {
+    display:flex;
+    flex-direction:column-reverse;
+    align-items:center;
+    gap:5rem;
+}
+
+.offer > :nth-child(2) > div > :nth-child(1) {
+    font-size:14rem;
+}
+
+.offer > :nth-child(2) > :nth-child(1) > :nth-child(2) {
+    font-size:37.4rem;
+    font-weight:800;
+    color:rgb(255, 102, 102);
+    text-shadow:1px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
+}
+
+.offer > :nth-child(2) > :nth-child(3) > p {
+    font-weight:500;
+}
+
+.offer > :nth-child(2) p{
+    font-weight:200;
+}
+
+.offer > :nth-child(2) > div > img {
+    height:40rem;
+    aspect-ratio:1/1;
+    border-radius:100%;
+}
+
+.red{
+    color:#FF6666;
+}
+
+.listingInterface2TextBig{
+    font-size:max(1.6vw, 3.2vh);
 }

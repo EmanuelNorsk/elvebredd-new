@@ -919,7 +919,7 @@ def createListing(userID, trade1, trade2, public = True, visibleTo = "all", extr
         Trades[tradeID] = trade
         dumpUserData()
         dumpTrades()
-        return 0, tradeID, 1
+        return 0, trade, 1
     else:
         if len(trade1) > 0 and len(trade2) > 0:
             return 1, "User not logged in!", -1

@@ -5,6 +5,7 @@ var notificationsOpen = 0
 var checkbox
 var notificationCountID
 var oldScrollY = 0
+var interfacesOpen = 0
 
 var userDataDict = {}
 loggedIn = false
@@ -513,122 +514,10 @@ Promise.all([fetchUserDataHeader]).then(() => {
     
     closeSettings()
 
+    
+
     window.addEventListener("mousemove", (event) => {
-        var verified = document.getElementById("verified")
-        var neonLegendaryPets = document.getElementById("NeonLegendaryPets")
-        var defaultLegendaryPets = document.getElementById("defaultLegendaryPets")
-        var highTiers = document.getElementById("highTiers")
-        var items = document.getElementById("items")
-        var megaLegendaryPets = document.getElementById("megaLegendaryPets")
-        var preppyPets = document.getElementById("preppyPets")
-        var randoms = document.getElementById("randoms")
-        var allowUnderpays = document.getElementById("allowUnderpays")
-        var receiveEmailNotifications = document.getElementById("receiveEmailNotifications")
-        var receiveFriendRequestNotification = document.getElementById("receiveFriendRequestNotification")
-        var receiveNotifications = document.getElementById("receiveNotifications")
-        infoDiv.style.display = "none"
-        infoDiv.style.left = event.clientX.toString() + "px"
-        infoDiv.style.top = event.clientY.toString() + "px"
-        infoDiv.style.width = "max(12vw, 24vh);"
-        infoText.style.color = "black"
-        if (verified != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, verified)) {
-                infoText.innerText = "This user is verified. We have authenticated this person through trusted documentation."
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = verified.getBoundingClientRect().x + "px"
-                infoDiv.style.top = verified.getBoundingClientRect().y + "px"
-                infoText.style.color = "grey"
-                infoDiv.style.width = "max(18vw, 36vh);"
-            }
-        }
-        if (neonLegendaryPets != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, neonLegendaryPets)) {
-                infoText.innerText = "There are 8 High Tiers in Adopt Me:       Crow, Evil Unicorn, Parrot, Owl, Frost Dragon, Giraffe, Bat Dragon and Shadow Dragon"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (neonLegendaryPets.getBoundingClientRect().x - (neonLegendaryPets.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = neonLegendaryPets.getBoundingClientRect().y + "px"
-            }
-        }
-        if (defaultLegendaryPets != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, defaultLegendaryPets)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (defaultLegendaryPets.getBoundingClientRect().x - (defaultLegendaryPets.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = defaultLegendaryPets.getBoundingClientRect().y + "px"
-            }
-        }
-        if (highTiers != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, highTiers)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (highTiers.getBoundingClientRect().x - (highTiers.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = highTiers.getBoundingClientRect().y + "px"
-            }
-        }
-        if (items != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, items)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (items.getBoundingClientRect().x - (items.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = items.getBoundingClientRect().y + "px"
-            }
-        }
-        if (megaLegendaryPets != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, megaLegendaryPets)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (megaLegendaryPets.getBoundingClientRect().x - (megaLegendaryPets.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = megaLegendaryPets.getBoundingClientRect().y + "px"
-            }
-        }
-        if (preppyPets != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, preppyPets)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (preppyPets.getBoundingClientRect().x - (preppyPets.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = preppyPets.getBoundingClientRect().y + "px"
-            }
-        }
-        if (randoms != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, randoms)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (randoms.getBoundingClientRect().x - (randoms.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = randoms.getBoundingClientRect().y + "px"
-            }
-        }
-        if (allowUnderpays != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, allowUnderpays)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (allowUnderpays.getBoundingClientRect().x - (allowUnderpays.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = allowUnderpays.getBoundingClientRect().y + "px"
-            }
-        }
-        if (receiveEmailNotifications != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, receiveEmailNotifications)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (receiveEmailNotifications.getBoundingClientRect().x - (receiveEmailNotifications.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = receiveEmailNotifications.getBoundingClientRect().y + "px"
-            }
-        }
-        if (receiveFriendRequestNotification != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, receiveFriendRequestNotification)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (receiveFriendRequestNotification.getBoundingClientRect().x - (receiveFriendRequestNotification.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = receiveFriendRequestNotification.getBoundingClientRect().y + "px"
-            }
-        }
-        if (receiveNotifications != undefined) {
-            if (isMouseOverElement(event.clientX, event.clientY, receiveNotifications)) {
-                infoText.innerText = "Coming Soon!"
-                infoDiv.style.display = "flex"
-                infoDiv.style.left = (receiveNotifications.getBoundingClientRect().x - (receiveNotifications.getBoundingClientRect().width * 12)) + "px"
-                infoDiv.style.top = receiveNotifications.getBoundingClientRect().y + "px"
-            }
-        }
+        infoEvent(event)
     })
 
     window.addEventListener("click", (event) => {
@@ -642,6 +531,7 @@ Promise.all([fetchUserDataHeader]).then(() => {
     updateNotifications()
 
     window.addEventListener("scroll", event => {
+        infoEvent(event)
         var nav = document.querySelector("nav")
         if (window.scrollY != 0 && nav != undefined) {
             nav.style.background = "linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%)"
@@ -672,6 +562,177 @@ Promise.all([fetchUserDataHeader]).then(() => {
     })
 })
 
+function infoEvent(event) {
+    var verified = document.getElementById("verified")
+    var neonLegendaryPets = document.getElementById("NeonLegendaryPets")
+    var defaultLegendaryPets = document.getElementById("defaultLegendaryPets")
+    var highTiers = document.getElementById("highTiers")
+    var items = document.getElementById("items")
+    var megaLegendaryPets = document.getElementById("megaLegendaryPets")
+    var preppyPets = document.getElementById("preppyPets")
+    var randoms = document.getElementById("randoms")
+    var allowUnderpays = document.getElementById("allowUnderpays")
+    var receiveEmailNotifications = document.getElementById("receiveEmailNotifications")
+    var receiveFriendRequestNotification = document.getElementById("receiveFriendRequestNotification")
+    var receiveNotifications = document.getElementById("receiveNotifications")
+    var listingsInfo = document.getElementById("listingsInfo")
+    var inventoryInfo = document.getElementById("inventoryInfo")
+    var wishlistInfo = document.getElementById("wishlistInfo")
+    var inboxInfo = document.getElementById("inboxInfo")
+    var pendingInfo = document.getElementById("pendingInfo")
+    var historyInfo = document.getElementById("historyInfo")
+    infoDiv.style.display = "none"
+    infoDiv.style.width = "max(12vw, 24vh);"
+    infoText.style.color = "black"
+    if (verified != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, verified)) {
+            infoText.innerText = "This user is verified. We have authenticated this person through trusted documentation."
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = verified.getBoundingClientRect().x + "px"
+            infoDiv.style.top = verified.getBoundingClientRect().y + "px"
+            infoText.style.color = "grey"
+            infoDiv.style.width = "max(18vw, 36vh);"
+        }
+    }
+    if (neonLegendaryPets != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, neonLegendaryPets)) {
+            infoText.innerText = "There are 8 High Tiers in Adopt Me:       Crow, Evil Unicorn, Parrot, Owl, Frost Dragon, Giraffe, Bat Dragon and Shadow Dragon"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (neonLegendaryPets.getBoundingClientRect().x - (neonLegendaryPets.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = neonLegendaryPets.getBoundingClientRect().y + "px"
+        }
+    }
+    if (defaultLegendaryPets != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, defaultLegendaryPets)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (defaultLegendaryPets.getBoundingClientRect().x - (defaultLegendaryPets.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = defaultLegendaryPets.getBoundingClientRect().y + "px"
+        }
+    }
+    if (highTiers != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, highTiers)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (highTiers.getBoundingClientRect().x - (highTiers.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = highTiers.getBoundingClientRect().y + "px"
+        }
+    }
+    if (items != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, items)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (items.getBoundingClientRect().x - (items.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = items.getBoundingClientRect().y + "px"
+        }
+    }
+    if (megaLegendaryPets != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, megaLegendaryPets)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (megaLegendaryPets.getBoundingClientRect().x - (megaLegendaryPets.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = megaLegendaryPets.getBoundingClientRect().y + "px"
+        }
+    }
+    if (preppyPets != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, preppyPets)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (preppyPets.getBoundingClientRect().x - (preppyPets.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = preppyPets.getBoundingClientRect().y + "px"
+        }
+    }
+    if (randoms != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, randoms)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (randoms.getBoundingClientRect().x - (randoms.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = randoms.getBoundingClientRect().y + "px"
+        }
+    }
+    if (allowUnderpays != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, allowUnderpays)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (allowUnderpays.getBoundingClientRect().x - (allowUnderpays.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = allowUnderpays.getBoundingClientRect().y + "px"
+        }
+    }
+    if (receiveEmailNotifications != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, receiveEmailNotifications)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (receiveEmailNotifications.getBoundingClientRect().x - (receiveEmailNotifications.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = receiveEmailNotifications.getBoundingClientRect().y + "px"
+        }
+    }
+    if (receiveFriendRequestNotification != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, receiveFriendRequestNotification)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (receiveFriendRequestNotification.getBoundingClientRect().x - (receiveFriendRequestNotification.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = receiveFriendRequestNotification.getBoundingClientRect().y + "px"
+        }
+    }
+    if (receiveNotifications != undefined) {
+        if (isMouseOverElement(event.clientX, event.clientY, receiveNotifications)) {
+            infoText.innerText = "Coming Soon!"
+            infoDiv.style.display = "flex"
+            infoDiv.style.left = (receiveNotifications.getBoundingClientRect().x - (receiveNotifications.getBoundingClientRect().width * 12)) + "px"
+            infoDiv.style.top = receiveNotifications.getBoundingClientRect().y + "px"
+        }
+    }
+    if (interfacesOpen == 0) {
+        if (listingsInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, listingsInfo)) {
+                infoText.innerText = "Create a new listing by clicking the button to the right!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = listingsInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = listingsInfo.getBoundingClientRect().y + "px"
+            }
+        }
+        if (inventoryInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, inventoryInfo)) {
+                infoText.innerText = "Add what you have in adopt me to your inventory!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = inventoryInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = inventoryInfo.getBoundingClientRect().y + "px"
+            }
+        }
+        if (wishlistInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, wishlistInfo)) {
+                infoText.innerText = "Let others see what you wish for!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = wishlistInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = wishlistInfo.getBoundingClientRect().y + "px"
+            }
+        }
+        if (inboxInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, inboxInfo)) {
+                infoText.innerText = "Here you can see all the offers you got!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = inboxInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = inboxInfo.getBoundingClientRect().y + "px"
+            }
+        }
+        if (pendingInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, pendingInfo)) {
+                infoText.innerText = "Here is a list of your pending trades!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = pendingInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = pendingInfo.getBoundingClientRect().y + "px"
+            }
+        }
+        if (historyInfo != undefined) {
+            if (isMouseOverElement(event.clientX, event.clientY, historyInfo)) {
+                infoText.innerText = "Here is a list of your pending trades!"
+                infoDiv.style.display = "flex"
+                infoDiv.style.left = historyInfo.getBoundingClientRect().x + "px"
+                infoDiv.style.top = historyInfo.getBoundingClientRect().y + "px"
+            }
+        }
+    }
+}
 
 
 function goTo(href) {

@@ -17354,5 +17354,789 @@
         "createdAt": 1726226437.866673,
         "views": [],
         "markedAsCompletedBy": []
+    },
+    "40": {
+        "owner": "0",
+        "ownerUsername": "EmanuelNorsk69420",
+        "ownerRobloxUsername": "",
+        "id": "40",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 4.5,
+            "takeValue": 0.24
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449022.2669268,
+        "views": [],
+        "markedAsCompletedBy": []
+    },
+    "41": {
+        "owner": "0",
+        "ownerUsername": "EmanuelNorsk69420",
+        "ownerRobloxUsername": "",
+        "id": "41",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 2,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 4.5,
+            "takeValue": 0.24
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449026.095276,
+        "views": [],
+        "markedAsCompletedBy": []
+    },
+    "42": {
+        "owner": "0",
+        "ownerUsername": "EmanuelNorsk69420",
+        "ownerRobloxUsername": "",
+        "id": "42",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 14,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 6.75,
+            "takeValue": 0.64
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449184.6363525,
+        "views": [],
+        "markedAsCompletedBy": []
+    },
+    "43": {
+        "owner": "0",
+        "ownerUsername": "EmanuelNorsk69420",
+        "ownerRobloxUsername": "",
+        "id": "43",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 9,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 2.25,
+            "takeValue": 0.36
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449284.7348874,
+        "views": [],
+        "markedAsCompletedBy": []
+    },
+    "44": {
+        "owner": "1",
+        "ownerUsername": "Emanuel",
+        "ownerRobloxUsername": "",
+        "id": "44",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 3.75,
+            "takeValue": 3.75
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449330.1258838,
+        "views": [],
+        "markedAsCompletedBy": []
+    },
+    "45": {
+        "owner": "1",
+        "ownerUsername": "Emanuel",
+        "ownerRobloxUsername": "",
+        "id": "45",
+        "offer": {
+            "give": [
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 0,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "take": [
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                },
+                {
+                    "id": 10,
+                    "fly": 0,
+                    "ride": 0,
+                    "regular": 1,
+                    "neon": 0,
+                    "mega": 0
+                }
+            ],
+            "giveValue": 2.25,
+            "takeValue": 0.28
+        },
+        "extraSharkValueRequested": 0.0,
+        "completed": false,
+        "completedAt": -1,
+        "acceptedAt": -1,
+        "acceptedOfferID": -1,
+        "acceptedUser": null,
+        "acceptedUserUsername": null,
+        "acceptedUserRobloxUsername": null,
+        "public": true,
+        "visibleTo": "all",
+        "customOffers": [],
+        "createdAt": 1729449805.7478914,
+        "views": [],
+        "markedAsCompletedBy": []
     }
 }

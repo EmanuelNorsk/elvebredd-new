@@ -15,6 +15,7 @@ var regular = 1
 var neon = 0
 var mega = 0
 var calculateWithValue = "shark" 
+var frostValue = 105
 var addPetToType = ""
 var displayPetsFirstTime = 0
 var lastFilter = "all"
@@ -1062,10 +1063,19 @@ function showUserListings2(listing) {
     } else if (listingCombinedValue >= 10) {
         listingCombinedValue = listingCombinedValue.toFixed(1)
     }
-    if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
-        listingInterface2Value.textContent = Math.round(listingCombinedValue)
+    if (calculateWithValue == "shark") {
+        if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
+            listingInterface2Value.textContent = Math.round(listingCombinedValue)
+        } else {
+            listingInterface2Value.textContent = listingCombinedValue
+        }
     } else {
-        listingInterface2Value.textContent = listingCombinedValue
+        console.log("HI AG")
+        if (Math.abs(Math.round(listingCombinedValue / frostValue) - listingCombinedValue / frostValue) < 0.02) {
+            listingInterface2Value.textContent = Math.round(listingCombinedValue / frostValue)
+        } else {
+            listingInterface2Value.textContent = (listingCombinedValue / frostValue).toFixed(2)
+        }
     }
 
     if (loggedIn == "False") {
@@ -1590,10 +1600,19 @@ function updateListingInterface2() {
     } else if (listingCombinedValue >= 10) {
         listingCombinedValue = listingCombinedValue.toFixed(1)
     }
-    if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
-        listingInterface2Value.textContent = Math.round(listingCombinedValue)
+    if (calculateWithValue == "shark") {
+        console.log("HI")
+        if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
+            listingInterface2Value.textContent = Math.round(listingCombinedValue)
+        } else {
+            listingInterface2Value.textContent = listingCombinedValue
+        }
     } else {
-        listingInterface2Value.textContent = listingCombinedValue
+        if (Math.abs(Math.round(listingCombinedValue / frostValue) - listingCombinedValue / frostValue) < 0.02) {
+            listingInterface2Value.textContent = Math.round(listingCombinedValue / frostValue)
+        } else {
+            listingInterface2Value.textContent = (listingCombinedValue / frostValue).toFixed(2)
+        }
     }
 
     if (userData["id"] == listing["owner"]) {

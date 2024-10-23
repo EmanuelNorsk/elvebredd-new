@@ -288,6 +288,7 @@ function editInventory(bool) {
         }
         [...inv.children[1].children].forEach(pet => {
             pet.classList.add("enabled")
+            pet.disabled = false
         })
 
 
@@ -299,6 +300,7 @@ function editInventory(bool) {
         }
         [...inv.children[1].children].forEach(pet => {
             pet.classList.remove("enabled")
+            pet.disabled = true
         })
     }
 }
@@ -313,6 +315,7 @@ function editWishlist(bool) {
         }
         [...wl.children[1].children].forEach(pet => {
             pet.classList.add("enabled")
+            pet.disabled = false
         })
     } else {
         wl.children[0].children[0].style.display = "flex"
@@ -322,6 +325,7 @@ function editWishlist(bool) {
         }
         [...wl.children[1].children].forEach(pet => {
             pet.classList.remove("enabled")
+            pet.disabled = true
         })
     }
 }
@@ -735,11 +739,11 @@ async function loadCategories() {
 
 }
 
-function createInventoryPet(pet) {
-    const div = document.createElement("div")
-    div.classList.add("inventoryPetDiv")
+function createInventoryPet(pet, type, disabled) {
     const img = document.createElement("img")
     if (typeof pet == "object") {
+        var div = document.createElement("button")
+        div.classList.add("inventoryPetDiv")
         img.src = petsDict[pet["id"]]["image"]
         const p = document.createElement("p")
         p.innerText = pet["amount"]
@@ -758,7 +762,19 @@ function createInventoryPet(pet) {
         div.appendChild(div2)
         div.setAttribute("pet-id", pet["id"].toString())
 
+        delete pet["amount"]
+        div.setAttribute("pet-data", JSON.stringify(pet))
+
+        div.setAttribute("onclick", `removePet(event, "${type}")`)
+        div.disabled = disabled
+
+        if (disabled == false) {
+            div.classList.add("enabled")
+        }
+
     } else if (typeof pet == "string") {
+        var div = document.createElement("div")
+        div.classList.add("inventoryPetDiv")
         img.src = "/static/images/misc/add.png"
         div.appendChild(img)
         div.style.display = "none"
@@ -772,9 +788,9 @@ function createInventoryPet(pet) {
 }
 
 function displayPetsInCategory(set, target, type) {
-    target.appendChild(createInventoryPet(type))
+    target.appendChild(createInventoryPet(type, type, true))
     set.forEach(pet => {
-        target.appendChild(createInventoryPet(pet))
+        target.appendChild(createInventoryPet(pet, type, true))
     })
 }
 
@@ -801,6 +817,8 @@ function convertDictsToSets(list) {
 
     return uniqueList;
 }
+
+
 
 function createListingTemplate() {
     const listing = document.createElement('div');
@@ -1317,8 +1335,6 @@ function calculateValue(listOfPets) {
                     value += pet["value"]
                 }
             }
-        } else {
-            console.log(listOfPets[i]["id"], petsDict)
         }
     }
     if (calculateWithValue == "shark") {
@@ -1519,9 +1535,9 @@ function displayPets() {
 }
 
 function addPetToInventory(pet) {
+    var petAdded = document.getElementById("petAdded")
+    var petAddedText = document.getElementById("petAddedText")
     if (addPetType == "inventory") {
-        var petAdded = document.getElementById("petAdded")
-        var petAddedText = document.getElementById("petAddedText")
         formData = new FormData();
         formData.append('pet', pet)
         formData.append('fly', fly)
@@ -1543,8 +1559,7 @@ function addPetToInventory(pet) {
         })
         .then(data => {
         if (data == "SUCCESS") {
-            var petDict = {
-                "amount":1,
+            var petData = {
                 "id":pet,
                 "fly":fly,
                 "ride":ride,
@@ -1552,8 +1567,8 @@ function addPetToInventory(pet) {
                 "neon":neon,
                 "mega":mega
             }
-            userData["inventory"].push(petDict)
-            petsAdded = petsDict[pet]
+            userData["inventory"].push(petData)
+            petsAdded += 1
             petAdded.style.bottom = "10%"
             petAdded.style.backgroundColor = "rgb(0, 255, 0)"
             petAddedText.innerHTML = "You added " + petsDict[pet]["name"] + " to your inventory!"
@@ -1567,17 +1582,23 @@ function addPetToInventory(pet) {
 
             var added = false
             for (let i = 0; i < document.getElementById("userInventory").children[1].children.length; i++) {
-                child = document.getElementById("userInventory").children[1].children[i]
-                if (child.getAttribute("pet-id") == pet) {
-                    child.children[1].textContent = parseInt(child.children[1].textContent) + 1
-                    child.children[1].style.display = ""
-                    added = true
-                    break
+                var child = document.getElementById("userInventory").children[1].children[i]
+                var petInfo = JSON.parse(child.getAttribute("pet-data"))
+                if (petInfo != null) {
+                    if (petInfo["id"] == petData["id"] && petInfo["regular"] == petData["regular"] && petInfo["fly"] == petData["fly"] &&
+                        petInfo["ride"] == petData["ride"] && petInfo["neon"] == petData["neon"] && petInfo["mega"] == petData["mega"]
+                    ) {
+                        child.children[1].textContent = parseInt(child.children[1].textContent) + 1
+                        child.children[1].style.display = ""
+                        added = true
+                        break
+                    }
                 }
             }
 
             if (added == false) {
-                document.getElementById("userInventory").children[1].appendChild(createInventoryPet(petDict))
+                petData["amount"] = 1
+                document.getElementById("userInventory").children[1].appendChild(createInventoryPet(petData, "inventory", false))
             }
             
 
@@ -1630,16 +1651,15 @@ function addPetToInventory(pet) {
         })
         .then(data => {
         if (data == "SUCCESS") {
-            userData.wishlist.push({
-                "innerID":userData.inventory.length,
+            var petData = {
                 "id":pet,
                 "fly":fly,
                 "ride":ride,
                 "regular":regular,
                 "neon":neon,
                 "mega":mega
-            })
-            showWishlistPets()
+            }
+            userData.wishlist.push(petData)
             petsAdded += 1
             petAdded.style.bottom = "10%"
             petAdded.style.backgroundColor = "rgb(0, 255, 0)"
@@ -1650,6 +1670,27 @@ function addPetToInventory(pet) {
                     petAdded.style.bottom = "-100%"
                 }
             }, 1750)
+
+            var added = false
+            for (let i = 0; i < document.getElementById("userWishlist").children[1].children.length; i++) {
+                var child = document.getElementById("userWishlist").children[1].children[i]
+                var petInfo = JSON.parse(child.getAttribute("pet-data"))
+                if (petInfo != null) {
+                    if (petInfo["id"] == petData["id"] && petInfo["regular"] == petData["regular"] && petInfo["fly"] == petData["fly"] &&
+                        petInfo["ride"] == petData["ride"] && petInfo["neon"] == petData["neon"] && petInfo["mega"] == petData["mega"]
+                    ) {
+                        child.children[1].textContent = parseInt(child.children[1].textContent) + 1
+                        child.children[1].style.display = ""
+                        added = true
+                        break
+                    }
+                }
+            }
+
+            if (added == false) {
+                petData["amount"] = 1
+                document.getElementById("userWishlist").children[1].appendChild(createInventoryPet(petData, "wishlist", false))
+            }
         }
         })
         .catch(error => {
@@ -2199,8 +2240,155 @@ function calculateTotalValue(grid) {
     return value
 }
 
+async function removePet(event, type) {
+    if (type == "inventory") {
+        var inventoryLength = document.getElementById("inventoryAmount")
+        var petAdded = document.getElementById("petAdded")
+        var petAddedText = document.getElementById("petAddedText")
+
+
+        var target = event.target
+        var petData = target.getAttribute("pet-data")
+        if (petData == null) {
+            target = target.parentElement
+            petData = target.getAttribute("pet-data")
+        }
+
+        petData = JSON.parse(petData)
+
+        formData = new FormData();
+        formData.append('pet', JSON.stringify(petData))
+        formData.append('action', "removePetFromInventory");
+
+        fetch('/api', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then(data => {
+        if (data == "SUCCESS") {
+            petAdded.style.bottom = "5vh"
+            petAdded.style.backgroundColor = "rgb(255, 0, 0)"
+            petAddedText.innerHTML = "You removed " + (petsDict[petData["id"]]["name"]).toString() + " from your inventory!"
+            inventoryLength.innerHTML = parseInt(inventoryLength.innerHTML) - 1
+            var oldPetsAdded = petsAdded
+            setTimeout((event) => {
+                if (oldPetsAdded == petsAdded) {
+                    petAdded.style.bottom = "-10vh"
+                }
+            }, 1750)
+
+            for (let i = 0; i < document.getElementById("userInventory").children[1].children.length; i++) {
+                var child = document.getElementById("userInventory").children[1].children[i]
+                var petInfo = JSON.parse(child.getAttribute("pet-data"))
+                if (petInfo != null) {
+                    if (petInfo["id"] == petData["id"] && petInfo["regular"] == petData["regular"] && petInfo["fly"] == petData["fly"] &&
+                        petInfo["ride"] == petData["ride"] && petInfo["neon"] == petData["neon"] && petInfo["mega"] == petData["mega"]
+                    ) {
+                        console.log(parseInt(child.children[1].textContent))
+                        if (parseInt(child.children[1].textContent) > 2) {
+                            child.children[1].textContent = parseInt(child.children[1].textContent) - 1
+                        } else if (parseInt(child.children[1].textContent) == 2) {
+                            child.children[1].textContent = "1"
+                            child.children[1].style.display = "none"
+                        } else {
+                            document.getElementById("userInventory").children[1].removeChild(child)
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        })
+        .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        });
+    } else if (type == "wishlist") {
+        var petAdded = document.getElementById("petAdded")
+        var petAddedText = document.getElementById("petAddedText")
+
+
+        var target = event.target
+        var petData = target.getAttribute("pet-data")
+        if (petData == null) {
+            target = target.parentElement
+            petData = target.getAttribute("pet-data")
+        }
+
+        console
+
+        petData = JSON.parse(petData)
+
+        formData = new FormData();
+        formData.append('pet', JSON.stringify(petData))
+        formData.append('action', "removePetFromWishlist");
+
+        fetch('/api', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then(data => {
+        if (data == "SUCCESS") {
+            petAdded.style.bottom = "5vh"
+            petAdded.style.backgroundColor = "rgb(255, 0, 0)"
+            petAddedText.innerHTML = "You removed " + (petsDict[petData["id"]]["name"]).toString() + " from your wishlist!"
+            var oldPetsAdded = petsAdded
+            setTimeout((event) => {
+                if (oldPetsAdded == petsAdded) {
+                    petAdded.style.bottom = "-10vh"
+                }
+            }, 1750)
+
+            for (let i = 0; i < document.getElementById("userWishlist").children[1].children.length; i++) {
+                var child = document.getElementById("userWishlist").children[1].children[i]
+                var petInfo = JSON.parse(child.getAttribute("pet-data"))
+                if (petInfo != null) {
+                    if (petInfo["id"] == petData["id"] && petInfo["regular"] == petData["regular"] && petInfo["fly"] == petData["fly"] &&
+                        petInfo["ride"] == petData["ride"] && petInfo["neon"] == petData["neon"] && petInfo["mega"] == petData["mega"]
+                    ) {
+                        console.log(parseInt(child.children[1].textContent))
+                        if (parseInt(child.children[1].textContent) > 2) {
+                            child.children[1].textContent = parseInt(child.children[1].textContent) - 1
+                        } else if (parseInt(child.children[1].textContent) == 2) {
+                            child.children[1].textContent = "1"
+                            child.children[1].style.display = "none"
+                        } else {
+                            document.getElementById("userWishlist").children[1].removeChild(child)
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        })
+        .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+}
+
 function removePetFromInventory(type, pet) {
     if (type == "inventory") {
+        var inventoryLength = document.getElementById("inventoryAmount")
+        var petAdded = document.getElementById("petAdded")
+        var petAddedText = document.getElementById("petAddedText")
+
+        const id = userData["inventory"].indexOf(JSON.parse(pet))
+
+        console.log(id)
+        
+
         formData = new FormData();
         formData.append('pet', (pet).toString())
         formData.append('action', "removePetFromInventory");
@@ -2217,15 +2405,10 @@ function removePetFromInventory(type, pet) {
         })
         .then(data => {
         if (data == "SUCCESS") {
-            const id = userData.inventory[pet].id
-            userData.inventory.splice(pet, 1)
-
-            showInventoryPets()
             
-            petsAdded -= 1
             petAdded.style.bottom = "5vh"
             petAdded.style.backgroundColor = "rgb(255, 0, 0)"
-            petAddedText.innerHTML = "You removed " + (petsDict[id]["name"]).toString() + " from your inventory!"
+            petAddedText.innerHTML = "You removed " + (petsDict[id["id"]]["name"]).toString() + " from your inventory!"
             inventoryLength.innerHTML = parseInt(inventoryLength.innerHTML) - 1
             var oldPetsAdded = petsAdded
             setTimeout((event) => {
@@ -2340,7 +2523,6 @@ function completeListing() {
     } else if (input2.value != "") {
         extraSharkValueRequested = parseFloat(input2.value)
     }
-    console.log(extraSharkValueRequested)
     var yourOffer = []
     for (let i = 0; i < grid1.children.length; i++) {
         let dict = grid1.children[i].getAttribute("data-dict")

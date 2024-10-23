@@ -1293,7 +1293,11 @@ def rejectTradeWithKey(userID, key):
 def removePetFromInventory(user, pet):
     global UserData
     if user != "":
-        UserData[user]["inventory"].pop(int(pet))
+        for i, wpet in enumerate(UserData[user]["inventory"]):
+            if wpet.items() == pet.items():
+                 UserData[user]["inventory"].pop(i)
+                 break
+
         dumpUserData()
         if user == flask.session.get('userID', ""):
             flask.session['userData'] = cookifyUserData(UserData[user])
@@ -1324,11 +1328,16 @@ def addPetToWishlist(user, pet, fly, ride, regular, neon, mega):
 def removePetFromWishlist(user, pet):
     global UserData
     if user != "":
-        UserData[user]["wishlist"].pop(int(pet))
+        for i, wpet in enumerate(UserData[user]["wishlist"]):
+            if wpet.items() == pet.items():
+                 UserData[user]["wishlist"].pop(i)
+                 break
+
         dumpUserData()
         if user == flask.session.get('userID', ""):
             flask.session['userData'] = cookifyUserData(UserData[user])
         return 1, "Success", 1
+
     else:
         return 0, "Not logged in", -1
     

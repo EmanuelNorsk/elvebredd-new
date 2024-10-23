@@ -215,7 +215,7 @@ def api():
             else:
                 return flask.jsonify("ERROR")
         elif action == "removePetFromInventory":
-            id, output, success = removePetFromInventory(flask.session.get("userID", ""), args["pet"])
+            id, output, success = removePetFromInventory(flask.session.get("userID", ""), json.loads(args["pet"]))
             if success == 1:
                 return flask.jsonify("SUCCESS")
             else:
@@ -245,7 +245,7 @@ def api():
             else:
                 return flask.jsonify("ERROR")
         elif action == "removePetFromWishlist":
-            id, output, success = removePetFromWishlist(flask.session.get("userID", ""), args["pet"])
+            id, output, success = removePetFromWishlist(flask.session.get("userID", ""), json.loads(args["pet"]))
             if success == 1:
                 return flask.jsonify("SUCCESS")
             else:

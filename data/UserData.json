@@ -497,38 +497,6 @@
                 "mega": 0
             },
             {
-                "id": "202",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "202",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "202",
-                "fly": 1,
-                "ride": 1,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "203",
-                "fly": 1,
-                "ride": 1,
-                "regular": 0,
-                "neon": 0,
-                "mega": 1
-            },
-            {
                 "id": "0",
                 "fly": 0,
                 "ride": 0,
@@ -601,7 +569,55 @@
                 "mega": 0
             },
             {
-                "id": "59",
+                "id": "4",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "4",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "5",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "5",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "0",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "1",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "1",
                 "fly": 0,
                 "ride": 0,
                 "regular": 1,
@@ -1125,6 +1141,22 @@
                 "important": false,
                 "image": "/static/images/profile/default.png",
                 "created": 1723381375.320844
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730409496.7690725
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730419500.5857105
             }
         ],
         "preferences": {
@@ -1148,9 +1180,7 @@
             "5"
         ],
         "friendRequests": {
-            "sent": [
-                "1"
-            ],
+            "sent": [],
             "received": []
         },
         "misc": {},
@@ -1165,8 +1195,8 @@
         ],
         "badges": {},
         "verified": 0,
-        "dailyStreak": 1,
-        "dailyStreakActivated": 1729431570.3137167,
+        "dailyStreak": 0,
+        "dailyStreakActivated": 1730382793.8272824,
         "wishlist": [
             {
                 "id": "0",
@@ -1234,7 +1264,7 @@
             }
         ],
         "lastActivity": [
-            "20/34:20:10:24",
+            "22/16:31:10:24",
             [
                 "api",
                 "127.0.0.1"
@@ -9936,6 +9966,94 @@
             "20/34:20:10:24": [
                 "api",
                 "127.0.0.1"
+            ],
+            "22/44:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/47:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/48:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/49:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/59:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/01:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/02:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/03:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/04:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/05:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/06:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/07:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/09:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/15:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/16:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/17:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/18:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/53:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/54:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/14:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/15:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/16:31:10:24": [
+                "api",
+                "127.0.0.1"
             ]
         },
         "rewiews": {},
@@ -9995,6 +10113,18 @@
             [
                 "19",
                 "2"
+            ],
+            [
+                "44",
+                "1"
+            ],
+            [
+                "45",
+                "0"
+            ],
+            [
+                "0",
+                "0"
             ]
         ],
         "sessionToken": "x8lyUvEMZEHFMKao"
@@ -10010,7 +10140,12 @@
             "44",
             "45"
         ],
-        "completedTrades": [],
+        "completedTrades": [
+            "19",
+            "19",
+            "19",
+            "19"
+        ],
         "inventory": [
             {
                 "id": "22",
@@ -10022,126 +10157,6 @@
             },
             {
                 "id": "22",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "5",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "8",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "8",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "18",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
-                "fly": 0,
-                "ride": 0,
-                "regular": 1,
-                "neon": 0,
-                "mega": 0
-            },
-            {
-                "id": "4",
                 "fly": 0,
                 "ride": 0,
                 "regular": 1,
@@ -10182,6 +10197,118 @@
             },
             {
                 "id": "0",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "0",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "1",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "1",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "6",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "6",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "13",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "13",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "14",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "14",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "15",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "11",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "11",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "10",
+                "fly": 0,
+                "ride": 0,
+                "regular": 1,
+                "neon": 0,
+                "mega": 0
+            },
+            {
+                "id": "9",
                 "fly": 0,
                 "ride": 0,
                 "regular": 1,
@@ -10497,6 +10624,166 @@
                 "important": false,
                 "image": "images/profile/dino.png",
                 "created": 1719767893.263937
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730048599.0416157
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049044.0250285
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049144.7272947
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049199.053443
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049258.6820598
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049277.9485917
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049284.6030204
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049353.0048332
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049390.044014
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049473.457981
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049475.1882195
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049478.9501407
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049481.2817621
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from Emanuel2!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730049511.831342
+            },
+            {
+                "head": "Friends",
+                "body": "You just got a friend request from EmanuelNorsk69420!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730224915.1312752
+            },
+            {
+                "head": "Trade",
+                "body": "EmanuelNorsk69420 has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730409280.4471881
+            },
+            {
+                "head": "Trade",
+                "body": "EmanuelNorsk69420 has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730409288.1040587
+            },
+            {
+                "head": "Trade",
+                "body": "EmanuelNorsk69420 has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730409293.240298
+            },
+            {
+                "head": "Trade",
+                "body": "You completed the trade with EmanuelNorsk69420! Congratulations!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730419511.853633
+            },
+            {
+                "head": "Trade",
+                "body": "You completed the trade with EmanuelNorsk69420! Congratulations!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/dino.png",
+                "created": 1730419516.4069192
             }
         ],
         "preferences": {
@@ -10517,21 +10804,19 @@
         "friends": [],
         "friendRequests": {
             "sent": [],
-            "received": [
-                "0"
-            ]
+            "received": []
         },
         "misc": {},
         "tags": {},
         "messages": {},
         "currency": 0,
-        "tokens": 1,
+        "tokens": 5,
         "achievements": {},
         "collection": [],
         "badges": {},
         "verified": 1,
         "dailyStreak": 0,
-        "dailyStreakActivated": 1729706527.9784672,
+        "dailyStreakActivated": 1730382889.3085318,
         "wishlist": [
             {
                 "id": "1",
@@ -10751,7 +11036,7 @@
             }
         ],
         "lastActivity": [
-            "22/08:23:10:24",
+            "01/28:01:11:24",
             [
                 "api",
                 "127.0.0.1"
@@ -12377,6 +12662,498 @@
             "22/08:23:10:24": [
                 "api",
                 "127.0.0.1"
+            ],
+            "17/56:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "17/57:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/54:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/36:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/38:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/25:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/39:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/40:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/43:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/49:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/50:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/51:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/53:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/54:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/55:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/56:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/57:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/58:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/51:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/52:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/58:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/59:29:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/54:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/55:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/06:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/07:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/11:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/27:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/28:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/31:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/32:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/34:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/35:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/36:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/37:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/39:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/40:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/41:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/42:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/43:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/44:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/46:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/47:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/48:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/49:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/50:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/51:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/52:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/53:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/54:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/56:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/57:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/58:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/59:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/00:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/03:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/04:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/05:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/06:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/07:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/08:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/09:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/11:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/12:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/13:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/14:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/15:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "16/16:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/36:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/52:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/53:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/54:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/55:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/56:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/57:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/58:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/59:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/01:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/02:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/03:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/40:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/41:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/44:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "20/45:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/04:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/05:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/06:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/07:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/09:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/10:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/13:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/15:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/17:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/19:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/21:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/22:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/23:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/25:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "21/26:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/12:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/14:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/17:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/18:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/00:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/03:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/04:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/05:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/06:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/10:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/11:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/13:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/14:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/15:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/16:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/17:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/18:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/20:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/21:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/23:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/24:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/25:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/27:01:11:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "01/28:01:11:24": [
+                "api",
+                "127.0.0.1"
             ]
         },
         "rewiews": {},
@@ -12422,20 +13199,56 @@
                 "2"
             ],
             [
-                "19",
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "1"
+            ],
+            [
+                "45",
+                "0"
+            ],
+            [
+                "0",
+                "0"
+            ],
+            [
+                "44",
                 "2"
             ],
             [
-                "19",
-                "2"
+                "44",
+                "3"
             ],
             [
-                "19",
-                "2"
+                "44",
+                "4"
             ],
             [
-                "19",
-                "2"
+                "44",
+                "5"
+            ],
+            [
+                "44",
+                "6"
+            ],
+            [
+                "44",
+                "7"
+            ],
+            [
+                "44",
+                "8"
             ]
         ]
     },
@@ -13691,5 +14504,325 @@
         "pending": [],
         "accountCreatedRawTime": 1725021159.6614685,
         "accountCreated": "14/32:30:08:24"
+    },
+    "8": {
+        "id": "8",
+        "username": "Emanuel2",
+        "robloxUsername": "Emanuel",
+        "email": "eem50970@gmail.com",
+        "password": "27d5b081609d314b76035ab17291e20557aac86fbde3a89dc3b7737cde85f32285768e512a109d285aeb34e39753eadb82a979a3efe9757cf4cbbd1ef16054ff",
+        "emailVerified": 0,
+        "sessionToken": "PewGzRFDas3j7jE0",
+        "trades": [],
+        "completedTrades": [],
+        "inventory": [],
+        "moderator": 0,
+        "banned": 0,
+        "frozen": 0,
+        "reports": {},
+        "notifications": [
+            {
+                "head": "1st Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1730048277.1643064
+            },
+            {
+                "head": "2nd Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1730048277.1643064
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730405960.4695506
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730405983.1741788
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730405992.7230937
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406082.3332286
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406093.4410703
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406120.573215
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406149.2505236
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406175.9418223
+            },
+            {
+                "head": "Trade",
+                "body": "Emanuel has marked the trade as completed.",
+                "read": false,
+                "important": false,
+                "image": "/static/images/profile/default.png",
+                "created": 1730406190.8414652
+            }
+        ],
+        "preferences": {
+            "highTiers": 0,
+            "megaLegendaryPets": 0,
+            "neonLegendaryPets": 0,
+            "defaultLegendaryPets": 0,
+            "preppyPets": 0,
+            "randoms": 0,
+            "items": 0
+        },
+        "settings": {
+            "receiveNotifications": 1,
+            "allowUnderpays": 1,
+            "receiveEmailNotifications": 0,
+            "receiveFriendRequestNotification": 0
+        },
+        "friends": [],
+        "friendRequests": {
+            "sent": [],
+            "received": []
+        },
+        "misc": {},
+        "tags": {},
+        "messages": {},
+        "currency": 0,
+        "tokens": 0,
+        "achievements": {},
+        "collection": [
+            "default.png",
+            "dino.png"
+        ],
+        "badges": {},
+        "verified": 0,
+        "dailyStreak": 0,
+        "dailyStreakActivated": 1730382960.682757,
+        "wishlist": [],
+        "lastActivity": [
+            "22/18:31:10:24",
+            [
+                "api",
+                "127.0.0.1"
+            ]
+        ],
+        "allActivity": {
+            "time.struct_time(tm_year=2024, tm_mon=10, tm_mday=27, tm_hour=17, tm_min=57, tm_sec=57, tm_wday=6, tm_yday=301, tm_isdst=0)": "accountCreated",
+            "17/57:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "17/58:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/00:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/02:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/03:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/05:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/10:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/12:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/13:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/14:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/15:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/16:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/17:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/18:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/21:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/22:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/31:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/32:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/42:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/43:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/44:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "18/45:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "19/54:27:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/56:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/04:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/05:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/06:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/16:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/17:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "22/18:31:10:24": [
+                "api",
+                "127.0.0.1"
+            ]
+        },
+        "rewiews": {},
+        "newsRead": {},
+        "profilePicture": "default.png",
+        "blocked": [],
+        "inbox": [],
+        "pending": [
+            [
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "0"
+            ],
+            [
+                "44",
+                "2"
+            ],
+            [
+                "44",
+                "3"
+            ],
+            [
+                "44",
+                "4"
+            ],
+            [
+                "44",
+                "5"
+            ],
+            [
+                "44",
+                "6"
+            ],
+            [
+                "44",
+                "7"
+            ],
+            [
+                "44",
+                "8"
+            ]
+        ],
+        "accountCreatedRawTime": 1730048277.1643064,
+        "accountCreated": "17/57:27:10:24"
     }
 }

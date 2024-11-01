@@ -4481,3 +4481,4 @@ function completeListing() {
     console.error('There was a problem with the fetch operation:', error);
     });  
 }
+

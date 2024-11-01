@@ -142,11 +142,11 @@
         },
         "extraSharkValueRequested": -9.0,
         "completed": false,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1730224869,
+        "acceptedOfferID": "0",
+        "acceptedUser": "1",
+        "acceptedUserUsername": "Emanuel",
+        "acceptedUserRobloxUsername": "",
         "public": true,
         "visibleTo": "all",
         "customOffers": [
@@ -185,7 +185,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226432.8934743,
-                "status": "Pending"
+                "status": "Accepted"
             },
             {
                 "id": 1,
@@ -238,7 +238,7 @@
                 "ownerUsername": "Emanuel",
                 "ownerRobloxUsername": "",
                 "createdAt": 1726226432.8934743,
-                "status": "Pending"
+                "status": "Declined"
             },
             {
                 "id": 2,
@@ -481,7 +481,9 @@
         ],
         "createdAt": 1726226432.881691,
         "views": [],
-        "markedAsCompletedBy": []
+        "markedAsCompletedBy": [
+            "0"
+        ]
     },
     "1": {
         "owner": "0",
@@ -7992,7 +7994,9 @@
         ],
         "createdAt": 1726226433.8637037,
         "views": [],
-        "markedAsCompletedBy": []
+        "markedAsCompletedBy": [
+            "0"
+        ]
     },
     "20": {
         "owner": "0",
@@ -14149,7 +14153,9 @@
         ],
         "createdAt": 1726226436.163969,
         "views": [],
-        "markedAsCompletedBy": []
+        "markedAsCompletedBy": [
+            "1"
+        ]
     },
     "33": {
         "owner": "0",
@@ -18019,17 +18025,385 @@
         "extraSharkValueRequested": 0.0,
         "completed": false,
         "completedAt": -1,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1730409445,
+        "acceptedOfferID": "8",
+        "acceptedUser": "8",
+        "acceptedUserUsername": "Emanuel2",
+        "acceptedUserRobloxUsername": "Emanuel",
         "public": true,
         "visibleTo": "all",
-        "customOffers": [],
+        "customOffers": [
+            {
+                "id": 0,
+                "pets": [
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 1.5,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730048555.1235247,
+                "status": "Declined"
+            },
+            {
+                "id": 1,
+                "pets": [
+                    {
+                        "id": 4,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 8,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 12,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.16,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065489.3192563,
+                "status": "Accepted"
+            },
+            {
+                "id": 2,
+                "pets": [
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 2.25,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730382998.6474085,
+                "status": "Accepted"
+            },
+            {
+                "id": 3,
+                "pets": [
+                    {
+                        "id": 37,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 37,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 66.0,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730383006.0397577,
+                "status": "Accepted"
+            },
+            {
+                "id": 4,
+                "pets": [
+                    {
+                        "id": 49,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 49,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.4,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730383016.141897,
+                "status": "Accepted"
+            },
+            {
+                "id": 5,
+                "pets": [
+                    {
+                        "id": 4,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 4,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 4,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.28,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730409409.0234153,
+                "status": "Accepted"
+            },
+            {
+                "id": 6,
+                "pets": [
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.12,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730409415.7439444,
+                "status": "Accepted"
+            },
+            {
+                "id": 7,
+                "pets": [
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 12,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.16,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730409420.9982598,
+                "status": "Accepted"
+            },
+            {
+                "id": 8,
+                "pets": [
+                    {
+                        "id": 26,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 26,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 27,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 23,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.12,
+                "owner": "8",
+                "ownerProfilePicture": "default.png",
+                "ownerUsername": "Emanuel2",
+                "ownerRobloxUsername": "Emanuel",
+                "createdAt": 1730409426.5021496,
+                "status": "Accepted"
+            }
+        ],
         "createdAt": 1729449330.1258838,
         "views": [],
-        "markedAsCompletedBy": []
+        "markedAsCompletedBy": [
+            "1"
+        ]
     },
     "45": {
         "owner": "1",
@@ -18127,16 +18501,340 @@
         "extraSharkValueRequested": 0.0,
         "completed": false,
         "completedAt": -1,
-        "acceptedAt": -1,
-        "acceptedOfferID": -1,
-        "acceptedUser": null,
-        "acceptedUserUsername": null,
-        "acceptedUserRobloxUsername": null,
+        "acceptedAt": 1730065865,
+        "acceptedOfferID": "0",
+        "acceptedUser": "0",
+        "acceptedUserUsername": "EmanuelNorsk69420",
+        "acceptedUserRobloxUsername": "",
         "public": true,
         "visibleTo": "all",
-        "customOffers": [],
+        "customOffers": [
+            {
+                "id": 0,
+                "pets": [
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 3.0,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065472.2079933,
+                "status": "Accepted"
+            },
+            {
+                "id": 1,
+                "pets": [
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 5,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 10,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 10,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.32,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065479.0009348,
+                "status": "Declined"
+            },
+            {
+                "id": 2,
+                "pets": [
+                    {
+                        "id": 8,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 12,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 13,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 14,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.16,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065484.6988277,
+                "status": "Declined"
+            },
+            {
+                "id": 3,
+                "pets": [
+                    {
+                        "id": 8,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 8,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 9,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 0.16,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065670.6235356,
+                "status": "Declined"
+            },
+            {
+                "id": 4,
+                "pets": [
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    },
+                    {
+                        "id": 0,
+                        "fly": 0,
+                        "ride": 0,
+                        "regular": 1,
+                        "neon": 0,
+                        "mega": 0
+                    }
+                ],
+                "type": "give",
+                "value": 9.0,
+                "owner": "0",
+                "ownerProfilePicture": "dino.png",
+                "ownerUsername": "EmanuelNorsk69420",
+                "ownerRobloxUsername": "",
+                "createdAt": 1730065684.3246026,
+                "status": "Declined"
+            }
+        ],
         "createdAt": 1729449805.7478914,
         "views": [],
-        "markedAsCompletedBy": []
+        "markedAsCompletedBy": [
+            "1"
+        ]
     }
 }

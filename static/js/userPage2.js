@@ -18,141 +18,190 @@ var maxPets = 18
 var tradePart1 = []
 var tradePart2 = []
 var petsAdded = ""
+var importantMessageEvent = ""
 
 
 var formData = new FormData();
-formData.append('action', "getYourUserData");
 
 var calculateWithValue = "shark";
 var frostValue = 105
 
 var contentLoaded = 0
 
-const fetchUserData = fetch('/api', {
-    method: 'POST',
-    body: formData
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data != "ERROR") {
-            userData = data;
-            loggedIn = true;
-        }
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-
-
+var fetchUserData = false
+var fetchProfileData = false
+var fetchUserListings = false
+var fetchUserHistory = false
 var profileData = {};
-formData = new FormData();
-formData.append('user', profileID);
-formData.append('action', "getUserData");
-
-const fetchProfileData = fetch('/api', {
-    method: 'POST',
-    body: formData
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data != "ERROR") {
-            profileData = data;
-        }
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-
-var formData = new FormData();
-formData.append('action', "getPets");
-
-fetch('/api', {
-    method: 'POST',
-    body: formData
-    })
-    .then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
-    })
-    .then(data => {
-    if (data != "ERROR") {
-        petsDict = data
-    } else {
-        displayError("ERROR")
-    }
-    })
-    .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-}); 
-
 var userListings = []
-
 var userHistory = []
+var userPending = []
 
-formData = new FormData();
-formData.append('ID', profileID);
-formData.append('action', "getUserListings");
+function getData() {
+    var dataLoaded = 0
+    formData = new FormData();
+    formData.append('action', "getYourUserData");
 
-const fetchUserListings = fetch('/api', {
-    method: 'POST',
-    body: formData
-})
-    .then(response => {
+    fetchUserData = fetch('/api', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data != "ERROR") {
+                userData = data;
+                loggedIn = true;
+            }
+            dataLoaded += 1
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+    formData = new FormData();
+    formData.append('user', profileID);
+    formData.append('action', "getUserData");
+        
+    fetchProfileData = fetch('/api', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data != "ERROR") {
+                profileData = data;
+                dataLoaded += 1
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+        
+    formData = new FormData();
+    formData.append('action', "getPets");
+    
+    fetchPetData = fetch('/api', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         return response.json();
-    })
-    .then(data => {
+        })
+        .then(data => {
         if (data != "ERROR") {
-            userListings = data;
+            petsDict = data
+            dataLoaded += 1
+        } else {
+            displayError("ERROR")
         }
-    })
-    .catch(error => {
+        })
+        .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
-    });
+    }); 
 
-formData = new FormData();
-formData.append('ID', profileID);
-formData.append('action', "getUserHistory");
-
-const fetchUserHistory = fetch('/api', {
-    method: 'POST',
-    body: formData
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
+    formData = new FormData();
+    formData.append('ID', profileID);
+    formData.append('action', "getUserListings");
+    
+    fetchUserListings = fetch('/api', {
+        method: 'POST',
+        body: formData
     })
-    .then(data => {
-        if (data != "ERROR") {
-            userHistory = data;
-        }
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data != "ERROR") {
+                userListings = data;
+                dataLoaded += 1
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    
+    formData = new FormData();
+    formData.append('ID', profileID);
+    formData.append('action', "getUserHistory");
+    
+    fetchUserHistory = fetch('/api', {
+        method: 'POST',
+        body: formData
     })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data != "ERROR") {
+                userHistory = data;
+                dataLoaded += 1
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
-Promise.all([fetchUserData, fetchProfileData]).then(() => {
-    contentLoaded += 1
-    if (contentLoaded == 2) {
-        main()
+    if (profileID == userData["id"]) {
+        formData = new FormData();
+        formData.append('action', "getPendingListings");
+        
+        fetchPending = fetch('/api', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data != "ERROR") {
+                    userPending = data;
+                    dataLoaded += 1
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    } else {
+        fetchPending = true
     }
-});
+
+
+    Promise.all([fetchUserData, fetchProfileData, fetchPetData, fetchUserListings, fetchUserHistory, fetchPending]).then(() => {
+        if (dataLoaded == 5 + (profileID == userData["id"])) {
+            contentLoaded += 1
+            if (contentLoaded == 2) {
+                main()
+            }
+        } else {
+            getData()
+        }
+    });
+}
+
+
+getData()
 
 window.addEventListener("DOMContentLoaded", event => {
     contentLoaded += 1
@@ -627,6 +676,7 @@ function sendFriendRequest() {
         displayMessage("Friend request sent to " + profileData["username"] + "!")
         userData["friendRequests"]["sent"].push(profileID.toString())
         profileData["friendRequests"]["received"].push(userData["id"].toString())
+        updateRightMenu()
     }
     })
     .catch(error => {
@@ -689,9 +739,11 @@ async function loadCategories() {
             }
             document.getElementById("userInbox").children[1].appendChild(p)
         } else {
-            document.getElementById("userInbox").children[1].classList.add("notEmpty")
-            document.getElementById("userInbox").children[1].setAttribute("listingsLoaded", "0")
-            loadInboxInto(userListings, document.getElementById("userInbox").children[1], 0, 20)
+            if (userData["id"] == profileID) {
+                document.getElementById("userInbox").children[1].classList.add("notEmpty")
+                document.getElementById("userInbox").children[1].setAttribute("listingsLoaded", "0")
+                loadInboxInto(userListings, document.getElementById("userInbox").children[1], 0, 20)
+            }
 
             if (document.getElementById("userInbox").children[1].children.length == 0) {
                 document.getElementById("userInbox").children[1].classList.remove("notEmpty")
@@ -705,7 +757,7 @@ async function loadCategories() {
             }
         }
 
-        if (userListings.length == 0) {
+        if (userPending.length == 0) {
             document.getElementById("userPending").children[1].classList.remove("notEmpty")
             const p = document.createElement("p")
             if (userData["id"] == profileID) {
@@ -715,9 +767,22 @@ async function loadCategories() {
             }
             document.getElementById("userPending").children[1].appendChild(p)
         } else {
-            document.getElementById("userPending").children[1].classList.add("notEmpty")
-            document.getElementById("userPending").children[1].setAttribute("listingsLoaded", "0")
-            loadPendingInto(userListings, document.getElementById("userPending").children[1], 0, 20)
+            if (userData["id"] == profileID) {
+                document.getElementById("userPending").children[1].classList.add("notEmpty")
+                document.getElementById("userPending").children[1].setAttribute("listingsLoaded", "0")
+                loadPendingInto(userPending, document.getElementById("userPending").children[1], 0, 20)
+            }
+
+            if (document.getElementById("userPending").children[1].children.length == 0) {
+                document.getElementById("userPending").children[1].classList.remove("notEmpty")
+                const p = document.createElement("p")
+                if (userData["id"] == profileID) {
+                    p.innerHTML = "You have no active trades ongoing, click <a>here</a> for information."
+                } else {
+                    p.innerText = "You can't see this person's pending trades!"
+                }
+                document.getElementById("userPending").children[1].appendChild(p)
+            }
         }
 
         if (userHistory.length == 0) {
@@ -726,7 +791,7 @@ async function loadCategories() {
             if (userData["id"] == profileID) {
                 p.innerHTML = "You have not trades in your history, click <a>here</a> for information."
             } else {
-                p.innerText = "This person has no completed any trades yet."
+                p.innerText = "This person has not completed any trades yet."
             }
             document.getElementById("userHistory").children[1].appendChild(p)
         } else {
@@ -975,11 +1040,11 @@ function loadInboxInto(listings, target, startAmount = 0, endAmount = 999) {
                     const b1 = document.createElement("button")
                     b1.className = "profileButton"
                     b1.innerText = "Accept"
-                    b1.setAttribute("onclick", "")
+                    b1.setAttribute("onclick", `acceptOffer(event, ${Object.values(listings)[c]["id"]}, ${j})`)
                     const b2 = document.createElement("button")
                     b2.className = "profileButton"
                     b2.innerText = "Decline"
-                    b2.setAttribute("onclick", "")
+                    b2.setAttribute("onclick", `declineOffer(event, ${Object.values(listings)[c]["id"]}, ${j})`)
                     const robloxNameDiv = document.createElement("div")
                     const robloxImg = document.createElement("img")
                     robloxImg.src = "/static/images/misc/robloxLogo.png"
@@ -1082,7 +1147,12 @@ function loadPendingInto(listings, target, startAmount = 0, endAmount = 999) {
                 const b1 = document.createElement("button")
                 b1.className = "profileButton"
                 b1.innerText = "Complete"
-                b1.setAttribute("onclick", "")
+                if (listing["markedAsCompletedBy"].includes(userData["id"])) {
+                    b1.disabled = true
+                } else {
+                    console.log(listing["markedAsCompletedBy"])
+                    b1.setAttribute("onclick", `displayImportantMessage(event, "Complete Trade", "Are you sure you want to <a>complete</a> the trade? If both you and your trading partner says yes, the trade will be successful!", "Go Back", "exitImportantMessage()", "Complete", "completeTradeWithKey(['${listing["id"]}', '${j}'], ${c})")`)
+                }
                 const b2 = document.createElement("button")
                 b2.className = "profileButton"
                 b2.innerText = "Cancel"
@@ -1183,6 +1253,7 @@ function loadHistoryInto(listings, target, startAmount = 0, endAmount = 999) {
         }
 
         const sideMenu = document.createElement("div")
+        sideMenu.classList.add("history")
         const robloxNameDiv = document.createElement("div")
         const robloxImg = document.createElement("img")
         robloxImg.src = "/static/images/misc/robloxLogo.png"
@@ -1331,8 +1402,8 @@ function calculateValue(listOfPets) {
             if (keyword in pet) {
                 value += pet[keyword]
             } else {
-                if ("value" in pet) {
-                    value += pet["value"]
+                if (pet["value"] != undefined) {
+                    value += parseFloat(pet["value"])
                 }
             }
         }
@@ -2572,13 +2643,11 @@ function completeListing() {
 }
 
 function openListingInterface2(listing) {
-    document.getElementById("listingInterface2Background").style.display = "block"
-    document.getElementById("listingInterface2").style.display = "flex"
+    document.getElementById("listingInterface2Background").style.display = ""
     showUserListings2(listing)
 }
 function closeListingInterface2() {
     document.getElementById("listingInterface2Background").style.display = "none"
-    document.getElementById("listingInterface2").style.display = "none"
     document.querySelector("html").style.overflowY = "auto";
 }
 
@@ -2950,8 +3019,8 @@ function showOffers(listing) {
 
         const div8 = document.createElement("div")
         const p4 = document.createElement("p")
-        if (listing["customOffers"][i]["ownerRobloxUsername"] != "") {
-            p4.innerText = listing["customOffers"][i]["ownerRobloxUsername"]
+        if (listing["customOffers"][i]["ownerUsername"] != "") {
+            p4.innerText = listing["customOffers"][i]["ownerUsername"]
         } else {
             p4.innerText = listing["customOffers"][i]["ownerUsername"]
         }       
@@ -3028,6 +3097,7 @@ function showOffers(listing) {
 }
 
 function updateListingInterface2() {
+    showOffers(currentListing)
     var listing = currentListing
     listingInterface2YourOfferPets.innerHTML = ""
     for (const i in listing["offer"]["give"]) {
@@ -3223,14 +3293,14 @@ function updateListingInterface2() {
     }
 
     if (listing["extraSharkValueRequested"] == 0 || listing["extraSharkValueRequested"] == undefined) {
-        yourOfferValue.innerText = (giveValue + calculateValue(yourOfferExtraPets)).toFixed(2)
-        theirOfferValue.innerText = (takeValue + calculateValue(theirOfferExtraPets)).toFixed(2)
+        yourOfferValue.innerText = parseFloat(giveValue + calculateValue(yourOfferExtraPets)).toFixed(2)
+        theirOfferValue.innerText = parseFloat(takeValue + calculateValue(theirOfferExtraPets)).toFixed(2)
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
         listingCombinedValue = parseFloat((giveValue - takeValue + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
     } else if (listing["extraSharkValueRequested"] > 0 && calculateValue(yourOfferExtraPets) < listing["extraSharkValueRequested"]) {
-        yourOfferValue.innerText = (giveValue + calculateValue(yourOfferExtraPets)).toFixed(2).toString() + " + " + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets)).toFixed(2).toString()
+        yourOfferValue.innerText = parseFloat(giveValue + calculateValue(yourOfferExtraPets)).toFixed(2).toString() + " + " + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets)).toFixed(2).toString()
         theirOfferValue.innerText = takeValue
         finishButton.disabled = true
         sharkValueRequestedDiv.style.display = "flex"
@@ -3239,15 +3309,15 @@ function updateListingInterface2() {
         listingCombinedValue = parseFloat((giveValue - takeValue + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets))).toFixed(2))
     } else if (listing["extraSharkValueRequested"] < 0 && calculateValue(theirOfferExtraPets) < Math.abs(listing["extraSharkValueRequested"])) {
         yourOfferValue.innerText = giveValue
-        theirOfferValue.innerText = (takeValue + calculateValue(theirOfferExtraPets)).toFixed(2).toString() + " + " + (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets)).toFixed(2).toString()
+        theirOfferValue.innerText = parseFloat(takeValue + calculateValue(theirOfferExtraPets)).toFixed(2).toString() + " + " + (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets)).toFixed(2).toString()
         finishButton.disabled = true
         sharkValueRequestedDiv.style.display = "flex"
         changeButton.disabled = false
         sharkValueRequested.innerText = (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets)).toFixed(2)
         listingCombinedValue = parseFloat((giveValue - takeValue + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) - (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets))).toFixed(2))
     } else {
-        yourOfferValue.innerText = (giveValue + calculateValue(yourOfferExtraPets)).toFixed(2)
-        theirOfferValue.innerText = (takeValue + calculateValue(theirOfferExtraPets)).toFixed(2)
+        yourOfferValue.innerText = parseFloat(giveValue + calculateValue(yourOfferExtraPets)).toFixed(2)
+        theirOfferValue.innerText = parseFloat(takeValue + calculateValue(theirOfferExtraPets)).toFixed(2)
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
@@ -3341,6 +3411,10 @@ function sendOffer() {
             })
             listingDiv.setAttribute("onclick", "showUserListings2(" + JSON.stringify(extractedValue) + ")")
             currentListing = extractedValue
+
+
+
+
         }
     } else {
         displayError("Something went wrong with your offer!")
@@ -3351,9 +3425,9 @@ function sendOffer() {
     });
 }
 
-function declineOffer(offerID) {
+function declineOffer(event, listingID, offerID) {
     formData = new FormData();
-    formData.append('id', currentListing["id"])
+    formData.append('id', listingID)
     formData.append('offerID', offerID)
     formData.append('action', "declineOffer");  
 
@@ -3370,16 +3444,23 @@ function declineOffer(offerID) {
     .then(data => {
     if (data == "SUCCESS") {
         displayMessage("You successfully declined an offer!")
-        const listingDiv = document.querySelector(`div.userListingsListing[data-key="${currentListing["id"]}"]`)
-        if (listingDiv) {
-            const onClick = listingDiv.getAttribute('onclick');
-            var extractedValue = onClick.slice(18, -1).trim();
-            extractedValue = JSON.parse(extractedValue)
-            extractedValue["customOffers"][offerID]["status"] = "Declined"
-            listingDiv.setAttribute("onclick", "showUserListings2(" + JSON.stringify(extractedValue) + ")")
-            currentListing = extractedValue
-            showOffers(currentListing)
+
+        var userListingID = 0
+
+        for (let i = 0; i < userListings.length; i++) {
+            if (userListings[i]["id"] == listingID) {
+                userListingID = i
+                break
+            }
         }
+
+        var listing = userListings[userListingID]
+        var offer = listing["customOffers"][offerID]
+        offer["status"] = "Declined"
+
+        var listingDiv = event.target.parentElement.parentElement
+        var userInboxDiv = listingDiv.parentElement
+        userInboxDiv.removeChild(listingDiv)
     } else {
         displayError("Something went wrong!")
     }
@@ -3389,9 +3470,9 @@ function declineOffer(offerID) {
     });
 }
 
-function acceptOffer(offerID) {
+function acceptOffer(event, listingID, offerID) {
     formData = new FormData();
-    formData.append('id', currentListing["id"])
+    formData.append('id', listingID)
     formData.append('offerID', offerID)
     formData.append('action', "acceptOffer");   
 
@@ -3408,20 +3489,36 @@ function acceptOffer(offerID) {
     .then(data => {
     if (data == "SUCCESS") {
         displayMessage("You successfully accepted an offer!")
-        const listingDiv = document.querySelector(`div.userListingsListing[data-key="${currentListing["id"]}"]`)
-        if (listingDiv) {
-            const onClick = listingDiv.getAttribute('onclick');
-            var extractedValue = onClick.slice(18, -1).trim();
-            extractedValue = JSON.parse(extractedValue)
-            extractedValue["customOffers"][offerID]["status"] = "Accepted"
-            extractedValue["acceptedAt"] = Math.floor(Date.now() / 1000)
-            extractedValue["acceptedUser"] = userData["id"]
-            extractedValue["acceptedUserUsername"] = userData["username"]
-            extractedValue["acceptedUserRobloxUsername"] = userData["robloxUsername"]
-            listingDiv.setAttribute("onclick", "showUserListings2(" + JSON.stringify(extractedValue) + ")")
-            currentListing = extractedValue
-            showOffers(currentListing)
+
+        var userListingID = 0
+
+        for (let i = 0; i < userPending.length; i++) {
+            if (userPending[i]["id"] == listingID) {
+                userListingID = i
+                break
+            }
         }
+
+        var listing = userPending[userListingID]
+        var offer = listing["customOffers"][offerID]
+        offer["status"] = "Accepted"
+        listing["acceptedUser"] = offer["owner"]
+        listing["acceptedUserUsername"] = offer["ownerUsername"]
+        listing["acceptedUserRobloxUsername"] = offer["ownerRobloxUsername"]
+        listing["acceptedAt"] = Date.now()
+        listing["acceptedOfferID"] = offerID
+        userData["pending"].push([listingID, offerID])
+
+        var listingDiv = event.target.parentElement.parentElement
+        var userInboxDiv = listingDiv.parentElement
+        userInboxDiv.removeChild(listingDiv)
+
+        document.getElementById("userPending").children[1].classList.add("notEmpty")
+        document.getElementById("userPending").children[1].innerHTML = ""
+        document.getElementById("userPending").children[1].setAttribute("listingsLoaded", "0")
+        loadPendingInto(userPending, document.getElementById("userPending").children[1], 0, 20)
+
+
     } else {
         displayError("Something went wrong!")
     }
@@ -3467,3 +3564,126 @@ function preventBodyScroll(event) {
         event.stopPropagation();
     }
 }   
+
+
+function block() {
+    formData = new FormData();
+    formData.append('ID', (profileID).toString())
+    formData.append('action', "block");
+
+    fetch('/api', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+    if (data == "SUCCESS") {
+        if (blockButton !== undefined) {
+            blockButton.innerText = "User blocked!"
+        }
+        displayMessage("You blocked " + profileData["username"] + "!")
+        userData["blocked"].push(profileID)
+        userData["friendRequests"]["sent"] = userData["friendRequests"]["sent"].filter(item => item != profileID.toString())
+        userData["friends"] = userData["friends"].filter(item => item != profileID)
+        updateRightMenu()
+    }
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+function unblock() {
+    formData = new FormData();
+    formData.append('ID', (profileID).toString())
+    formData.append('action', "unblock");
+
+    fetch('/api', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+    if (data == "SUCCESS") {
+        if (blockButton !== undefined) {
+            blockButton.innerText = "User unblocked!"
+        }
+        displayMessage("You unblocked " + profileData["username"] + "!")
+        userData["blocked"] = userData["blocked"].filter(item => item != profileID.toString())
+        updateRightMenu()
+    }
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+function exitImportantMessage() {
+    var importantMessage = document.getElementById("importantMessage")
+    var closeImportantMessageBackground = document.getElementById("closeImportantMessage")
+    if (closeImportantMessageBackground != undefined) {
+        importantMessage.style.display = "none"
+        closeImportantMessageBackground.style.display = "none"
+    }
+    console.log("Hi")
+}
+
+
+function displayImportantMessage(event, title, text, button1Name, button1Function, button2Name, button2Function) {
+    var importantMessage = document.getElementById("importantMessage")
+    var closeImportantMessageBackground = document.getElementById("closeImportantMessage")
+    importantMessage.style.display = "flex"
+    closeImportantMessageBackground.style.display = "flex"
+    importantMessage.children[0].children[0].children[1].innerHTML = title
+    importantMessage.children[0].children[1].children[0].innerHTML = text
+    importantMessage.children[1].children[0].children[0].innerHTML = button1Name
+    importantMessage.children[1].children[0].children[0].setAttribute("onclick", `exitImportantMessage();${button1Function}`)
+    importantMessage.children[1].children[0].children[1].innerHTML = button2Name
+    importantMessage.children[1].children[0].children[1].setAttribute("onclick", `exitImportantMessage();${button2Function}`)
+    importantMessageEvent = event
+}
+
+function completeTradeWithKey(key, i) {
+
+
+    formData = new FormData();
+    formData.append('key', JSON.stringify(key))
+    formData.append('action', "completeTradeWithKey");
+
+    fetch('/api', {
+    method: 'POST',
+    body: formData
+    })
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+    })
+    .then(data => {
+    if (data == "SUCCESS") {
+        const button = importantMessageEvent.target
+        button.innerText = "Complete"
+        button.disabled = true
+        button.setAttribute("onclick", "")
+
+        if (1 == 2) {
+
+        }
+    }
+    console.log(data)
+    })
+    .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+}

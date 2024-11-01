@@ -267,8 +267,10 @@ def changePassword(userID, password):
     else:
         return 0, "Error", -1
     
-def getUserData(userID):
+def getUserData(userID = ""):
     global UserData
+    if userID == "":
+        return 2, "Guest", -1
     if userID in UserData:
         return 1, cookifyUserData(UserData[userID]), 1
     else:
@@ -790,32 +792,33 @@ def getRobloxUsername(ID):
 
 def completeTradeWithKey(userID, key):
     global UserData, Trades
+    print(key[0])
     if userID != "" and key in UserData[userID]["pending"]:
-        if userID not in Trades[key]["markedAsCompletedBy"]:
-            Trades[key]["markedAsCompletedBy"].append(userID)
-        if len(Trades[key]["markedAsCompletedBy"]) == 2:
-            Trades[key]["completed"] = True
-            Trades[key]["completedAt"] = time.time()
-            for user in Trades[key]["markedAsCompletedBy"]:
+        if userID not in Trades[key[0]]["markedAsCompletedBy"]:
+            Trades[key[0]]["markedAsCompletedBy"].append(userID)
+        if len(Trades[key[0]]["markedAsCompletedBy"]) == 2:
+            Trades[key[0]]["completed"] = True
+            Trades[key[0]]["completedAt"] = time.time()
+            for user in Trades[key[0]]["markedAsCompletedBy"]:
                 try:
-                    UserData[user]["completedTrades"].append(key)
-                    UserData[user]["pending"].remove(key)
-                    UserData[user]["tokens"] += 1
+                    UserData[userID]["completedTrades"].append(key[0])
+                    UserData[userID]["pending"].remove(key)
+                    UserData[userID]["tokens"] += 1
                 except ValueError:
                     continue
-            sendNotification(Trades[key]["acceptedBy"], "Trade", "You completed the trade with " + Trades[key]["ownerUsername"] + "! Congratulations!", False, "/static/images/profile/" + UserData[Trades[key]["owner"]]["profilePicture"])
-            sendNotification(Trades[key]["owner"], "Trade", "You completed the trade with " + Trades[key]["acceptedByUsername"] + "! Congratulations!", False, "/static/images/profile/" + UserData[Trades[key]["acceptedBy"]]["profilePicture"])
+            sendNotification(Trades[key[0]]["acceptedUser"], "Trade", "You completed the trade with " + Trades[key[0]]["ownerUsername"] + "! Congratulations!", False, "/static/images/profile/" + UserData[Trades[key[0]]["owner"]]["profilePicture"])
+            sendNotification(Trades[key[0]]["owner"], "Trade", "You completed the trade with " + Trades[key[0]]["acceptedUserUsername"] + "! Congratulations!", False, "/static/images/profile/" + UserData[Trades[key[0]]["acceptedUser"]]["profilePicture"])
         else:
-            if Trades[key]["owner"] == userID:
-                sendNotification(Trades[key]["acceptedBy"], "Trade", Trades[key]["ownerUsername"] +  " has marked the trade as completed.", False, "/static/images/profile/" + UserData[userID]["profilePicture"])
+            if Trades[key[0]]["owner"] == userID:
+                sendNotification(Trades[key[0]]["acceptedUser"], "Trade", Trades[key[0]]["ownerUsername"] +  " has marked the trade as completed.", False, "/static/images/profile/" + UserData[userID]["profilePicture"])
             else:
-                sendNotification(Trades[key]["owner"], "Trade", Trades[key]["acceptedByUsername"] +  " has marked the trade as completed.", False, "/static/images/profile/" + UserData[Trades[key]["acceptedBy"]]["profilePicture"])
+                sendNotification(Trades[key[0]]["owner"], "Trade", Trades[key[0]]["acceptedUserUsername"] +  " has marked the trade as completed.", False, "/static/images/profile/" + UserData[Trades[key[0]]["acceptedUser"]]["profilePicture"])
 
         dumpUserData()
         dumpTrades()
         return 0, "Trade completed!", 1
     else:
-        return 1, "Error", -1
+        return 1, "Error not in pending", -1
     
 def validateData():
     global ValidateDataCheck
@@ -1434,6 +1437,18 @@ def cleanseTrades():
             if trade in Trades.keys():
                 list.append(trade)
         UserData[userID]["completedTrades"] = list
+
+
+def getPendingListings(userID = ""):
+    global UserData
+    if userID != "":
+        try:
+            pendingListings = [key[0] for key in UserData[userID]["pending"]]
+            listings = [Trades[listing] for listing in pendingListings]
+            return 1, listings, 1
+
+        except Exception:
+            return 0, "Unknown Error", -1
 
 
 

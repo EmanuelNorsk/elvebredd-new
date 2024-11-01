@@ -341,11 +341,11 @@ def api():
             else:
                 return flask.jsonify("ERROR")
         elif action == "completeTradeWithKey":
-            id, output, success = completeTradeWithKey(flask.session.get("userID", ""), args["key"])
+            id, output, success = completeTradeWithKey(flask.session.get("userID", ""), json.loads(args["key"]))
             if success == 1:
                 return flask.jsonify("SUCCESS")
             else:
-                return flask.jsonify("ERROR")
+                return flask.jsonify(output)
         elif action == "getHistory":
             id, output, success = getHistory(flask.session.get("userID", ""))
             if success ==  1:
@@ -490,6 +490,12 @@ def api():
                 return flask.jsonify(output)
             else:
                 return flask.jsonify("ERROR")
+        elif action == "getPendingListings":
+            id, output, success = getPendingListings(flask.session.get("userID", ""))
+            if success == 1:
+                return flask.jsonify(output)
+            else:
+                return "ERROR"
 
         else:
             return flask.jsonify("ERROR")

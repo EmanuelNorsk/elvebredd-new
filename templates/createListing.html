@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link rel="stylesheet" href="https://use.typekit.net/uju1lhj.css">
+    <link rel="stylesheet" href="/static/css/userPage.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/create.css">
+    <script src="/static/js/createListing.js"></script>
+</head>
+<body>
+    <header>
+        {% include "header.html" %}
+    </header>
+    <main>
+        <div id="createListingInterface">
+            <div>
+                <div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div></div>
+                        <p>WIN</p>
+                        <p>FAIR</p>
+                        <p>LOSE</p>
+                    </div>
+                </div>
+                <div>
+                    <p>YOUR OFFER</p>
+                    <div></div>
+                    <p>THEIR OFFER</p>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <div class="first" onclick="setAddPetTypeTo('createListingInterfaceYourOffer'); openInventory()"><img src="/static/images/misc/add.png"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                    </div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                    <div>
+                        <div class="first" onclick="setAddPetTypeTo('createListingInterfaceTheirOffer'); openInventory()"><img src="/static/images/misc/add.png"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                        <div class="first"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <input placeholder="-">
+                        <div></div>
+                        <p>You can add</p>
+                    </div>
+                    <div>
+                        <button onclick="cancel()"><p>Cancel</p></button>
+                        <button disabled onclick="completeListing()"><p>Complete</p></button>
+                    </div>
+                    <div>
+                        <input placeholder="-">
+                        <div></div>
+                        <p>Ask for them to add</p>
+                    </div>
+                </div>
+                <div style="display:flex;">
+                    <button onclick="openPreferences()"><p>Settings</p></button>
+                    <div class="sharkFrostButton orangeRed">
+                        <div class="center" onclick="selectValue('shark')"><p>SHARK</p></div>
+                        <div class="center" onclick="selectValue('frost')"><p>FROST</p></div>
+                    </div>
+                    <button><p>Hidden Button</p></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="addInventory">
+        <div style="display:flex;flex-direction:row;justify-content:space-between;">
+            <div class="center" style="gap:0.25vw;padding:0.5vw;">
+                <img id="filterImage" src="../static/images/misc/menu.png">
+                <p id="filterText">Filter</p>
+            </div>
+            <div id="petSearchDiv" class="center">
+                <input id="petSearch" placeholder="Search" onkeyup="searchUpPets()">
+                <img id="petSearchImage" src="../static/images/misc/search.png">
+            </div>
+        </div>
+        <div style="display:flex;flex-direction:row;justify-content:space-between;gap:0.5vw">
+            <div id="filter">
+                <div id="filterButtons">
+                    <button id="all" class="filterButton" onclick="filter('all', 0)"><b class="filterButtonText">All</b></button>
+                    <button id="pets" class="filterButton" onclick="filter('pets', 0)"><b class="filterButtonText">Pets</b></button>
+                    <button id="common" class="filterButton" onclick="filter('common', 0)"><b class="filterButtonText">Common</b></button>
+                    <button id="eggs" class="filterButton" onclick="filter('eggs', 0)"><b class="filterButtonText">Eggs</b></button>
+                    <button id="legendary" class="filterButton" onclick="filter('legendary', 0)"><b class="filterButtonText">Legendary</b></button>
+                    <button id="other" class="filterButton" onclick="filter('other', 0)"><b class="filterButtonText">Other</b></button>
+                    <button id="petWear" class="filterButton" onclick="filter('pet wear', 0)"><b class="filterButtonText">Pet Wear</b></button>
+                    <button id="rare" class="filterButton" onclick="filter('rare', 0)"><b class="filterButtonText">Rare</b></button>
+                    <button id="ultraRare" class="filterButton" onclick="filter('ultra rare', 0)"><b class="filterButtonText">Ultra-Rare</b></button>
+                    <button id="uncommon" class="filterButton" onclick="filter('uncommon', 0)"><b class="filterButtonText">Uncommon</b></button>
+                    <button id="vehicles" class="filterButton" onclick="filter('vehicles', 0)"><b class="filterButtonText">Vehicles</b></button>
+                </div>
+            </div>
+            <div class="center">
+                <div id="petImages">
+
+                </div>
+            </div>
+        </div>
+        <div id="imageButtons">
+            <button id="flyButton" onclick="enableFly()">
+                <h1 style="color:white;">F</h1>
+            </button>
+            <button id="rideButton" onclick="enableRide()">
+                <h1 style="color:white;">R</h1>
+            </button>
+            <button id="regularButton" onclick="enableRegular()">
+                <h1 style="color:white;">D</h1>
+            </button>
+            <button id="neonButton" onclick="enableNeon()">
+                <h1 style="color:white;">N</h1>
+            </button>
+            <button id="megaButton" onclick="enableMega()">
+                <h1 style="color:white;">M</h1>
+            </button>
+        </div>
+        <div id="closeButton" onclick="closeInventory()">
+            <img style="width:1.5vw;height:1.5vw;" src="../static/images/misc/close.svg">
+        </div>
+    </div>
+
+
+    <div id="petAdded">
+        <b id="petAddedText">You added a pet</b>
+    </div>
+    <div id="errorDiv">
+        <b id="errorText"></b>
+    </div>
+    <div id="messageDiv">
+        <b id="messageText"></b>
+    </div>
+    <div id="friendMoreOptions">
+
+    </div>
+
+    <div onclick="closeInventory()" id="addInventoryBackground">
+        &nbsp;
+    </div>
+
+    <div id="importantMessage">
+        <div>
+            <div>
+                <div></div>
+                <p>Title</p>
+                <div></div>
+            </div>
+            <div>
+                <p>Important text comes here. Very important to read this carefully.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button>Go Back</button>
+                <button>I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="closeImportantMessage" onclick="exitImportantMessage()"></div>
+
+
+    <footer>
+        {% include "footer.html" %}
+    </footer>
+</body>
+</html>

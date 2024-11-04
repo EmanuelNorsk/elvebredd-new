@@ -354,6 +354,7 @@ main{
 .listing > :nth-child(2) {
     border-radius: inherit;
     width: var(--listing-size);
+    height: calc(var(--listing-size) / 300 * 180 + calc(var(--listing-size) / 768));
     overflow: hidden;
     position: relative;
     z-index: 1;

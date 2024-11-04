@@ -1621,6 +1621,7 @@ main{
     min-height:30vw;
 }
 
+
 #allCategoryDivs > div > :nth-child(2) {
     width:100%;
     display:flex;

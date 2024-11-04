@@ -3687,3 +3687,10 @@ function completeTradeWithKey(key, i) {
     console.error('There was a problem with the fetch operation:', error);
     });
 }
+
+window.addEventListener("load", () => {
+    if (sessionStorage.getItem("createListing") == "true") {
+        sessionStorage.removeItem("createListing")
+        displayMessage("You created a listing!")
+    }
+})

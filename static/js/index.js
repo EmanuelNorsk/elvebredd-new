@@ -1191,6 +1191,7 @@ function closeListingInterface2() {
     document.querySelector("html").style.overflowY = "auto";
 }
 
+
 function showOffers(listing) {
     offers.innerHTML = ""
     for (const i in listing["customOffers"]) {

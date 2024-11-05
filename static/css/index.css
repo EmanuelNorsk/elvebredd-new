@@ -1360,6 +1360,7 @@ main{
     text-decoration:none;
 }
 
+
 #quickNavigation button > a > p{
     font-family:"Aileron", sans-serif;
     font-size:calc(22.9 * 4 / 3 / 19.2 * 1vw);

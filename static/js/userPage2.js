@@ -19,6 +19,7 @@ var tradePart1 = []
 var tradePart2 = []
 var petsAdded = ""
 var importantMessageEvent = ""
+var preventClosing = 0
 
 
 var formData = new FormData();
@@ -2754,6 +2755,7 @@ function showUserListings2(listing) {
     listingInterface2Background.style.display = "flex"
     showOffers(listing)
     showPreferences(listing)
+    preventClosing = 1
 
     const listingInterface2Value = document.getElementById("listingInterface2Value")
 
@@ -3533,12 +3535,13 @@ function acceptOffer(event, listingID, offerID) {
 
 
 window.addEventListener("click", event => {
-    var listingInterface2 = document.getElementById("listingInterface2")
     const rect = listingInterface2.getBoundingClientRect()
-    if (rect.width > 0) {
+    if (rect.width > 0 && preventClosing == 0) {
         if ((rect.x < event.clientX && event.clientX < rect.x + rect.width && rect.y < event.clientY && event.clientY < rect.y + rect.height) == false) {
             closeListingInterface2()
         }
+    } else {
+        preventClosing = 0
     }
 })
 

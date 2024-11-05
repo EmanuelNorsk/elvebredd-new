@@ -165,6 +165,12 @@ main > :nth-child(1) > div >:nth-child(3) > button:hover {
     flex-direction:column;
 }
 
+#allListings > div {
+    overflow:hidden;
+    padding-left:0.6vw;
+    padding-bottom:0.6vw
+}
+
 .historyListing {
     display:flex;
     flex-direction:column;

@@ -3,7 +3,7 @@ const pathParts = path.split("/")
 const petPageID = pathParts[pathParts.length - 1]
 var oldUnderNavScroll = 0
 var petsDict = {}
-var listingsScrollSpeed = 6
+var listingsScrollSpeed = 5
 var userData = {}
 var loggedIn = false
 
@@ -113,9 +113,7 @@ window.addEventListener("DOMContentLoaded", event => {
             container.classList.add("listings")
             div.appendChild(container)
             allListings.appendChild(div)
-            loadListingsInto(data[key], container)
-            sortAllListings(petPageID, defaultSort, neonSort, megaSort)
-            scrollListings(container.children[0], "right", 0, 1)
+            loadListingsInto(data[key], container, petPageID)
         })
     } else {
         displayError("ERROR")
@@ -149,10 +147,9 @@ window.addEventListener("DOMContentLoaded", event => {
             div.appendChild(category)
             const container = document.createElement("div")
             container.classList.add("categoryContainer")
-            loadHistoryInto(data[key], container)
             div.appendChild(container)
             allHistory.appendChild(div)
-            sortAllHistory(petPageID, defaultSort, neonSort, megaSort)
+            loadHistoryInto(data[key], container, petPageID)
         })
     } else {
         displayError("ERROR")
@@ -284,73 +281,75 @@ function createListingTemplate() {
     return listing;
 }
 
-function loadListingsInto(listings, target) {
+function loadListingsInto(listings, target, petID) {
     target.innerHTML = ""
     Object.values(listings).forEach(listing => {
-        let listingTemplate = createListingTemplate()
-        let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
-        let value2 = calculateValue(listing["offer"]["take"])
-        var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
-        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
-            combinedValue = Math.round(combinedValue)
-        }
-        listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
-        if (value1 > value2) {
-            listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
-            listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
-            listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-            listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-        } else if (value1 < value2) {
-            listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
-        }
-        
-        for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
-        }
-
-        if (listing["offer"]["give"].length == 9) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
-        } else if (listing["offer"]["give"].length > 9) {
-            const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
-            listingTemplate.children[1].children[1].children[0].appendChild(p)
-        }
-
-        for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
-        }
-
-        if (listing["offer"]["take"].length == 9) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
-        } else if (listing["offer"]["take"].length > 9) {
-            const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
-            listingTemplate.children[1].children[1].children[2].appendChild(p)
-        }
-
-        target.appendChild(listingTemplate)
-        const outOfBounds = checkOutOfBoundsListing(listingTemplate)
-        const figures = listingTemplate.querySelectorAll("figure")
-        if (outOfBounds.includes("left")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else if (outOfBounds.includes("right")) {
-            listingTemplate.classList.add("listingsFilter")
-            listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "flex"
-            })
-        } else {
-            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-            figures.forEach(figure => {
-                figure.style.display = "none"
-            })
+        if (listingAllowed(listing, petID)) {
+            let listingTemplate = createListingTemplate()
+            let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
+            let value2 = calculateValue(listing["offer"]["take"])
+            var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+            if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
+                combinedValue = Math.round(combinedValue)
+            }
+            listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
+            if (value1 > value2) {
+                listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+                listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+                listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+            } else if (value1 < value2) {
+                listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+            }
+            
+            for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
+                listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
+            }
+    
+            if (listing["offer"]["give"].length == 9) {
+                listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
+            } else if (listing["offer"]["give"].length > 9) {
+                const p = document.createElement("p")
+                p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
+                listingTemplate.children[1].children[1].children[0].appendChild(p)
+            }
+    
+            for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
+                listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
+            }
+    
+            if (listing["offer"]["take"].length == 9) {
+                listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
+            } else if (listing["offer"]["take"].length > 9) {
+                const p = document.createElement("p")
+                p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
+                listingTemplate.children[1].children[1].children[2].appendChild(p)
+            }
+    
+            target.appendChild(listingTemplate)
+            const outOfBounds = checkOutOfBoundsListing(listingTemplate)
+            const figures = listingTemplate.querySelectorAll("figure")
+            if (outOfBounds.includes("left") && target.children.length != 1) {
+                listingTemplate.classList.add("listingsFilter")
+                listingTemplate.setAttribute("onclick", 'scrollListings(event, "left")')
+                listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else if (outOfBounds.includes("right") && target.children.length != 1) {
+                listingTemplate.classList.add("listingsFilter")
+                listingTemplate.setAttribute("onclick", 'scrollListings(event, "right")')
+                listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+                figures.forEach(figure => {
+                    figure.style.display = "flex"
+                })
+            } else {
+                listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
+                listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+                figures.forEach(figure => {
+                    figure.style.display = "none"
+                })
+            }
         }
     })
 }
@@ -369,7 +368,7 @@ function checkOutOfBoundsListing(element, xOffset = 0) {
     if (x + position.width > window.innerWidth) {
         outOfBounds.push('right');
     }
-    if (x < 0) {
+    if (x < window.innerWidth * 0.2) {
         outOfBounds.push('left');
     }
     if (y + position.height > window.innerHeight) {
@@ -383,46 +382,53 @@ function checkOutOfBoundsListing(element, xOffset = 0) {
 }
 
 function scrollListings(event, direction, amount = -1, targetSelected = 0) {
+    console.log("hi")
     if (amount == -1) {
         amount = listingsScrollSpeed
     }
     let element = 0
     if (targetSelected == 0) {
         element = event.target
+        while (element.classList.contains("listing") == false && element != document.body)
+            element = element.parentElement
+        while (element.classList.contains("listings") == false && element != document.body)
+            element = element.parentElement
     } else {
         element = event
     }
     
-    while (element.classList.contains("listing") == false && element != document.body)
-        element = element.parentElement
-    let listing = element
-    while (element.classList.contains("listings") == false && element != document.body)
-        element = element.parentElement
+
+    let listing = element.children[0]
     if (element != document.body) {
         
         const elementStyle = window.getComputedStyle(element)
         let left = parseFloat(elementStyle.marginLeft.split("px")[0])
         var offset = 0
         if (direction == "left") {
-            offset = listing.getBoundingClientRect().width * amount + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (amount - 1)
+            offset = listing.getBoundingClientRect().width * amount + parseFloat(elementStyle.gap.split("px")[0]) * 0.75 * (amount - 1)
         } else {
-            offset = (listing.getBoundingClientRect().width * amount + parseFloat(window.getComputedStyle(element).gap.split("px")[0]) * 0.75 * (amount - 1)) * -1
+            offset = (listing.getBoundingClientRect().width * amount + parseFloat(elementStyle.gap.split("px")[0]) * 0.75 * (amount - 1)) * -1
         }
         if (amount == 0) {
             offset = 0
         }
         left += offset
-        element.style.marginLeft = (left / window.innerWidth * 100).toString() + "vw"
+        var value = (left / window.innerWidth * 100)
+        if (value > 0) {
+            element.style.marginLeft = "-0vw"
+        } else {
+            element.style.marginLeft = value.toString() + "vw"
+        }
         for (let i = 0; i < element.children.length; i++) {
             const outOfBounds = checkOutOfBoundsListing(element.children[i], offset)
             const figures = element.children[i].querySelectorAll("figure")
-            if (outOfBounds.includes("left")) {
+            if (outOfBounds.includes("left") && i != 0 && i < element.children.length - 1) {
                 element.children[i].setAttribute("onclick", 'scrollListings(event, "left")')
                 element.children[i].classList.add("listingsFilter")
                 figures.forEach(figure => {
                     figure.style.display = "flex"
                 })
-            } else if (outOfBounds.includes("right")) {
+            } else if (outOfBounds.includes("right") && i != 0 && i < element.children.length - 1) {
                 element.children[i].setAttribute("onclick", 'scrollListings(event, "right")')
                 element.children[i].classList.add("listingsFilter")
                 figures.forEach(figure => {
@@ -516,71 +522,73 @@ function createPetDiv(pet) {
 }
 
 
-function loadHistoryInto(listings, target) {
+function loadHistoryInto(listings, target, petID) {
     target.innerHTML = ""
     Object.values(listings).forEach(listing => {
-        let listingTemplate = createListingTemplate()
-        let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
-        let value2 = calculateValue(listing["offer"]["take"])
-        var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
-        if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
-            combinedValue = Math.round(combinedValue)
+        if (listingAllowed(listing, petID)) {
+            let listingTemplate = createListingTemplate()
+            let value1 = calculateValue(listing["offer"]["give"]) + listing["extraSharkValueRequested"]
+            let value2 = calculateValue(listing["offer"]["take"])
+            var combinedValue = parseFloat(Math.abs(value1 - value2).toFixed(2))
+            if (Math.abs(Math.round(combinedValue) - combinedValue) < 0.02 || combinedValue > 100) {
+                combinedValue = Math.round(combinedValue)
+            }
+            listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
+            if (value1 > value2) {
+                listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
+                listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
+                listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+                listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
+            } else if (value1 < value2) {
+                listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
+            }
+            
+            for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
+                listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
+            }
+    
+            if (listing["offer"]["give"].length == 9) {
+                listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
+            } else if (listing["offer"]["give"].length > 9) {
+                const p = document.createElement("p")
+                p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
+                listingTemplate.children[1].children[1].children[0].appendChild(p)
+            }
+    
+            for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
+                listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
+            }
+    
+            if (listing["offer"]["take"].length == 9) {
+                listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
+            } else if (listing["offer"]["take"].length > 9) {
+                const p = document.createElement("p")
+                p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
+                listingTemplate.children[1].children[1].children[2].appendChild(p)
+            }
+    
+            const wrapper = document.createElement("div")
+            wrapper.classList.add("historyListing")
+            wrapper.appendChild(listingTemplate)
+            const historyName = document.createElement("p")
+            historyName.textContent = listing["ownerUsername"]
+            const completedAt = document.createElement("p")
+            if (Object.keys(listing).includes("completedAt")) {
+                completedAt.textContent = timeSince(listing["completedAt"])
+            } else {
+                completedAt.textContent = "-1m ago"
+            }
+            wrapper.appendChild(historyName)
+            wrapper.appendChild(completedAt)
+            target.appendChild(wrapper)
+            
+            const figures = listingTemplate.querySelectorAll("figure")
+            listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
+            figures.forEach(figure => {
+                figure.style.display = "none"
+            })
         }
-        listingTemplate.children[1].children[0].children[1].textContent = combinedValue.toString()
-        if (value1 > value2) {
-            listingTemplate.children[1].children[0].children[0].style.color = "rgb(255, 102, 102)"
-            listingTemplate.children[1].children[0].children[1].style.color = "rgb(255, 102, 102)"
-            listingTemplate.children[1].children[1].children[1].style.background = "linear-gradient(0deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-            listingTemplate.style.background = "linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(255, 102, 102) 100%)"
-        } else if (value1 < value2) {
-            listingTemplate.children[1].children[0].children[2].style.color = "rgb(255, 102, 102)"
-        }
-        
-        for (let i = 0; i < listing["offer"]["give"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][i]))
-        }
-
-        if (listing["offer"]["give"].length == 9) {
-            listingTemplate.children[1].children[1].children[0].appendChild(createPetDiv(listing["offer"]["give"][8]))
-        } else if (listing["offer"]["give"].length > 9) {
-            const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["give"].length - 8).toString()
-            listingTemplate.children[1].children[1].children[0].appendChild(p)
-        }
-
-        for (let i = 0; i < listing["offer"]["take"].length && i < 8; i++) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][i]))
-        }
-
-        if (listing["offer"]["take"].length == 9) {
-            listingTemplate.children[1].children[1].children[2].appendChild(createPetDiv(listing["offer"]["take"][8]))
-        } else if (listing["offer"]["take"].length > 9) {
-            const p = document.createElement("p")
-            p.textContent = "+" + (listing["offer"]["take"].length - 8).toString()
-            listingTemplate.children[1].children[1].children[2].appendChild(p)
-        }
-
-        const wrapper = document.createElement("div")
-        wrapper.classList.add("historyListing")
-        wrapper.appendChild(listingTemplate)
-        const historyName = document.createElement("p")
-        historyName.textContent = listing["ownerUsername"]
-        const completedAt = document.createElement("p")
-        if (Object.keys(listing).includes("completedAt")) {
-            completedAt.textContent = timeSince(listing["completedAt"])
-        } else {
-            completedAt.textContent = "-1m ago"
-        }
-        wrapper.appendChild(historyName)
-        wrapper.appendChild(completedAt)
-        target.appendChild(wrapper)
-        
-        const figures = listingTemplate.querySelectorAll("figure")
-        listingTemplate.setAttribute("onclick", `showUserListings2(${JSON.stringify(listing)})`)
-        listingTemplate.setAttribute("data-onclick", `showUserListings2(${JSON.stringify(listing)})`)
-        figures.forEach(figure => {
-            figure.style.display = "none"
-        })
     })
 }
 
@@ -644,7 +652,27 @@ function sortAllListings(petID, defaultSort, neonSort, megaSort) {
             }
 
         }
+        scrollListings(allListings.children[i].children[1], "left", 999, 1)
     }
+}
+
+function listingAllowed(listing, petID) {
+    var containsPet = false
+    for (let i = 0; i < listing["offer"]["give"].length; i++) {
+        if (listing["offer"]["give"][i]["id"] == petID) {
+            containsPet = true
+            break
+        }
+    }
+    if (containsPet != true) {
+        for (let i = 0; i < listing["offer"]["take"].length; i++) {
+            if (listing["offer"]["take"][i]["id"] == petID) {
+                containsPet = true
+                break
+            }
+        }
+    }
+    return containsPet
 }
 
 function sortAllHistory(petID, defaultSort, neonSort, megaSort) {

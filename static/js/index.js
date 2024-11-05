@@ -31,6 +31,7 @@ var lastFilter = "all"
 var petsAdded = 0
 var listingSize = 300
 var body = document.createElement("div")
+var preventClosing = 0
 
 var listingInterface2Background = document.createElement("div")
 var listingInterface2 = document.createElement("div")
@@ -200,10 +201,12 @@ window.addEventListener("DOMContentLoaded", event => {
 
     window.addEventListener("click", event => {
         const rect = listingInterface2.getBoundingClientRect()
-        if (rect.width > 0) {
+        if (rect.width > 0 && preventClosing == 0) {
             if ((rect.x < event.clientX && event.clientX < rect.x + rect.width && rect.y < event.clientY && event.clientY < rect.y + rect.height) == false) {
                 closeListingInterface2()
             }
+        } else {
+            preventClosing = 0
         }
     })
 
@@ -1020,37 +1023,47 @@ function showUserListings2(listing) {
     listingInterface2.style.display = "flex"
     listingInterface2Background = document.getElementById("listingInterface2Background")
     listingInterface2Background.style.display = "flex"
+    preventClosing = 1
     showOffers(listing)
     showPreferences(listing)
 
     const listingInterface2Value = document.getElementById("listingInterface2Value")
 
+    var giveValue = listing["offer"]["giveValue"].toFixed(2)
+    var takeValue = listing["offer"]["takeValue"].toFixed(2)
+
+    if (calculateWithValue == "frost") {
+        giveValue = (giveValue / frostValue).toFixed(2)
+        takeValue = (takeValue / frostValue).toFixed(2)
+    }
+
     if (listing["extraSharkValueRequested"] == 0 || listing["extraSharkValueRequested"] == undefined) {
-        yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2)
-        theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2)
+        yourOfferValue.innerText = giveValue
+        theirOfferValue.innerText = takeValue
         finishButton.disabled = false
         sharkValueRequestedDiv.style.display = "none"
         changeButton.disabled = false
-        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
+        listingCombinedValue = parseFloat((giveValue - takeValue + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets)).toFixed(2))
     } else if (listing["extraSharkValueRequested"] > 0) {
-        yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2).toString() + " + " + listing["extraSharkValueRequested"].toString()
-        theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2)
+        yourOfferValue.innerText = giveValue.toString() + " + " + listing["extraSharkValueRequested"].toString()
+        theirOfferValue.innerText = takeValue
         finishButton.disabled = true
         sharkValueRequestedDiv.style.display = "flex"
         changeButton.disabled = false
         sharkValueRequested.innerText = listing["extraSharkValueRequested"].toFixed(2)
         youAddTheyAdd.innerText = "YOU ADD:"
-        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets))).toFixed(2))
+        listingCombinedValue = parseFloat((giveValue - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) + (listing["extraSharkValueRequested"] - calculateValue(yourOfferExtraPets))).toFixed(2))
     } else if (listing["extraSharkValueRequested"] < 0) {
-        yourOfferValue.innerText = listing["offer"]["giveValue"].toFixed(2)
-        theirOfferValue.innerText = listing["offer"]["takeValue"].toFixed(2).toString() + " + " + Math.abs(listing["extraSharkValueRequested"]).toString()
+        yourOfferValue.innerText = giveValue
+        theirOfferValue.innerText = takeValue.toString() + " + " + Math.abs(listing["extraSharkValueRequested"]).toString()
         finishButton.disabled = true
         sharkValueRequestedDiv.style.display = "flex"
         changeButton.disabled = false
         sharkValueRequested.innerText = Math.abs(listing["extraSharkValueRequested"]).toFixed(2)
         youAddTheyAdd.innerText = "THEY ADD:"
-        listingCombinedValue = parseFloat((listing["offer"]["giveValue"] - listing["offer"]["takeValue"] + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) - (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets))).toFixed(2))
+        listingCombinedValue = parseFloat((giveValue - takeValue + calculateValue(yourOfferExtraPets) - calculateValue(theirOfferExtraPets) - (Math.abs(listing["extraSharkValueRequested"]) - calculateValue(theirOfferExtraPets))).toFixed(2))
     }
+
 
     if (listingCombinedValue < 0) {
         listingCombinedValue = Math.abs(listingCombinedValue)
@@ -1063,19 +1076,10 @@ function showUserListings2(listing) {
     } else if (listingCombinedValue >= 10) {
         listingCombinedValue = listingCombinedValue.toFixed(1)
     }
-    if (calculateWithValue == "shark") {
-        if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
-            listingInterface2Value.textContent = Math.round(listingCombinedValue)
-        } else {
-            listingInterface2Value.textContent = listingCombinedValue
-        }
+    if (Math.abs(Math.round(listingCombinedValue) - listingCombinedValue) < 0.02) {
+        listingInterface2Value.textContent = Math.round(listingCombinedValue)
     } else {
-        console.log("HI AG")
-        if (Math.abs(Math.round(listingCombinedValue / frostValue) - listingCombinedValue / frostValue) < 0.02) {
-            listingInterface2Value.textContent = Math.round(listingCombinedValue / frostValue)
-        } else {
-            listingInterface2Value.textContent = (listingCombinedValue / frostValue).toFixed(2)
-        }
+        listingInterface2Value.textContent = listingCombinedValue
     }
 
     if (loggedIn == "False") {

@@ -19,21 +19,32 @@ p {
 
 #searchGrid > div {
     display:flex;
+    justify-content:center;
+    align-items:center;
+    width:calc(218.9vw / 19.2 + 2px);
+    height:calc(339.4vw / 19.2 + 1.8px);
+    background:linear-gradient(180deg, rgb(253, 249, 234) 0%, rgb(54, 53, 55) 100%);
+    border-radius:30rem;
+    box-sizing:border-box;
+    position:relative;
+    cursor:pointer;
+}
+
+#searchGrid > div > div {
+    display:flex;
     flex-direction:column;
     align-items:center;
-    border:1rem solid rgb(54, 53, 55);
-    padding-top:6rem;
-    padding-bottom:12rem;
-    padding-right:15rem;
-    padding-left:15rem;
-    width:158rem;
+    padding:0.5vw 1vw;
+    width:calc(218.9vw / 19.2);
+    height:calc(339.4vw / 19.2);
     background:linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
     border-radius:30rem;
     box-sizing:border-box;
     position:relative;
+    cursor:pointer;
 }
 
-#searchGrid > div > :nth-child(1) {
+#searchGrid > div > div > :nth-child(1) {
     display:flex;
     flex-direction:row;
     align-items:center;
@@ -41,52 +52,53 @@ p {
     gap:5rem;
 }
 
-#searchGrid > div > :nth-child(1) > p {
+#searchGrid > div > div > :nth-child(1) > p {
     font-size:7.6rem;
     letter-spacing:3.5rem;
 }
 
-#searchGrid > div > :nth-child(2) {
+#searchGrid > div > div > :nth-child(2) {
     overflow:hidden;
     width:100%;
-    aspect-ratio:1/1;
-    padding-top:10rem;
-    padding-bottom:10rem;
+    padding-top:5rem;
+    padding-bottom:5rem;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
-#searchGrid > div > :nth-child(2) > img {
+#searchGrid > div > div > :nth-child(2) > img {
     object-fit:contain;
-    width:auto;
-    height:128rem;
+    width:calc(160.1vw / 19.2);
+    height:calc(160.1vw / 19.2);
 }
 
-#searchGrid > div > :nth-child(3) {
+#searchGrid > div > div > :nth-child(3) {
     display:flex;
     flex-direction:column;
     justify-content:end;
     align-items:center;
-    min-height:36.2rem;
-    max-height:36.2rem;
+    min-height:calc(37vw / 19.2);
+    max-height:calc(37vw / 19.2);
+
 }
 
-#searchGrid > div > :nth-child(3) > p {
-    font-size:15rem;
+#searchGrid > div > div > :nth-child(3) > p {
+    font-size:calc(21.9vw * 4 / 3 / 19.2);
     font-weight:800;
     text-align:center;
+    text-shadow: 1px 1px 0 white, -1px 1px 0 white, 1px -1px 0 white, -1px -1px 0 white;
 }
 
-#searchGrid > div > :nth-child(4) {
+#searchGrid > div > div > :nth-child(4) {
     width:100%;
     height:1rem;
-    background-color:rgb(109, 107, 112);
+    background:linear-gradient(90deg, rgb(109, 107, 112, 0) 0%, rgb(109, 107, 112) 50%, rgb(109, 107, 112, 0) 100%);
     margin-top:5rem;
     margin-bottom:4rem;
 }
 
-#searchGrid > div > :nth-child(5) {
+#searchGrid > div > div > :nth-child(5) {
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -94,26 +106,28 @@ p {
     box-sizing:border-box;
     padding-right:14rem;
     padding-left:14rem;
+    height:calc(70vw / 19.2);
 }
 
-#searchGrid > div > :nth-child(5) > div {
+#searchGrid > div > div > :nth-child(5) > div {
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:space-between;
 }
 
-#searchGrid > div > :nth-child(5) > :nth-child(1) > p {
+#searchGrid > div > div > :nth-child(5) > :nth-child(1) > p {
     color:rgb(109, 107, 112);
     font-size:12rem;
 }
 
-#searchGrid > div > :nth-child(5) > :nth-child(2) > p {
+#searchGrid > div > div > :nth-child(5) > :nth-child(2) > p {
     color:rgb(54, 53, 55);
     font-size:13rem;
     font-weight:bold;
 }
 
-#searchGrid > div > :nth-child(6) {
+#searchGrid > div > div > :nth-child(6) {
     color:rgb(109, 107, 112);
     font-size:4.5rem;
     letter-spacing:3rem;

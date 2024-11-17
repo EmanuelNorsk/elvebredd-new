@@ -127,7 +127,7 @@
                         <button class="bland blank button">
                             <a id="profileNotifications" class="blandHeader headerText profilePadding" href="/notifications">Notifications</a>
                         </button>
-                        <button onclick="openPreferences()" class="bland blank button">
+                        <button onclick="insertSettingsIntoTheMenu();openTheMenu()" class="bland blank button">
                             <a class="blandHeader headerText profilePadding">Settings</a>
                         </button>
                         <div class="smallLine blackBackground" style="margin-top:5rem;margin-bottom:2rem;"> &nbsp; </div>
@@ -191,6 +191,24 @@
         <button id="closeButtonSettings" onclick="closeSettings()">
             <p>Close</p>
         </button>
+    </div>
+    <div id="theMenuBorder">
+        <div id="theMenu">
+            <p>Title</p>
+            <div></div>
+            <div>
+                <p>Preference1</p>
+                <p>Preference2</p>
+            </div>
+            <div>
+                <p>Test1</p>
+                <p>Test2</p>
+            </div>
+            <button onclick="closeTheMenu()">Okay</button>
+        </div>
+    </div>
+    <div id="theMenuBackground" onclick="closeTheMenu()">
+        
     </div>
 </div>
 <div id="menuBar">

@@ -6,8 +6,9 @@ var checkbox
 var notificationCountID
 var oldScrollY = 0
 var interfacesOpen = 0
+var settingsChanged = 0
 
-var userDataDict = {}
+var userData = {}
 loggedIn = false
 var formData = new FormData();
 formData.append('action', "getYourUserData");
@@ -24,7 +25,7 @@ const fetchUserDataHeader = fetch('/api', {
     })
     .then(data => {
         if (data != "ERROR") {
-            userDataDict = data
+            userData = data
             loggedIn = true
         }
     })
@@ -63,11 +64,11 @@ Promise.all([fetchUserDataHeader]).then(() => {
     var rem = Math.min(Math.max(Math.max(0.069444444 * window.innerWidth, 0.12345679012 * window.innerHeight), (2/3)), (8/3))
     
     var profilePicture = document.getElementById("profilePicture")
-    profilePicture.src = "/static/images/profile/" + userDataDict["profilePicture"]
+    profilePicture.src = "/static/images/profile/" + userData["profilePicture"]
     var profileLink = document.getElementById("profileLink")
-    profileLink.href = "/user/" + userDataDict["id"]
+    profileLink.href = "/user/" + userData["id"]
     var username = document.getElementById("username")
-    username.textContent = userDataDict["username"]
+    username.textContent = userData["username"]
 
     notificationCountID = document.getElementById("notificationCount");
     var notificationCircle = document.getElementById("notificationCircle");
@@ -77,7 +78,7 @@ Promise.all([fetchUserDataHeader]).then(() => {
     var misc = document.getElementById("misc")
     checkbox = document.querySelectorAll(".checkbox")
     var menuBar = document.getElementById("menuBar")
-    if (userDataDict["id"] != undefined) {
+    if (userData["id"] != undefined) {
         loggedIn = true
     } else {
         loggedIn = false
@@ -854,9 +855,9 @@ function isMouseOverElement(mouseX, mouseY, element) {
 function updateNotifications() {
     var notificationsCount = 0;
 
-    for (var id in userDataDict.notifications) {
-        if (userDataDict.notifications.hasOwnProperty(id)) {
-            if (!userDataDict.notifications[id].read) {
+    for (var id in userData.notifications) {
+        if (userData.notifications.hasOwnProperty(id)) {
+            if (!userData.notifications[id].read) {
                 notificationsCount++;
             };
         };
@@ -965,7 +966,7 @@ function nameKey(key) {
 function loadPreferences() {
     if (loggedIn == true) {
         preferences.innerHTML = ""
-        Object.keys(userDataDict["preferences"]).forEach(key => {
+        Object.keys(userData["preferences"]).forEach(key => {
             const div = document.createElement("div")
             div.className = "preferenceDiv"
             const img = document.createElement("img")
@@ -985,7 +986,7 @@ function loadPreferences() {
             button.className = "blank checkbox noPadding preferenceButton"
             button.name = "checkbox"
             button.setAttribute("onclick", "modifyPreference('" + key + "')")
-            button.value = userDataDict["preferences"][key].toString()
+            button.value = userData["preferences"][key].toString()
             button.id = key.toString()
             const img2 = document.createElement("img")
             img2.className = "preferenceImage"
@@ -1011,7 +1012,7 @@ function loadPreferences() {
 function loadMisc() {
     if (loggedIn == true) {
         misc.innerHTML = ""
-        Object.keys(userDataDict["settings"]).forEach(key => {
+        Object.keys(userData["settings"]).forEach(key => {
             const div = document.createElement("div")
             div.className = "preferenceDiv"
             const img = document.createElement("img")
@@ -1031,7 +1032,7 @@ function loadMisc() {
             button.className = "blank checkbox noPadding preferenceButton"
             button.name = "checkbox"
             button.setAttribute("onclick", "modifyPreference('" + key + "')")
-            button.value = userDataDict["settings"][key].toString()
+            button.value = userData["settings"][key].toString()
             button.id = key.toString()
             const img2 = document.createElement("img")
             img2.className = "preferenceImage"
@@ -1157,3 +1158,167 @@ function closeMenuBar() {
     menuBar.style.transform = "translateX(-125%)"
 }
 
+function camelCaseToWords(input) {
+    return input
+        .replace(/([A-Z])/g, ' $1')
+        .replace(/(^\w|\s\w)/g, match => match.toUpperCase())
+        .trim();
+}
+
+function wordsToCamelCase(input) {
+    return input
+        .toLowerCase()
+        .replace(/ (\w)/g, (_, letter) => letter.toUpperCase());
+}
+
+function closeTheMenu() {
+    var theMenuBorder = document.getElementById("theMenuBorder")
+    var theMenuBackground = document.getElementById("theMenuBackground")
+    theMenuBorder.style.display = "none"
+    theMenuBackground.style.display = "none" 
+    document.documentElement.style.overflow = '';  
+}
+
+function openTheMenu() {
+    var theMenuBorder = document.getElementById("theMenuBorder")
+    var theMenuBackground = document.getElementById("theMenuBackground")
+    theMenuBorder.style.display = "flex"
+    theMenuBackground.style.display = "flex"  
+    document.documentElement.style.overflow = 'hidden';
+
+}
+
+function toggleBodyScroll(enable) {
+    if (enable) {
+        // Enable scrolling
+        document.body.style.overflow = '';
+    } else {
+        // Disable scrolling
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+
+
+function insertSettingsIntoTheMenu() {
+    var theMenu = document.getElementById("theMenu")
+    theMenu.children[0].innerText = "Settings"
+    theMenu.children[2].children[0].innerText = "Preferences"
+    theMenu.children[2].children[0].setAttribute("onclick", "insertPreferencesIntoTheMenu()")
+    theMenu.children[2].children[1].innerText = "Adjustments"
+    theMenu.children[2].children[1].setAttribute("onclick", "insertAdjustmentsIntoTheMenu()")
+    theMenu.children[4].setAttribute("onclick", "saveSettings();closeTheMenu()")
+    insertPreferencesIntoTheMenu()
+}
+
+function insertPreferencesIntoTheMenu() {
+    var theMenu = document.getElementById("theMenu")
+    var container = theMenu.children[3]
+    theMenu.children[2].children[0].classList.add("selected")
+    theMenu.children[2].children[1].classList.remove("selected")
+    container.setAttribute("type", "preferences")
+    container.innerHTML = ""
+    Object.keys(userData["preferences"]).forEach(key => {
+        const value = userData["preferences"][key]
+        const div = document.createElement("div")
+        div.className = "setting"
+        const img = document.createElement("img")
+        img.src = "/static/images/misc/info.png"
+        div.appendChild(img)
+        const p = document.createElement("p")
+        p.innerText = camelCaseToWords(key)
+        div.appendChild(p)
+        const div2 = document.createElement("div")
+        if (value) {
+            div2.style.backgroundImage = "url('/static/images/misc/checked.png')"
+        }
+        div2.setAttribute("check", value.toString())
+        div2.setAttribute("onclick", "check(event)")
+        div2.classList.add("noHover")
+        div.appendChild(div2)
+        container.appendChild(div)
+    })
+    container.appendChild(document.createElement("div"))
+}
+
+function insertAdjustmentsIntoTheMenu() {
+    var theMenu = document.getElementById("theMenu")
+    var container = theMenu.children[3]
+    theMenu.children[2].children[0].classList.remove("selected")
+    theMenu.children[2].children[1].classList.add("selected")
+    container.setAttribute("type", "settings")
+    container.innerHTML = ""
+    Object.keys(userData["settings"]).forEach(key => {
+        const value = userData["settings"][key]
+        const div = document.createElement("div")
+        div.className = "setting"
+        const img = document.createElement("img")
+        img.src = "/static/images/misc/info.png"
+        div.appendChild(img)
+        const p = document.createElement("p")
+        p.innerText = camelCaseToWords(key)
+        div.appendChild(p)
+        const div2 = document.createElement("div")
+        if (value) {
+            div2.style.backgroundImage = "url('/static/images/misc/checked.png')"
+        }
+        div2.setAttribute("check", value.toString())
+        div2.setAttribute("onclick", "check(event)")
+        div2.classList.add("noHover")
+        div.appendChild(div2)
+        container.appendChild(div)
+    })
+    container.appendChild(document.createElement("div"))
+}
+
+function check(event) {
+    const key = wordsToCamelCase(event.target.parentElement.children[1].innerText)
+    const type = event.target.parentElement.parentElement.getAttribute("type")
+    if (event.target.getAttribute("check") == "0") {
+        event.target.style.backgroundImage = "url('/static/images/misc/checked.png')"
+        event.target.setAttribute("check", "1")
+        event.target.classList.remove("noHover")
+        userData[type][key] = 1
+    } else {
+        event.target.style.backgroundImage = ""
+        event.target.setAttribute("check", "0")
+        event.target.classList.remove("noHover")
+        userData[type][key] = 0
+    }
+    event.target.addEventListener("mouseout", () => {
+        event.target.classList.add("noHover")
+    })
+    settingsChanged = 1
+    
+}
+
+function saveSettings() {
+    if (settingsChanged) {
+        formData = new FormData();
+        formData.append('settings', JSON.stringify(userData["settings"]))
+        formData.append('preferences', JSON.stringify(userData["preferences"]))
+        formData.append('action', "saveSettings");
+    
+        fetch('/api', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+        })
+        .then(data => {
+            if (data == "SUCCESS") {
+                displayMessage("Settings Saved!")
+                settingsChanged = 0
+            } else {
+                displayError("Something went wrong!")
+            }
+        })
+        .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+}

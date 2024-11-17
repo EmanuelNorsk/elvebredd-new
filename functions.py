@@ -820,6 +820,18 @@ def completeTradeWithKey(userID, key):
     else:
         return 1, "Error not in pending", -1
     
+def saveSettings(userID, settings, preferences):
+    global UserData
+    if userID != "":
+        try:
+            UserData[userID]["settings"] = settings
+            UserData[userID]["preferences"] = preferences
+            return 0, "SUCCES", 1
+        except Exception:
+            return 2, "Unkown Error", -1
+    return 1, "Unkown Error", -1
+
+    
 def validateData():
     global ValidateDataCheck
     if time.time() - ValidateDataCheck > 1:

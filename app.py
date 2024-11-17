@@ -496,6 +496,14 @@ def api():
                 return flask.jsonify(output)
             else:
                 return "ERROR"
+            
+
+        elif action == "saveSettings":
+            id, output, success = saveSettings(flask.session.get("userID", ""), json.loads(args["settings"]), json.loads(args["preferences"]))
+            if success == 1:
+                return flask.jsonify("SUCCESS")
+            else:
+                return flask.jsonify("ERROR")
 
         else:
             return flask.jsonify("ERROR")

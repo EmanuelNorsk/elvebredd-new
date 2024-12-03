@@ -6,6 +6,7 @@
     <title>Index</title>
     <script src="/static/js/index.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/uju1lhj.css">
+    <link rel="stylesheet" href="../static/css/inventory.css">
 </head>
 <body>
     <header>
@@ -182,17 +183,17 @@
     </main>
 
     <div id="addInventory">
-        <div style="display:flex;flex-direction:row;justify-content:space-between;padding-right:5%;padding-left:5%;">
-            <div class="center" style="gap:max(0.25vw, 0.5vh);padding:max(0.5vw, 1vh);">
-                <img id="filterImage" src="../static/images/misc/menu.png">
+        <div style="margin: auto;">
+            <div class="center SideFilters">
+                <img id="filterImage" src="../static/images/misc/menu icon.svg">
                 <p id="filterText">Filter</p>
             </div>
+        </div>
             <div id="petSearchDiv" class="center">
                 <input id="petSearch" placeholder="Search" onkeyup="searchUpPets()">
                 <img id="petSearchImage" src="../static/images/misc/search.png">
             </div>
-        </div>
-        <div style="display:flex;flex-direction:row;justify-content:space-between;gap:0.5vw">
+
             <div id="filter">
                 <div id="filterButtons">
                     <button id="all" class="filterButton" onclick="filter('all', 0)"><b class="filterButtonText">All</b></button>
@@ -208,12 +209,9 @@
                     <button id="vehicles" class="filterButton" onclick="filter('vehicles', 0)"><b class="filterButtonText">Vehicles</b></button>
                 </div>
             </div>
-            <div class="center">
-                <div id="petImages">
+            <div id="petImages"></div>
 
-                </div>
-            </div>
-        </div>
+
         <div id="imageButtons">
             <button id="flyButton" onclick="enableFly()">
                 <h1 style="color:white;">F</h1>

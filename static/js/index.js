@@ -1786,8 +1786,8 @@ function displayPets() {
             div.setAttribute("data-value", pet["rarity"])
             div.setAttribute("onclick", "addPetToInventory(" + key.toString() + ")")
             const img = document.createElement("img")
-            img.style.height = "max(3.5vw, 7vh)"
-            img.style.aspectRatio = "1/1"
+            // img.style.height = "max(3.5vw, 7vh)"
+            // img.style.aspectRatio = "1/1"
             img.setAttribute("onerror", "handleImageError(this)")
             img.src = pet["image"]
             div.appendChild(img)
@@ -1800,8 +1800,8 @@ function displayPets() {
 
 function openInventory() {
     displayPets()
-    addInventory.style.display = "block"
-    addInventoryBackground.style.display = "block"
+    addInventory.style.display = "grid"
+    addInventoryBackground.style.display = "grid"
 }
 
 function closeInventory() {

@@ -15836,5 +15836,200 @@
         ],
         "accountCreatedRawTime": 1730048277.1643064,
         "accountCreated": "17/57:27:10:24"
+    },
+    "9": {
+        "id": "9",
+        "username": "Chicken Clone",
+        "robloxUsername": "@JANF_DOF",
+        "email": "oliver.angerman@gmail.com",
+        "password": "5e4bcecc0c8f6832302adf526823592aa3e87f154527fda94c82856497ea446efba4032f90e2f5ded545c3ab799e1b041c0a0aae4a017f81b373b3048a027a31",
+        "emailVerified": 0,
+        "sessionToken": "SZz0am9trSrnPmmx",
+        "trades": [],
+        "completedTrades": [],
+        "inventory": [],
+        "moderator": 0,
+        "banned": 0,
+        "frozen": 0,
+        "reports": {},
+        "notifications": [
+            {
+                "head": "1st Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1733056075.3552792
+            },
+            {
+                "head": "2nd Notification!",
+                "body": "Wow, I can't believe you read this!",
+                "read": false,
+                "important": false,
+                "image": "/static/images/notifications/default.png",
+                "created": 1733056075.3552792
+            }
+        ],
+        "preferences": {
+            "highTiers": 0,
+            "megaLegendaryPets": 0,
+            "neonLegendaryPets": 0,
+            "defaultLegendaryPets": 0,
+            "preppyPets": 0,
+            "randoms": 0,
+            "items": 0
+        },
+        "settings": {
+            "receiveNotifications": 1,
+            "allowUnderpays": 1,
+            "receiveEmailNotifications": 0,
+            "receiveFriendRequestNotification": 0
+        },
+        "friends": [],
+        "friendRequests": {
+            "sent": [],
+            "received": []
+        },
+        "misc": {},
+        "tags": {},
+        "messages": {},
+        "currency": 0,
+        "tokens": 0,
+        "achievements": {},
+        "collection": [
+            "default.png",
+            "dino.png"
+        ],
+        "badges": {},
+        "verified": 0,
+        "dailyStreak": 1,
+        "dailyStreakActivated": 1733056075.3552792,
+        "wishlist": [],
+        "lastActivity": [
+            "15/25:01:12:24",
+            [
+                "api",
+                "127.0.0.1"
+            ]
+        ],
+        "allActivity": {
+            "time.struct_time(tm_year=2024, tm_mon=12, tm_mday=1, tm_hour=13, tm_min=27, tm_sec=55, tm_wday=6, tm_yday=336, tm_isdst=0)": "accountCreated",
+            "13/27:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/28:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/38:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/46:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/47:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/57:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/58:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "13/59:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/09:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/11:01:12:24": [
+                "createListing",
+                "127.0.0.1"
+            ],
+            "14/12:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/13:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/14:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/23:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/24:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/25:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/34:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/37:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/38:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/40:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/42:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "14/55:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/00:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/01:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/02:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/14:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ],
+            "15/25:01:12:24": [
+                "api",
+                "127.0.0.1"
+            ]
+        },
+        "rewiews": {},
+        "newsRead": {},
+        "profilePicture": "default.png",
+        "blocked": [],
+        "inbox": [],
+        "pending": [],
+        "accountCreatedRawTime": 1733056075.3552792,
+        "accountCreated": "13/27:01:12:24"
     }
 }

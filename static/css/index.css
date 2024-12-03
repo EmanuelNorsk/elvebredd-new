@@ -35,11 +35,11 @@ main{
     top:0px;
 }
 
-.center{
+/* .center{
     display:flex;
     justify-content:center;
     align-items:center;
-}
+} */
 
 .blank{
     border:0px solid black;
@@ -836,7 +836,7 @@ main{
 }
 
 
-#addInventory{
+/* #addInventory{
     background: linear-gradient(135deg, rgb(243, 231, 214) 0%, rgb(235, 229, 220) 50%, rgb(253, 249, 234) 100%);
     border:3px solid white;
     border-radius:40px;
@@ -848,7 +848,7 @@ main{
     left:50%;
     transform:translate(-50%, -50%);
     display:none;
-}
+} */
 
 #addInventoryBackground{
     width:100%;
@@ -860,7 +860,7 @@ main{
     top:0px;
     display:none;
 }
-
+/* 
 #petImages{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -1062,7 +1062,7 @@ main{
     right:-6%;
     filter:invert(1);
     cursor:pointer;
-}
+} */
 
 #mainContent{
     padding:max(5vw, 10vh);
